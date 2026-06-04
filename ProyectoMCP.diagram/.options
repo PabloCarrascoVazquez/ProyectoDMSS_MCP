@@ -1,0 +1,7 @@
+# Tracing options for the ProyectoMCP.diagram plug-in
+
+# Common issues
+ProyectoMCP.diagram/debug=false
+
+# Visual IDs
+ProyectoMCP.diagram/debug/visualID=false

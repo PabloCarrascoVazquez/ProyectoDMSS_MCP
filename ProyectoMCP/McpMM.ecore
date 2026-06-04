@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="McpMM" nsURI="https://www.example.org/McpMM" nsPrefix="McpMM">
+  <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+    <details key="operationReflection" value="true"/>
+    <details key="tableProviders" value="true"/>
+    <details key="complianceLevel" value="8.0"/>
+  </eAnnotations>
+  <eAnnotations source="http://www.eclipse.org/OCL/Import">
+    <details key="ecore" value="http://www.eclipse.org/emf/2002/Ecore"/>
+  </eAnnotations>
+  <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+    <details key="invocationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
+    <details key="settingDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
+    <details key="validationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
+  </eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="ServiceMCP">
+    <eAnnotations source="gmf.diagram"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nombreServicio" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="servermcp" upperBound="-1"
+        eType="#//ServerMCP" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="agente" upperBound="-1"
+        eType="#//Agente" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="workflow" upperBound="-1"
+        eType="#//Workflow" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ServerMCP">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="nombreServer"/>
+      <details key="figure" value="rectangle"/>
+      <details key="color" value="200,200,255"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nombreServer" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="operacionmcp" upperBound="-1"
+        eType="#//OperacionMCP" containment="true">
+      <eAnnotations source="gmf.compartment">
+        <details key="layout" value="list"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Agente">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="R05_AlMenosUnaTarea"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="R05_AlMenosUnaTarea" value="not (self.realiza->select(t | not t.oclIsTypeOf(TareaInicial) and not t.oclIsTypeOf(TareaFinal))->isEmpty())"/>
+    </eAnnotations>
+    <eAnnotations source="gmf.node">
+      <details key="label" value="nombreAgente"/>
+      <details key="figure" value="rectangle"/>
+      <details key="color" value="255,200,200"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nombreAgente" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="numTareas" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" volatile="true"
+        transient="true" derived="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+        <details key="derivation" value="realiza->size()"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="realiza" lowerBound="1"
+        upperBound="-1" eType="#//Tarea" eOpposite="#//Tarea/agenteAsignado">
+      <eAnnotations source="gmf.link">
+        <details key="target.decoration" value="arrow"/>
+        <details key="style" value="dash"/>
+        <details key="label" value="realiza"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Workflow">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="R01_UnaTareaInicio R02_AlMenosUnaTareaFin"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="R01_UnaTareaInicio" value="self.tarea->select(t | t.oclIsTypeOf(TareaInicial))->size() = 1"/>
+      <details key="R02_AlMenosUnaTareaFin" value="self.tarea->select(t | t.oclIsTypeOf(TareaFinal))->size() >= 1"/>
+    </eAnnotations>
+    <eAnnotations source="gmf.node">
+      <details key="label" value="nombreWorkflow"/>
+      <details key="figure" value="rounded"/>
+      <details key="color" value="200,255,200"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nombreWorkflow" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="contexto" upperBound="-1"
+        eType="#//Contexto" containment="true">
+      <eAnnotations source="gmf.compartment">
+        <details key="layout" value="list"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="tarea" upperBound="-1"
+        eType="#//Tarea" containment="true">
+      <eAnnotations source="gmf.compartment">
+        <details key="layout" value="free"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="empiezaCon" lowerBound="1"
+        eType="#//TareaInicial" eOpposite="#//TareaInicial/empieza">
+      <eAnnotations source="gmf.link">
+        <details key="target.decoration" value="arrow"/>
+        <details key="color" value="0,200,0"/>
+        <details key="label" value="empieza"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="finalizaCon" lowerBound="1"
+        upperBound="-1" eType="#//TareaFinal" eOpposite="#//TareaFinal/finaliza">
+      <eAnnotations source="gmf.link">
+        <details key="target.decoration" value="arrow"/>
+        <details key="color" value="200,0,0"/>
+        <details key="label" value="finaliza"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Contexto">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="nombreContexto"/>
+      <details key="figure" value="rectangle"/>
+      <details key="color" value="255,255,200"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nombreContexto" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="propiedad" upperBound="-1"
+        eType="#//Propiedad" containment="true">
+      <eAnnotations source="gmf.compartment">
+        <details key="layout" value="list"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="esApuntadoPor" upperBound="-1"
+        eType="#//Accion" eOpposite="#//Accion/apunta"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Propiedad">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="nombrePropiedad"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nombrePropiedad" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="tipoPropiedad" eType="#//TipoContexto"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="esUsada" upperBound="-1"
+        eType="#//Accion" eOpposite="#//Accion/usa"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Tarea" abstract="true">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="R06_NoBuclePropio R08_ConexionesAgentes R09_EntradaYSalida R10_NoCiclos"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="R06_NoBuclePropio" value="not (self.sigue = self) and (if self.oclIsTypeOf(TareaAnalisis) then not (self.oclAsType(TareaAnalisis).sigueElse = self) else true endif)"/>
+      <details key="R08_ConexionesAgentes" value="if not self.sigue.oclIsUndefined() then if self.oclIsTypeOf(TareaEnvioContexto) and self.sigue.oclIsTypeOf(TareaRecepcionContexto) then not (self.agenteAsignado = self.sigue.agenteAsignado) else self.agenteAsignado = self.sigue.agenteAsignado endif else true endif"/>
+      <details key="R09_EntradaYSalida" value="(if self.oclIsTypeOf(TareaInicial) then true else (not self.precede.oclIsUndefined() or not self.precedeElse.oclIsUndefined()) endif) and (if self.oclIsTypeOf(TareaFinal) then true else not self.sigue.oclIsUndefined() endif)"/>
+      <details key="R10_NoCiclos" value="let siguientes : Set(Tarea) = Set{self.sigue}->union(if self.oclIsTypeOf(TareaAnalisis) then Set{self.oclAsType(TareaAnalisis).sigueElse} else Set{} endif)->select(x | not x.oclIsUndefined()) in siguientes->forAll(s | not s->closure(t : Tarea | Set{t.sigue}->union(if t.oclIsTypeOf(TareaAnalisis) then Set{t.oclAsType(TareaAnalisis).sigueElse} else Set{} endif)->select(x | not x.oclIsUndefined()))->includes(self))"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nombreTarea" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="accion" upperBound="-1"
+        eType="#//Accion" containment="true">
+      <eAnnotations source="gmf.compartment">
+        <details key="layout" value="list"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="precede" eType="#//Tarea"
+        eOpposite="#//Tarea/sigue"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sigue" eType="#//Tarea"
+        eOpposite="#//Tarea/precede">
+      <eAnnotations source="gmf.link">
+        <details key="target.decoration" value="arrow"/>
+        <details key="color" value="0,0,0"/>
+        <details key="label" value="sigue"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="precedeElse" eType="#//TareaAnalisis"
+        eOpposite="#//TareaAnalisis/sigueElse"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="agenteAsignado" eType="#//Agente"
+        eOpposite="#//Agente/realiza"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TareaEjecutable" abstract="true" eSuperTypes="#//Tarea">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="idTarea" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="descTarea" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TareaFinal" eSuperTypes="#//Tarea">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="nombreTarea"/>
+      <details key="figure" value="ellipse"/>
+      <details key="color" value="255,0,0"/>
+      <details key="size" value="30,30"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="finaliza" lowerBound="1"
+        eType="#//Workflow" eOpposite="#//Workflow/finalizaCon"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TareaInicial" eSuperTypes="#//Tarea">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="nombreTarea"/>
+      <details key="figure" value="ellipse"/>
+      <details key="color" value="0,255,0"/>
+      <details key="size" value="30,30"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="empieza" lowerBound="1"
+        eType="#//Workflow" eOpposite="#//Workflow/empiezaCon"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Accion" abstract="true">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="R12_CoherenciaContexto"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="R12_CoherenciaContexto" value="self.usa.oclIsUndefined() or self.apunta.propiedad->includes(self.usa)"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nombreAccion" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="apunta" lowerBound="1"
+        eType="#//Contexto" eOpposite="#//Contexto/esApuntadoPor"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="usa" eType="#//Propiedad"
+        eOpposite="#//Propiedad/esUsada"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Escritura" eSuperTypes="#//Accion">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="nombreAccion"/>
+      <details key="figure" value="rectangle"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Lectura" eSuperTypes="#//Accion">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="nombreAccion"/>
+      <details key="figure" value="rectangle"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="TipoContexto">
+    <eLiterals name="ENTERO"/>
+    <eLiterals name="CADENA" value="1"/>
+    <eLiterals name="REAL" value="2"/>
+    <eLiterals name="BOOLEANO" value="3"/>
+    <eLiterals name="TEXTO_EXTENSO" value="4"/>
+    <eLiterals name="ARCHIVO" value="5"/>
+    <eLiterals name="COLECCION_ARCHIVOS" value="6"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="OperacionMCP">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="nombreOperacion"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nombreOperacion" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="descOperacion" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="esEjecutadaOperacion" eType="#//TareaServerMCP"
+        eOpposite="#//TareaServerMCP/ejecutaOperacion"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TareaTransformacionDatos" eSuperTypes="#//TareaEjecutable">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="nombreTarea"/>
+      <details key="figure" value="rectangle"/>
+      <details key="color" value="200,255,255"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="prompt" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TareaLLM" eSuperTypes="#//TareaEjecutable">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="nombreTarea"/>
+      <details key="figure" value="rectangle"/>
+      <details key="color" value="255,200,255"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="prompt" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TareaUsuario" eSuperTypes="#//TareaEjecutable">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="nombreTarea"/>
+      <details key="figure" value="rectangle"/>
+      <details key="color" value="255,255,255"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TareaAnalisis" eSuperTypes="#//TareaEjecutable">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="nombreTarea"/>
+      <details key="figure" value="rectangle"/>
+      <details key="color" value="255,255,150"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sigueElse" lowerBound="1"
+        eType="#//Tarea" eOpposite="#//Tarea/precedeElse">
+      <eAnnotations source="gmf.link">
+        <details key="target.decoration" value="arrow"/>
+        <details key="label" value="sigue Else"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="prompt" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TareaEnvioContexto" eSuperTypes="#//TareaEjecutable">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="nombreTarea"/>
+      <details key="figure" value="rectangle"/>
+      <details key="color" value="150,255,150"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="enviaA" eType="#//TareaRecepcionContexto">
+      <eAnnotations source="gmf.link">
+        <details key="target.decoration" value="arrow"/>
+        <details key="color" value="100,100,100"/>
+        <details key="label" value="envía a"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="envioAsociado" eType="#//Propiedad">
+      <eAnnotations source="gmf.link">
+        <details key="target.decoration" value="arrow"/>
+        <details key="style" value="dash"/>
+        <details key="color" value="200,100,0"/>
+        <details key="label" value="envía prop."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TareaRecepcionContexto" eSuperTypes="#//TareaEjecutable">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="R07_RecepcionPrecedidaEnvio R11_MismasPropiedadesEnvioRecepcion"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="R07_RecepcionPrecedidaEnvio" value="not self.precede.oclIsUndefined() and self.precede.oclIsTypeOf(TareaEnvioContexto)"/>
+      <details key="R11_MismasPropiedadesEnvioRecepcion" value="if not self.precede.oclIsUndefined() and self.precede.oclIsTypeOf(TareaEnvioContexto) then self.accion->collect(usa)->asSet() = self.precede.accion->collect(usa)->asSet() else true endif"/>
+    </eAnnotations>
+    <eAnnotations source="gmf.node">
+      <details key="label" value="nombreTarea"/>
+      <details key="figure" value="rectangle"/>
+      <details key="color" value="150,150,255"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="recibeDe" eType="#//TareaEnvioContexto">
+      <eAnnotations source="gmf.link">
+        <details key="target.decoration" value="arrow"/>
+        <details key="color" value="100,100,100"/>
+        <details key="label" value="recibe de"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="recepcionAsociada" eType="#//Propiedad">
+      <eAnnotations source="gmf.link">
+        <details key="target.decoration" value="arrow"/>
+        <details key="style" value="dash"/>
+        <details key="color" value="200,100,0"/>
+        <details key="label" value="recibe prop."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TareaServerMCP" eSuperTypes="#//TareaEjecutable">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="nombreTarea"/>
+      <details key="figure" value="rectangle"/>
+      <details key="color" value="200,200,200"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ejecutaOperacion" lowerBound="1"
+        eType="#//OperacionMCP" eOpposite="#//OperacionMCP/esEjecutadaOperacion">
+      <eAnnotations source="gmf.link">
+        <details key="target.decoration" value="arrow"/>
+        <details key="style" value="dash"/>
+        <details key="label" value="ejecuta oper."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="prompt" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+</ecore:EPackage>

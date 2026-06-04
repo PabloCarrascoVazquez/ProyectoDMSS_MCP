@@ -1,0 +1,199 @@
+@GenModel(operationReflection="true", tableProviders="true", complianceLevel="8.0")
+@"http://www.eclipse.org/OCL/Import"(ecore="http://www.eclipse.org/emf/2002/Ecore")
+@Ecore(invocationDelegates="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot", settingDelegates="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot", validationDelegates="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot")
+@namespace(uri="https://www.example.org/McpMM", prefix="McpMM")
+package McpMM;
+
+@gmf.diagram
+class ServiceMCP {
+	attr String nombreServicio;
+	val ServerMCP[*] servermcp;
+	val Agente[*] agente;
+	val Workflow[*] workflow;
+}
+
+@gmf.node(label="nombreServer", figure="rectangle", color="200,200,255")
+class ServerMCP {
+	attr String nombreServer;
+	
+	@gmf.compartment(layout="list")
+	val OperacionMCP[*] operacionmcp;
+}
+
+@Ecore(constraints="R05_AlMenosUnaTarea")
+@"http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"(R05_AlMenosUnaTarea="not (self.realiza->select(t | not t.oclIsTypeOf(TareaInicial) and not t.oclIsTypeOf(TareaFinal))->isEmpty())")
+@gmf.node(label="nombreAgente", figure="rectangle", color="255,200,200")
+class Agente {
+	attr String nombreAgente;
+
+	@"http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"(derivation="realiza->size()")
+	volatile transient derived attr int[1] numTareas;
+	
+	@gmf.link(target.decoration="arrow", style="dash", label="realiza")
+	ref Tarea[+]#agenteAsignado realiza;
+}
+
+@Ecore(constraints="R01_UnaTareaInicio R02_AlMenosUnaTareaFin")
+@"http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"(
+	R01_UnaTareaInicio="self.tarea->select(t | t.oclIsTypeOf(TareaInicial))->size() = 1", 
+	R02_AlMenosUnaTareaFin="self.tarea->select(t | t.oclIsTypeOf(TareaFinal))->size() >= 1"
+)
+@gmf.node(label="nombreWorkflow", figure="rounded", color="200,255,200")
+class Workflow {
+	attr String nombreWorkflow;
+	
+	@gmf.compartment(layout="list")
+	val Contexto[*] contexto;
+	
+	@gmf.compartment(layout="free")
+	val Tarea[*] tarea;
+	
+	@gmf.link(target.decoration="arrow", color="0,200,0", label="empieza")
+	ref TareaInicial[1]#empieza empiezaCon;
+	
+	@gmf.link(target.decoration="arrow", color="200,0,0", label="finaliza")
+	ref TareaFinal[+]#finaliza finalizaCon;
+}
+
+@gmf.node(label="nombreContexto", figure="rectangle", color="255,255,200")
+class Contexto {
+	attr String nombreContexto;
+	
+	@gmf.compartment(layout="list")
+	val Propiedad[*] propiedad;
+	
+	ref Accion[*]#apunta esApuntadoPor;
+}
+
+@gmf.node(label="nombrePropiedad")
+class Propiedad {
+	attr String nombrePropiedad;
+	attr TipoContexto tipoPropiedad;
+	ref Accion[*]#usa esUsada;
+}
+
+@Ecore(constraints="R06_NoBuclePropio R08_ConexionesAgentes R09_EntradaYSalida R10_NoCiclos")
+@"http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"(
+	R06_NoBuclePropio="not (self.sigue = self) and (if self.oclIsTypeOf(TareaAnalisis) then not (self.oclAsType(TareaAnalisis).sigueElse = self) else true endif)", 
+	
+	R08_ConexionesAgentes="if not self.sigue.oclIsUndefined() then if self.oclIsTypeOf(TareaEnvioContexto) and self.sigue.oclIsTypeOf(TareaRecepcionContexto) then not (self.agenteAsignado = self.sigue.agenteAsignado) else self.agenteAsignado = self.sigue.agenteAsignado endif else true endif", 
+	
+	R09_EntradaYSalida="(if self.oclIsTypeOf(TareaInicial) then true else (not self.precede.oclIsUndefined() or not self.precedeElse.oclIsUndefined()) endif) and (if self.oclIsTypeOf(TareaFinal) then true else not self.sigue.oclIsUndefined() endif)", 
+	
+	R10_NoCiclos="let siguientes : Set(Tarea) = Set{self.sigue}->union(if self.oclIsTypeOf(TareaAnalisis) then Set{self.oclAsType(TareaAnalisis).sigueElse} else Set{} endif)->select(x | not x.oclIsUndefined()) in siguientes->forAll(s | not s->closure(t : Tarea | Set{t.sigue}->union(if t.oclIsTypeOf(TareaAnalisis) then Set{t.oclAsType(TareaAnalisis).sigueElse} else Set{} endif)->select(x | not x.oclIsUndefined()))->includes(self))"
+)
+abstract class Tarea {
+	attr String nombreTarea;
+	
+	@gmf.compartment(layout="list")
+	val Accion[*] accion;
+	
+	ref Tarea#sigue precede;
+	
+	@gmf.link(target.decoration="arrow", color="0,0,0", label="sigue")
+	ref Tarea#precede sigue;
+	
+	ref TareaAnalisis#sigueElse precedeElse;
+	ref Agente#realiza agenteAsignado;
+}
+
+abstract class TareaEjecutable extends Tarea {
+	attr int[1] idTarea;
+	attr String descTarea;
+}
+
+@gmf.node(label="nombreTarea", figure="ellipse", color="255,0,0", size="30,30")
+class TareaFinal extends Tarea {
+	ref Workflow[1]#finalizaCon finaliza;
+}
+
+@gmf.node(label="nombreTarea", figure="ellipse", color="0,255,0", size="30,30")
+class TareaInicial extends Tarea {
+	ref Workflow[1]#empiezaCon empieza;
+}
+
+@Ecore(constraints="R12_CoherenciaContexto")
+@"http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"(R12_CoherenciaContexto="self.usa.oclIsUndefined() or self.apunta.propiedad->includes(self.usa)")
+abstract class Accion {
+	attr String nombreAccion;
+	
+	ref Contexto[1]#esApuntadoPor apunta;
+	
+	ref Propiedad#esUsada usa;
+}
+
+@gmf.node(label="nombreAccion", figure="rectangle")
+class Escritura extends Accion {
+}
+
+@gmf.node(label="nombreAccion", figure="rectangle")
+class Lectura extends Accion {
+}
+
+enum TipoContexto {
+	ENTERO = 0;
+	CADENA = 1;
+	REAL = 2;
+	BOOLEANO = 3;
+	TEXTO_EXTENSO = 4;
+	ARCHIVO = 5;
+	COLECCION_ARCHIVOS = 6;
+}
+
+@gmf.node(label="nombreOperacion")
+class OperacionMCP {
+	attr String nombreOperacion;
+	attr String descOperacion;
+	ref TareaServerMCP#ejecutaOperacion esEjecutadaOperacion;
+}
+
+@gmf.node(label="nombreTarea", figure="rectangle", color="200,255,255")
+class TareaTransformacionDatos extends TareaEjecutable {
+	attr String prompt;
+}
+
+@gmf.node(label="nombreTarea", figure="rectangle", color="255,200,255")
+class TareaLLM extends TareaEjecutable {
+	attr String prompt;
+}
+
+@gmf.node(label="nombreTarea", figure="rectangle", color="255,255,255")
+class TareaUsuario extends TareaEjecutable {
+}
+
+@gmf.node(label="nombreTarea", figure="rectangle", color="255,255,150")
+class TareaAnalisis extends TareaEjecutable {
+	@gmf.link(target.decoration="arrow", label="sigue Else")
+	ref Tarea[1]#precedeElse sigueElse;
+	attr String prompt;
+}
+
+@gmf.node(label="nombreTarea", figure="rectangle", color="150,255,150")
+class TareaEnvioContexto extends TareaEjecutable {
+	@gmf.link(target.decoration="arrow", color="100,100,100", label="envía a")
+	ref TareaRecepcionContexto enviaA;
+	
+	@gmf.link(target.decoration="arrow", style="dash", color="200,100,0", label="envía prop.")
+	ref Propiedad envioAsociado;
+}
+
+@Ecore(constraints="R07_RecepcionPrecedidaEnvio R11_MismasPropiedadesEnvioRecepcion")
+@"http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"(
+	R07_RecepcionPrecedidaEnvio="not self.precede.oclIsUndefined() and self.precede.oclIsTypeOf(TareaEnvioContexto)", 
+	R11_MismasPropiedadesEnvioRecepcion="if not self.precede.oclIsUndefined() and self.precede.oclIsTypeOf(TareaEnvioContexto) then self.accion->collect(usa)->asSet() = self.precede.accion->collect(usa)->asSet() else true endif"
+)
+@gmf.node(label="nombreTarea", figure="rectangle", color="150,150,255")
+class TareaRecepcionContexto extends TareaEjecutable {
+	@gmf.link(target.decoration="arrow", color="100,100,100", label="recibe de")
+	ref TareaEnvioContexto recibeDe;
+	
+	@gmf.link(target.decoration="arrow", style="dash", color="200,100,0", label="recibe prop.")
+	ref Propiedad recepcionAsociada;
+}
+
+@gmf.node(label="nombreTarea", figure="rectangle", color="200,200,200")
+class TareaServerMCP extends TareaEjecutable {
+	@gmf.link(target.decoration="arrow", style="dash", label="ejecuta oper.")
+	ref OperacionMCP[1]#esEjecutadaOperacion ejecutaOperacion;
+	attr String prompt;
+}
