@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="" modelDirectory="/ProyectoMCP/src" modelPluginID="ProyectoMCP"
-    modelName="McpMM" importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0"
-    copyrightFields="false">
+    modelName="McpMM" importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0"
+    copyrightFields="false" tableProviders="true" operationReflection="true">
   <foreignModel>McpMM.emf</foreignModel>
   <genPackages prefix="McpMM" disposableProviderFactory="true" ecorePackage="McpMM.ecore#/">
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="McpMM.ecore#//TipoContexto">

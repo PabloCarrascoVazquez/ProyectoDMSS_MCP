@@ -14,6 +14,10 @@
     <details key="settingDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
     <details key="validationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
   </eAnnotations>
+  <eAnnotations source="DSLDoc">
+    <details key="author" value="Javier Montero Pajuelo y Pablo Carrasco Vazquez"/>
+    <details key="last updated" value="08-06-2026"/>
+  </eAnnotations>
   <eClassifiers xsi:type="ecore:EClass" name="ServiceMCP">
     <eAnnotations source="gmf.diagram"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="nombreServicio" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
