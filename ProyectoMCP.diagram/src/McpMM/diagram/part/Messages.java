@@ -446,82 +446,42 @@ public class Messages extends NLS {
 	/**
 	* @generated
 	*/
-	public static String EnviaA3CreationTool_title;
+	public static String FinalizaCon3CreationTool_title;
 
 	/**
 	* @generated
 	*/
-	public static String EnviaA3CreationTool_desc;
+	public static String FinalizaCon3CreationTool_desc;
 
 	/**
 	* @generated
 	*/
-	public static String EnvioAsociado4CreationTool_title;
+	public static String Realiza4CreationTool_title;
 
 	/**
 	* @generated
 	*/
-	public static String EnvioAsociado4CreationTool_desc;
+	public static String Realiza4CreationTool_desc;
 
 	/**
 	* @generated
 	*/
-	public static String FinalizaCon5CreationTool_title;
+	public static String Sigue5CreationTool_title;
 
 	/**
 	* @generated
 	*/
-	public static String FinalizaCon5CreationTool_desc;
+	public static String Sigue5CreationTool_desc;
 
 	/**
 	* @generated
 	*/
-	public static String Realiza6CreationTool_title;
+	public static String SigueElse6CreationTool_title;
 
 	/**
 	* @generated
 	*/
-	public static String Realiza6CreationTool_desc;
-
-	/**
-	* @generated
-	*/
-	public static String RecepcionAsociada7CreationTool_title;
-
-	/**
-	* @generated
-	*/
-	public static String RecepcionAsociada7CreationTool_desc;
-
-	/**
-	* @generated
-	*/
-	public static String RecibeDe8CreationTool_title;
-
-	/**
-	* @generated
-	*/
-	public static String RecibeDe8CreationTool_desc;
-
-	/**
-	* @generated
-	*/
-	public static String Sigue9CreationTool_title;
-
-	/**
-	* @generated
-	*/
-	public static String Sigue9CreationTool_desc;
-
-	/**
-	* @generated
-	*/
-	public static String SigueElse10CreationTool_title;
-
-	/**
-	* @generated
-	*/
-	public static String SigueElse10CreationTool_desc;
+	public static String SigueElse6CreationTool_desc;
 
 	/**
 	* @generated
@@ -706,11 +666,6 @@ public class Messages extends NLS {
 	/**
 	* @generated
 	*/
-	public static String NavigatorGroupName_Propiedad_3014_incominglinks;
-
-	/**
-	* @generated
-	*/
 	public static String NavigatorGroupName_AgenteRealiza_4001_target;
 
 	/**
@@ -767,46 +722,6 @@ public class Messages extends NLS {
 	* @generated
 	*/
 	public static String NavigatorGroupName_TareaServerMCPEjecutaOperacion_4008_source;
-
-	/**
-	* @generated
-	*/
-	public static String NavigatorGroupName_TareaEnvioContextoEnviaA_4009_target;
-
-	/**
-	* @generated
-	*/
-	public static String NavigatorGroupName_TareaEnvioContextoEnviaA_4009_source;
-
-	/**
-	* @generated
-	*/
-	public static String NavigatorGroupName_TareaEnvioContextoEnvioAsociado_4010_target;
-
-	/**
-	* @generated
-	*/
-	public static String NavigatorGroupName_TareaEnvioContextoEnvioAsociado_4010_source;
-
-	/**
-	* @generated
-	*/
-	public static String NavigatorGroupName_TareaRecepcionContextoRecibeDe_4011_target;
-
-	/**
-	* @generated
-	*/
-	public static String NavigatorGroupName_TareaRecepcionContextoRecibeDe_4011_source;
-
-	/**
-	* @generated
-	*/
-	public static String NavigatorGroupName_TareaRecepcionContextoRecepcionAsociada_4012_target;
-
-	/**
-	* @generated
-	*/
-	public static String NavigatorGroupName_TareaRecepcionContextoRecepcionAsociada_4012_source;
 
 	/**
 	* @generated

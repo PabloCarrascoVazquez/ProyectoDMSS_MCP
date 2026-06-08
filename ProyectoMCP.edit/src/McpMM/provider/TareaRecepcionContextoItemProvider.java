@@ -43,54 +43,8 @@ public class TareaRecepcionContextoItemProvider extends TareaEjecutableItemProvi
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addRecibeDePropertyDescriptor(object);
-			addRecepcionAsociadaPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Recibe De feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addRecibeDePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_TareaRecepcionContexto_recibeDe_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_TareaRecepcionContexto_recibeDe_feature", "_UI_TareaRecepcionContexto_type"),
-				 McpMMPackage.Literals.TAREA_RECEPCION_CONTEXTO__RECIBE_DE,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Recepcion Asociada feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addRecepcionAsociadaPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_TareaRecepcionContexto_recepcionAsociada_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_TareaRecepcionContexto_recepcionAsociada_feature", "_UI_TareaRecepcionContexto_type"),
-				 McpMMPackage.Literals.TAREA_RECEPCION_CONTEXTO__RECEPCION_ASOCIADA,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
 	}
 
 	/**

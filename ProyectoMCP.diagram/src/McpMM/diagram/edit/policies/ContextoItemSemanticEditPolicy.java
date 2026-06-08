@@ -11,10 +11,7 @@ import org.eclipse.gmf.runtime.common.core.command.ICompositeCommand;
 import org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand;
 import org.eclipse.gmf.runtime.emf.commands.core.command.CompositeTransactionalCommand;
 import org.eclipse.gmf.runtime.emf.type.core.commands.DestroyElementCommand;
-import org.eclipse.gmf.runtime.emf.type.core.commands.DestroyReferenceCommand;
 import org.eclipse.gmf.runtime.emf.type.core.requests.DestroyElementRequest;
-import org.eclipse.gmf.runtime.emf.type.core.requests.DestroyReferenceRequest;
-import org.eclipse.gmf.runtime.notation.Edge;
 import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 
@@ -63,27 +60,6 @@ public class ContextoItemSemanticEditPolicy extends McpMM.diagram.edit.policies.
 					Node cnode = (Node) cit.next();
 					switch (McpMM.diagram.part.McpMMVisualIDRegistry.getVisualID(cnode)) {
 					case McpMM.diagram.edit.parts.PropiedadEditPart.VISUAL_ID:
-						for (Iterator<?> it = cnode.getTargetEdges().iterator(); it.hasNext();) {
-							Edge incomingLink = (Edge) it.next();
-							if (McpMM.diagram.part.McpMMVisualIDRegistry.getVisualID(
-									incomingLink) == McpMM.diagram.edit.parts.TareaEnvioContextoEnvioAsociadoEditPart.VISUAL_ID) {
-								DestroyReferenceRequest r = new DestroyReferenceRequest(
-										incomingLink.getSource().getElement(), null,
-										incomingLink.getTarget().getElement(), false);
-								cmd.add(new DestroyReferenceCommand(r));
-								cmd.add(new DeleteCommand(getEditingDomain(), incomingLink));
-								continue;
-							}
-							if (McpMM.diagram.part.McpMMVisualIDRegistry.getVisualID(
-									incomingLink) == McpMM.diagram.edit.parts.TareaRecepcionContextoRecepcionAsociadaEditPart.VISUAL_ID) {
-								DestroyReferenceRequest r = new DestroyReferenceRequest(
-										incomingLink.getSource().getElement(), null,
-										incomingLink.getTarget().getElement(), false);
-								cmd.add(new DestroyReferenceCommand(r));
-								cmd.add(new DeleteCommand(getEditingDomain(), incomingLink));
-								continue;
-							}
-						}
 						cmd.add(new DestroyElementCommand(
 								new DestroyElementRequest(getEditingDomain(), cnode.getElement(), false))); // directlyOwned: true
 						// don't need explicit deletion of cnode as parent's view deletion would clean child views as well 

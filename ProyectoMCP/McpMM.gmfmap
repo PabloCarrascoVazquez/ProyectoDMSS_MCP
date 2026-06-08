@@ -542,7 +542,7 @@
     </labelMappings>
     <tool
         xsi:type="gmftool:CreationTool"
-        href="McpMM.gmftool#//@palette/@tools.1/@tools.5"/>
+        href="McpMM.gmftool#//@palette/@tools.1/@tools.3"/>
     <diagramLink
         href="McpMM.gmfgraph#AgenteRealiza"/>
     <linkMetaFeature
@@ -574,7 +574,7 @@
     </labelMappings>
     <tool
         xsi:type="gmftool:CreationTool"
-        href="McpMM.gmftool#//@palette/@tools.1/@tools.4"/>
+        href="McpMM.gmftool#//@palette/@tools.1/@tools.2"/>
     <diagramLink
         href="McpMM.gmfgraph#WorkflowFinalizaCon"/>
     <linkMetaFeature
@@ -590,7 +590,7 @@
     </labelMappings>
     <tool
         xsi:type="gmftool:CreationTool"
-        href="McpMM.gmftool#//@palette/@tools.1/@tools.8"/>
+        href="McpMM.gmftool#//@palette/@tools.1/@tools.4"/>
     <diagramLink
         href="McpMM.gmfgraph#TareaSigue"/>
     <linkMetaFeature
@@ -606,76 +606,12 @@
     </labelMappings>
     <tool
         xsi:type="gmftool:CreationTool"
-        href="McpMM.gmftool#//@palette/@tools.1/@tools.9"/>
+        href="McpMM.gmftool#//@palette/@tools.1/@tools.5"/>
     <diagramLink
         href="McpMM.gmfgraph#TareaAnalisisSigueElse"/>
     <linkMetaFeature
         xsi:type="ecore:EReference"
         href="McpMM.ecore#//TareaAnalisis/sigueElse"/>
-  </links>
-  <links>
-    <labelMappings
-        xsi:type="gmfmap:DesignLabelMapping"
-        readOnly="true">
-      <diagramLabel
-          href="McpMM.gmfgraph#TareaEnvioContextoEnviaAExternalLabel"/>
-    </labelMappings>
-    <tool
-        xsi:type="gmftool:CreationTool"
-        href="McpMM.gmftool#//@palette/@tools.1/@tools.2"/>
-    <diagramLink
-        href="McpMM.gmfgraph#TareaEnvioContextoEnviaA"/>
-    <linkMetaFeature
-        xsi:type="ecore:EReference"
-        href="McpMM.ecore#//TareaEnvioContexto/enviaA"/>
-  </links>
-  <links>
-    <labelMappings
-        xsi:type="gmfmap:DesignLabelMapping"
-        readOnly="true">
-      <diagramLabel
-          href="McpMM.gmfgraph#TareaEnvioContextoEnvioAsociadoExternalLabel"/>
-    </labelMappings>
-    <tool
-        xsi:type="gmftool:CreationTool"
-        href="McpMM.gmftool#//@palette/@tools.1/@tools.3"/>
-    <diagramLink
-        href="McpMM.gmfgraph#TareaEnvioContextoEnvioAsociado"/>
-    <linkMetaFeature
-        xsi:type="ecore:EReference"
-        href="McpMM.ecore#//TareaEnvioContexto/envioAsociado"/>
-  </links>
-  <links>
-    <labelMappings
-        xsi:type="gmfmap:DesignLabelMapping"
-        readOnly="true">
-      <diagramLabel
-          href="McpMM.gmfgraph#TareaRecepcionContextoRecibeDeExternalLabel"/>
-    </labelMappings>
-    <tool
-        xsi:type="gmftool:CreationTool"
-        href="McpMM.gmftool#//@palette/@tools.1/@tools.7"/>
-    <diagramLink
-        href="McpMM.gmfgraph#TareaRecepcionContextoRecibeDe"/>
-    <linkMetaFeature
-        xsi:type="ecore:EReference"
-        href="McpMM.ecore#//TareaRecepcionContexto/recibeDe"/>
-  </links>
-  <links>
-    <labelMappings
-        xsi:type="gmfmap:DesignLabelMapping"
-        readOnly="true">
-      <diagramLabel
-          href="McpMM.gmfgraph#TareaRecepcionContextoRecepcionAsociadaExternalLabel"/>
-    </labelMappings>
-    <tool
-        xsi:type="gmftool:CreationTool"
-        href="McpMM.gmftool#//@palette/@tools.1/@tools.6"/>
-    <diagramLink
-        href="McpMM.gmfgraph#TareaRecepcionContextoRecepcionAsociada"/>
-    <linkMetaFeature
-        xsi:type="ecore:EReference"
-        href="McpMM.ecore#//TareaRecepcionContexto/recepcionAsociada"/>
   </links>
   <links>
     <labelMappings

@@ -43,10 +43,8 @@ public class McpMMModelingAssistantProviderOfTareaRecepcionContextoEditPart
 	* @generated
 	*/
 	public List<IElementType> doGetRelTypesOnSource(McpMM.diagram.edit.parts.TareaRecepcionContextoEditPart source) {
-		List<IElementType> types = new ArrayList<IElementType>(3);
+		List<IElementType> types = new ArrayList<IElementType>(1);
 		types.add(McpMM.diagram.providers.McpMMElementTypes.TareaSigue_4004);
-		types.add(McpMM.diagram.providers.McpMMElementTypes.TareaRecepcionContextoRecibeDe_4011);
-		types.add(McpMM.diagram.providers.McpMMElementTypes.TareaRecepcionContextoRecepcionAsociada_4012);
 		return types;
 	}
 
@@ -95,12 +93,6 @@ public class McpMMModelingAssistantProviderOfTareaRecepcionContextoEditPart
 		if (targetEditPart instanceof McpMM.diagram.edit.parts.TareaInicialEditPart) {
 			types.add(McpMM.diagram.providers.McpMMElementTypes.TareaSigue_4004);
 		}
-		if (targetEditPart instanceof McpMM.diagram.edit.parts.TareaEnvioContextoEditPart) {
-			types.add(McpMM.diagram.providers.McpMMElementTypes.TareaRecepcionContextoRecibeDe_4011);
-		}
-		if (targetEditPart instanceof McpMM.diagram.edit.parts.PropiedadEditPart) {
-			types.add(McpMM.diagram.providers.McpMMElementTypes.TareaRecepcionContextoRecepcionAsociada_4012);
-		}
 		return types;
 	}
 
@@ -131,10 +123,6 @@ public class McpMMModelingAssistantProviderOfTareaRecepcionContextoEditPart
 			types.add(McpMM.diagram.providers.McpMMElementTypes.TareaServerMCP_3010);
 			types.add(McpMM.diagram.providers.McpMMElementTypes.TareaFinal_3011);
 			types.add(McpMM.diagram.providers.McpMMElementTypes.TareaInicial_3012);
-		} else if (relationshipType == McpMM.diagram.providers.McpMMElementTypes.TareaRecepcionContextoRecibeDe_4011) {
-			types.add(McpMM.diagram.providers.McpMMElementTypes.TareaEnvioContexto_3008);
-		} else if (relationshipType == McpMM.diagram.providers.McpMMElementTypes.TareaRecepcionContextoRecepcionAsociada_4012) {
-			types.add(McpMM.diagram.providers.McpMMElementTypes.Propiedad_3014);
 		}
 		return types;
 	}
@@ -153,11 +141,10 @@ public class McpMMModelingAssistantProviderOfTareaRecepcionContextoEditPart
 	* @generated
 	*/
 	public List<IElementType> doGetRelTypesOnTarget(McpMM.diagram.edit.parts.TareaRecepcionContextoEditPart target) {
-		List<IElementType> types = new ArrayList<IElementType>(4);
+		List<IElementType> types = new ArrayList<IElementType>(3);
 		types.add(McpMM.diagram.providers.McpMMElementTypes.AgenteRealiza_4001);
 		types.add(McpMM.diagram.providers.McpMMElementTypes.TareaSigue_4004);
 		types.add(McpMM.diagram.providers.McpMMElementTypes.TareaAnalisisSigueElse_4007);
-		types.add(McpMM.diagram.providers.McpMMElementTypes.TareaEnvioContextoEnviaA_4009);
 		return types;
 	}
 
@@ -192,8 +179,6 @@ public class McpMMModelingAssistantProviderOfTareaRecepcionContextoEditPart
 			types.add(McpMM.diagram.providers.McpMMElementTypes.TareaInicial_3012);
 		} else if (relationshipType == McpMM.diagram.providers.McpMMElementTypes.TareaAnalisisSigueElse_4007) {
 			types.add(McpMM.diagram.providers.McpMMElementTypes.TareaAnalisis_3007);
-		} else if (relationshipType == McpMM.diagram.providers.McpMMElementTypes.TareaEnvioContextoEnviaA_4009) {
-			types.add(McpMM.diagram.providers.McpMMElementTypes.TareaEnvioContexto_3008);
 		}
 		return types;
 	}

@@ -188,24 +188,6 @@
       </tools>
       <tools
           xsi:type="gmftool:CreationTool"
-          title="EnviaA"
-          description="Create new EnviaA">
-        <smallIcon
-            xsi:type="gmftool:DefaultImage"/>
-        <largeIcon
-            xsi:type="gmftool:DefaultImage"/>
-      </tools>
-      <tools
-          xsi:type="gmftool:CreationTool"
-          title="EnvioAsociado"
-          description="Create new EnvioAsociado">
-        <smallIcon
-            xsi:type="gmftool:DefaultImage"/>
-        <largeIcon
-            xsi:type="gmftool:DefaultImage"/>
-      </tools>
-      <tools
-          xsi:type="gmftool:CreationTool"
           title="FinalizaCon"
           description="Create new FinalizaCon">
         <smallIcon
@@ -217,24 +199,6 @@
           xsi:type="gmftool:CreationTool"
           title="Realiza"
           description="Create new Realiza">
-        <smallIcon
-            xsi:type="gmftool:DefaultImage"/>
-        <largeIcon
-            xsi:type="gmftool:DefaultImage"/>
-      </tools>
-      <tools
-          xsi:type="gmftool:CreationTool"
-          title="RecepcionAsociada"
-          description="Create new RecepcionAsociada">
-        <smallIcon
-            xsi:type="gmftool:DefaultImage"/>
-        <largeIcon
-            xsi:type="gmftool:DefaultImage"/>
-      </tools>
-      <tools
-          xsi:type="gmftool:CreationTool"
-          title="RecibeDe"
-          description="Create new RecibeDe">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon

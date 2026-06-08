@@ -66,35 +66,11 @@ public class TareaRecepcionContextoItemSemanticEditPolicy
 				cmd.add(new DeleteCommand(getEditingDomain(), incomingLink));
 				continue;
 			}
-			if (McpMM.diagram.part.McpMMVisualIDRegistry
-					.getVisualID(incomingLink) == McpMM.diagram.edit.parts.TareaEnvioContextoEnviaAEditPart.VISUAL_ID) {
-				DestroyReferenceRequest r = new DestroyReferenceRequest(incomingLink.getSource().getElement(), null,
-						incomingLink.getTarget().getElement(), false);
-				cmd.add(new DestroyReferenceCommand(r));
-				cmd.add(new DeleteCommand(getEditingDomain(), incomingLink));
-				continue;
-			}
 		}
 		for (Iterator<?> it = view.getSourceEdges().iterator(); it.hasNext();) {
 			Edge outgoingLink = (Edge) it.next();
 			if (McpMM.diagram.part.McpMMVisualIDRegistry
 					.getVisualID(outgoingLink) == McpMM.diagram.edit.parts.TareaSigueEditPart.VISUAL_ID) {
-				DestroyReferenceRequest r = new DestroyReferenceRequest(outgoingLink.getSource().getElement(), null,
-						outgoingLink.getTarget().getElement(), false);
-				cmd.add(new DestroyReferenceCommand(r));
-				cmd.add(new DeleteCommand(getEditingDomain(), outgoingLink));
-				continue;
-			}
-			if (McpMM.diagram.part.McpMMVisualIDRegistry.getVisualID(
-					outgoingLink) == McpMM.diagram.edit.parts.TareaRecepcionContextoRecibeDeEditPart.VISUAL_ID) {
-				DestroyReferenceRequest r = new DestroyReferenceRequest(outgoingLink.getSource().getElement(), null,
-						outgoingLink.getTarget().getElement(), false);
-				cmd.add(new DestroyReferenceCommand(r));
-				cmd.add(new DeleteCommand(getEditingDomain(), outgoingLink));
-				continue;
-			}
-			if (McpMM.diagram.part.McpMMVisualIDRegistry.getVisualID(
-					outgoingLink) == McpMM.diagram.edit.parts.TareaRecepcionContextoRecepcionAsociadaEditPart.VISUAL_ID) {
 				DestroyReferenceRequest r = new DestroyReferenceRequest(outgoingLink.getSource().getElement(), null,
 						outgoingLink.getTarget().getElement(), false);
 				cmd.add(new DestroyReferenceCommand(r));
@@ -169,18 +145,6 @@ public class TareaRecepcionContextoItemSemanticEditPolicy
 		if (McpMM.diagram.providers.McpMMElementTypes.TareaAnalisisSigueElse_4007 == req.getElementType()) {
 			return null;
 		}
-		if (McpMM.diagram.providers.McpMMElementTypes.TareaEnvioContextoEnviaA_4009 == req.getElementType()) {
-			return null;
-		}
-		if (McpMM.diagram.providers.McpMMElementTypes.TareaRecepcionContextoRecibeDe_4011 == req.getElementType()) {
-			return getGEFWrapper(new McpMM.diagram.edit.commands.TareaRecepcionContextoRecibeDeCreateCommand(req,
-					req.getSource(), req.getTarget()));
-		}
-		if (McpMM.diagram.providers.McpMMElementTypes.TareaRecepcionContextoRecepcionAsociada_4012 == req
-				.getElementType()) {
-			return getGEFWrapper(new McpMM.diagram.edit.commands.TareaRecepcionContextoRecepcionAsociadaCreateCommand(
-					req, req.getSource(), req.getTarget()));
-		}
 		return null;
 	}
 
@@ -200,17 +164,6 @@ public class TareaRecepcionContextoItemSemanticEditPolicy
 			return getGEFWrapper(new McpMM.diagram.edit.commands.TareaAnalisisSigueElseCreateCommand(req,
 					req.getSource(), req.getTarget()));
 		}
-		if (McpMM.diagram.providers.McpMMElementTypes.TareaEnvioContextoEnviaA_4009 == req.getElementType()) {
-			return getGEFWrapper(new McpMM.diagram.edit.commands.TareaEnvioContextoEnviaACreateCommand(req,
-					req.getSource(), req.getTarget()));
-		}
-		if (McpMM.diagram.providers.McpMMElementTypes.TareaRecepcionContextoRecibeDe_4011 == req.getElementType()) {
-			return null;
-		}
-		if (McpMM.diagram.providers.McpMMElementTypes.TareaRecepcionContextoRecepcionAsociada_4012 == req
-				.getElementType()) {
-			return null;
-		}
 		return null;
 	}
 
@@ -228,13 +181,6 @@ public class TareaRecepcionContextoItemSemanticEditPolicy
 			return getGEFWrapper(new McpMM.diagram.edit.commands.TareaSigueReorientCommand(req));
 		case McpMM.diagram.edit.parts.TareaAnalisisSigueElseEditPart.VISUAL_ID:
 			return getGEFWrapper(new McpMM.diagram.edit.commands.TareaAnalisisSigueElseReorientCommand(req));
-		case McpMM.diagram.edit.parts.TareaEnvioContextoEnviaAEditPart.VISUAL_ID:
-			return getGEFWrapper(new McpMM.diagram.edit.commands.TareaEnvioContextoEnviaAReorientCommand(req));
-		case McpMM.diagram.edit.parts.TareaRecepcionContextoRecibeDeEditPart.VISUAL_ID:
-			return getGEFWrapper(new McpMM.diagram.edit.commands.TareaRecepcionContextoRecibeDeReorientCommand(req));
-		case McpMM.diagram.edit.parts.TareaRecepcionContextoRecepcionAsociadaEditPart.VISUAL_ID:
-			return getGEFWrapper(
-					new McpMM.diagram.edit.commands.TareaRecepcionContextoRecepcionAsociadaReorientCommand(req));
 		}
 		return super.getReorientReferenceRelationshipCommand(req);
 	}

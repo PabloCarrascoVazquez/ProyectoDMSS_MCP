@@ -327,38 +327,11 @@ public class WorkflowItemSemanticEditPolicy extends McpMM.diagram.edit.policies.
 								cmd.add(new DeleteCommand(getEditingDomain(), incomingLink));
 								continue;
 							}
-							if (McpMM.diagram.part.McpMMVisualIDRegistry.getVisualID(
-									incomingLink) == McpMM.diagram.edit.parts.TareaRecepcionContextoRecibeDeEditPart.VISUAL_ID) {
-								DestroyReferenceRequest r = new DestroyReferenceRequest(
-										incomingLink.getSource().getElement(), null,
-										incomingLink.getTarget().getElement(), false);
-								cmd.add(new DestroyReferenceCommand(r));
-								cmd.add(new DeleteCommand(getEditingDomain(), incomingLink));
-								continue;
-							}
 						}
 						for (Iterator<?> it = cnode.getSourceEdges().iterator(); it.hasNext();) {
 							Edge outgoingLink = (Edge) it.next();
 							if (McpMM.diagram.part.McpMMVisualIDRegistry.getVisualID(
 									outgoingLink) == McpMM.diagram.edit.parts.TareaSigueEditPart.VISUAL_ID) {
-								DestroyReferenceRequest r = new DestroyReferenceRequest(
-										outgoingLink.getSource().getElement(), null,
-										outgoingLink.getTarget().getElement(), false);
-								cmd.add(new DestroyReferenceCommand(r));
-								cmd.add(new DeleteCommand(getEditingDomain(), outgoingLink));
-								continue;
-							}
-							if (McpMM.diagram.part.McpMMVisualIDRegistry.getVisualID(
-									outgoingLink) == McpMM.diagram.edit.parts.TareaEnvioContextoEnviaAEditPart.VISUAL_ID) {
-								DestroyReferenceRequest r = new DestroyReferenceRequest(
-										outgoingLink.getSource().getElement(), null,
-										outgoingLink.getTarget().getElement(), false);
-								cmd.add(new DestroyReferenceCommand(r));
-								cmd.add(new DeleteCommand(getEditingDomain(), outgoingLink));
-								continue;
-							}
-							if (McpMM.diagram.part.McpMMVisualIDRegistry.getVisualID(
-									outgoingLink) == McpMM.diagram.edit.parts.TareaEnvioContextoEnvioAsociadoEditPart.VISUAL_ID) {
 								DestroyReferenceRequest r = new DestroyReferenceRequest(
 										outgoingLink.getSource().getElement(), null,
 										outgoingLink.getTarget().getElement(), false);
@@ -402,38 +375,11 @@ public class WorkflowItemSemanticEditPolicy extends McpMM.diagram.edit.policies.
 								cmd.add(new DeleteCommand(getEditingDomain(), incomingLink));
 								continue;
 							}
-							if (McpMM.diagram.part.McpMMVisualIDRegistry.getVisualID(
-									incomingLink) == McpMM.diagram.edit.parts.TareaEnvioContextoEnviaAEditPart.VISUAL_ID) {
-								DestroyReferenceRequest r = new DestroyReferenceRequest(
-										incomingLink.getSource().getElement(), null,
-										incomingLink.getTarget().getElement(), false);
-								cmd.add(new DestroyReferenceCommand(r));
-								cmd.add(new DeleteCommand(getEditingDomain(), incomingLink));
-								continue;
-							}
 						}
 						for (Iterator<?> it = cnode.getSourceEdges().iterator(); it.hasNext();) {
 							Edge outgoingLink = (Edge) it.next();
 							if (McpMM.diagram.part.McpMMVisualIDRegistry.getVisualID(
 									outgoingLink) == McpMM.diagram.edit.parts.TareaSigueEditPart.VISUAL_ID) {
-								DestroyReferenceRequest r = new DestroyReferenceRequest(
-										outgoingLink.getSource().getElement(), null,
-										outgoingLink.getTarget().getElement(), false);
-								cmd.add(new DestroyReferenceCommand(r));
-								cmd.add(new DeleteCommand(getEditingDomain(), outgoingLink));
-								continue;
-							}
-							if (McpMM.diagram.part.McpMMVisualIDRegistry.getVisualID(
-									outgoingLink) == McpMM.diagram.edit.parts.TareaRecepcionContextoRecibeDeEditPart.VISUAL_ID) {
-								DestroyReferenceRequest r = new DestroyReferenceRequest(
-										outgoingLink.getSource().getElement(), null,
-										outgoingLink.getTarget().getElement(), false);
-								cmd.add(new DestroyReferenceCommand(r));
-								cmd.add(new DeleteCommand(getEditingDomain(), outgoingLink));
-								continue;
-							}
-							if (McpMM.diagram.part.McpMMVisualIDRegistry.getVisualID(
-									outgoingLink) == McpMM.diagram.edit.parts.TareaRecepcionContextoRecepcionAsociadaEditPart.VISUAL_ID) {
 								DestroyReferenceRequest r = new DestroyReferenceRequest(
 										outgoingLink.getSource().getElement(), null,
 										outgoingLink.getTarget().getElement(), false);

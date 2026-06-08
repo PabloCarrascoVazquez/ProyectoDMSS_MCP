@@ -386,62 +386,6 @@ public class McpMMBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 		/**
 		 * @generated
 		 */
-		public boolean canCreateTareaEnvioContextoEnviaA_4009(McpMM.TareaEnvioContexto source,
-				McpMM.TareaRecepcionContexto target) {
-			if (source != null) {
-				if (source.getEnviaA() != null) {
-					return false;
-				}
-			}
-
-			return canExistTareaEnvioContextoEnviaA_4009(source, target);
-		}
-
-		/**
-		 * @generated
-		 */
-		public boolean canCreateTareaEnvioContextoEnvioAsociado_4010(McpMM.TareaEnvioContexto source,
-				McpMM.Propiedad target) {
-			if (source != null) {
-				if (source.getEnvioAsociado() != null) {
-					return false;
-				}
-			}
-
-			return canExistTareaEnvioContextoEnvioAsociado_4010(source, target);
-		}
-
-		/**
-		 * @generated
-		 */
-		public boolean canCreateTareaRecepcionContextoRecibeDe_4011(McpMM.TareaRecepcionContexto source,
-				McpMM.TareaEnvioContexto target) {
-			if (source != null) {
-				if (source.getRecibeDe() != null) {
-					return false;
-				}
-			}
-
-			return canExistTareaRecepcionContextoRecibeDe_4011(source, target);
-		}
-
-		/**
-		 * @generated
-		 */
-		public boolean canCreateTareaRecepcionContextoRecepcionAsociada_4012(McpMM.TareaRecepcionContexto source,
-				McpMM.Propiedad target) {
-			if (source != null) {
-				if (source.getRecepcionAsociada() != null) {
-					return false;
-				}
-			}
-
-			return canExistTareaRecepcionContextoRecepcionAsociada_4012(source, target);
-		}
-
-		/**
-		 * @generated
-		 */
 		public boolean canCreateTareaServerMCPEjecutaOperacion_4008(McpMM.TareaServerMCP source,
 				McpMM.OperacionMCP target) {
 			if (source != null) {
@@ -488,38 +432,6 @@ public class McpMMBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 		* @generated
 		*/
 		public boolean canExistTareaAnalisisSigueElse_4007(McpMM.TareaAnalisis source, McpMM.Tarea target) {
-			return true;
-		}
-
-		/**
-		* @generated
-		*/
-		public boolean canExistTareaEnvioContextoEnviaA_4009(McpMM.TareaEnvioContexto source,
-				McpMM.TareaRecepcionContexto target) {
-			return true;
-		}
-
-		/**
-		* @generated
-		*/
-		public boolean canExistTareaEnvioContextoEnvioAsociado_4010(McpMM.TareaEnvioContexto source,
-				McpMM.Propiedad target) {
-			return true;
-		}
-
-		/**
-		* @generated
-		*/
-		public boolean canExistTareaRecepcionContextoRecibeDe_4011(McpMM.TareaRecepcionContexto source,
-				McpMM.TareaEnvioContexto target) {
-			return true;
-		}
-
-		/**
-		* @generated
-		*/
-		public boolean canExistTareaRecepcionContextoRecepcionAsociada_4012(McpMM.TareaRecepcionContexto source,
-				McpMM.Propiedad target) {
 			return true;
 		}
 

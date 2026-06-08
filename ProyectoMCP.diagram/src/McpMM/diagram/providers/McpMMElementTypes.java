@@ -145,26 +145,6 @@ public class McpMMElementTypes {
 	/**
 	* @generated
 	*/
-	public static final IElementType TareaEnvioContextoEnviaA_4009 = getElementType(
-			"ProyectoMCP.diagram.TareaEnvioContextoEnviaA_4009"); //$NON-NLS-1$
-	/**
-	* @generated
-	*/
-	public static final IElementType TareaEnvioContextoEnvioAsociado_4010 = getElementType(
-			"ProyectoMCP.diagram.TareaEnvioContextoEnvioAsociado_4010"); //$NON-NLS-1$
-	/**
-	* @generated
-	*/
-	public static final IElementType TareaRecepcionContextoRecibeDe_4011 = getElementType(
-			"ProyectoMCP.diagram.TareaRecepcionContextoRecibeDe_4011"); //$NON-NLS-1$
-	/**
-	* @generated
-	*/
-	public static final IElementType TareaRecepcionContextoRecepcionAsociada_4012 = getElementType(
-			"ProyectoMCP.diagram.TareaRecepcionContextoRecepcionAsociada_4012"); //$NON-NLS-1$
-	/**
-	* @generated
-	*/
 	public static final IElementType TareaServerMCPEjecutaOperacion_4008 = getElementType(
 			"ProyectoMCP.diagram.TareaServerMCPEjecutaOperacion_4008"); //$NON-NLS-1$
 
@@ -252,17 +232,6 @@ public class McpMMElementTypes {
 
 			elements.put(TareaAnalisisSigueElse_4007, McpMM.McpMMPackage.eINSTANCE.getTareaAnalisis_SigueElse());
 
-			elements.put(TareaEnvioContextoEnviaA_4009, McpMM.McpMMPackage.eINSTANCE.getTareaEnvioContexto_EnviaA());
-
-			elements.put(TareaEnvioContextoEnvioAsociado_4010,
-					McpMM.McpMMPackage.eINSTANCE.getTareaEnvioContexto_EnvioAsociado());
-
-			elements.put(TareaRecepcionContextoRecibeDe_4011,
-					McpMM.McpMMPackage.eINSTANCE.getTareaRecepcionContexto_RecibeDe());
-
-			elements.put(TareaRecepcionContextoRecepcionAsociada_4012,
-					McpMM.McpMMPackage.eINSTANCE.getTareaRecepcionContexto_RecepcionAsociada());
-
 			elements.put(TareaServerMCPEjecutaOperacion_4008,
 					McpMM.McpMMPackage.eINSTANCE.getTareaServerMCP_EjecutaOperacion());
 		}
@@ -305,10 +274,6 @@ public class McpMMElementTypes {
 			KNOWN_ELEMENT_TYPES.add(WorkflowFinalizaCon_4003);
 			KNOWN_ELEMENT_TYPES.add(TareaSigue_4004);
 			KNOWN_ELEMENT_TYPES.add(TareaAnalisisSigueElse_4007);
-			KNOWN_ELEMENT_TYPES.add(TareaEnvioContextoEnviaA_4009);
-			KNOWN_ELEMENT_TYPES.add(TareaEnvioContextoEnvioAsociado_4010);
-			KNOWN_ELEMENT_TYPES.add(TareaRecepcionContextoRecibeDe_4011);
-			KNOWN_ELEMENT_TYPES.add(TareaRecepcionContextoRecepcionAsociada_4012);
 			KNOWN_ELEMENT_TYPES.add(TareaServerMCPEjecutaOperacion_4008);
 		}
 		return KNOWN_ELEMENT_TYPES.contains(elementType);
@@ -365,14 +330,6 @@ public class McpMMElementTypes {
 			return TareaSigue_4004;
 		case McpMM.diagram.edit.parts.TareaAnalisisSigueElseEditPart.VISUAL_ID:
 			return TareaAnalisisSigueElse_4007;
-		case McpMM.diagram.edit.parts.TareaEnvioContextoEnviaAEditPart.VISUAL_ID:
-			return TareaEnvioContextoEnviaA_4009;
-		case McpMM.diagram.edit.parts.TareaEnvioContextoEnvioAsociadoEditPart.VISUAL_ID:
-			return TareaEnvioContextoEnvioAsociado_4010;
-		case McpMM.diagram.edit.parts.TareaRecepcionContextoRecibeDeEditPart.VISUAL_ID:
-			return TareaRecepcionContextoRecibeDe_4011;
-		case McpMM.diagram.edit.parts.TareaRecepcionContextoRecepcionAsociadaEditPart.VISUAL_ID:
-			return TareaRecepcionContextoRecepcionAsociada_4012;
 		case McpMM.diagram.edit.parts.TareaServerMCPEjecutaOperacionEditPart.VISUAL_ID:
 			return TareaServerMCPEjecutaOperacion_4008;
 		}

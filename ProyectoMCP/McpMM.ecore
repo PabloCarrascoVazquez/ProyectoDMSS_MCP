@@ -279,21 +279,6 @@
       <details key="figure" value="rectangle"/>
       <details key="color" value="150,255,150"/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="enviaA" eType="#//TareaRecepcionContexto">
-      <eAnnotations source="gmf.link">
-        <details key="target.decoration" value="arrow"/>
-        <details key="color" value="100,100,100"/>
-        <details key="label" value="envía a"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="envioAsociado" eType="#//Propiedad">
-      <eAnnotations source="gmf.link">
-        <details key="target.decoration" value="arrow"/>
-        <details key="style" value="dash"/>
-        <details key="color" value="200,100,0"/>
-        <details key="label" value="envía prop."/>
-      </eAnnotations>
-    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TareaRecepcionContexto" eSuperTypes="#//TareaEjecutable">
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
@@ -308,21 +293,6 @@
       <details key="figure" value="rectangle"/>
       <details key="color" value="150,150,255"/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="recibeDe" eType="#//TareaEnvioContexto">
-      <eAnnotations source="gmf.link">
-        <details key="target.decoration" value="arrow"/>
-        <details key="color" value="100,100,100"/>
-        <details key="label" value="recibe de"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="recepcionAsociada" eType="#//Propiedad">
-      <eAnnotations source="gmf.link">
-        <details key="target.decoration" value="arrow"/>
-        <details key="style" value="dash"/>
-        <details key="color" value="200,100,0"/>
-        <details key="label" value="recibe prop."/>
-      </eAnnotations>
-    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TareaServerMCP" eSuperTypes="#//TareaEjecutable">
     <eAnnotations source="gmf.node">

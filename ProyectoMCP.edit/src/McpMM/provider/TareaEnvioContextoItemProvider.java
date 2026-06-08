@@ -43,54 +43,8 @@ public class TareaEnvioContextoItemProvider extends TareaEjecutableItemProvider 
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addEnviaAPropertyDescriptor(object);
-			addEnvioAsociadoPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Envia A feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addEnviaAPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_TareaEnvioContexto_enviaA_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_TareaEnvioContexto_enviaA_feature", "_UI_TareaEnvioContexto_type"),
-				 McpMMPackage.Literals.TAREA_ENVIO_CONTEXTO__ENVIA_A,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Envio Asociado feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addEnvioAsociadoPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_TareaEnvioContexto_envioAsociado_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_TareaEnvioContexto_envioAsociado_feature", "_UI_TareaEnvioContexto_type"),
-				 McpMMPackage.Literals.TAREA_ENVIO_CONTEXTO__ENVIO_ASOCIADO,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
 	}
 
 	/**

@@ -170,11 +170,7 @@ class TareaAnalisis extends TareaEjecutable {
 
 @gmf.node(label="nombreTarea", figure="rectangle", color="150,255,150")
 class TareaEnvioContexto extends TareaEjecutable {
-	@gmf.link(target.decoration="arrow", color="100,100,100", label="envía a")
-	ref TareaRecepcionContexto enviaA;
-	
-	@gmf.link(target.decoration="arrow", style="dash", color="200,100,0", label="envía prop.")
-	ref Propiedad envioAsociado;
+
 }
 
 @Ecore(constraints="R07_RecepcionPrecedidaEnvio R11_MismasPropiedadesEnvioRecepcion")
@@ -184,11 +180,7 @@ class TareaEnvioContexto extends TareaEjecutable {
 )
 @gmf.node(label="nombreTarea", figure="rectangle", color="150,150,255")
 class TareaRecepcionContexto extends TareaEjecutable {
-	@gmf.link(target.decoration="arrow", color="100,100,100", label="recibe de")
-	ref TareaEnvioContexto recibeDe;
-	
-	@gmf.link(target.decoration="arrow", style="dash", color="200,100,0", label="recibe prop.")
-	ref Propiedad recepcionAsociada;
+
 }
 
 @gmf.node(label="nombreTarea", figure="rectangle", color="200,200,200")

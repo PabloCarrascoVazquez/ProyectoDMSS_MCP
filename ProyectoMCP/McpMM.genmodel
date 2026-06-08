@@ -87,14 +87,8 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference McpMM.ecore#//TareaAnalisis/sigueElse"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute McpMM.ecore#//TareaAnalisis/prompt"/>
     </genClasses>
-    <genClasses ecoreClass="McpMM.ecore#//TareaEnvioContexto">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference McpMM.ecore#//TareaEnvioContexto/enviaA"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference McpMM.ecore#//TareaEnvioContexto/envioAsociado"/>
-    </genClasses>
-    <genClasses ecoreClass="McpMM.ecore#//TareaRecepcionContexto">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference McpMM.ecore#//TareaRecepcionContexto/recibeDe"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference McpMM.ecore#//TareaRecepcionContexto/recepcionAsociada"/>
-    </genClasses>
+    <genClasses ecoreClass="McpMM.ecore#//TareaEnvioContexto"/>
+    <genClasses ecoreClass="McpMM.ecore#//TareaRecepcionContexto"/>
     <genClasses ecoreClass="McpMM.ecore#//TareaServerMCP">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference McpMM.ecore#//TareaServerMCP/ejecutaOperacion"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute McpMM.ecore#//TareaServerMCP/prompt"/>

@@ -126,11 +126,7 @@ public class WorkflowWorkflowTareaCompartmentEditPart extends ShapeCompartmentEd
 										.equals(McpMM.diagram.providers.McpMMElementTypes.WorkflowFinalizaCon_4003)
 								|| elementType.equals(McpMM.diagram.providers.McpMMElementTypes.TareaSigue_4004)
 								|| elementType
-										.equals(McpMM.diagram.providers.McpMMElementTypes.TareaAnalisisSigueElse_4007)
-								|| elementType
-										.equals(McpMM.diagram.providers.McpMMElementTypes.TareaEnvioContextoEnviaA_4009)
-								|| elementType.equals(
-										McpMM.diagram.providers.McpMMElementTypes.TareaRecepcionContextoRecibeDe_4011))
+										.equals(McpMM.diagram.providers.McpMMElementTypes.TareaAnalisisSigueElse_4007))
 							return super.getTargetEditPart(request);
 					}
 				}

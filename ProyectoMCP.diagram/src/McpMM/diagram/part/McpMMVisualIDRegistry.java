@@ -539,26 +539,6 @@ public class McpMMVisualIDRegistry {
 				return true;
 			}
 			break;
-		case McpMM.diagram.edit.parts.TareaEnvioContextoEnviaAEditPart.VISUAL_ID:
-			if (McpMM.diagram.edit.parts.TareaEnvioContextoEnviaAExternalLabelEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case McpMM.diagram.edit.parts.TareaEnvioContextoEnvioAsociadoEditPart.VISUAL_ID:
-			if (McpMM.diagram.edit.parts.TareaEnvioContextoEnvioAsociadoExternalLabelEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case McpMM.diagram.edit.parts.TareaRecepcionContextoRecibeDeEditPart.VISUAL_ID:
-			if (McpMM.diagram.edit.parts.TareaRecepcionContextoRecibeDeExternalLabelEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case McpMM.diagram.edit.parts.TareaRecepcionContextoRecepcionAsociadaEditPart.VISUAL_ID:
-			if (McpMM.diagram.edit.parts.TareaRecepcionContextoRecepcionAsociadaExternalLabelEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
 		case McpMM.diagram.edit.parts.TareaServerMCPEjecutaOperacionEditPart.VISUAL_ID:
 			if (McpMM.diagram.edit.parts.TareaServerMCPEjecutaOperacionExternalLabelEditPart.VISUAL_ID == nodeVisualID) {
 				return true;

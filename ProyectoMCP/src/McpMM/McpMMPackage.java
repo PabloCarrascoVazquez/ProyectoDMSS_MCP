@@ -1348,31 +1348,13 @@ public interface McpMMPackage extends EPackage {
 	int TAREA_ENVIO_CONTEXTO__DESC_TAREA = TAREA_EJECUTABLE__DESC_TAREA;
 
 	/**
-	 * The feature id for the '<em><b>Envia A</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TAREA_ENVIO_CONTEXTO__ENVIA_A = TAREA_EJECUTABLE_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Envio Asociado</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TAREA_ENVIO_CONTEXTO__ENVIO_ASOCIADO = TAREA_EJECUTABLE_FEATURE_COUNT + 1;
-
-	/**
 	 * The number of structural features of the '<em>Tarea Envio Contexto</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TAREA_ENVIO_CONTEXTO_FEATURE_COUNT = TAREA_EJECUTABLE_FEATURE_COUNT + 2;
+	int TAREA_ENVIO_CONTEXTO_FEATURE_COUNT = TAREA_EJECUTABLE_FEATURE_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link McpMM.impl.TareaRecepcionContextoImpl <em>Tarea Recepcion Contexto</em>}' class.
@@ -1457,31 +1439,13 @@ public interface McpMMPackage extends EPackage {
 	int TAREA_RECEPCION_CONTEXTO__DESC_TAREA = TAREA_EJECUTABLE__DESC_TAREA;
 
 	/**
-	 * The feature id for the '<em><b>Recibe De</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TAREA_RECEPCION_CONTEXTO__RECIBE_DE = TAREA_EJECUTABLE_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Recepcion Asociada</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TAREA_RECEPCION_CONTEXTO__RECEPCION_ASOCIADA = TAREA_EJECUTABLE_FEATURE_COUNT + 1;
-
-	/**
 	 * The number of structural features of the '<em>Tarea Recepcion Contexto</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TAREA_RECEPCION_CONTEXTO_FEATURE_COUNT = TAREA_EJECUTABLE_FEATURE_COUNT + 2;
+	int TAREA_RECEPCION_CONTEXTO_FEATURE_COUNT = TAREA_EJECUTABLE_FEATURE_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link McpMM.impl.TareaServerMCPImpl <em>Tarea Server MCP</em>}' class.
@@ -2234,28 +2198,6 @@ public interface McpMMPackage extends EPackage {
 	EClass getTareaEnvioContexto();
 
 	/**
-	 * Returns the meta object for the reference '{@link McpMM.TareaEnvioContexto#getEnviaA <em>Envia A</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Envia A</em>'.
-	 * @see McpMM.TareaEnvioContexto#getEnviaA()
-	 * @see #getTareaEnvioContexto()
-	 * @generated
-	 */
-	EReference getTareaEnvioContexto_EnviaA();
-
-	/**
-	 * Returns the meta object for the reference '{@link McpMM.TareaEnvioContexto#getEnvioAsociado <em>Envio Asociado</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Envio Asociado</em>'.
-	 * @see McpMM.TareaEnvioContexto#getEnvioAsociado()
-	 * @see #getTareaEnvioContexto()
-	 * @generated
-	 */
-	EReference getTareaEnvioContexto_EnvioAsociado();
-
-	/**
 	 * Returns the meta object for class '{@link McpMM.TareaRecepcionContexto <em>Tarea Recepcion Contexto</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2264,28 +2206,6 @@ public interface McpMMPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getTareaRecepcionContexto();
-
-	/**
-	 * Returns the meta object for the reference '{@link McpMM.TareaRecepcionContexto#getRecibeDe <em>Recibe De</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Recibe De</em>'.
-	 * @see McpMM.TareaRecepcionContexto#getRecibeDe()
-	 * @see #getTareaRecepcionContexto()
-	 * @generated
-	 */
-	EReference getTareaRecepcionContexto_RecibeDe();
-
-	/**
-	 * Returns the meta object for the reference '{@link McpMM.TareaRecepcionContexto#getRecepcionAsociada <em>Recepcion Asociada</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Recepcion Asociada</em>'.
-	 * @see McpMM.TareaRecepcionContexto#getRecepcionAsociada()
-	 * @see #getTareaRecepcionContexto()
-	 * @generated
-	 */
-	EReference getTareaRecepcionContexto_RecepcionAsociada();
 
 	/**
 	 * Returns the meta object for class '{@link McpMM.TareaServerMCP <em>Tarea Server MCP</em>}'.
@@ -2862,22 +2782,6 @@ public interface McpMMPackage extends EPackage {
 		EClass TAREA_ENVIO_CONTEXTO = eINSTANCE.getTareaEnvioContexto();
 
 		/**
-		 * The meta object literal for the '<em><b>Envia A</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference TAREA_ENVIO_CONTEXTO__ENVIA_A = eINSTANCE.getTareaEnvioContexto_EnviaA();
-
-		/**
-		 * The meta object literal for the '<em><b>Envio Asociado</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference TAREA_ENVIO_CONTEXTO__ENVIO_ASOCIADO = eINSTANCE.getTareaEnvioContexto_EnvioAsociado();
-
-		/**
 		 * The meta object literal for the '{@link McpMM.impl.TareaRecepcionContextoImpl <em>Tarea Recepcion Contexto</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2886,22 +2790,6 @@ public interface McpMMPackage extends EPackage {
 		 * @generated
 		 */
 		EClass TAREA_RECEPCION_CONTEXTO = eINSTANCE.getTareaRecepcionContexto();
-
-		/**
-		 * The meta object literal for the '<em><b>Recibe De</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference TAREA_RECEPCION_CONTEXTO__RECIBE_DE = eINSTANCE.getTareaRecepcionContexto_RecibeDe();
-
-		/**
-		 * The meta object literal for the '<em><b>Recepcion Asociada</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference TAREA_RECEPCION_CONTEXTO__RECEPCION_ASOCIADA = eINSTANCE.getTareaRecepcionContexto_RecepcionAsociada();
 
 		/**
 		 * The meta object literal for the '{@link McpMM.impl.TareaServerMCPImpl <em>Tarea Server MCP</em>}' class.

@@ -730,8 +730,6 @@ public class McpMMDiagramUpdater {
 		McpMM.TareaEnvioContexto modelElement = (McpMM.TareaEnvioContexto) view.getElement();
 		LinkedList<McpMM.diagram.part.McpMMLinkDescriptor> result = new LinkedList<McpMM.diagram.part.McpMMLinkDescriptor>();
 		result.addAll(getOutgoingFeatureModelFacetLinks_Tarea_Sigue_4004(modelElement));
-		result.addAll(getOutgoingFeatureModelFacetLinks_TareaEnvioContexto_EnviaA_4009(modelElement));
-		result.addAll(getOutgoingFeatureModelFacetLinks_TareaEnvioContexto_EnvioAsociado_4010(modelElement));
 		return result;
 	}
 
@@ -742,8 +740,6 @@ public class McpMMDiagramUpdater {
 		McpMM.TareaRecepcionContexto modelElement = (McpMM.TareaRecepcionContexto) view.getElement();
 		LinkedList<McpMM.diagram.part.McpMMLinkDescriptor> result = new LinkedList<McpMM.diagram.part.McpMMLinkDescriptor>();
 		result.addAll(getOutgoingFeatureModelFacetLinks_Tarea_Sigue_4004(modelElement));
-		result.addAll(getOutgoingFeatureModelFacetLinks_TareaRecepcionContexto_RecibeDe_4011(modelElement));
-		result.addAll(getOutgoingFeatureModelFacetLinks_TareaRecepcionContexto_RecepcionAsociada_4012(modelElement));
 		return result;
 	}
 
@@ -908,8 +904,6 @@ public class McpMMDiagramUpdater {
 		result.addAll(getIncomingFeatureModelFacetLinks_Agente_Realiza_4001(modelElement, crossReferences));
 		result.addAll(getIncomingFeatureModelFacetLinks_Tarea_Sigue_4004(modelElement, crossReferences));
 		result.addAll(getIncomingFeatureModelFacetLinks_TareaAnalisis_SigueElse_4007(modelElement, crossReferences));
-		result.addAll(
-				getIncomingFeatureModelFacetLinks_TareaRecepcionContexto_RecibeDe_4011(modelElement, crossReferences));
 		return result;
 	}
 
@@ -924,7 +918,6 @@ public class McpMMDiagramUpdater {
 		result.addAll(getIncomingFeatureModelFacetLinks_Agente_Realiza_4001(modelElement, crossReferences));
 		result.addAll(getIncomingFeatureModelFacetLinks_Tarea_Sigue_4004(modelElement, crossReferences));
 		result.addAll(getIncomingFeatureModelFacetLinks_TareaAnalisis_SigueElse_4007(modelElement, crossReferences));
-		result.addAll(getIncomingFeatureModelFacetLinks_TareaEnvioContexto_EnviaA_4009(modelElement, crossReferences));
 		return result;
 	}
 
@@ -983,15 +976,7 @@ public class McpMMDiagramUpdater {
 	 * @generated
 	 */
 	public static List<McpMM.diagram.part.McpMMLinkDescriptor> getPropiedad_3014IncomingLinks(View view) {
-		McpMM.Propiedad modelElement = (McpMM.Propiedad) view.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
-				.find(view.eResource().getResourceSet().getResources());
-		LinkedList<McpMM.diagram.part.McpMMLinkDescriptor> result = new LinkedList<McpMM.diagram.part.McpMMLinkDescriptor>();
-		result.addAll(
-				getIncomingFeatureModelFacetLinks_TareaEnvioContexto_EnvioAsociado_4010(modelElement, crossReferences));
-		result.addAll(getIncomingFeatureModelFacetLinks_TareaRecepcionContexto_RecepcionAsociada_4012(modelElement,
-				crossReferences));
-		return result;
+		return Collections.emptyList();
 	}
 
 	/**
@@ -1092,8 +1077,6 @@ public class McpMMDiagramUpdater {
 		McpMM.TareaEnvioContexto modelElement = (McpMM.TareaEnvioContexto) view.getElement();
 		LinkedList<McpMM.diagram.part.McpMMLinkDescriptor> result = new LinkedList<McpMM.diagram.part.McpMMLinkDescriptor>();
 		result.addAll(getOutgoingFeatureModelFacetLinks_Tarea_Sigue_4004(modelElement));
-		result.addAll(getOutgoingFeatureModelFacetLinks_TareaEnvioContexto_EnviaA_4009(modelElement));
-		result.addAll(getOutgoingFeatureModelFacetLinks_TareaEnvioContexto_EnvioAsociado_4010(modelElement));
 		return result;
 	}
 
@@ -1104,8 +1087,6 @@ public class McpMMDiagramUpdater {
 		McpMM.TareaRecepcionContexto modelElement = (McpMM.TareaRecepcionContexto) view.getElement();
 		LinkedList<McpMM.diagram.part.McpMMLinkDescriptor> result = new LinkedList<McpMM.diagram.part.McpMMLinkDescriptor>();
 		result.addAll(getOutgoingFeatureModelFacetLinks_Tarea_Sigue_4004(modelElement));
-		result.addAll(getOutgoingFeatureModelFacetLinks_TareaRecepcionContexto_RecibeDe_4011(modelElement));
-		result.addAll(getOutgoingFeatureModelFacetLinks_TareaRecepcionContexto_RecepcionAsociada_4012(modelElement));
 		return result;
 	}
 
@@ -1242,75 +1223,6 @@ public class McpMMDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	private static Collection<McpMM.diagram.part.McpMMLinkDescriptor> getIncomingFeatureModelFacetLinks_TareaEnvioContexto_EnviaA_4009(
-			McpMM.TareaRecepcionContexto target, Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences) {
-		LinkedList<McpMM.diagram.part.McpMMLinkDescriptor> result = new LinkedList<McpMM.diagram.part.McpMMLinkDescriptor>();
-		Collection<EStructuralFeature.Setting> settings = crossReferences.get(target);
-		for (EStructuralFeature.Setting setting : settings) {
-			if (setting.getEStructuralFeature() == McpMM.McpMMPackage.eINSTANCE.getTareaEnvioContexto_EnviaA()) {
-				result.add(new McpMM.diagram.part.McpMMLinkDescriptor(setting.getEObject(), target,
-						McpMM.diagram.providers.McpMMElementTypes.TareaEnvioContextoEnviaA_4009,
-						McpMM.diagram.edit.parts.TareaEnvioContextoEnviaAEditPart.VISUAL_ID));
-			}
-		}
-		return result;
-	}
-
-	/**
-	 * @generated
-	 */
-	private static Collection<McpMM.diagram.part.McpMMLinkDescriptor> getIncomingFeatureModelFacetLinks_TareaEnvioContexto_EnvioAsociado_4010(
-			McpMM.Propiedad target, Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences) {
-		LinkedList<McpMM.diagram.part.McpMMLinkDescriptor> result = new LinkedList<McpMM.diagram.part.McpMMLinkDescriptor>();
-		Collection<EStructuralFeature.Setting> settings = crossReferences.get(target);
-		for (EStructuralFeature.Setting setting : settings) {
-			if (setting.getEStructuralFeature() == McpMM.McpMMPackage.eINSTANCE.getTareaEnvioContexto_EnvioAsociado()) {
-				result.add(new McpMM.diagram.part.McpMMLinkDescriptor(setting.getEObject(), target,
-						McpMM.diagram.providers.McpMMElementTypes.TareaEnvioContextoEnvioAsociado_4010,
-						McpMM.diagram.edit.parts.TareaEnvioContextoEnvioAsociadoEditPart.VISUAL_ID));
-			}
-		}
-		return result;
-	}
-
-	/**
-	 * @generated
-	 */
-	private static Collection<McpMM.diagram.part.McpMMLinkDescriptor> getIncomingFeatureModelFacetLinks_TareaRecepcionContexto_RecibeDe_4011(
-			McpMM.TareaEnvioContexto target, Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences) {
-		LinkedList<McpMM.diagram.part.McpMMLinkDescriptor> result = new LinkedList<McpMM.diagram.part.McpMMLinkDescriptor>();
-		Collection<EStructuralFeature.Setting> settings = crossReferences.get(target);
-		for (EStructuralFeature.Setting setting : settings) {
-			if (setting.getEStructuralFeature() == McpMM.McpMMPackage.eINSTANCE.getTareaRecepcionContexto_RecibeDe()) {
-				result.add(new McpMM.diagram.part.McpMMLinkDescriptor(setting.getEObject(), target,
-						McpMM.diagram.providers.McpMMElementTypes.TareaRecepcionContextoRecibeDe_4011,
-						McpMM.diagram.edit.parts.TareaRecepcionContextoRecibeDeEditPart.VISUAL_ID));
-			}
-		}
-		return result;
-	}
-
-	/**
-	 * @generated
-	 */
-	private static Collection<McpMM.diagram.part.McpMMLinkDescriptor> getIncomingFeatureModelFacetLinks_TareaRecepcionContexto_RecepcionAsociada_4012(
-			McpMM.Propiedad target, Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences) {
-		LinkedList<McpMM.diagram.part.McpMMLinkDescriptor> result = new LinkedList<McpMM.diagram.part.McpMMLinkDescriptor>();
-		Collection<EStructuralFeature.Setting> settings = crossReferences.get(target);
-		for (EStructuralFeature.Setting setting : settings) {
-			if (setting.getEStructuralFeature() == McpMM.McpMMPackage.eINSTANCE
-					.getTareaRecepcionContexto_RecepcionAsociada()) {
-				result.add(new McpMM.diagram.part.McpMMLinkDescriptor(setting.getEObject(), target,
-						McpMM.diagram.providers.McpMMElementTypes.TareaRecepcionContextoRecepcionAsociada_4012,
-						McpMM.diagram.edit.parts.TareaRecepcionContextoRecepcionAsociadaEditPart.VISUAL_ID));
-			}
-		}
-		return result;
-	}
-
-	/**
-	 * @generated
-	 */
 	private static Collection<McpMM.diagram.part.McpMMLinkDescriptor> getIncomingFeatureModelFacetLinks_TareaServerMCP_EjecutaOperacion_4008(
 			McpMM.OperacionMCP target, Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences) {
 		LinkedList<McpMM.diagram.part.McpMMLinkDescriptor> result = new LinkedList<McpMM.diagram.part.McpMMLinkDescriptor>();
@@ -1400,70 +1312,6 @@ public class McpMMDiagramUpdater {
 		result.add(new McpMM.diagram.part.McpMMLinkDescriptor(source, destination,
 				McpMM.diagram.providers.McpMMElementTypes.TareaAnalisisSigueElse_4007,
 				McpMM.diagram.edit.parts.TareaAnalisisSigueElseEditPart.VISUAL_ID));
-		return result;
-	}
-
-	/**
-	* @generated
-	*/
-	private static Collection<McpMM.diagram.part.McpMMLinkDescriptor> getOutgoingFeatureModelFacetLinks_TareaEnvioContexto_EnviaA_4009(
-			McpMM.TareaEnvioContexto source) {
-		LinkedList<McpMM.diagram.part.McpMMLinkDescriptor> result = new LinkedList<McpMM.diagram.part.McpMMLinkDescriptor>();
-		McpMM.TareaRecepcionContexto destination = source.getEnviaA();
-		if (destination == null) {
-			return result;
-		}
-		result.add(new McpMM.diagram.part.McpMMLinkDescriptor(source, destination,
-				McpMM.diagram.providers.McpMMElementTypes.TareaEnvioContextoEnviaA_4009,
-				McpMM.diagram.edit.parts.TareaEnvioContextoEnviaAEditPart.VISUAL_ID));
-		return result;
-	}
-
-	/**
-	* @generated
-	*/
-	private static Collection<McpMM.diagram.part.McpMMLinkDescriptor> getOutgoingFeatureModelFacetLinks_TareaEnvioContexto_EnvioAsociado_4010(
-			McpMM.TareaEnvioContexto source) {
-		LinkedList<McpMM.diagram.part.McpMMLinkDescriptor> result = new LinkedList<McpMM.diagram.part.McpMMLinkDescriptor>();
-		McpMM.Propiedad destination = source.getEnvioAsociado();
-		if (destination == null) {
-			return result;
-		}
-		result.add(new McpMM.diagram.part.McpMMLinkDescriptor(source, destination,
-				McpMM.diagram.providers.McpMMElementTypes.TareaEnvioContextoEnvioAsociado_4010,
-				McpMM.diagram.edit.parts.TareaEnvioContextoEnvioAsociadoEditPart.VISUAL_ID));
-		return result;
-	}
-
-	/**
-	* @generated
-	*/
-	private static Collection<McpMM.diagram.part.McpMMLinkDescriptor> getOutgoingFeatureModelFacetLinks_TareaRecepcionContexto_RecibeDe_4011(
-			McpMM.TareaRecepcionContexto source) {
-		LinkedList<McpMM.diagram.part.McpMMLinkDescriptor> result = new LinkedList<McpMM.diagram.part.McpMMLinkDescriptor>();
-		McpMM.TareaEnvioContexto destination = source.getRecibeDe();
-		if (destination == null) {
-			return result;
-		}
-		result.add(new McpMM.diagram.part.McpMMLinkDescriptor(source, destination,
-				McpMM.diagram.providers.McpMMElementTypes.TareaRecepcionContextoRecibeDe_4011,
-				McpMM.diagram.edit.parts.TareaRecepcionContextoRecibeDeEditPart.VISUAL_ID));
-		return result;
-	}
-
-	/**
-	* @generated
-	*/
-	private static Collection<McpMM.diagram.part.McpMMLinkDescriptor> getOutgoingFeatureModelFacetLinks_TareaRecepcionContexto_RecepcionAsociada_4012(
-			McpMM.TareaRecepcionContexto source) {
-		LinkedList<McpMM.diagram.part.McpMMLinkDescriptor> result = new LinkedList<McpMM.diagram.part.McpMMLinkDescriptor>();
-		McpMM.Propiedad destination = source.getRecepcionAsociada();
-		if (destination == null) {
-			return result;
-		}
-		result.add(new McpMM.diagram.part.McpMMLinkDescriptor(source, destination,
-				McpMM.diagram.providers.McpMMElementTypes.TareaRecepcionContextoRecepcionAsociada_4012,
-				McpMM.diagram.edit.parts.TareaRecepcionContextoRecepcionAsociadaEditPart.VISUAL_ID));
 		return result;
 	}
 

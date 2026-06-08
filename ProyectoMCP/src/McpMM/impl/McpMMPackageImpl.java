@@ -805,44 +805,8 @@ public class McpMMPackageImpl extends EPackageImpl implements McpMMPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getTareaEnvioContexto_EnviaA() {
-		return (EReference)tareaEnvioContextoEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getTareaEnvioContexto_EnvioAsociado() {
-		return (EReference)tareaEnvioContextoEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getTareaRecepcionContexto() {
 		return tareaRecepcionContextoEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getTareaRecepcionContexto_RecibeDe() {
-		return (EReference)tareaRecepcionContextoEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getTareaRecepcionContexto_RecepcionAsociada() {
-		return (EReference)tareaRecepcionContextoEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -986,12 +950,8 @@ public class McpMMPackageImpl extends EPackageImpl implements McpMMPackage {
 		createEAttribute(tareaAnalisisEClass, TAREA_ANALISIS__PROMPT);
 
 		tareaEnvioContextoEClass = createEClass(TAREA_ENVIO_CONTEXTO);
-		createEReference(tareaEnvioContextoEClass, TAREA_ENVIO_CONTEXTO__ENVIA_A);
-		createEReference(tareaEnvioContextoEClass, TAREA_ENVIO_CONTEXTO__ENVIO_ASOCIADO);
 
 		tareaRecepcionContextoEClass = createEClass(TAREA_RECEPCION_CONTEXTO);
-		createEReference(tareaRecepcionContextoEClass, TAREA_RECEPCION_CONTEXTO__RECIBE_DE);
-		createEReference(tareaRecepcionContextoEClass, TAREA_RECEPCION_CONTEXTO__RECEPCION_ASOCIADA);
 
 		tareaServerMCPEClass = createEClass(TAREA_SERVER_MCP);
 		createEReference(tareaServerMCPEClass, TAREA_SERVER_MCP__EJECUTA_OPERACION);
@@ -1120,12 +1080,8 @@ public class McpMMPackageImpl extends EPackageImpl implements McpMMPackage {
 		initEAttribute(getTareaAnalisis_Prompt(), ecorePackage.getEString(), "prompt", null, 0, 1, TareaAnalisis.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(tareaEnvioContextoEClass, TareaEnvioContexto.class, "TareaEnvioContexto", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getTareaEnvioContexto_EnviaA(), this.getTareaRecepcionContexto(), null, "enviaA", null, 0, 1, TareaEnvioContexto.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTareaEnvioContexto_EnvioAsociado(), this.getPropiedad(), null, "envioAsociado", null, 0, 1, TareaEnvioContexto.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(tareaRecepcionContextoEClass, TareaRecepcionContexto.class, "TareaRecepcionContexto", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getTareaRecepcionContexto_RecibeDe(), this.getTareaEnvioContexto(), null, "recibeDe", null, 0, 1, TareaRecepcionContexto.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTareaRecepcionContexto_RecepcionAsociada(), this.getPropiedad(), null, "recepcionAsociada", null, 0, 1, TareaRecepcionContexto.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(tareaServerMCPEClass, TareaServerMCP.class, "TareaServerMCP", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getTareaServerMCP_EjecutaOperacion(), this.getOperacionMCP(), this.getOperacionMCP_EsEjecutadaOperacion(), "ejecutaOperacion", null, 1, 1, TareaServerMCP.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1519,40 +1475,6 @@ public class McpMMPackageImpl extends EPackageImpl implements McpMMPackage {
 		   new String[] {
 			 "target.decoration", "arrow",
 			 "label", "sigue Else"
-		   });	
-		addAnnotation
-		  (getTareaEnvioContexto_EnviaA(), 
-		   source, 
-		   new String[] {
-			 "target.decoration", "arrow",
-			 "color", "100,100,100",
-			 "label", "env\u00eda a"
-		   });	
-		addAnnotation
-		  (getTareaEnvioContexto_EnvioAsociado(), 
-		   source, 
-		   new String[] {
-			 "target.decoration", "arrow",
-			 "style", "dash",
-			 "color", "200,100,0",
-			 "label", "env\u00eda prop."
-		   });	
-		addAnnotation
-		  (getTareaRecepcionContexto_RecibeDe(), 
-		   source, 
-		   new String[] {
-			 "target.decoration", "arrow",
-			 "color", "100,100,100",
-			 "label", "recibe de"
-		   });	
-		addAnnotation
-		  (getTareaRecepcionContexto_RecepcionAsociada(), 
-		   source, 
-		   new String[] {
-			 "target.decoration", "arrow",
-			 "style", "dash",
-			 "color", "200,100,0",
-			 "label", "recibe prop."
 		   });	
 		addAnnotation
 		  (getTareaServerMCP_EjecutaOperacion(), 

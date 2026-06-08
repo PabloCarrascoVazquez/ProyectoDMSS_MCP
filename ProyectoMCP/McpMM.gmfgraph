@@ -6,10 +6,6 @@
     <figures xsi:type="gmfgraph:PolylineDecoration" name="WorkflowFinalizaConFigureTargetDecoration"/>
     <figures xsi:type="gmfgraph:PolylineDecoration" name="TareaSigueFigureTargetDecoration"/>
     <figures xsi:type="gmfgraph:PolylineDecoration" name="TareaAnalisisSigueElseFigureTargetDecoration"/>
-    <figures xsi:type="gmfgraph:PolylineDecoration" name="TareaEnvioContextoEnviaAFigureTargetDecoration"/>
-    <figures xsi:type="gmfgraph:PolylineDecoration" name="TareaEnvioContextoEnvioAsociadoFigureTargetDecoration"/>
-    <figures xsi:type="gmfgraph:PolylineDecoration" name="TareaRecepcionContextoRecibeDeFigureTargetDecoration"/>
-    <figures xsi:type="gmfgraph:PolylineDecoration" name="TareaRecepcionContextoRecepcionAsociadaFigureTargetDecoration"/>
     <figures xsi:type="gmfgraph:PolylineDecoration" name="TareaServerMCPEjecutaOperacionFigureTargetDecoration"/>
     <descriptors name="ServerMCPFigure">
       <actualFigure xsi:type="gmfgraph:Rectangle" name="ServerMCPFigure">
@@ -265,40 +261,8 @@
     <descriptors name="TareaAnalisisSigueElseExternalLabelFigure">
       <actualFigure xsi:type="gmfgraph:Label" name="TareaAnalisisSigueElseExternalLabel" text="sigue Else"/>
     </descriptors>
-    <descriptors name="TareaEnvioContextoEnviaAFigure">
-      <actualFigure xsi:type="gmfgraph:PolylineConnection" name="TareaEnvioContextoEnviaAFigure" targetDecoration="//@figures.0/@figures.5">
-        <foregroundColor xsi:type="gmfgraph:RGBColor" red="100" green="100" blue="100"/>
-      </actualFigure>
-    </descriptors>
-    <descriptors name="TareaEnvioContextoEnviaAExternalLabelFigure">
-      <actualFigure xsi:type="gmfgraph:Label" name="TareaEnvioContextoEnviaAExternalLabel" text="env&#xed;a a"/>
-    </descriptors>
-    <descriptors name="TareaEnvioContextoEnvioAsociadoFigure">
-      <actualFigure xsi:type="gmfgraph:PolylineConnection" name="TareaEnvioContextoEnvioAsociadoFigure" lineKind="LINE_DASH" targetDecoration="//@figures.0/@figures.6">
-        <foregroundColor xsi:type="gmfgraph:RGBColor" red="200" green="100"/>
-      </actualFigure>
-    </descriptors>
-    <descriptors name="TareaEnvioContextoEnvioAsociadoExternalLabelFigure">
-      <actualFigure xsi:type="gmfgraph:Label" name="TareaEnvioContextoEnvioAsociadoExternalLabel" text="env&#xed;a prop."/>
-    </descriptors>
-    <descriptors name="TareaRecepcionContextoRecibeDeFigure">
-      <actualFigure xsi:type="gmfgraph:PolylineConnection" name="TareaRecepcionContextoRecibeDeFigure" targetDecoration="//@figures.0/@figures.7">
-        <foregroundColor xsi:type="gmfgraph:RGBColor" red="100" green="100" blue="100"/>
-      </actualFigure>
-    </descriptors>
-    <descriptors name="TareaRecepcionContextoRecibeDeExternalLabelFigure">
-      <actualFigure xsi:type="gmfgraph:Label" name="TareaRecepcionContextoRecibeDeExternalLabel" text="recibe de"/>
-    </descriptors>
-    <descriptors name="TareaRecepcionContextoRecepcionAsociadaFigure">
-      <actualFigure xsi:type="gmfgraph:PolylineConnection" name="TareaRecepcionContextoRecepcionAsociadaFigure" lineKind="LINE_DASH" targetDecoration="//@figures.0/@figures.8">
-        <foregroundColor xsi:type="gmfgraph:RGBColor" red="200" green="100"/>
-      </actualFigure>
-    </descriptors>
-    <descriptors name="TareaRecepcionContextoRecepcionAsociadaExternalLabelFigure">
-      <actualFigure xsi:type="gmfgraph:Label" name="TareaRecepcionContextoRecepcionAsociadaExternalLabel" text="recibe prop."/>
-    </descriptors>
     <descriptors name="TareaServerMCPEjecutaOperacionFigure">
-      <actualFigure xsi:type="gmfgraph:PolylineConnection" name="TareaServerMCPEjecutaOperacionFigure" lineKind="LINE_DASH" targetDecoration="//@figures.0/@figures.9"/>
+      <actualFigure xsi:type="gmfgraph:PolylineConnection" name="TareaServerMCPEjecutaOperacionFigure" lineKind="LINE_DASH" targetDecoration="//@figures.0/@figures.5"/>
     </descriptors>
     <descriptors name="TareaServerMCPEjecutaOperacionExternalLabelFigure">
       <actualFigure xsi:type="gmfgraph:Label" name="TareaServerMCPEjecutaOperacionExternalLabel" text="ejecuta oper."/>
@@ -334,10 +298,6 @@
   <connections name="WorkflowFinalizaCon" figure="WorkflowFinalizaConFigure"/>
   <connections name="TareaSigue" figure="TareaSigueFigure"/>
   <connections name="TareaAnalisisSigueElse" figure="TareaAnalisisSigueElseFigure"/>
-  <connections name="TareaEnvioContextoEnviaA" figure="TareaEnvioContextoEnviaAFigure"/>
-  <connections name="TareaEnvioContextoEnvioAsociado" figure="TareaEnvioContextoEnvioAsociadoFigure"/>
-  <connections name="TareaRecepcionContextoRecibeDe" figure="TareaRecepcionContextoRecibeDeFigure"/>
-  <connections name="TareaRecepcionContextoRecepcionAsociada" figure="TareaRecepcionContextoRecepcionAsociadaFigure"/>
   <connections name="TareaServerMCPEjecutaOperacion" figure="TareaServerMCPEjecutaOperacionFigure"/>
   <compartments name="ServerMCPOperacionmcpCompartment" figure="ServerMCPFigure" collapsible="true" accessor="//@figures.0/@descriptors.0/@accessors.1"/>
   <compartments name="WorkflowContextoCompartment" figure="WorkflowFigure" collapsible="true" accessor="//@figures.0/@descriptors.2/@accessors.1"/>
@@ -374,9 +334,5 @@
   <labels name="WorkflowFinalizaConExternalLabel" figure="WorkflowFinalizaConExternalLabelFigure" elementIcon="false"/>
   <labels name="TareaSigueExternalLabel" figure="TareaSigueExternalLabelFigure" elementIcon="false"/>
   <labels name="TareaAnalisisSigueElseExternalLabel" figure="TareaAnalisisSigueElseExternalLabelFigure" elementIcon="false"/>
-  <labels name="TareaEnvioContextoEnviaAExternalLabel" figure="TareaEnvioContextoEnviaAExternalLabelFigure" elementIcon="false"/>
-  <labels name="TareaEnvioContextoEnvioAsociadoExternalLabel" figure="TareaEnvioContextoEnvioAsociadoExternalLabelFigure" elementIcon="false"/>
-  <labels name="TareaRecepcionContextoRecibeDeExternalLabel" figure="TareaRecepcionContextoRecibeDeExternalLabelFigure" elementIcon="false"/>
-  <labels name="TareaRecepcionContextoRecepcionAsociadaExternalLabel" figure="TareaRecepcionContextoRecepcionAsociadaExternalLabelFigure" elementIcon="false"/>
   <labels name="TareaServerMCPEjecutaOperacionExternalLabel" figure="TareaServerMCPEjecutaOperacionExternalLabelFigure" elementIcon="false"/>
 </gmfgraph:Canvas>

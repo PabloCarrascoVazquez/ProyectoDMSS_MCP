@@ -199,30 +199,6 @@ public class McpMMEditPartFactory implements EditPartFactory {
 			case McpMM.diagram.edit.parts.TareaAnalisisSigueElseExternalLabelEditPart.VISUAL_ID:
 				return new McpMM.diagram.edit.parts.TareaAnalisisSigueElseExternalLabelEditPart(view);
 
-			case McpMM.diagram.edit.parts.TareaEnvioContextoEnviaAEditPart.VISUAL_ID:
-				return new McpMM.diagram.edit.parts.TareaEnvioContextoEnviaAEditPart(view);
-
-			case McpMM.diagram.edit.parts.TareaEnvioContextoEnviaAExternalLabelEditPart.VISUAL_ID:
-				return new McpMM.diagram.edit.parts.TareaEnvioContextoEnviaAExternalLabelEditPart(view);
-
-			case McpMM.diagram.edit.parts.TareaEnvioContextoEnvioAsociadoEditPart.VISUAL_ID:
-				return new McpMM.diagram.edit.parts.TareaEnvioContextoEnvioAsociadoEditPart(view);
-
-			case McpMM.diagram.edit.parts.TareaEnvioContextoEnvioAsociadoExternalLabelEditPart.VISUAL_ID:
-				return new McpMM.diagram.edit.parts.TareaEnvioContextoEnvioAsociadoExternalLabelEditPart(view);
-
-			case McpMM.diagram.edit.parts.TareaRecepcionContextoRecibeDeEditPart.VISUAL_ID:
-				return new McpMM.diagram.edit.parts.TareaRecepcionContextoRecibeDeEditPart(view);
-
-			case McpMM.diagram.edit.parts.TareaRecepcionContextoRecibeDeExternalLabelEditPart.VISUAL_ID:
-				return new McpMM.diagram.edit.parts.TareaRecepcionContextoRecibeDeExternalLabelEditPart(view);
-
-			case McpMM.diagram.edit.parts.TareaRecepcionContextoRecepcionAsociadaEditPart.VISUAL_ID:
-				return new McpMM.diagram.edit.parts.TareaRecepcionContextoRecepcionAsociadaEditPart(view);
-
-			case McpMM.diagram.edit.parts.TareaRecepcionContextoRecepcionAsociadaExternalLabelEditPart.VISUAL_ID:
-				return new McpMM.diagram.edit.parts.TareaRecepcionContextoRecepcionAsociadaExternalLabelEditPart(view);
-
 			case McpMM.diagram.edit.parts.TareaServerMCPEjecutaOperacionEditPart.VISUAL_ID:
 				return new McpMM.diagram.edit.parts.TareaServerMCPEjecutaOperacionEditPart(view);
 

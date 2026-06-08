@@ -154,18 +154,6 @@ public class McpMMNavigatorLabelProvider extends LabelProvider implements ICommo
 		case McpMM.diagram.edit.parts.TareaServerMCPEjecutaOperacionEditPart.VISUAL_ID:
 			return getImage("Navigator?Link?https://www.example.org/McpMM?TareaServerMCP?ejecutaOperacion", //$NON-NLS-1$
 					McpMM.diagram.providers.McpMMElementTypes.TareaServerMCPEjecutaOperacion_4008);
-		case McpMM.diagram.edit.parts.TareaEnvioContextoEnviaAEditPart.VISUAL_ID:
-			return getImage("Navigator?Link?https://www.example.org/McpMM?TareaEnvioContexto?enviaA", //$NON-NLS-1$
-					McpMM.diagram.providers.McpMMElementTypes.TareaEnvioContextoEnviaA_4009);
-		case McpMM.diagram.edit.parts.TareaEnvioContextoEnvioAsociadoEditPart.VISUAL_ID:
-			return getImage("Navigator?Link?https://www.example.org/McpMM?TareaEnvioContexto?envioAsociado", //$NON-NLS-1$
-					McpMM.diagram.providers.McpMMElementTypes.TareaEnvioContextoEnvioAsociado_4010);
-		case McpMM.diagram.edit.parts.TareaRecepcionContextoRecibeDeEditPart.VISUAL_ID:
-			return getImage("Navigator?Link?https://www.example.org/McpMM?TareaRecepcionContexto?recibeDe", //$NON-NLS-1$
-					McpMM.diagram.providers.McpMMElementTypes.TareaRecepcionContextoRecibeDe_4011);
-		case McpMM.diagram.edit.parts.TareaRecepcionContextoRecepcionAsociadaEditPart.VISUAL_ID:
-			return getImage("Navigator?Link?https://www.example.org/McpMM?TareaRecepcionContexto?recepcionAsociada", //$NON-NLS-1$
-					McpMM.diagram.providers.McpMMElementTypes.TareaRecepcionContextoRecepcionAsociada_4012);
 		}
 		return getImage("Navigator?UnknownElement", null); //$NON-NLS-1$
 	}
@@ -273,14 +261,6 @@ public class McpMMNavigatorLabelProvider extends LabelProvider implements ICommo
 			return getTareaAnalisisSigueElse_4007Text(view);
 		case McpMM.diagram.edit.parts.TareaServerMCPEjecutaOperacionEditPart.VISUAL_ID:
 			return getTareaServerMCPEjecutaOperacion_4008Text(view);
-		case McpMM.diagram.edit.parts.TareaEnvioContextoEnviaAEditPart.VISUAL_ID:
-			return getTareaEnvioContextoEnviaA_4009Text(view);
-		case McpMM.diagram.edit.parts.TareaEnvioContextoEnvioAsociadoEditPart.VISUAL_ID:
-			return getTareaEnvioContextoEnvioAsociado_4010Text(view);
-		case McpMM.diagram.edit.parts.TareaRecepcionContextoRecibeDeEditPart.VISUAL_ID:
-			return getTareaRecepcionContextoRecibeDe_4011Text(view);
-		case McpMM.diagram.edit.parts.TareaRecepcionContextoRecepcionAsociadaEditPart.VISUAL_ID:
-			return getTareaRecepcionContextoRecepcionAsociada_4012Text(view);
 		}
 		return getUnknownElementText(view);
 	}
@@ -703,74 +683,6 @@ public class McpMMNavigatorLabelProvider extends LabelProvider implements ICommo
 		} else {
 			McpMM.diagram.part.McpMMDiagramEditorPlugin.getInstance()
 					.logError("Parser was not found for label " + 6008); //$NON-NLS-1$
-			return ""; //$NON-NLS-1$
-		}
-	}
-
-	/**
-	* @generated
-	*/
-	private String getTareaEnvioContextoEnviaA_4009Text(View view) {
-		IParser parser = McpMM.diagram.providers.McpMMParserProvider.getParser(
-				McpMM.diagram.providers.McpMMElementTypes.TareaEnvioContextoEnviaA_4009,
-				view.getElement() != null ? view.getElement() : view, CommonParserHint.DESCRIPTION);
-		if (parser != null) {
-			return parser.getPrintString(new EObjectAdapter(view.getElement() != null ? view.getElement() : view),
-					ParserOptions.NONE.intValue());
-		} else {
-			McpMM.diagram.part.McpMMDiagramEditorPlugin.getInstance()
-					.logError("Parser was not found for label " + 6009); //$NON-NLS-1$
-			return ""; //$NON-NLS-1$
-		}
-	}
-
-	/**
-	* @generated
-	*/
-	private String getTareaEnvioContextoEnvioAsociado_4010Text(View view) {
-		IParser parser = McpMM.diagram.providers.McpMMParserProvider.getParser(
-				McpMM.diagram.providers.McpMMElementTypes.TareaEnvioContextoEnvioAsociado_4010,
-				view.getElement() != null ? view.getElement() : view, CommonParserHint.DESCRIPTION);
-		if (parser != null) {
-			return parser.getPrintString(new EObjectAdapter(view.getElement() != null ? view.getElement() : view),
-					ParserOptions.NONE.intValue());
-		} else {
-			McpMM.diagram.part.McpMMDiagramEditorPlugin.getInstance()
-					.logError("Parser was not found for label " + 6010); //$NON-NLS-1$
-			return ""; //$NON-NLS-1$
-		}
-	}
-
-	/**
-	* @generated
-	*/
-	private String getTareaRecepcionContextoRecibeDe_4011Text(View view) {
-		IParser parser = McpMM.diagram.providers.McpMMParserProvider.getParser(
-				McpMM.diagram.providers.McpMMElementTypes.TareaRecepcionContextoRecibeDe_4011,
-				view.getElement() != null ? view.getElement() : view, CommonParserHint.DESCRIPTION);
-		if (parser != null) {
-			return parser.getPrintString(new EObjectAdapter(view.getElement() != null ? view.getElement() : view),
-					ParserOptions.NONE.intValue());
-		} else {
-			McpMM.diagram.part.McpMMDiagramEditorPlugin.getInstance()
-					.logError("Parser was not found for label " + 6011); //$NON-NLS-1$
-			return ""; //$NON-NLS-1$
-		}
-	}
-
-	/**
-	* @generated
-	*/
-	private String getTareaRecepcionContextoRecepcionAsociada_4012Text(View view) {
-		IParser parser = McpMM.diagram.providers.McpMMParserProvider.getParser(
-				McpMM.diagram.providers.McpMMElementTypes.TareaRecepcionContextoRecepcionAsociada_4012,
-				view.getElement() != null ? view.getElement() : view, CommonParserHint.DESCRIPTION);
-		if (parser != null) {
-			return parser.getPrintString(new EObjectAdapter(view.getElement() != null ? view.getElement() : view),
-					ParserOptions.NONE.intValue());
-		} else {
-			McpMM.diagram.part.McpMMDiagramEditorPlugin.getInstance()
-					.logError("Parser was not found for label " + 6012); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}

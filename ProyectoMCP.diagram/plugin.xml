@@ -259,7 +259,7 @@
          <context viewClass="org.eclipse.gmf.runtime.notation.Node" containerViews="referencing-diagrams"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Diagram" semanticHints="McpMM"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="2001,2002,2003,3001,3002,3003,3004,3005,3006,3007,3008,3009,3010,3011,3012,3013,3014"/>
-         <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints="4001,4002,4003,4004,4007,4009,4010,4011,4012,4008"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints="4001,4002,4003,4004,4007,4008"/>
       </viewProvider>
    </extension>
 
@@ -274,7 +274,7 @@
             <method name="getType()" value="2001,2002,2003,3001,3002,3003,3004,3005,3006,3007,3008,3009,3010,3011,3012,3013,3014"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Edge" id="generated-links">
-            <method name="getType()" value="4001,4002,4003,4004,4007,4009,4010,4011,4012,4008"/>
+            <method name="getType()" value="4001,4002,4003,4004,4007,4008"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-labels">
             <method name="getType()" value="5002,5003,5017,5001,5006,5004,5005,5007,5008,5009,5010,5011,5012,5013,5014,5016,5015"/>
@@ -637,42 +637,6 @@
       </metamodel>
       <metamodel nsURI="https://www.example.org/McpMM">
          <specializationType
-               id="ProyectoMCP.diagram.TareaEnvioContextoEnviaA_4009"
-               name="%metatype.name.TareaEnvioContextoEnviaA_4009"
-               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
-            <specializes id="org.eclipse.gmf.runtime.emf.type.core.null"/>
-            <param name="semanticHint" value="4009"/>
-         </specializationType>
-      </metamodel>
-      <metamodel nsURI="https://www.example.org/McpMM">
-         <specializationType
-               id="ProyectoMCP.diagram.TareaEnvioContextoEnvioAsociado_4010"
-               name="%metatype.name.TareaEnvioContextoEnvioAsociado_4010"
-               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
-            <specializes id="org.eclipse.gmf.runtime.emf.type.core.null"/>
-            <param name="semanticHint" value="4010"/>
-         </specializationType>
-      </metamodel>
-      <metamodel nsURI="https://www.example.org/McpMM">
-         <specializationType
-               id="ProyectoMCP.diagram.TareaRecepcionContextoRecibeDe_4011"
-               name="%metatype.name.TareaRecepcionContextoRecibeDe_4011"
-               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
-            <specializes id="org.eclipse.gmf.runtime.emf.type.core.null"/>
-            <param name="semanticHint" value="4011"/>
-         </specializationType>
-      </metamodel>
-      <metamodel nsURI="https://www.example.org/McpMM">
-         <specializationType
-               id="ProyectoMCP.diagram.TareaRecepcionContextoRecepcionAsociada_4012"
-               name="%metatype.name.TareaRecepcionContextoRecepcionAsociada_4012"
-               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
-            <specializes id="org.eclipse.gmf.runtime.emf.type.core.null"/>
-            <param name="semanticHint" value="4012"/>
-         </specializationType>
-      </metamodel>
-      <metamodel nsURI="https://www.example.org/McpMM">
-         <specializationType
                id="ProyectoMCP.diagram.TareaServerMCPEjecutaOperacion_4008"
                name="%metatype.name.TareaServerMCPEjecutaOperacion_4008"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
@@ -715,10 +679,6 @@
          <elementType ref="ProyectoMCP.diagram.WorkflowFinalizaCon_4003"/>
          <elementType ref="ProyectoMCP.diagram.TareaSigue_4004"/>
          <elementType ref="ProyectoMCP.diagram.TareaAnalisisSigueElse_4007"/>
-         <elementType ref="ProyectoMCP.diagram.TareaEnvioContextoEnviaA_4009"/>
-         <elementType ref="ProyectoMCP.diagram.TareaEnvioContextoEnvioAsociado_4010"/>
-         <elementType ref="ProyectoMCP.diagram.TareaRecepcionContextoRecibeDe_4011"/>
-         <elementType ref="ProyectoMCP.diagram.TareaRecepcionContextoRecepcionAsociada_4012"/>
          <elementType ref="ProyectoMCP.diagram.TareaServerMCPEjecutaOperacion_4008"/>
          <advice ref="org.eclipse.gmf.runtime.diagram.core.advice.notationDepdendents"/>
       </binding>
