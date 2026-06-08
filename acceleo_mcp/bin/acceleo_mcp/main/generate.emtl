@@ -1,0 +1,2204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:mtl="http://www.eclipse.org/acceleo/mtl/3.0" xmlns:ocl.ecore="http://www.eclipse.org/ocl/1.1.0/Ecore">
+  <mtl:Module name="generate" nsURI="acceleo_mcp::main::generate" startHeaderPosition="30" endHeaderPosition="151">
+    <input>
+      <takesTypesFrom href="https://www.example.org/McpMM#/"/>
+    </input>
+    <ownedModuleElement xsi:type="mtl:Comment">
+      <body startPosition="92" endPosition="151" value=" ========================================================= "/>
+    </ownedModuleElement>
+    <ownedModuleElement xsi:type="mtl:Comment">
+      <body startPosition="163" endPosition="222" value=" PLANTILLA PRINCIPAL: Genera el Index y llama a los demás  "/>
+    </ownedModuleElement>
+    <ownedModuleElement xsi:type="mtl:Comment">
+      <body startPosition="234" endPosition="293" value=" ========================================================= "/>
+    </ownedModuleElement>
+    <ownedModuleElement xsi:type="mtl:Template" name="generateElement" visibility="Public" main="true">
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;"/>
+      <body xsi:type="mtl:FileBlock" openMode="OverWrite">
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&lt;!DOCTYPE html>&#xD;&#xA;&lt;html lang=&quot;es&quot;>&#xD;&#xA;&lt;head>&#xD;&#xA;    &lt;meta charset=&quot;UTF-8&quot;>&#xD;&#xA;    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;>&#xD;&#xA;    &lt;title>Sistema: "/>
+        <body xsi:type="ocl.ecore:PropertyCallExp">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          <source xsi:type="ocl.ecore:VariableExp" name="aService" referredVariable="/0/generateElement/aService">
+            <eType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//ServiceMCP"/>
+          </source>
+          <referredProperty xsi:type="ecore:EAttribute" href="https://www.example.org/McpMM#//ServiceMCP/nombreServicio"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&lt;/title>&#xD;&#xA;    &lt;style>&#xD;&#xA;        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; max-width: 900px; margin: 0 auto; padding: 20px; }&#xD;&#xA;        h1 { color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 10px; }&#xD;&#xA;        .card { background: #fdfdfd; border: 1px solid #e0e0e0; border-radius: 8px; padding: 15px; margin-bottom: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }&#xD;&#xA;        .btn { display: inline-block; background: #3498db; color: white; padding: 8px 15px; text-decoration: none; border-radius: 4px; font-weight: bold; border: none; cursor: pointer;}&#xD;&#xA;        .btn:hover { background: #2980b9; }&#xD;&#xA;    &lt;/style>&#xD;&#xA;&lt;/head>&#xD;&#xA;&lt;body>&#xD;&#xA;    &lt;h1>Panel Central del Servicio: "/>
+        <body xsi:type="ocl.ecore:PropertyCallExp">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          <source xsi:type="ocl.ecore:VariableExp" name="aService" referredVariable="/0/generateElement/aService">
+            <eType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//ServiceMCP"/>
+          </source>
+          <referredProperty xsi:type="ecore:EAttribute" href="https://www.example.org/McpMM#//ServiceMCP/nombreServicio"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&lt;/h1>&#xD;&#xA;&#xD;&#xA;    &lt;div class=&quot;card&quot;>&#xD;&#xA;        &lt;h2>Acceso por Agentes&lt;/h2>&#xD;&#xA;"/>
+        <body xsi:type="mtl:IfBlock">
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="            &lt;p>No hay agentes configurados.&lt;/p>&#xD;&#xA;"/>
+          <ifExpr xsi:type="ocl.ecore:OperationCallExp">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+            <source xsi:type="ocl.ecore:PropertyCallExp" eType="/10/OrderedSet(Agente)">
+              <source xsi:type="ocl.ecore:VariableExp" name="aService" referredVariable="/0/generateElement/aService">
+                <eType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//ServiceMCP"/>
+              </source>
+              <referredProperty xsi:type="ecore:EReference" href="https://www.example.org/McpMM#//ServiceMCP/agente"/>
+            </source>
+            <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OrderedSet(T)_Class/isEmpty"/>
+          </ifExpr>
+          <else>
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="            &lt;ul>&#xD;&#xA;"/>
+            <body xsi:type="mtl:ForBlock">
+              <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="                &lt;li>&lt;a href=&quot;agente_"/>
+              <body xsi:type="ocl.ecore:VariableExp" name="i" referredVariable="/18">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+              </body>
+              <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=".html&quot; class=&quot;btn&quot; style=&quot;margin-bottom: 10px;&quot;>Entrar como Agente "/>
+              <body xsi:type="ocl.ecore:VariableExp" name="i" referredVariable="/18">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+              </body>
+              <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&lt;/a> (Tareas: "/>
+              <body xsi:type="ocl.ecore:PropertyCallExp">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+                <source xsi:type="ocl.ecore:VariableExp" name="a" referredVariable="/0/generateElement/%.1/%.5/%.2/%.1/a">
+                  <eType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//Agente"/>
+                </source>
+                <referredProperty xsi:type="ecore:EAttribute" href="https://www.example.org/McpMM#//Agente/numTareas"/>
+              </body>
+              <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=")&lt;/li>&#xD;&#xA;"/>
+              <loopVariable name="a">
+                <eType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//Agente"/>
+              </loopVariable>
+              <iterSet xsi:type="ocl.ecore:PropertyCallExp" eType="/10/OrderedSet(Agente)">
+                <source xsi:type="ocl.ecore:VariableExp" name="aService" referredVariable="/0/generateElement/aService">
+                  <eType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//ServiceMCP"/>
+                </source>
+                <referredProperty xsi:type="ecore:EReference" href="https://www.example.org/McpMM#//ServiceMCP/agente"/>
+              </iterSet>
+            </body>
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="            &lt;/ul>&#xD;&#xA;"/>
+          </else>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="    &lt;/div>&#xD;&#xA;&lt;/body>&#xD;&#xA;&lt;/html>&#xD;&#xA;"/>
+        <fileUrl xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="index.html">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </fileUrl>
+        <charset xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="UTF-8">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </charset>
+      </body>
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;"/>
+      <body xsi:type="mtl:ForBlock">
+        <body xsi:type="mtl:FileBlock" openMode="OverWrite">
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="    &lt;!DOCTYPE html>&#xD;&#xA;    &lt;html lang=&quot;es&quot;>&#xD;&#xA;    &lt;head>&#xD;&#xA;        &lt;meta charset=&quot;UTF-8&quot;>&#xD;&#xA;        &lt;title>Panel Agente "/>
+          <body xsi:type="ocl.ecore:VariableExp" name="i" referredVariable="/33">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+          </body>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&lt;/title>&#xD;&#xA;        &lt;style>&#xD;&#xA;            body { font-family: sans-serif; max-width: 800px; margin: 20px auto; }&#xD;&#xA;            .btn { background: #3498db; color: white; padding: 10px 15px; text-decoration: none; border-radius: 5px; }&#xD;&#xA;            .task-list { margin-top: 20px; }&#xD;&#xA;            .task-item { padding: 10px; border: 1px solid #ddd; margin-bottom: 10px; border-radius: 5px; }&#xD;&#xA;        &lt;/style>&#xD;&#xA;    &lt;/head>&#xD;&#xA;    &lt;body>&#xD;&#xA;        &lt;h1>Panel de Control - Agente "/>
+          <body xsi:type="ocl.ecore:VariableExp" name="i" referredVariable="/33">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+          </body>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=" ("/>
+          <body xsi:type="ocl.ecore:PropertyCallExp">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            <source xsi:type="ocl.ecore:VariableExp" name="a" referredVariable="/0/generateElement/%.3/a">
+              <eType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//Agente"/>
+            </source>
+            <referredProperty xsi:type="ecore:EAttribute" href="https://www.example.org/McpMM#//Agente/nombreAgente"/>
+          </body>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=")&lt;/h1>&#xD;&#xA;        &lt;a href=&quot;index.html&quot; style=&quot;color: #e74c3c;&quot;>&amp;larr; Volver al inicio&lt;/a>&#xD;&#xA;        &#xD;&#xA;        &lt;div class=&quot;task-list&quot;>&#xD;&#xA;            &lt;h2>Mis tareas asignadas:&lt;/h2>&#xD;&#xA;"/>
+          <body xsi:type="mtl:ForBlock">
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="                &lt;div class=&quot;task-item&quot;>&#xD;&#xA;                    &lt;strong>"/>
+            <body xsi:type="ocl.ecore:PropertyCallExp">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              <source xsi:type="ocl.ecore:VariableExp" name="t" referredVariable="/0/generateElement/%.3/%/%.5/t">
+                <eType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//Tarea"/>
+              </source>
+              <referredProperty xsi:type="ecore:EAttribute" href="https://www.example.org/McpMM#//Tarea/nombreTarea"/>
+            </body>
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&lt;/strong> &#xD;&#xA;                    &lt;br>&lt;br>&#xD;&#xA;                    &lt;a href=&quot;tarea_"/>
+            <body xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/replaceAll">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              <source xsi:type="ocl.ecore:PropertyCallExp">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                <source xsi:type="ocl.ecore:VariableExp" name="t" referredVariable="/0/generateElement/%.3/%/%.5/t">
+                  <eType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//Tarea"/>
+                </source>
+                <referredProperty xsi:type="ecore:EAttribute" href="https://www.example.org/McpMM#//Tarea/nombreTarea"/>
+              </source>
+              <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=" ">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              </argument>
+              <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="_">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              </argument>
+            </body>
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=".html&quot; class=&quot;btn&quot;>Ir a la Tarea&lt;/a>&#xD;&#xA;                &lt;/div>&#xD;&#xA;"/>
+            <loopVariable name="t">
+              <eType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//Tarea"/>
+            </loopVariable>
+            <iterSet xsi:type="ocl.ecore:PropertyCallExp" eType="/10/OrderedSet(Tarea)">
+              <source xsi:type="ocl.ecore:VariableExp" name="a" referredVariable="/0/generateElement/%.3/a">
+                <eType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//Agente"/>
+              </source>
+              <referredProperty xsi:type="ecore:EReference" href="https://www.example.org/McpMM#//Agente/realiza"/>
+            </iterSet>
+          </body>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="        &lt;/div>&#xD;&#xA;    &lt;/body>&#xD;&#xA;    &lt;/html>&#xD;&#xA;"/>
+          <fileUrl xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/+">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            <source xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/+">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              <source xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="agente_">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              </source>
+              <argument xsi:type="ocl.ecore:VariableExp" name="i" referredVariable="/33">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+              </argument>
+            </source>
+            <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=".html">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            </argument>
+          </fileUrl>
+          <charset xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="UTF-8">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          </charset>
+        </body>
+        <loopVariable name="a">
+          <eType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//Agente"/>
+        </loopVariable>
+        <iterSet xsi:type="ocl.ecore:PropertyCallExp" eType="/10/OrderedSet(Agente)">
+          <source xsi:type="ocl.ecore:VariableExp" name="aService" referredVariable="/0/generateElement/aService">
+            <eType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//ServiceMCP"/>
+          </source>
+          <referredProperty xsi:type="ecore:EReference" href="https://www.example.org/McpMM#//ServiceMCP/agente"/>
+        </iterSet>
+      </body>
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;"/>
+      <body xsi:type="mtl:ForBlock">
+        <body xsi:type="mtl:ForBlock">
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="        "/>
+          <body xsi:type="mtl:TemplateInvocation" definition="/0/generateTaskView">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            <argument xsi:type="ocl.ecore:VariableExp" name="t" referredVariable="/0/generateElement/%.5/%/t">
+              <eType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//Tarea"/>
+            </argument>
+          </body>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;"/>
+          <loopVariable name="t">
+            <eType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//Tarea"/>
+          </loopVariable>
+          <iterSet xsi:type="ocl.ecore:PropertyCallExp" eType="/10/OrderedSet(Tarea)">
+            <source xsi:type="ocl.ecore:VariableExp" name="w" referredVariable="/0/generateElement/%.5/w">
+              <eType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//Workflow"/>
+            </source>
+            <referredProperty xsi:type="ecore:EReference" href="https://www.example.org/McpMM#//Workflow/tarea"/>
+          </iterSet>
+        </body>
+        <loopVariable name="w">
+          <eType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//Workflow"/>
+        </loopVariable>
+        <iterSet xsi:type="ocl.ecore:PropertyCallExp" eType="/10/OrderedSet(Workflow)">
+          <source xsi:type="ocl.ecore:VariableExp" name="aService" referredVariable="/0/generateElement/aService">
+            <eType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//ServiceMCP"/>
+          </source>
+          <referredProperty xsi:type="ecore:EReference" href="https://www.example.org/McpMM#//ServiceMCP/workflow"/>
+        </iterSet>
+      </body>
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;"/>
+      <parameter name="aService">
+        <eType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//ServiceMCP"/>
+      </parameter>
+    </ownedModuleElement>
+    <ownedModuleElement xsi:type="mtl:Comment">
+      <body startPosition="3422" endPosition="3481" value=" ========================================================= "/>
+    </ownedModuleElement>
+    <ownedModuleElement xsi:type="mtl:Comment">
+      <body startPosition="3493" endPosition="3552" value=" PLANTILLA SECUNDARIA: Genera el HTML específico por tarea "/>
+    </ownedModuleElement>
+    <ownedModuleElement xsi:type="mtl:Comment">
+      <body startPosition="3564" endPosition="3623" value=" ========================================================= "/>
+    </ownedModuleElement>
+    <ownedModuleElement xsi:type="mtl:Template" name="generateTaskView" visibility="Public">
+      <body xsi:type="mtl:FileBlock" openMode="OverWrite">
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&lt;!DOCTYPE html>&#xD;&#xA;&lt;html lang=&quot;es&quot;>&#xD;&#xA;&lt;head>&#xD;&#xA;    &lt;meta charset=&quot;UTF-8&quot;>&#xD;&#xA;    &lt;title>Tarea: "/>
+        <body xsi:type="ocl.ecore:PropertyCallExp">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          <source xsi:type="ocl.ecore:VariableExp" name="t" referredVariable="/0/generateTaskView/t">
+            <eType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//Tarea"/>
+          </source>
+          <referredProperty xsi:type="ecore:EAttribute" href="https://www.example.org/McpMM#//Tarea/nombreTarea"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&lt;/title>&#xD;&#xA;    &lt;style>&#xD;&#xA;        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width: 800px; margin: 40px auto; padding: 20px; background: #f4f6f7; }&#xD;&#xA;        .container { background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }&#xD;&#xA;        h1 { color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 10px; }&#xD;&#xA;        .btn { display: inline-block; background: #2ecc71; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-weight: bold; margin-top: 20px; border: none; cursor: pointer; }&#xD;&#xA;        .btn-secondary { background: #95a5a6; }&#xD;&#xA;        .btn-danger { background: #e74c3c; }&#xD;&#xA;        .box { border: 1px solid #ccc; padding: 15px; border-radius: 5px; margin-top: 15px; background: #fafafa; }&#xD;&#xA;        input { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px; }&#xD;&#xA;    &lt;/style>&#xD;&#xA;&lt;/head>&#xD;&#xA;&lt;body>&#xD;&#xA;    &lt;div class=&quot;container&quot;>&#xD;&#xA;        &lt;a href=&quot;index.html&quot; style=&quot;color: #7f8c8d; text-decoration: none;&quot;>&amp;larr; Volver al Índice Principal&lt;/a>&#xD;&#xA;        &lt;h1>"/>
+        <body xsi:type="ocl.ecore:PropertyCallExp">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          <source xsi:type="ocl.ecore:VariableExp" name="t" referredVariable="/0/generateTaskView/t">
+            <eType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//Tarea"/>
+          </source>
+          <referredProperty xsi:type="ecore:EAttribute" href="https://www.example.org/McpMM#//Tarea/nombreTarea"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&lt;/h1>&#xD;&#xA;&#xD;&#xA;"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;"/>
+        <body xsi:type="mtl:IfBlock">
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="            &lt;p>Este es el punto de inicio del flujo de trabajo.&lt;/p>&#xD;&#xA;            &lt;a href=&quot;tarea_"/>
+          <body xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/replaceAll">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            <source xsi:type="ocl.ecore:PropertyCallExp">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              <source xsi:type="ocl.ecore:PropertyCallExp">
+                <eType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//Tarea"/>
+                <source xsi:type="ocl.ecore:VariableExp" name="t" referredVariable="/0/generateTaskView/t">
+                  <eType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//Tarea"/>
+                </source>
+                <referredProperty xsi:type="ecore:EReference" href="https://www.example.org/McpMM#//Tarea/sigue"/>
+              </source>
+              <referredProperty xsi:type="ecore:EAttribute" href="https://www.example.org/McpMM#//Tarea/nombreTarea"/>
+            </source>
+            <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=" ">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            </argument>
+            <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="_">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            </argument>
+          </body>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=".html&quot; class=&quot;btn&quot;>Comenzar Flujo &amp;rarr;&lt;/a>&#xD;&#xA;&#xD;&#xA;"/>
+          <ifExpr xsi:type="ocl.ecore:OperationCallExp">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+            <source xsi:type="ocl.ecore:VariableExp" name="t" referredVariable="/0/generateTaskView/t">
+              <eType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//Tarea"/>
+            </source>
+            <argument xsi:type="ocl.ecore:TypeExp" eType="/51/TareaInicial">
+              <referredType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//TareaInicial"/>
+            </argument>
+            <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny_Class/oclIsTypeOf"/>
+          </ifExpr>
+          <elseIf>
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="            &lt;div style=&quot;text-align: center; padding: 40px;&quot;>&#xD;&#xA;                &lt;h2 style=&quot;color: #27ae60;&quot;>¡Flujo Completado!&lt;/h2>&#xD;&#xA;                &lt;p>Has llegado al final de este proceso.&lt;/p>&#xD;&#xA;                &lt;a href=&quot;index.html&quot; class=&quot;btn btn-secondary&quot;>Volver al Inicio&lt;/a>&#xD;&#xA;            &lt;/div>&#xD;&#xA;&#xD;&#xA;"/>
+            <ifExpr xsi:type="ocl.ecore:OperationCallExp">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+              <source xsi:type="ocl.ecore:VariableExp" name="t" referredVariable="/0/generateTaskView/t">
+                <eType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//Tarea"/>
+              </source>
+              <argument xsi:type="ocl.ecore:TypeExp" eType="/51/TareaFinal">
+                <referredType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//TareaFinal"/>
+              </argument>
+              <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny_Class/oclIsTypeOf"/>
+            </ifExpr>
+          </elseIf>
+          <elseIf>
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="            &lt;div class=&quot;box&quot;>&#xD;&#xA;                &lt;h3>Formulario de Entrada&lt;/h3>&#xD;&#xA;                &lt;p>&lt;em>"/>
+            <body xsi:type="ocl.ecore:PropertyCallExp">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              <source xsi:type="ocl.ecore:OperationCallExp">
+                <eType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//TareaUsuario"/>
+                <source xsi:type="ocl.ecore:VariableExp" name="t" referredVariable="/0/generateTaskView/t">
+                  <eType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//Tarea"/>
+                </source>
+                <argument xsi:type="ocl.ecore:TypeExp" eType="/51/TareaUsuario">
+                  <referredType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//TareaUsuario"/>
+                </argument>
+                <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny_Class/oclAsType"/>
+              </source>
+              <referredProperty xsi:type="ecore:EAttribute" href="https://www.example.org/McpMM#//TareaEjecutable/descTarea"/>
+            </body>
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&lt;/em>&lt;/p>&#xD;&#xA;                &lt;form action=&quot;tarea_"/>
+            <body xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/replaceAll">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              <source xsi:type="ocl.ecore:PropertyCallExp">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                <source xsi:type="ocl.ecore:PropertyCallExp">
+                  <eType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//Tarea"/>
+                  <source xsi:type="ocl.ecore:VariableExp" name="t" referredVariable="/0/generateTaskView/t">
+                    <eType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//Tarea"/>
+                  </source>
+                  <referredProperty xsi:type="ecore:EReference" href="https://www.example.org/McpMM#//Tarea/sigue"/>
+                </source>
+                <referredProperty xsi:type="ecore:EAttribute" href="https://www.example.org/McpMM#//Tarea/nombreTarea"/>
+              </source>
+              <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=" ">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              </argument>
+              <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="_">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              </argument>
+            </body>
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=".html&quot; method=&quot;GET&quot;>&#xD;&#xA;                    &lt;label>&lt;strong>Ingrese los datos solicitados:&lt;/strong>&lt;/label>&#xD;&#xA;                    &lt;input type=&quot;text&quot; name=&quot;input_data&quot; placeholder=&quot;Escriba aquí...&quot; required>&#xD;&#xA;                    &lt;button type=&quot;submit&quot; class=&quot;btn&quot;>Guardar y Siguiente &amp;rarr;&lt;/button>&#xD;&#xA;                &lt;/form>&#xD;&#xA;            &lt;/div>&#xD;&#xA;&#xD;&#xA;"/>
+            <ifExpr xsi:type="ocl.ecore:OperationCallExp">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+              <source xsi:type="ocl.ecore:VariableExp" name="t" referredVariable="/0/generateTaskView/t">
+                <eType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//Tarea"/>
+              </source>
+              <argument xsi:type="ocl.ecore:TypeExp" eType="/51/TareaUsuario">
+                <referredType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//TareaUsuario"/>
+              </argument>
+              <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny_Class/oclIsTypeOf"/>
+            </ifExpr>
+          </elseIf>
+          <elseIf>
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="            &lt;div class=&quot;box&quot;>&#xD;&#xA;                &lt;h3>Preparando Envío de Contexto&lt;/h3>&#xD;&#xA;                &lt;p>El contexto y sus propiedades han sido empaquetados y están listos para ser transmitidos a la siguiente tarea.&lt;/p>&#xD;&#xA;                &lt;pre style=&quot;background:#eee; padding:10px; border-radius:4px;&quot;>{ &quot;status&quot;: &quot;ready&quot;, &quot;datos&quot;: &quot;...&quot; }&lt;/pre>&#xD;&#xA;                &lt;button onclick=&quot;window.location.href='tarea_"/>
+            <body xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/replaceAll">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              <source xsi:type="ocl.ecore:PropertyCallExp">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                <source xsi:type="ocl.ecore:PropertyCallExp">
+                  <eType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//Tarea"/>
+                  <source xsi:type="ocl.ecore:VariableExp" name="t" referredVariable="/0/generateTaskView/t">
+                    <eType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//Tarea"/>
+                  </source>
+                  <referredProperty xsi:type="ecore:EReference" href="https://www.example.org/McpMM#//Tarea/sigue"/>
+                </source>
+                <referredProperty xsi:type="ecore:EAttribute" href="https://www.example.org/McpMM#//Tarea/nombreTarea"/>
+              </source>
+              <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=" ">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              </argument>
+              <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="_">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              </argument>
+            </body>
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=".html'&quot; class=&quot;btn&quot;>Enviar Contexto &amp;rarr;&lt;/button>&#xD;&#xA;            &lt;/div>&#xD;&#xA;&#xD;&#xA;"/>
+            <ifExpr xsi:type="ocl.ecore:OperationCallExp">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+              <source xsi:type="ocl.ecore:VariableExp" name="t" referredVariable="/0/generateTaskView/t">
+                <eType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//Tarea"/>
+              </source>
+              <argument xsi:type="ocl.ecore:TypeExp" eType="/51/TareaEnvioContexto">
+                <referredType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//TareaEnvioContexto"/>
+              </argument>
+              <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny_Class/oclIsTypeOf"/>
+            </ifExpr>
+          </elseIf>
+          <elseIf>
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="            &lt;div class=&quot;box&quot;>&#xD;&#xA;                &lt;h3>Recepción de Peticiones&lt;/h3>&#xD;&#xA;                &lt;p>Selecciona una petición de contexto pendiente para procesar:&lt;/p>&#xD;&#xA;                &lt;form action=&quot;tarea_"/>
+            <body xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/replaceAll">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              <source xsi:type="ocl.ecore:PropertyCallExp">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                <source xsi:type="ocl.ecore:PropertyCallExp">
+                  <eType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//Tarea"/>
+                  <source xsi:type="ocl.ecore:VariableExp" name="t" referredVariable="/0/generateTaskView/t">
+                    <eType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//Tarea"/>
+                  </source>
+                  <referredProperty xsi:type="ecore:EReference" href="https://www.example.org/McpMM#//Tarea/sigue"/>
+                </source>
+                <referredProperty xsi:type="ecore:EAttribute" href="https://www.example.org/McpMM#//Tarea/nombreTarea"/>
+              </source>
+              <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=" ">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              </argument>
+              <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="_">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              </argument>
+            </body>
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=".html&quot;>&#xD;&#xA;                    &lt;label>&lt;input type=&quot;radio&quot; name=&quot;req&quot; required> Petición ID-001 (Alta Prioridad)&lt;/label>&lt;br>&#xD;&#xA;                    &lt;label>&lt;input type=&quot;radio&quot; name=&quot;req&quot;> Petición ID-002&lt;/label>&lt;br>&lt;br>&#xD;&#xA;                    &lt;button type=&quot;submit&quot; class=&quot;btn&quot;>Procesar Selección &amp;rarr;&lt;/button>&#xD;&#xA;                &lt;/form>&#xD;&#xA;            &lt;/div>&#xD;&#xA;&#xD;&#xA;"/>
+            <ifExpr xsi:type="ocl.ecore:OperationCallExp">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+              <source xsi:type="ocl.ecore:VariableExp" name="t" referredVariable="/0/generateTaskView/t">
+                <eType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//Tarea"/>
+              </source>
+              <argument xsi:type="ocl.ecore:TypeExp" eType="/51/TareaRecepcionContexto">
+                <referredType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//TareaRecepcionContexto"/>
+              </argument>
+              <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny_Class/oclIsTypeOf"/>
+            </ifExpr>
+          </elseIf>
+          <elseIf>
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="            &lt;div class=&quot;box&quot; style=&quot;border-left: 4px solid #f39c12;&quot;>&#xD;&#xA;                &lt;h3>Procesamiento por Inteligencia Artificial (LLM)&lt;/h3>&#xD;&#xA;                &lt;p>&lt;strong>Prompt cargado:&lt;/strong> "/>
+            <body xsi:type="ocl.ecore:PropertyCallExp">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              <source xsi:type="ocl.ecore:OperationCallExp">
+                <eType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//TareaLLM"/>
+                <source xsi:type="ocl.ecore:VariableExp" name="t" referredVariable="/0/generateTaskView/t">
+                  <eType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//Tarea"/>
+                </source>
+                <argument xsi:type="ocl.ecore:TypeExp" eType="/51/TareaLLM">
+                  <referredType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//TareaLLM"/>
+                </argument>
+                <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny_Class/oclAsType"/>
+              </source>
+              <referredProperty xsi:type="ecore:EAttribute" href="https://www.example.org/McpMM#//TareaLLM/prompt"/>
+            </body>
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&lt;/p>&#xD;&#xA;                &lt;p>&lt;strong>Contexto recibido:&lt;/strong> (Datos inyectados del paso anterior)&lt;/p>&#xD;&#xA;                &lt;hr>&#xD;&#xA;                &lt;h4>Resultado Simulado del Modelo:&lt;/h4>&#xD;&#xA;                &lt;p style=&quot;font-style: italic; color: #555;&quot;>&quot;Se han detectado 3 entidades. Confianza del análisis: 98%.&quot;&lt;/p>&#xD;&#xA;                &lt;a href=&quot;tarea_"/>
+            <body xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/replaceAll">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              <source xsi:type="ocl.ecore:PropertyCallExp">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                <source xsi:type="ocl.ecore:PropertyCallExp">
+                  <eType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//Tarea"/>
+                  <source xsi:type="ocl.ecore:VariableExp" name="t" referredVariable="/0/generateTaskView/t">
+                    <eType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//Tarea"/>
+                  </source>
+                  <referredProperty xsi:type="ecore:EReference" href="https://www.example.org/McpMM#//Tarea/sigue"/>
+                </source>
+                <referredProperty xsi:type="ecore:EAttribute" href="https://www.example.org/McpMM#//Tarea/nombreTarea"/>
+              </source>
+              <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=" ">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              </argument>
+              <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="_">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              </argument>
+            </body>
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=".html&quot; class=&quot;btn&quot;>Continuar &amp;rarr;&lt;/a>&#xD;&#xA;            &lt;/div>&#xD;&#xA;&#xD;&#xA;"/>
+            <ifExpr xsi:type="ocl.ecore:OperationCallExp">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+              <source xsi:type="ocl.ecore:VariableExp" name="t" referredVariable="/0/generateTaskView/t">
+                <eType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//Tarea"/>
+              </source>
+              <argument xsi:type="ocl.ecore:TypeExp" eType="/51/TareaLLM">
+                <referredType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//TareaLLM"/>
+              </argument>
+              <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny_Class/oclIsTypeOf"/>
+            </ifExpr>
+          </elseIf>
+          <elseIf>
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="            &lt;h3>Transformador de Datos&lt;/h3>&#xD;&#xA;            &lt;div style=&quot;display: flex; gap: 20px; margin-top: 15px;&quot;>&#xD;&#xA;                &lt;div class=&quot;box&quot; style=&quot;flex: 1; margin-top: 0;&quot;>&#xD;&#xA;                    &lt;h4>Entrada (Crudo)&lt;/h4>&#xD;&#xA;                    &lt;pre>&lt;code>&lt;br>Nombre: Juan&lt;br>Edad: 30&lt;br>Activo: Si&lt;br>&lt;/code>&lt;/pre>&#xD;&#xA;                &lt;/div>&#xD;&#xA;                &lt;div class=&quot;box&quot; style=&quot;flex: 1; margin-top: 0; background: #e8f8f5;&quot;>&#xD;&#xA;                    &lt;h4>Resultado (Transformado)&lt;/h4>&#xD;&#xA;                    &lt;pre>&lt;code>{&lt;br>  &quot;nombre&quot;: &quot;Juan&quot;,&lt;br>  &quot;edad&quot;: 30,&lt;br>  &quot;activo&quot;: true&lt;br>}&lt;/code>&lt;/pre>&#xD;&#xA;                &lt;/div>&#xD;&#xA;            &lt;/div>&#xD;&#xA;            &lt;a href=&quot;tarea_"/>
+            <body xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/replaceAll">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              <source xsi:type="ocl.ecore:PropertyCallExp">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                <source xsi:type="ocl.ecore:PropertyCallExp">
+                  <eType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//Tarea"/>
+                  <source xsi:type="ocl.ecore:VariableExp" name="t" referredVariable="/0/generateTaskView/t">
+                    <eType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//Tarea"/>
+                  </source>
+                  <referredProperty xsi:type="ecore:EReference" href="https://www.example.org/McpMM#//Tarea/sigue"/>
+                </source>
+                <referredProperty xsi:type="ecore:EAttribute" href="https://www.example.org/McpMM#//Tarea/nombreTarea"/>
+              </source>
+              <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=" ">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              </argument>
+              <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="_">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              </argument>
+            </body>
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=".html&quot; class=&quot;btn&quot;>Aceptar Transformación &amp;rarr;&lt;/a>&#xD;&#xA;&#xD;&#xA;"/>
+            <ifExpr xsi:type="ocl.ecore:OperationCallExp">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+              <source xsi:type="ocl.ecore:VariableExp" name="t" referredVariable="/0/generateTaskView/t">
+                <eType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//Tarea"/>
+              </source>
+              <argument xsi:type="ocl.ecore:TypeExp" eType="/51/TareaTransformacionDatos">
+                <referredType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//TareaTransformacionDatos"/>
+              </argument>
+              <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny_Class/oclIsTypeOf"/>
+            </ifExpr>
+          </elseIf>
+          <elseIf>
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="            &lt;div class=&quot;box&quot; style=&quot;text-align: center; padding: 30px;&quot;>&#xD;&#xA;                &lt;h3>Decisión de Flujo (If/Else)&lt;/h3>&#xD;&#xA;                &lt;p style=&quot;font-size: 1.1em; margin-bottom: 25px;&quot;>&lt;strong>¿La evaluación cumple con los criterios establecidos?&lt;/strong>&lt;/p>&#xD;&#xA;                &lt;p>&lt;em>Prompt de decisión: "/>
+            <body xsi:type="ocl.ecore:PropertyCallExp">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              <source xsi:type="ocl.ecore:OperationCallExp">
+                <eType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//TareaAnalisis"/>
+                <source xsi:type="ocl.ecore:VariableExp" name="t" referredVariable="/0/generateTaskView/t">
+                  <eType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//Tarea"/>
+                </source>
+                <argument xsi:type="ocl.ecore:TypeExp" eType="/51/TareaAnalisis">
+                  <referredType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//TareaAnalisis"/>
+                </argument>
+                <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny_Class/oclAsType"/>
+              </source>
+              <referredProperty xsi:type="ecore:EAttribute" href="https://www.example.org/McpMM#//TareaAnalisis/prompt"/>
+            </body>
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&lt;/em>&lt;/p>&#xD;&#xA;                &#xD;&#xA;                &lt;a href=&quot;tarea_"/>
+            <body xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/replaceAll">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              <source xsi:type="ocl.ecore:PropertyCallExp">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                <source xsi:type="ocl.ecore:PropertyCallExp">
+                  <eType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//Tarea"/>
+                  <source xsi:type="ocl.ecore:VariableExp" name="t" referredVariable="/0/generateTaskView/t">
+                    <eType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//Tarea"/>
+                  </source>
+                  <referredProperty xsi:type="ecore:EReference" href="https://www.example.org/McpMM#//Tarea/sigue"/>
+                </source>
+                <referredProperty xsi:type="ecore:EAttribute" href="https://www.example.org/McpMM#//Tarea/nombreTarea"/>
+              </source>
+              <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=" ">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              </argument>
+              <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="_">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              </argument>
+            </body>
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=".html&quot; class=&quot;btn&quot; style=&quot;margin-right: 15px;&quot;>Sí (Ir por IF)&lt;/a>&#xD;&#xA;                &#xD;&#xA;                &lt;a href=&quot;tarea_"/>
+            <body xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/replaceAll">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              <source xsi:type="ocl.ecore:PropertyCallExp">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                <source xsi:type="ocl.ecore:PropertyCallExp">
+                  <eType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//Tarea"/>
+                  <source xsi:type="ocl.ecore:OperationCallExp">
+                    <eType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//TareaAnalisis"/>
+                    <source xsi:type="ocl.ecore:VariableExp" name="t" referredVariable="/0/generateTaskView/t">
+                      <eType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//Tarea"/>
+                    </source>
+                    <argument xsi:type="ocl.ecore:TypeExp" eType="/51/TareaAnalisis">
+                      <referredType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//TareaAnalisis"/>
+                    </argument>
+                    <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny_Class/oclAsType"/>
+                  </source>
+                  <referredProperty xsi:type="ecore:EReference" href="https://www.example.org/McpMM#//TareaAnalisis/sigueElse"/>
+                </source>
+                <referredProperty xsi:type="ecore:EAttribute" href="https://www.example.org/McpMM#//Tarea/nombreTarea"/>
+              </source>
+              <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=" ">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              </argument>
+              <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="_">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              </argument>
+            </body>
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=".html&quot; class=&quot;btn btn-danger&quot;>No (Ir por ELSE)&lt;/a>&#xD;&#xA;            &lt;/div>&#xD;&#xA;&#xD;&#xA;"/>
+            <ifExpr xsi:type="ocl.ecore:OperationCallExp">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+              <source xsi:type="ocl.ecore:VariableExp" name="t" referredVariable="/0/generateTaskView/t">
+                <eType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//Tarea"/>
+              </source>
+              <argument xsi:type="ocl.ecore:TypeExp" eType="/51/TareaAnalisis">
+                <referredType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//TareaAnalisis"/>
+              </argument>
+              <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny_Class/oclIsTypeOf"/>
+            </ifExpr>
+          </elseIf>
+          <elseIf>
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="            &lt;div class=&quot;box&quot; style=&quot;border-left: 4px solid #34495e;&quot;>&#xD;&#xA;                &lt;h3>Ejecución en Servidor Remoto (MCP)&lt;/h3>&#xD;&#xA;                &lt;p>&lt;strong>Operación a ejecutar:&lt;/strong>&lt;/p>&#xD;&#xA;                &lt;pre style=&quot;background:#2c3e50; color:#ecf0f1; padding:15px; border-radius:4px;&quot;>"/>
+            <body xsi:type="ocl.ecore:PropertyCallExp">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              <source xsi:type="ocl.ecore:OperationCallExp">
+                <eType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//TareaServerMCP"/>
+                <source xsi:type="ocl.ecore:VariableExp" name="t" referredVariable="/0/generateTaskView/t">
+                  <eType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//Tarea"/>
+                </source>
+                <argument xsi:type="ocl.ecore:TypeExp" eType="/51/TareaServerMCP">
+                  <referredType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//TareaServerMCP"/>
+                </argument>
+                <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny_Class/oclAsType"/>
+              </source>
+              <referredProperty xsi:type="ecore:EAttribute" href="https://www.example.org/McpMM#//TareaServerMCP/prompt"/>
+            </body>
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&lt;/pre>&#xD;&#xA;                &lt;p>Estado: &lt;span style=&quot;color:#27ae60; font-weight:bold;&quot;>Ejecutado con éxito&lt;/span>&lt;/p>&#xD;&#xA;                &lt;a href=&quot;tarea_"/>
+            <body xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/replaceAll">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              <source xsi:type="ocl.ecore:PropertyCallExp">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                <source xsi:type="ocl.ecore:PropertyCallExp">
+                  <eType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//Tarea"/>
+                  <source xsi:type="ocl.ecore:VariableExp" name="t" referredVariable="/0/generateTaskView/t">
+                    <eType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//Tarea"/>
+                  </source>
+                  <referredProperty xsi:type="ecore:EReference" href="https://www.example.org/McpMM#//Tarea/sigue"/>
+                </source>
+                <referredProperty xsi:type="ecore:EAttribute" href="https://www.example.org/McpMM#//Tarea/nombreTarea"/>
+              </source>
+              <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=" ">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              </argument>
+              <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="_">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              </argument>
+            </body>
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=".html&quot; class=&quot;btn&quot;>Siguiente &amp;rarr;&lt;/a>&#xD;&#xA;            &lt;/div>&#xD;&#xA;&#xD;&#xA;"/>
+            <ifExpr xsi:type="ocl.ecore:OperationCallExp">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+              <source xsi:type="ocl.ecore:VariableExp" name="t" referredVariable="/0/generateTaskView/t">
+                <eType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//Tarea"/>
+              </source>
+              <argument xsi:type="ocl.ecore:TypeExp" eType="/51/TareaServerMCP">
+                <referredType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//TareaServerMCP"/>
+              </argument>
+              <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny_Class/oclIsTypeOf"/>
+            </ifExpr>
+          </elseIf>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="    &lt;/div>&#xD;&#xA;&lt;/body>&#xD;&#xA;&lt;/html>&#xD;&#xA;"/>
+        <fileUrl xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/+">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          <source xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/+">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            <source xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="tarea_">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            </source>
+            <argument xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/replaceAll">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              <source xsi:type="ocl.ecore:PropertyCallExp">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                <source xsi:type="ocl.ecore:VariableExp" name="t" referredVariable="/0/generateTaskView/t">
+                  <eType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//Tarea"/>
+                </source>
+                <referredProperty xsi:type="ecore:EAttribute" href="https://www.example.org/McpMM#//Tarea/nombreTarea"/>
+              </source>
+              <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=" ">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              </argument>
+              <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="_">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              </argument>
+            </argument>
+          </source>
+          <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=".html">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          </argument>
+        </fileUrl>
+        <charset xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="UTF-8">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </charset>
+      </body>
+      <parameter name="t">
+        <eType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//Tarea"/>
+      </parameter>
+    </ownedModuleElement>
+  </mtl:Module>
+  <ecore:EPackage name="additions">
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_String_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </eAnnotations>
+      <eOperations name="replaceAll">
+        <eAnnotations source="MTL non-standard"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="substring">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </eParameters>
+        <eParameters name="replacement">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="+">
+        <eAnnotations source="MTL non-standard"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="other">
+          <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+        </eParameters>
+      </eOperations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_Integer_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_Real_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Real"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ecore_EObject_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+      </eAnnotations>
+      <eOperations name="generateElement">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL" references="/0/generateElement"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="aService">
+          <eType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//ServiceMCP"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="generateTaskView">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL" references="/0/generateTaskView"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="t">
+          <eType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//Tarea"/>
+        </eParameters>
+      </eOperations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_OclAny_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_Collection(T)_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Collection(T)"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_Sequence(T)_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Sequence(T)"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_OrderedSet(T)_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OrderedSet(T)"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="McpMM_ServiceMCP_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="https://www.example.org/McpMM#//ServiceMCP"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="McpMM_Tarea_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="https://www.example.org/McpMM#//Tarea"/>
+      </eAnnotations>
+    </eClassifiers>
+  </ecore:EPackage>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//ServiceMCP"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//ServiceMCP"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//ServiceMCP"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//ServiceMCP"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//ServiceMCP"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//ServiceMCP"/>
+  </ocl.ecore:Variable>
+  <ecore:EPackage name="collections">
+    <eClassifiers xsi:type="ocl.ecore:OrderedSetType" name="OrderedSet(Agente)" instanceClassName="java.util.LinkedHashSet">
+      <elementType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//Agente"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ocl.ecore:SetType" name="Set(Agente)" instanceClassName="java.util.Set">
+      <elementType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//Agente"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ocl.ecore:OrderedSetType" name="OrderedSet(Tarea)" instanceClassName="java.util.LinkedHashSet">
+      <elementType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//Tarea"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ocl.ecore:OrderedSetType" name="OrderedSet(Workflow)" instanceClassName="java.util.LinkedHashSet">
+      <elementType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//Workflow"/>
+    </eClassifiers>
+  </ecore:EPackage>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//ServiceMCP"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//ServiceMCP"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//Agente"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//Agente"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//Agente"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//Agente"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//ServiceMCP"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="i">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//ServiceMCP"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//Agente"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//Agente"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//Agente"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//Agente"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//Agente"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//Agente"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//Agente"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//Tarea"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//Tarea"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//Tarea"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//Agente"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="i">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//ServiceMCP"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="i">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//ServiceMCP"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//Workflow"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//Workflow"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//Tarea"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//Tarea"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//Workflow"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="i">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//ServiceMCP"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="i">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//Tarea"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//Tarea"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//Tarea"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//Tarea"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//Tarea"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//Tarea"/>
+  </ocl.ecore:Variable>
+  <ecore:EPackage name="types">
+    <eClassifiers xsi:type="ocl.ecore:TypeType" name="TareaInicial">
+      <referredType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//TareaInicial"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ocl.ecore:TypeType" name="TareaFinal">
+      <referredType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//TareaFinal"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ocl.ecore:TypeType" name="TareaUsuario">
+      <referredType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//TareaUsuario"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ocl.ecore:TypeType" name="TareaEnvioContexto">
+      <referredType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//TareaEnvioContexto"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ocl.ecore:TypeType" name="TareaRecepcionContexto">
+      <referredType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//TareaRecepcionContexto"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ocl.ecore:TypeType" name="TareaLLM">
+      <referredType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//TareaLLM"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ocl.ecore:TypeType" name="TareaTransformacionDatos">
+      <referredType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//TareaTransformacionDatos"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ocl.ecore:TypeType" name="TareaAnalisis">
+      <referredType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//TareaAnalisis"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ocl.ecore:TypeType" name="TareaServerMCP">
+      <referredType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//TareaServerMCP"/>
+    </eClassifiers>
+  </ecore:EPackage>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//Tarea"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//Tarea"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//Tarea"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//Tarea"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//Tarea"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//Tarea"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//Tarea"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//Tarea"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//Tarea"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//Tarea"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//Tarea"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//Tarea"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//Tarea"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//Tarea"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//Tarea"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//Tarea"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//Tarea"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//Tarea"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//Tarea"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//Tarea"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//Tarea"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="https://www.example.org/McpMM#//Tarea"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </ocl.ecore:Variable>
+  <ecore:EAnnotation source="positions">
+    <eAnnotations source="positions.0" references="/0/%">
+      <details key="start" value="84"/>
+      <details key="end" value="153"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.1" references="/0/%.1">
+      <details key="start" value="155"/>
+      <details key="end" value="224"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.2" references="/0/%.2">
+      <details key="start" value="226"/>
+      <details key="end" value="295"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.3" references="/0/generateElement">
+      <details key="start" value="297"/>
+      <details key="end" value="3410"/>
+      <details key="line" value="7"/>
+    </eAnnotations>
+    <eAnnotations source="positions.4" references="/0/generateElement/%">
+      <details key="start" value="373"/>
+      <details key="end" value="375"/>
+      <details key="line" value="9"/>
+    </eAnnotations>
+    <eAnnotations source="positions.5" references="/0/generateElement/%.1">
+      <details key="start" value="418"/>
+      <details key="end" value="1893"/>
+      <details key="line" value="11"/>
+    </eAnnotations>
+    <eAnnotations source="positions.6" references="/0/generateElement/%.1/%">
+      <details key="start" value="457"/>
+      <details key="end" value="624"/>
+      <details key="line" value="12"/>
+    </eAnnotations>
+    <eAnnotations source="positions.7" references="/0/generateElement/%.1/%.1">
+      <details key="start" value="625"/>
+      <details key="end" value="648"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.8" references="/0/generateElement/%.1/%.1/aService">
+      <details key="start" value="625"/>
+      <details key="end" value="633"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.9" references="/0/generateElement/%.1/%.2">
+      <details key="start" value="650"/>
+      <details key="end" value="1383"/>
+      <details key="line" value="17"/>
+    </eAnnotations>
+    <eAnnotations source="positions.10" references="/0/generateElement/%.1/%.3">
+      <details key="start" value="1384"/>
+      <details key="end" value="1407"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.11" references="/0/generateElement/%.1/%.3/aService">
+      <details key="start" value="1384"/>
+      <details key="end" value="1392"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.12" references="/0/generateElement/%.1/%.4">
+      <details key="start" value="1409"/>
+      <details key="end" value="1479"/>
+      <details key="line" value="27"/>
+    </eAnnotations>
+    <eAnnotations source="positions.13" references="/0/generateElement/%.1/%.5">
+      <details key="start" value="1487"/>
+      <details key="end" value="1854"/>
+      <details key="line" value="31"/>
+    </eAnnotations>
+    <eAnnotations source="positions.14" references="/0/generateElement/%.1/%.5/%">
+      <details key="start" value="1522"/>
+      <details key="end" value="1571"/>
+      <details key="line" value="32"/>
+    </eAnnotations>
+    <eAnnotations source="positions.15" references="/0/generateElement/%.1/%.5/%.1">
+      <details key="start" value="1491"/>
+      <details key="end" value="1519"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.16" references="/0/generateElement/%.1/%.5/%.1/%">
+      <details key="start" value="1492"/>
+      <details key="end" value="1507"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.17" references="/0/generateElement/%.1/%.5/%.1/%/aService">
+      <details key="start" value="1492"/>
+      <details key="end" value="1500"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.18" references="/0/generateElement/%.1/%.5/%.2">
+      <details key="start" value="1579"/>
+      <details key="end" value="1849"/>
+      <details key="line" value="33"/>
+    </eAnnotations>
+    <eAnnotations source="positions.19" references="/0/generateElement/%.1/%.5/%.2/%">
+      <details key="start" value="1587"/>
+      <details key="end" value="1605"/>
+      <details key="line" value="34"/>
+    </eAnnotations>
+    <eAnnotations source="positions.20" references="/0/generateElement/%.1/%.5/%.2/%.1">
+      <details key="start" value="1617"/>
+      <details key="end" value="1820"/>
+      <details key="line" value="35"/>
+    </eAnnotations>
+    <eAnnotations source="positions.21" references="/0/generateElement/%.1/%.5/%.2/%.1/%">
+      <details key="start" value="1655"/>
+      <details key="end" value="1691"/>
+      <details key="line" value="36"/>
+    </eAnnotations>
+    <eAnnotations source="positions.22" references="/0/generateElement/%.1/%.5/%.2/%.1/i">
+      <details key="start" value="1692"/>
+      <details key="end" value="1693"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.23" references="/0/generateElement/%.1/%.5/%.2/%.1/%.1">
+      <details key="start" value="1695"/>
+      <details key="end" value="1762"/>
+      <details key="line" value="36"/>
+    </eAnnotations>
+    <eAnnotations source="positions.24" references="/0/generateElement/%.1/%.5/%.2/%.1/i.1">
+      <details key="start" value="1763"/>
+      <details key="end" value="1764"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.25" references="/0/generateElement/%.1/%.5/%.2/%.1/%.2">
+      <details key="start" value="1766"/>
+      <details key="end" value="1780"/>
+      <details key="line" value="36"/>
+    </eAnnotations>
+    <eAnnotations source="positions.26" references="/0/generateElement/%.1/%.5/%.2/%.1/%.3">
+      <details key="start" value="1781"/>
+      <details key="end" value="1792"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.27" references="/0/generateElement/%.1/%.5/%.2/%.1/%.3/a">
+      <details key="start" value="1781"/>
+      <details key="end" value="1782"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.28" references="/0/generateElement/%.1/%.5/%.2/%.1/%.4">
+      <details key="start" value="1794"/>
+      <details key="end" value="1802"/>
+      <details key="line" value="36"/>
+    </eAnnotations>
+    <eAnnotations source="positions.29" references="/0/generateElement/%.1/%.5/%.2/%.1/a">
+      <details key="start" value="1623"/>
+      <details key="end" value="1633"/>
+      <details key="line" value="35"/>
+    </eAnnotations>
+    <eAnnotations source="positions.30" references="/0/generateElement/%.1/%.5/%.2/%.1/%.5">
+      <details key="start" value="1636"/>
+      <details key="end" value="1651"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.31" references="/0/generateElement/%.1/%.5/%.2/%.1/%.5/aService">
+      <details key="start" value="1636"/>
+      <details key="end" value="1644"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.32" references="/0/generateElement/%.1/%.5/%.2/%.2">
+      <details key="start" value="1822"/>
+      <details key="end" value="1841"/>
+      <details key="line" value="38"/>
+    </eAnnotations>
+    <eAnnotations source="positions.33" references="/0/generateElement/%.1/%.6">
+      <details key="start" value="1856"/>
+      <details key="end" value="1886"/>
+      <details key="line" value="40"/>
+    </eAnnotations>
+    <eAnnotations source="positions.34" references="/0/generateElement/%.1/%.7">
+      <details key="start" value="425"/>
+      <details key="end" value="437"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.35" references="/0/generateElement/%.1/%.8">
+      <details key="start" value="446"/>
+      <details key="end" value="453"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.36" references="/0/generateElement/%.2">
+      <details key="start" value="1895"/>
+      <details key="end" value="1897"/>
+      <details key="line" value="44"/>
+    </eAnnotations>
+    <eAnnotations source="positions.37" references="/0/generateElement/%.3">
+      <details key="start" value="1949"/>
+      <details key="end" value="3211"/>
+      <details key="line" value="46"/>
+    </eAnnotations>
+    <eAnnotations source="positions.38" references="/0/generateElement/%.3/%">
+      <details key="start" value="1991"/>
+      <details key="end" value="3203"/>
+      <details key="line" value="47"/>
+    </eAnnotations>
+    <eAnnotations source="positions.39" references="/0/generateElement/%.3/%/%">
+      <details key="start" value="2041"/>
+      <details key="end" value="2156"/>
+      <details key="line" value="48"/>
+    </eAnnotations>
+    <eAnnotations source="positions.40" references="/0/generateElement/%.3/%/i">
+      <details key="start" value="2157"/>
+      <details key="end" value="2158"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.41" references="/0/generateElement/%.3/%/%.1">
+      <details key="start" value="2160"/>
+      <details key="end" value="2626"/>
+      <details key="line" value="52"/>
+    </eAnnotations>
+    <eAnnotations source="positions.42" references="/0/generateElement/%.3/%/i.1">
+      <details key="start" value="2627"/>
+      <details key="end" value="2628"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.43" references="/0/generateElement/%.3/%/%.2">
+      <details key="start" value="2630"/>
+      <details key="end" value="2632"/>
+      <details key="line" value="61"/>
+    </eAnnotations>
+    <eAnnotations source="positions.44" references="/0/generateElement/%.3/%/%.3">
+      <details key="start" value="2633"/>
+      <details key="end" value="2647"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.45" references="/0/generateElement/%.3/%/%.3/a">
+      <details key="start" value="2633"/>
+      <details key="end" value="2634"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.46" references="/0/generateElement/%.3/%/%.4">
+      <details key="start" value="2649"/>
+      <details key="end" value="2826"/>
+      <details key="line" value="61"/>
+    </eAnnotations>
+    <eAnnotations source="positions.47" references="/0/generateElement/%.3/%/%.5">
+      <details key="start" value="2838"/>
+      <details key="end" value="3148"/>
+      <details key="line" value="66"/>
+    </eAnnotations>
+    <eAnnotations source="positions.48" references="/0/generateElement/%.3/%/%.5/%">
+      <details key="start" value="2869"/>
+      <details key="end" value="2938"/>
+      <details key="line" value="67"/>
+    </eAnnotations>
+    <eAnnotations source="positions.49" references="/0/generateElement/%.3/%/%.5/%.1">
+      <details key="start" value="2939"/>
+      <details key="end" value="2952"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.50" references="/0/generateElement/%.3/%/%.5/%.1/t">
+      <details key="start" value="2939"/>
+      <details key="end" value="2940"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.51" references="/0/generateElement/%.3/%/%.5/%.2">
+      <details key="start" value="2954"/>
+      <details key="end" value="3031"/>
+      <details key="line" value="68"/>
+    </eAnnotations>
+    <eAnnotations source="positions.52" references="/0/generateElement/%.3/%/%.5/%.3">
+      <details key="start" value="3032"/>
+      <details key="end" value="3066"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.53" references="/0/generateElement/%.3/%/%.5/%.3/%">
+      <details key="start" value="3032"/>
+      <details key="end" value="3045"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.54" references="/0/generateElement/%.3/%/%.5/%.3/%/t">
+      <details key="start" value="3032"/>
+      <details key="end" value="3033"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.55" references="/0/generateElement/%.3/%/%.5/%.3/%.1">
+      <details key="start" value="3057"/>
+      <details key="end" value="3060"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.56" references="/0/generateElement/%.3/%/%.5/%.3/%.2">
+      <details key="start" value="3062"/>
+      <details key="end" value="3065"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.57" references="/0/generateElement/%.3/%/%.5/%.4">
+      <details key="start" value="3068"/>
+      <details key="end" value="3130"/>
+      <details key="line" value="70"/>
+    </eAnnotations>
+    <eAnnotations source="positions.58" references="/0/generateElement/%.3/%/%.5/t">
+      <details key="start" value="2844"/>
+      <details key="end" value="2853"/>
+      <details key="line" value="66"/>
+    </eAnnotations>
+    <eAnnotations source="positions.59" references="/0/generateElement/%.3/%/%.5/%.5">
+      <details key="start" value="2856"/>
+      <details key="end" value="2865"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.60" references="/0/generateElement/%.3/%/%.5/%.5/a">
+      <details key="start" value="2856"/>
+      <details key="end" value="2857"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.61" references="/0/generateElement/%.3/%/%.6">
+      <details key="start" value="3150"/>
+      <details key="end" value="3192"/>
+      <details key="line" value="73"/>
+    </eAnnotations>
+    <eAnnotations source="positions.62" references="/0/generateElement/%.3/%/%.7">
+      <details key="start" value="1998"/>
+      <details key="end" value="2021"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.63" references="/0/generateElement/%.3/%/%.7/%">
+      <details key="start" value="1998"/>
+      <details key="end" value="2011"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.64" references="/0/generateElement/%.3/%/%.7/%/%">
+      <details key="start" value="1998"/>
+      <details key="end" value="2007"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.65" references="/0/generateElement/%.3/%/%.7/%/i">
+      <details key="start" value="2010"/>
+      <details key="end" value="2011"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.66" references="/0/generateElement/%.3/%/%.7/%.1">
+      <details key="start" value="2014"/>
+      <details key="end" value="2021"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.67" references="/0/generateElement/%.3/%/%.8">
+      <details key="start" value="2030"/>
+      <details key="end" value="2037"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.68" references="/0/generateElement/%.3/a">
+      <details key="start" value="1955"/>
+      <details key="end" value="1965"/>
+      <details key="line" value="46"/>
+    </eAnnotations>
+    <eAnnotations source="positions.69" references="/0/generateElement/%.3/%.1">
+      <details key="start" value="1968"/>
+      <details key="end" value="1983"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.70" references="/0/generateElement/%.3/%.1/aService">
+      <details key="start" value="1968"/>
+      <details key="end" value="1976"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.71" references="/0/generateElement/%.4">
+      <details key="start" value="3213"/>
+      <details key="end" value="3215"/>
+      <details key="line" value="78"/>
+    </eAnnotations>
+    <eAnnotations source="positions.72" references="/0/generateElement/%.5">
+      <details key="start" value="3270"/>
+      <details key="end" value="3395"/>
+      <details key="line" value="80"/>
+    </eAnnotations>
+    <eAnnotations source="positions.73" references="/0/generateElement/%.5/%">
+      <details key="start" value="3316"/>
+      <details key="end" value="3387"/>
+      <details key="line" value="81"/>
+    </eAnnotations>
+    <eAnnotations source="positions.74" references="/0/generateElement/%.5/%/%">
+      <details key="start" value="3345"/>
+      <details key="end" value="3353"/>
+      <details key="line" value="82"/>
+    </eAnnotations>
+    <eAnnotations source="positions.75" references="/0/generateElement/%.5/%/%.1">
+      <details key="start" value="3354"/>
+      <details key="end" value="3373"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.76" references="/0/generateElement/%.5/%/%.1/t">
+      <details key="start" value="3371"/>
+      <details key="end" value="3372"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.77" references="/0/generateElement/%.5/%/%.2">
+      <details key="start" value="3375"/>
+      <details key="end" value="3377"/>
+      <details key="line" value="83"/>
+    </eAnnotations>
+    <eAnnotations source="positions.78" references="/0/generateElement/%.5/%/t">
+      <details key="start" value="3322"/>
+      <details key="end" value="3331"/>
+      <details key="line" value="81"/>
+    </eAnnotations>
+    <eAnnotations source="positions.79" references="/0/generateElement/%.5/%/%.3">
+      <details key="start" value="3334"/>
+      <details key="end" value="3341"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.80" references="/0/generateElement/%.5/%/%.3/w">
+      <details key="start" value="3334"/>
+      <details key="end" value="3335"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.81" references="/0/generateElement/%.5/w">
+      <details key="start" value="3276"/>
+      <details key="end" value="3288"/>
+      <details key="line" value="80"/>
+    </eAnnotations>
+    <eAnnotations source="positions.82" references="/0/generateElement/%.5/%.1">
+      <details key="start" value="3291"/>
+      <details key="end" value="3308"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.83" references="/0/generateElement/%.5/%.1/aService">
+      <details key="start" value="3291"/>
+      <details key="end" value="3299"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.84" references="/0/generateElement/%.6">
+      <details key="start" value="3397"/>
+      <details key="end" value="3399"/>
+      <details key="line" value="85"/>
+    </eAnnotations>
+    <eAnnotations source="positions.85" references="/0/generateElement/aService">
+      <details key="start" value="330"/>
+      <details key="end" value="351"/>
+      <details key="line" value="7"/>
+    </eAnnotations>
+    <eAnnotations source="positions.86" references="/0/%.3">
+      <details key="start" value="3414"/>
+      <details key="end" value="3483"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.87" references="/0/%.4">
+      <details key="start" value="3485"/>
+      <details key="end" value="3554"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.88" references="/0/%.5">
+      <details key="start" value="3556"/>
+      <details key="end" value="3625"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.89" references="/0/generateTaskView">
+      <details key="start" value="3627"/>
+      <details key="end" value="10570"/>
+      <details key="line" value="91"/>
+    </eAnnotations>
+    <eAnnotations source="positions.90" references="/0/generateTaskView/%">
+      <details key="start" value="3674"/>
+      <details key="end" value="10557"/>
+      <details key="line" value="92"/>
+    </eAnnotations>
+    <eAnnotations source="positions.91" references="/0/generateTaskView/%/%">
+      <details key="start" value="3756"/>
+      <details key="end" value="3845"/>
+      <details key="line" value="93"/>
+    </eAnnotations>
+    <eAnnotations source="positions.92" references="/0/generateTaskView/%/%.1">
+      <details key="start" value="3846"/>
+      <details key="end" value="3859"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.93" references="/0/generateTaskView/%/%.1/t">
+      <details key="start" value="3846"/>
+      <details key="end" value="3847"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.94" references="/0/generateTaskView/%/%.2">
+      <details key="start" value="3861"/>
+      <details key="end" value="4954"/>
+      <details key="line" value="97"/>
+    </eAnnotations>
+    <eAnnotations source="positions.95" references="/0/generateTaskView/%/%.3">
+      <details key="start" value="4955"/>
+      <details key="end" value="4968"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.96" references="/0/generateTaskView/%/%.3/t">
+      <details key="start" value="4955"/>
+      <details key="end" value="4956"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.97" references="/0/generateTaskView/%/%.4">
+      <details key="start" value="4970"/>
+      <details key="end" value="4979"/>
+      <details key="line" value="112"/>
+    </eAnnotations>
+    <eAnnotations source="positions.98" references="/0/generateTaskView/%/%.5">
+      <details key="start" value="5035"/>
+      <details key="end" value="5037"/>
+      <details key="line" value="115"/>
+    </eAnnotations>
+    <eAnnotations source="positions.99" references="/0/generateTaskView/%/%.6">
+      <details key="start" value="5045"/>
+      <details key="end" value="10518"/>
+      <details key="line" value="116"/>
+    </eAnnotations>
+    <eAnnotations source="positions.100" references="/0/generateTaskView/%/%.6/%">
+      <details key="start" value="5088"/>
+      <details key="end" value="5184"/>
+      <details key="line" value="117"/>
+    </eAnnotations>
+    <eAnnotations source="positions.101" references="/0/generateTaskView/%/%.6/%.1">
+      <details key="start" value="5185"/>
+      <details key="end" value="5225"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.102" references="/0/generateTaskView/%/%.6/%.1/%">
+      <details key="start" value="5185"/>
+      <details key="end" value="5204"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.103" references="/0/generateTaskView/%/%.6/%.1/%/%">
+      <details key="start" value="5185"/>
+      <details key="end" value="5192"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.104" references="/0/generateTaskView/%/%.6/%.1/%/%/t">
+      <details key="start" value="5185"/>
+      <details key="end" value="5186"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.105" references="/0/generateTaskView/%/%.6/%.1/%.1">
+      <details key="start" value="5216"/>
+      <details key="end" value="5219"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.106" references="/0/generateTaskView/%/%.6/%.1/%.2">
+      <details key="start" value="5221"/>
+      <details key="end" value="5224"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.107" references="/0/generateTaskView/%/%.6/%.2">
+      <details key="start" value="5227"/>
+      <details key="end" value="5275"/>
+      <details key="line" value="118"/>
+    </eAnnotations>
+    <eAnnotations source="positions.108" references="/0/generateTaskView/%/%.6/%.3">
+      <details key="start" value="5049"/>
+      <details key="end" value="5085"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.109" references="/0/generateTaskView/%/%.6/%.3/t">
+      <details key="start" value="5050"/>
+      <details key="end" value="5051"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.110" references="/0/generateTaskView/%/%.6/%.3/%">
+      <details key="start" value="5064"/>
+      <details key="end" value="5083"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.111" references="/0/generateTaskView/%/%.6/%.4">
+      <details key="start" value="5283"/>
+      <details key="end" value="5636"/>
+      <details key="line" value="120"/>
+    </eAnnotations>
+    <eAnnotations source="positions.112" references="/0/generateTaskView/%/%.6/%.4/%">
+      <details key="start" value="5328"/>
+      <details key="end" value="5628"/>
+      <details key="line" value="121"/>
+    </eAnnotations>
+    <eAnnotations source="positions.113" references="/0/generateTaskView/%/%.6/%.4/%.1">
+      <details key="start" value="5291"/>
+      <details key="end" value="5325"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.114" references="/0/generateTaskView/%/%.6/%.4/%.1/t">
+      <details key="start" value="5292"/>
+      <details key="end" value="5293"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.115" references="/0/generateTaskView/%/%.6/%.4/%.1/%">
+      <details key="start" value="5306"/>
+      <details key="end" value="5323"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.116" references="/0/generateTaskView/%/%.6/%.5">
+      <details key="start" value="5636"/>
+      <details key="end" value="6270"/>
+      <details key="line" value="127"/>
+    </eAnnotations>
+    <eAnnotations source="positions.117" references="/0/generateTaskView/%/%.6/%.5/%">
+      <details key="start" value="5683"/>
+      <details key="end" value="5785"/>
+      <details key="line" value="128"/>
+    </eAnnotations>
+    <eAnnotations source="positions.118" references="/0/generateTaskView/%/%.6/%.5/%.1">
+      <details key="start" value="5786"/>
+      <details key="end" value="5828"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.119" references="/0/generateTaskView/%/%.6/%.5/%.1/%">
+      <details key="start" value="5786"/>
+      <details key="end" value="5818"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.120" references="/0/generateTaskView/%/%.6/%.5/%.1/%/t">
+      <details key="start" value="5786"/>
+      <details key="end" value="5787"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.121" references="/0/generateTaskView/%/%.6/%.5/%.1/%/%">
+      <details key="start" value="5798"/>
+      <details key="end" value="5817"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.122" references="/0/generateTaskView/%/%.6/%.5/%.2">
+      <details key="start" value="5830"/>
+      <details key="end" value="5877"/>
+      <details key="line" value="130"/>
+    </eAnnotations>
+    <eAnnotations source="positions.123" references="/0/generateTaskView/%/%.6/%.5/%.3">
+      <details key="start" value="5878"/>
+      <details key="end" value="5918"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.124" references="/0/generateTaskView/%/%.6/%.5/%.3/%">
+      <details key="start" value="5878"/>
+      <details key="end" value="5897"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.125" references="/0/generateTaskView/%/%.6/%.5/%.3/%/%">
+      <details key="start" value="5878"/>
+      <details key="end" value="5885"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.126" references="/0/generateTaskView/%/%.6/%.5/%.3/%/%/t">
+      <details key="start" value="5878"/>
+      <details key="end" value="5879"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.127" references="/0/generateTaskView/%/%.6/%.5/%.3/%.1">
+      <details key="start" value="5909"/>
+      <details key="end" value="5912"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.128" references="/0/generateTaskView/%/%.6/%.5/%.3/%.2">
+      <details key="start" value="5914"/>
+      <details key="end" value="5917"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.129" references="/0/generateTaskView/%/%.6/%.5/%.4">
+      <details key="start" value="5920"/>
+      <details key="end" value="6262"/>
+      <details key="line" value="131"/>
+    </eAnnotations>
+    <eAnnotations source="positions.130" references="/0/generateTaskView/%/%.6/%.5/%.5">
+      <details key="start" value="5644"/>
+      <details key="end" value="5680"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.131" references="/0/generateTaskView/%/%.6/%.5/%.5/t">
+      <details key="start" value="5645"/>
+      <details key="end" value="5646"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.132" references="/0/generateTaskView/%/%.6/%.5/%.5/%">
+      <details key="start" value="5659"/>
+      <details key="end" value="5678"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.133" references="/0/generateTaskView/%/%.6/%.6">
+      <details key="start" value="6270"/>
+      <details key="end" value="6855"/>
+      <details key="line" value="138"/>
+    </eAnnotations>
+    <eAnnotations source="positions.134" references="/0/generateTaskView/%/%.6/%.6/%">
+      <details key="start" value="6323"/>
+      <details key="end" value="6729"/>
+      <details key="line" value="139"/>
+    </eAnnotations>
+    <eAnnotations source="positions.135" references="/0/generateTaskView/%/%.6/%.6/%.1">
+      <details key="start" value="6730"/>
+      <details key="end" value="6770"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.136" references="/0/generateTaskView/%/%.6/%.6/%.1/%">
+      <details key="start" value="6730"/>
+      <details key="end" value="6749"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.137" references="/0/generateTaskView/%/%.6/%.6/%.1/%/%">
+      <details key="start" value="6730"/>
+      <details key="end" value="6737"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.138" references="/0/generateTaskView/%/%.6/%.6/%.1/%/%/t">
+      <details key="start" value="6730"/>
+      <details key="end" value="6731"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.139" references="/0/generateTaskView/%/%.6/%.6/%.1/%.1">
+      <details key="start" value="6761"/>
+      <details key="end" value="6764"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.140" references="/0/generateTaskView/%/%.6/%.6/%.1/%.2">
+      <details key="start" value="6766"/>
+      <details key="end" value="6769"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.141" references="/0/generateTaskView/%/%.6/%.6/%.2">
+      <details key="start" value="6772"/>
+      <details key="end" value="6847"/>
+      <details key="line" value="143"/>
+    </eAnnotations>
+    <eAnnotations source="positions.142" references="/0/generateTaskView/%/%.6/%.6/%.3">
+      <details key="start" value="6278"/>
+      <details key="end" value="6320"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.143" references="/0/generateTaskView/%/%.6/%.6/%.3/t">
+      <details key="start" value="6279"/>
+      <details key="end" value="6280"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.144" references="/0/generateTaskView/%/%.6/%.6/%.3/%">
+      <details key="start" value="6293"/>
+      <details key="end" value="6318"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.145" references="/0/generateTaskView/%/%.6/%.7">
+      <details key="start" value="6855"/>
+      <details key="end" value="7517"/>
+      <details key="line" value="146"/>
+    </eAnnotations>
+    <eAnnotations source="positions.146" references="/0/generateTaskView/%/%.6/%.7/%">
+      <details key="start" value="6912"/>
+      <details key="end" value="7114"/>
+      <details key="line" value="147"/>
+    </eAnnotations>
+    <eAnnotations source="positions.147" references="/0/generateTaskView/%/%.6/%.7/%.1">
+      <details key="start" value="7115"/>
+      <details key="end" value="7155"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.148" references="/0/generateTaskView/%/%.6/%.7/%.1/%">
+      <details key="start" value="7115"/>
+      <details key="end" value="7134"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.149" references="/0/generateTaskView/%/%.6/%.7/%.1/%/%">
+      <details key="start" value="7115"/>
+      <details key="end" value="7122"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.150" references="/0/generateTaskView/%/%.6/%.7/%.1/%/%/t">
+      <details key="start" value="7115"/>
+      <details key="end" value="7116"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.151" references="/0/generateTaskView/%/%.6/%.7/%.1/%.1">
+      <details key="start" value="7146"/>
+      <details key="end" value="7149"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.152" references="/0/generateTaskView/%/%.6/%.7/%.1/%.2">
+      <details key="start" value="7151"/>
+      <details key="end" value="7154"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.153" references="/0/generateTaskView/%/%.6/%.7/%.2">
+      <details key="start" value="7157"/>
+      <details key="end" value="7509"/>
+      <details key="line" value="150"/>
+    </eAnnotations>
+    <eAnnotations source="positions.154" references="/0/generateTaskView/%/%.6/%.7/%.3">
+      <details key="start" value="6863"/>
+      <details key="end" value="6909"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.155" references="/0/generateTaskView/%/%.6/%.7/%.3/t">
+      <details key="start" value="6864"/>
+      <details key="end" value="6865"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.156" references="/0/generateTaskView/%/%.6/%.7/%.3/%">
+      <details key="start" value="6878"/>
+      <details key="end" value="6907"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.157" references="/0/generateTaskView/%/%.6/%.8">
+      <details key="start" value="7517"/>
+      <details key="end" value="8248"/>
+      <details key="line" value="157"/>
+    </eAnnotations>
+    <eAnnotations source="positions.158" references="/0/generateTaskView/%/%.6/%.8/%">
+      <details key="start" value="7560"/>
+      <details key="end" value="7757"/>
+      <details key="line" value="158"/>
+    </eAnnotations>
+    <eAnnotations source="positions.159" references="/0/generateTaskView/%/%.6/%.8/%.1">
+      <details key="start" value="7758"/>
+      <details key="end" value="7793"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.160" references="/0/generateTaskView/%/%.6/%.8/%.1/%">
+      <details key="start" value="7758"/>
+      <details key="end" value="7786"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.161" references="/0/generateTaskView/%/%.6/%.8/%.1/%/t">
+      <details key="start" value="7758"/>
+      <details key="end" value="7759"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.162" references="/0/generateTaskView/%/%.6/%.8/%.1/%/%">
+      <details key="start" value="7770"/>
+      <details key="end" value="7785"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.163" references="/0/generateTaskView/%/%.6/%.8/%.2">
+      <details key="start" value="7795"/>
+      <details key="end" value="8134"/>
+      <details key="line" value="160"/>
+    </eAnnotations>
+    <eAnnotations source="positions.164" references="/0/generateTaskView/%/%.6/%.8/%.3">
+      <details key="start" value="8135"/>
+      <details key="end" value="8175"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.165" references="/0/generateTaskView/%/%.6/%.8/%.3/%">
+      <details key="start" value="8135"/>
+      <details key="end" value="8154"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.166" references="/0/generateTaskView/%/%.6/%.8/%.3/%/%">
+      <details key="start" value="8135"/>
+      <details key="end" value="8142"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.167" references="/0/generateTaskView/%/%.6/%.8/%.3/%/%/t">
+      <details key="start" value="8135"/>
+      <details key="end" value="8136"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.168" references="/0/generateTaskView/%/%.6/%.8/%.3/%.1">
+      <details key="start" value="8166"/>
+      <details key="end" value="8169"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.169" references="/0/generateTaskView/%/%.6/%.8/%.3/%.2">
+      <details key="start" value="8171"/>
+      <details key="end" value="8174"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.170" references="/0/generateTaskView/%/%.6/%.8/%.4">
+      <details key="start" value="8177"/>
+      <details key="end" value="8240"/>
+      <details key="line" value="165"/>
+    </eAnnotations>
+    <eAnnotations source="positions.171" references="/0/generateTaskView/%/%.6/%.8/%.5">
+      <details key="start" value="7525"/>
+      <details key="end" value="7557"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.172" references="/0/generateTaskView/%/%.6/%.8/%.5/t">
+      <details key="start" value="7526"/>
+      <details key="end" value="7527"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.173" references="/0/generateTaskView/%/%.6/%.8/%.5/%">
+      <details key="start" value="7540"/>
+      <details key="end" value="7555"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.174" references="/0/generateTaskView/%/%.6/%.9">
+      <details key="start" value="8248"/>
+      <details key="end" value="9085"/>
+      <details key="line" value="168"/>
+    </eAnnotations>
+    <eAnnotations source="positions.175" references="/0/generateTaskView/%/%.6/%.9/%">
+      <details key="start" value="8307"/>
+      <details key="end" value="8978"/>
+      <details key="line" value="169"/>
+    </eAnnotations>
+    <eAnnotations source="positions.176" references="/0/generateTaskView/%/%.6/%.9/%.1">
+      <details key="start" value="8979"/>
+      <details key="end" value="9019"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.177" references="/0/generateTaskView/%/%.6/%.9/%.1/%">
+      <details key="start" value="8979"/>
+      <details key="end" value="8998"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.178" references="/0/generateTaskView/%/%.6/%.9/%.1/%/%">
+      <details key="start" value="8979"/>
+      <details key="end" value="8986"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.179" references="/0/generateTaskView/%/%.6/%.9/%.1/%/%/t">
+      <details key="start" value="8979"/>
+      <details key="end" value="8980"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.180" references="/0/generateTaskView/%/%.6/%.9/%.1/%.1">
+      <details key="start" value="9010"/>
+      <details key="end" value="9013"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.181" references="/0/generateTaskView/%/%.6/%.9/%.1/%.2">
+      <details key="start" value="9015"/>
+      <details key="end" value="9018"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.182" references="/0/generateTaskView/%/%.6/%.9/%.2">
+      <details key="start" value="9021"/>
+      <details key="end" value="9077"/>
+      <details key="line" value="180"/>
+    </eAnnotations>
+    <eAnnotations source="positions.183" references="/0/generateTaskView/%/%.6/%.9/%.3">
+      <details key="start" value="8256"/>
+      <details key="end" value="8304"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.184" references="/0/generateTaskView/%/%.6/%.9/%.3/t">
+      <details key="start" value="8257"/>
+      <details key="end" value="8258"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.185" references="/0/generateTaskView/%/%.6/%.9/%.3/%">
+      <details key="start" value="8271"/>
+      <details key="end" value="8302"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.186" references="/0/generateTaskView/%/%.6/%.10">
+      <details key="start" value="9085"/>
+      <details key="end" value="9869"/>
+      <details key="line" value="182"/>
+    </eAnnotations>
+    <eAnnotations source="positions.187" references="/0/generateTaskView/%/%.6/%.10/%">
+      <details key="start" value="9133"/>
+      <details key="end" value="9446"/>
+      <details key="line" value="183"/>
+    </eAnnotations>
+    <eAnnotations source="positions.188" references="/0/generateTaskView/%/%.6/%.10/%.1">
+      <details key="start" value="9447"/>
+      <details key="end" value="9487"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.189" references="/0/generateTaskView/%/%.6/%.10/%.1/%">
+      <details key="start" value="9447"/>
+      <details key="end" value="9480"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.190" references="/0/generateTaskView/%/%.6/%.10/%.1/%/t">
+      <details key="start" value="9447"/>
+      <details key="end" value="9448"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.191" references="/0/generateTaskView/%/%.6/%.10/%.1/%/%">
+      <details key="start" value="9459"/>
+      <details key="end" value="9479"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.192" references="/0/generateTaskView/%/%.6/%.10/%.2">
+      <details key="start" value="9489"/>
+      <details key="end" value="9549"/>
+      <details key="line" value="186"/>
+    </eAnnotations>
+    <eAnnotations source="positions.193" references="/0/generateTaskView/%/%.6/%.10/%.3">
+      <details key="start" value="9550"/>
+      <details key="end" value="9590"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.194" references="/0/generateTaskView/%/%.6/%.10/%.3/%">
+      <details key="start" value="9550"/>
+      <details key="end" value="9569"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.195" references="/0/generateTaskView/%/%.6/%.10/%.3/%/%">
+      <details key="start" value="9550"/>
+      <details key="end" value="9557"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.196" references="/0/generateTaskView/%/%.6/%.10/%.3/%/%/t">
+      <details key="start" value="9550"/>
+      <details key="end" value="9551"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.197" references="/0/generateTaskView/%/%.6/%.10/%.3/%.1">
+      <details key="start" value="9581"/>
+      <details key="end" value="9584"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.198" references="/0/generateTaskView/%/%.6/%.10/%.3/%.2">
+      <details key="start" value="9586"/>
+      <details key="end" value="9589"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.199" references="/0/generateTaskView/%/%.6/%.10/%.4">
+      <details key="start" value="9592"/>
+      <details key="end" value="9708"/>
+      <details key="line" value="188"/>
+    </eAnnotations>
+    <eAnnotations source="positions.200" references="/0/generateTaskView/%/%.6/%.10/%.5">
+      <details key="start" value="9709"/>
+      <details key="end" value="9785"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.201" references="/0/generateTaskView/%/%.6/%.10/%.5/%">
+      <details key="start" value="9709"/>
+      <details key="end" value="9764"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.202" references="/0/generateTaskView/%/%.6/%.10/%.5/%/%">
+      <details key="start" value="9709"/>
+      <details key="end" value="9752"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.203" references="/0/generateTaskView/%/%.6/%.10/%.5/%/%/%">
+      <details key="start" value="9709"/>
+      <details key="end" value="9742"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.204" references="/0/generateTaskView/%/%.6/%.10/%.5/%/%/%/t">
+      <details key="start" value="9709"/>
+      <details key="end" value="9710"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.205" references="/0/generateTaskView/%/%.6/%.10/%.5/%/%/%/%">
+      <details key="start" value="9721"/>
+      <details key="end" value="9741"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.206" references="/0/generateTaskView/%/%.6/%.10/%.5/%.1">
+      <details key="start" value="9776"/>
+      <details key="end" value="9779"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.207" references="/0/generateTaskView/%/%.6/%.10/%.5/%.2">
+      <details key="start" value="9781"/>
+      <details key="end" value="9784"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.208" references="/0/generateTaskView/%/%.6/%.10/%.6">
+      <details key="start" value="9787"/>
+      <details key="end" value="9861"/>
+      <details key="line" value="190"/>
+    </eAnnotations>
+    <eAnnotations source="positions.209" references="/0/generateTaskView/%/%.6/%.10/%.7">
+      <details key="start" value="9093"/>
+      <details key="end" value="9130"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.210" references="/0/generateTaskView/%/%.6/%.10/%.7/t">
+      <details key="start" value="9094"/>
+      <details key="end" value="9095"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.211" references="/0/generateTaskView/%/%.6/%.10/%.7/%">
+      <details key="start" value="9108"/>
+      <details key="end" value="9128"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.212" references="/0/generateTaskView/%/%.6/%.11">
+      <details key="start" value="9869"/>
+      <details key="end" value="10513"/>
+      <details key="line" value="193"/>
+    </eAnnotations>
+    <eAnnotations source="positions.213" references="/0/generateTaskView/%/%.6/%.11/%">
+      <details key="start" value="9918"/>
+      <details key="end" value="10210"/>
+      <details key="line" value="194"/>
+    </eAnnotations>
+    <eAnnotations source="positions.214" references="/0/generateTaskView/%/%.6/%.11/%.1">
+      <details key="start" value="10211"/>
+      <details key="end" value="10252"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.215" references="/0/generateTaskView/%/%.6/%.11/%.1/%">
+      <details key="start" value="10211"/>
+      <details key="end" value="10245"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.216" references="/0/generateTaskView/%/%.6/%.11/%.1/%/t">
+      <details key="start" value="10211"/>
+      <details key="end" value="10212"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.217" references="/0/generateTaskView/%/%.6/%.11/%.1/%/%">
+      <details key="start" value="10223"/>
+      <details key="end" value="10244"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.218" references="/0/generateTaskView/%/%.6/%.11/%.2">
+      <details key="start" value="10254"/>
+      <details key="end" value="10399"/>
+      <details key="line" value="197"/>
+    </eAnnotations>
+    <eAnnotations source="positions.219" references="/0/generateTaskView/%/%.6/%.11/%.3">
+      <details key="start" value="10400"/>
+      <details key="end" value="10440"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.220" references="/0/generateTaskView/%/%.6/%.11/%.3/%">
+      <details key="start" value="10400"/>
+      <details key="end" value="10419"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.221" references="/0/generateTaskView/%/%.6/%.11/%.3/%/%">
+      <details key="start" value="10400"/>
+      <details key="end" value="10407"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.222" references="/0/generateTaskView/%/%.6/%.11/%.3/%/%/t">
+      <details key="start" value="10400"/>
+      <details key="end" value="10401"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.223" references="/0/generateTaskView/%/%.6/%.11/%.3/%.1">
+      <details key="start" value="10431"/>
+      <details key="end" value="10434"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.224" references="/0/generateTaskView/%/%.6/%.11/%.3/%.2">
+      <details key="start" value="10436"/>
+      <details key="end" value="10439"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.225" references="/0/generateTaskView/%/%.6/%.11/%.4">
+      <details key="start" value="10442"/>
+      <details key="end" value="10505"/>
+      <details key="line" value="199"/>
+    </eAnnotations>
+    <eAnnotations source="positions.226" references="/0/generateTaskView/%/%.6/%.11/%.5">
+      <details key="start" value="9877"/>
+      <details key="end" value="9915"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.227" references="/0/generateTaskView/%/%.6/%.11/%.5/t">
+      <details key="start" value="9878"/>
+      <details key="end" value="9879"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.228" references="/0/generateTaskView/%/%.6/%.11/%.5/%">
+      <details key="start" value="9892"/>
+      <details key="end" value="9913"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.229" references="/0/generateTaskView/%/%.7">
+      <details key="start" value="10520"/>
+      <details key="end" value="10550"/>
+      <details key="line" value="203"/>
+    </eAnnotations>
+    <eAnnotations source="positions.230" references="/0/generateTaskView/%/%.8">
+      <details key="start" value="3681"/>
+      <details key="end" value="3736"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.231" references="/0/generateTaskView/%/%.8/%">
+      <details key="start" value="3681"/>
+      <details key="end" value="3726"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.232" references="/0/generateTaskView/%/%.8/%/%">
+      <details key="start" value="3681"/>
+      <details key="end" value="3689"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.233" references="/0/generateTaskView/%/%.8/%/%.1">
+      <details key="start" value="3692"/>
+      <details key="end" value="3726"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.234" references="/0/generateTaskView/%/%.8/%/%.1/%">
+      <details key="start" value="3692"/>
+      <details key="end" value="3705"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.235" references="/0/generateTaskView/%/%.8/%/%.1/%/t">
+      <details key="start" value="3692"/>
+      <details key="end" value="3693"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.236" references="/0/generateTaskView/%/%.8/%/%.1/%.1">
+      <details key="start" value="3717"/>
+      <details key="end" value="3720"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.237" references="/0/generateTaskView/%/%.8/%/%.1/%.2">
+      <details key="start" value="3722"/>
+      <details key="end" value="3725"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.238" references="/0/generateTaskView/%/%.8/%.1">
+      <details key="start" value="3729"/>
+      <details key="end" value="3736"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.239" references="/0/generateTaskView/%/%.9">
+      <details key="start" value="3745"/>
+      <details key="end" value="3752"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.240" references="/0/generateTaskView/t">
+      <details key="start" value="3661"/>
+      <details key="end" value="3670"/>
+      <details key="line" value="91"/>
+    </eAnnotations>
+  </ecore:EAnnotation>
+</xmi:XMI>
