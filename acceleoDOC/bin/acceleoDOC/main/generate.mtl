@@ -1,0 +1,141 @@
+[comment encoding = UTF-8 /]
+[module generate('http://www.eclipse.org/emf/2002/Ecore')]
+
+[**
+ * Plantilla principal que genera el archivo HTML con la documentación del metamodelo.
+ */]
+[template public generateElement(anEPackage : EPackage)]
+[comment @main/]
+[file (anEPackage.name + '_Documentacion.html', false, 'UTF-8')]
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Documentación para el metamodelo Ecore [anEPackage.name/]</title>
+    <meta name="description" content="Documentación de [anEPackage.name/]">
+    <style>
+        body { font-family: calibri, sans-serif; color: black; line-height: 1.4; padding: 20px;}
+        .class-bg { background-color: LightGoldenRodYellow; font-weight: bold; padding: 2px;}
+        .abstract-bg { background-color: LightGrey; font-weight: bold; padding: 2px;}
+        .enum-bg { background-color: #e6ffe6; font-weight: bold; padding: 2px;}
+        .ocl-text { font-style: italic; color: blue; }
+        .doc-section { margin-bottom: 20px; }
+        ul { margin-top: 5px; margin-bottom: 10px; }
+        .legend { margin-top: 40px; border-top: 1px solid #ccc; padding-top: 10px; font-size: 0.9em; }
+    </style>
+</head>
+<body>
+    
+    <h2>Metamodelo: [anEPackage.name/]</h2>
+    <p><b>NS Prefix:</b> [anEPackage.nsPrefix/]</p>
+    <p><b>NS URI:</b> [anEPackage.nsURI/]</p>
+    
+    [comment Iteramos sobre todos los clasificadores (EClass y EEnum) /]
+    [for (classifier : EClassifier | anEPackage.eClassifiers)]
+        <div class="doc-section">
+            
+            [comment 1. Si el clasificador es una EClass /]
+            [if (classifier.oclIsTypeOf(EClass))]
+                [let aClass : EClass = classifier.oclAsType(EClass)]
+                    
+                    [comment Cabecera de la Clase /]
+                    <span class="[if (aClass.abstract)]abstract-bg[else]class-bg[/if]">
+                        EClass: [aClass.name/] [if (aClass.abstract)](abstract)[/if]
+                    </span><br/>
+                    
+                    [comment Descripción sacada de DSLDoc /]
+                    <p><b>Descripción:</b> [aClass.getDSLDoc()/]</p>
+                    
+                    [comment Lista de Atributos y Referencias /]
+                    <ul>
+                    [for (feature : EStructuralFeature | aClass.eStructuralFeatures)]
+                        <li>
+                            [if (feature.oclIsTypeOf(EAttribute))]
+                                [let attr : EAttribute = feature.oclAsType(EAttribute)]
+                                    ([attr.lowerBound/]..[if (attr.upperBound = -1)]*[else][attr.upperBound/][/if]) 
+                                    <b>[attr.name/]</b>: [if (not attr.eType.oclIsUndefined())][attr.eType.name/][else]EString[/if]
+                                    [if (attr.derived)] <i>(derived)</i> <span class="ocl-text">[attr.getOCLDerivation()/]</span>[/if]
+                                [/let]
+                            [else]
+                                [let ref : EReference = feature.oclAsType(EReference)]
+                                    ([ref.lowerBound/]..[if (ref.upperBound = -1)]*[else][ref.upperBound/][/if]) 
+                                    <b>[ref.name/]</b>[if (not ref.eOpposite.oclIsUndefined())]#(i)[ref.eOpposite.name/](/i)[/if]: [if (not ref.eType.oclIsUndefined())][ref.eType.name/][else]Desconocido[/if]
+                                    [if (ref.containment)] <i>(composition)</i>[/if]
+                                [/let]
+                            [/if]
+                        </li>
+                    [/for]
+                    </ul>
+
+                    [comment Invariantes OCL (Restricciones) /]
+                    [if (aClass.eAnnotations->exists(a | a.source = 'http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot'))]
+                        <ul>
+                        [for (ann : EAnnotation | aClass.eAnnotations->select(a | a.source = 'http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot'))]
+                            [for (detail : ecore::EStringToStringMapEntry | ann.details)]
+                                <li>invariant <b>[detail.key/]</b>: <span class="ocl-text">[detail.value/]</span></li>
+                            [/for]
+                        [/for]
+                        </ul>
+                    [/if]
+                    
+                [/let]
+            
+            [comment 2. Si el clasificador es un EEnum /]
+            [elseif (classifier.oclIsTypeOf(EEnum))]
+                [let anEnum : EEnum = classifier.oclAsType(EEnum)]
+                    <span class="enum-bg">EEnum: [anEnum.name/]</span> = {
+                    [for (literal : EEnumLiteral | anEnum.eLiterals) separator(', ')]
+                        [literal.value/]: [literal.name/]
+                    [/for]
+                    }
+                    <br/><p><b>Descripción:</b> [anEnum.getDSLDoc()/]</p>
+                [/let]
+            [/if]
+            
+        </div>
+    [/for]
+
+    [comment Leyenda de Colores según indica el Anexo I /]
+    <div class="legend">
+        <b>Color convention:</b><br/>
+        <ul>
+            <li>Information generated from the "DSLDoc EAnnotations" included in the meta-model</li>
+            <li><span class="ocl-text">Information generated from the OCL EAnnotations included in the meta-model</span></li>
+            <li>Information generated from the elements included in the meta-model (EClass, EAttribute, EEnum, etc.)</li>
+        </ul>
+    </div>
+
+</body>
+</html>
+[/file]
+[/template]
+
+[**
+ * Helper para extraer la EAnnotation "DSLDoc" de cualquier clasificador.
+ */]
+[template public getDSLDoc(element : EModelElement) post(trim())]
+[if (element.eAnnotations->exists(a | a.source = 'DSLDoc'))]
+    [let ann : EAnnotation = element.eAnnotations->select(a | a.source = 'DSLDoc')->first()]
+        [if (ann.details->exists(d | d.key = 'descripcion'))]
+            [ann.details->select(d | d.key = 'descripcion')->first().value/]
+        [else]
+            (Sin descripción detallada)
+        [/if]
+    [/let]
+[else]
+    (No hay anotación DSLDoc)
+[/if]
+[/template]
+
+[**
+ * Helper para extraer la regla de derivación OCL si existe en un atributo.
+ */]
+[template public getOCLDerivation(feature : EStructuralFeature) post(trim())]
+[if (feature.eAnnotations->exists(a | a.source = 'http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot'))]
+    [let ann : EAnnotation = feature.eAnnotations->select(a | a.source = 'http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot')->first()]
+        [if (ann.details->exists(d | d.key = 'derivation'))]
+            = [ann.details->select(d | d.key = 'derivation')->first().value/]
+        [/if]
+    [/let]
+[/if]
+[/template]

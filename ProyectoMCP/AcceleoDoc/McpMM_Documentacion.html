@@ -1,0 +1,605 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Documentación para el metamodelo Ecore McpMM</title>
+    <meta name="description" content="Documentación de McpMM">
+    <style>
+        body { font-family: calibri, sans-serif; color: black; line-height: 1.4; padding: 20px;}
+        .class-bg { background-color: LightGoldenRodYellow; font-weight: bold; padding: 2px;}
+        .abstract-bg { background-color: LightGrey; font-weight: bold; padding: 2px;}
+        .enum-bg { background-color: #e6ffe6; font-weight: bold; padding: 2px;}
+        .ocl-text { font-style: italic; color: blue; }
+        .doc-section { margin-bottom: 20px; }
+        ul { margin-top: 5px; margin-bottom: 10px; }
+        .legend { margin-top: 40px; border-top: 1px solid #ccc; padding-top: 10px; font-size: 0.9em; }
+    </style>
+</head>
+<body>
+    
+    <h2>Metamodelo: McpMM</h2>
+    <p><b>NS Prefix:</b> McpMM</p>
+    <p><b>NS URI:</b> https://www.example.org/McpMM</p>
+    
+        <div class="doc-section">
+            
+                    
+                    <span class="class-bg">
+                        EClass: ServiceMCP 
+                    </span><br/>
+                    
+                    <p><b>Descripción:</b> Clase raÃ­z que actÃºa como contenedor principal de todo el modelo de agentes y servicios.</p>
+                    
+                    <ul>
+                        <li>
+                                    (0..1) 
+                                    <b>nombreServicio</b>: EString
+                                    
+                        </li>
+                        <li>
+                                    (0..*) 
+                                    <b>agentes</b>: Agente
+                                     <i>(composition)</i>
+                        </li>
+                        <li>
+                                    (0..*) 
+                                    <b>servicios</b>: ServiceMCP
+                                     <i>(composition)</i>
+                        </li>
+                        <li>
+                                    (0..*) 
+                                    <b>servidores</b>: ServerMCP
+                                     <i>(composition)</i>
+                        </li>
+                    </ul>
+
+                    
+            
+            
+        </div>
+        <div class="doc-section">
+            
+                    
+                    <span class="class-bg">
+                        EClass: ServerMCP 
+                    </span><br/>
+                    
+                    <p><b>Descripción:</b> Representa un servidor o infraestructura externa que expone operaciones MCP a las que los agentes pueden conectarse.</p>
+                    
+                    <ul>
+                        <li>
+                                    (0..1) 
+                                    <b>nombreServer</b>: EString
+                                    
+                        </li>
+                        <li>
+                                    (0..*) 
+                                    <b>operaciones</b>: OperacionMCP
+                                     <i>(composition)</i>
+                        </li>
+                    </ul>
+
+                    
+            
+            
+        </div>
+        <div class="doc-section">
+            
+                    
+                    <span class="class-bg">
+                        EClass: Agente 
+                    </span><br/>
+                    
+                    <p><b>Descripción:</b> Representa una entidad inteligente autÃ³noma con un rol especÃ­fico y capacidad de procesamiento.</p>
+                    
+                    <ul>
+                        <li>
+                                    (0..1) 
+                                    <b>nombre</b>: EString
+                                    
+                        </li>
+                        <li>
+                                    (0..1) 
+                                    <b>rol</b>: EString
+                                    
+                        </li>
+                        <li>
+                                    (1..1) 
+                                    <b>flujo</b>: Workflow
+                                     <i>(composition)</i>
+                        </li>
+                        <li>
+                                    (0..*) 
+                                    <b>contextos</b>: Contexto
+                                     <i>(composition)</i>
+                        </li>
+                    </ul>
+
+                    
+            
+            
+        </div>
+        <div class="doc-section">
+            
+                    
+                    <span class="class-bg">
+                        EClass: Workflow 
+                    </span><br/>
+                    
+                    <p><b>Descripción:</b> Define el flujo de trabajo o comportamiento que sigue un agente mediante una secuencia de tareas.</p>
+                    
+                    <ul>
+                        <li>
+                                    (0..1) 
+                                    <b>nombreWorkflow</b>: EString
+                                    
+                        </li>
+                        <li>
+                                    (1..*) 
+                                    <b>tareas</b>: Tarea
+                                     <i>(composition)</i>
+                        </li>
+                    </ul>
+
+                        <ul>
+                                <li>invariant <b>R01_UnaTareaInicio</b>: <span class="ocl-text">self.tareas->select(t | t.oclIsTypeOf(Inicio))->size() = 1</span></li>
+                                <li>invariant <b>R02_UnaTareaFin</b>: <span class="ocl-text">self.tareas->select(t | t.oclIsTypeOf(Final))->size() = 1</span></li>
+                        </ul>
+                    
+            
+            
+        </div>
+        <div class="doc-section">
+            
+                    
+                    <span class="class-bg">
+                        EClass: Contexto 
+                    </span><br/>
+                    
+                    <p><b>Descripción:</b> Representa el estado o conjunto de datos compartidos durante la ejecuciÃ³n del workflow de un agente.</p>
+                    
+                    <ul>
+                        <li>
+                                    (0..1) 
+                                    <b>nombreContexto</b>: EString
+                                    
+                        </li>
+                        <li>
+                                    (0..*) 
+                                    <b>propiedades</b>: Propiedad
+                                     <i>(composition)</i>
+                        </li>
+                        <li>
+                                    (0..*) 
+                                    <b>esApuntadoPor</b>#(i)apunta(/i): Accion
+                                    
+                        </li>
+                    </ul>
+
+                    
+            
+            
+        </div>
+        <div class="doc-section">
+            
+                    
+                    <span class="class-bg">
+                        EClass: Propiedad 
+                    </span><br/>
+                    
+                    <p><b>Descripción:</b> Define un dato individual dentro de un contexto, encapsulando su nombre y su tipo de dato.</p>
+                    
+                    <ul>
+                        <li>
+                                    (0..1) 
+                                    <b>nombrePropiedad</b>: EString
+                                    
+                        </li>
+                        <li>
+                                    (0..1) 
+                                    <b>tipoPropiedad</b>: TipoContexto
+                                    
+                        </li>
+                        <li>
+                                    (0..*) 
+                                    <b>esUsada</b>#(i)usa(/i): Accion
+                                    
+                        </li>
+                    </ul>
+
+                    
+            
+            
+        </div>
+        <div class="doc-section">
+            
+                    
+                    <span class="abstract-bg">
+                        EClass: Tarea (abstract)
+                    </span><br/>
+                    
+                    <p><b>Descripción:</b> Clase base abstracta para todos los pasos ejecutables y puntos de control dentro de un workflow.</p>
+                    
+                    <ul>
+                        <li>
+                                    (0..1) 
+                                    <b>nombreTarea</b>: EString
+                                    
+                        </li>
+                        <li>
+                                    (0..1) 
+                                    <b>taskId</b>: EInt
+                                    
+                        </li>
+                        <li>
+                                    (0..1) 
+                                    <b>taskDesc</b>: EString
+                                    
+                        </li>
+                        <li>
+                                    (0..*) 
+                                    <b>accion</b>: Accion
+                                     <i>(composition)</i>
+                        </li>
+                        <li>
+                                    (0..1) 
+                                    <b>precede</b>#(i)sigue(/i): Tarea
+                                    
+                        </li>
+                        <li>
+                                    (0..1) 
+                                    <b>sigue</b>#(i)precede(/i): Tarea
+                                    
+                        </li>
+                        <li>
+                                    (0..1) 
+                                    <b>precedeElse</b>#(i)sigueElse(/i): TareaAnalisis
+                                    
+                        </li>
+                    </ul>
+
+                        <ul>
+                                <li>invariant <b>R09_EntradaYSalida</b>: <span class="ocl-text">not self.precede.oclIsUndefined() or not self.sigue.oclIsUndefined()</span></li>
+                                <li>invariant <b>R10_NoBuclePropio</b>: <span class="ocl-text">self.sigue <> self</span></li>
+                        </ul>
+                    
+            
+            
+        </div>
+        <div class="doc-section">
+            
+                    
+                    <span class="abstract-bg">
+                        EClass: TareaEjecutable (abstract)
+                    </span><br/>
+                    
+                    <p><b>Descripción:</b> Clase base para aquellas tareas que implican una ejecuciÃ³n u operaciÃ³n concreta, excluyendo los puntos iniciales y finales.</p>
+                    
+                    <ul>
+                    </ul>
+
+                    
+            
+            
+        </div>
+        <div class="doc-section">
+            
+                    
+                    <span class="class-bg">
+                        EClass: Inicio 
+                    </span><br/>
+                    
+                    <p><b>Descripción:</b> Nodo inicial que marca el punto de partida indiscutible para la ejecuciÃ³n de un workflow.</p>
+                    
+                    <ul>
+                    </ul>
+
+                    
+            
+            
+        </div>
+        <div class="doc-section">
+            
+                    
+                    <span class="class-bg">
+                        EClass: Final 
+                    </span><br/>
+                    
+                    <p><b>Descripción:</b> Nodo final que indica la terminaciÃ³n lÃ³gica de un workflow.</p>
+                    
+                    <ul>
+                    </ul>
+
+                    
+            
+            
+        </div>
+        <div class="doc-section">
+            
+                    
+                    <span class="abstract-bg">
+                        EClass: Accion (abstract)
+                    </span><br/>
+                    
+                    <p><b>Descripción:</b> Clase abstracta que modela las interacciones (lectura/escritura) que una tarea realiza sobre un contexto de datos.</p>
+                    
+                    <ul>
+                        <li>
+                                    (0..1) 
+                                    <b>nombreAccion</b>: EString
+                                    
+                        </li>
+                        <li>
+                                    (1..1) 
+                                    <b>apunta</b>#(i)esApuntadoPor(/i): Contexto
+                                    
+                        </li>
+                        <li>
+                                    (0..1) 
+                                    <b>usa</b>#(i)esUsada(/i): Propiedad
+                                    
+                        </li>
+                    </ul>
+
+                        <ul>
+                                <li>invariant <b>R12_CoherenciaContexto</b>: <span class="ocl-text">self.usa.oclIsUndefined() or self.apunta.propiedades->includes(self.usa)</span></li>
+                        </ul>
+                    
+            
+            
+        </div>
+        <div class="doc-section">
+            
+                    
+                    <span class="class-bg">
+                        EClass: Escritura 
+                    </span><br/>
+                    
+                    <p><b>Descripción:</b> AcciÃ³n que modifica, actualiza o inserta nuevos datos en un contexto.</p>
+                    
+                    <ul>
+                    </ul>
+
+                    
+            
+            
+        </div>
+        <div class="doc-section">
+            
+                    
+                    <span class="class-bg">
+                        EClass: Lectura 
+                    </span><br/>
+                    
+                    <p><b>Descripción:</b> AcciÃ³n que obtiene o consume datos de un contexto para su procesamiento.</p>
+                    
+                    <ul>
+                    </ul>
+
+                    
+            
+            
+        </div>
+        <div class="doc-section">
+            
+                    <span class="enum-bg">EEnum: TipoContexto</span> = {
+                        0: ENTERO
+,                         1: CADENA
+,                         2: REAL
+,                         3: BOOLEANO
+,                         4: TEXTO_EXTENSO
+,                         5: ARCHIVO
+,                         6: COLECCION_ARCHIVOS
+                    }
+                    <br/><p><b>Descripción:</b> EnumeraciÃ³n de los tipos de datos bÃ¡sicos y complejos permitidos en las propiedades de un contexto.</p>
+            
+        </div>
+        <div class="doc-section">
+            
+                    
+                    <span class="class-bg">
+                        EClass: OperacionMCP 
+                    </span><br/>
+                    
+                    <p><b>Descripción:</b> Define una operaciÃ³n especÃ­fica disponible en un ServerMCP que puede ser invocada de manera remota.</p>
+                    
+                    <ul>
+                        <li>
+                                    (0..1) 
+                                    <b>nombreOperacion</b>: EString
+                                    
+                        </li>
+                        <li>
+                                    (0..1) 
+                                    <b>descOperacion</b>: EString
+                                    
+                        </li>
+                        <li>
+                                    (0..1) 
+                                    <b>esEjecutadaOperacion</b>#(i)ejecutaOperacion(/i): TareaServerMCP
+                                    
+                        </li>
+                    </ul>
+
+                    
+            
+            
+        </div>
+        <div class="doc-section">
+            
+                    
+                    <span class="class-bg">
+                        EClass: TareaTransformacionDatos 
+                    </span><br/>
+                    
+                    <p><b>Descripción:</b> Tarea encargada de transformar o reformatear un conjunto de datos en base a una regla o prompt.</p>
+                    
+                    <ul>
+                        <li>
+                                    (0..1) 
+                                    <b>prompt</b>: EString
+                                    
+                        </li>
+                    </ul>
+
+                    
+            
+            
+        </div>
+        <div class="doc-section">
+            
+                    
+                    <span class="class-bg">
+                        EClass: TareaLLM 
+                    </span><br/>
+                    
+                    <p><b>Descripción:</b> Tarea que invoca a un Modelo de Lenguaje Grande (LLM) utilizando un prompt especÃ­fico para razonamiento o generaciÃ³n de texto.</p>
+                    
+                    <ul>
+                        <li>
+                                    (0..1) 
+                                    <b>prompt</b>: EString
+                                    
+                        </li>
+                    </ul>
+
+                    
+            
+            
+        </div>
+        <div class="doc-section">
+            
+                    
+                    <span class="class-bg">
+                        EClass: TareaUsuario 
+                    </span><br/>
+                    
+                    <p><b>Descripción:</b> Tarea interactiva que detiene el flujo para requerir intervenciÃ³n o entrada de datos manual por parte de un usuario humano.</p>
+                    
+                    <ul>
+                    </ul>
+
+                    
+            
+            
+        </div>
+        <div class="doc-section">
+            
+                    
+                    <span class="class-bg">
+                        EClass: TareaAnalisis 
+                    </span><br/>
+                    
+                    <p><b>Descripción:</b> Tarea de bifurcaciÃ³n condicional que evalÃºa un estado para decidir continuar por el flujo principal o por un flujo alternativo (Else).</p>
+                    
+                    <ul>
+                        <li>
+                                    (1..1) 
+                                    <b>sigueElse</b>#(i)precedeElse(/i): Tarea
+                                    
+                        </li>
+                        <li>
+                                    (0..1) 
+                                    <b>prompt</b>: EString
+                                    
+                        </li>
+                    </ul>
+
+                    
+            
+            
+        </div>
+        <div class="doc-section">
+            
+                    
+                    <span class="class-bg">
+                        EClass: TareaEnvioContexto 
+                    </span><br/>
+                    
+                    <p><b>Descripción:</b> Subclase de TareaEjecutable que permite exportar el contexto actual de un flujo para que sea procesado por otro agente.</p>
+                    
+                    <ul>
+                        <li>
+                                    (0..1) 
+                                    <b>enviaA</b>: TareaRecepcionContexto
+                                    
+                        </li>
+                        <li>
+                                    (0..1) 
+                                    <b>envioAsociado</b>: Propiedad
+                                    
+                        </li>
+                    </ul>
+
+                    
+            
+            
+        </div>
+        <div class="doc-section">
+            
+                    
+                    <span class="class-bg">
+                        EClass: TareaRecepcionContexto 
+                    </span><br/>
+                    
+                    <p><b>Descripción:</b> Subclase de TareaEjecutable para pausar o esperar de forma sÃ­ncrona/asÃ­ncrona la llegada de un contexto externo.</p>
+                    
+                    <ul>
+                        <li>
+                                    (0..1) 
+                                    <b>recibeDe</b>: TareaEnvioContexto
+                                    
+                        </li>
+                        <li>
+                                    (0..1) 
+                                    <b>recepcionAsociada</b>: Propiedad
+                                    
+                        </li>
+                    </ul>
+
+                        <ul>
+                                <li>invariant <b>R07_RecepcionPrecedidaEnvio</b>: <span class="ocl-text">not self.precede.oclIsUndefined() and self.precede.oclIsTypeOf(TareaEnvioContexto)</span></li>
+                                <li>invariant <b>R11_MismasPropiedadesEnvioRecepcion</b>: <span class="ocl-text">if not self.precede.oclIsUndefined() and self.precede.oclIsTypeOf(TareaEnvioContexto) then self.accion->collect(usa)->asSet() = self.precede.accion->collect(usa)->asSet() else true endif</span></li>
+                        </ul>
+                    
+            
+            
+        </div>
+        <div class="doc-section">
+            
+                    
+                    <span class="class-bg">
+                        EClass: TareaServerMCP 
+                    </span><br/>
+                    
+                    <p><b>Descripción:</b> Tarea automatizada que se conecta a un ServerMCP para invocar remotamente una OperacionMCP especÃ­fica.</p>
+                    
+                    <ul>
+                        <li>
+                                    (1..1) 
+                                    <b>ejecutaOperacion</b>#(i)esEjecutadaOperacion(/i): OperacionMCP
+                                    
+                        </li>
+                        <li>
+                                    (0..1) 
+                                    <b>prompt</b>: EString
+                                    
+                        </li>
+                    </ul>
+
+                    
+            
+            
+        </div>
+
+    <div class="legend">
+        <b>Color convention:</b><br/>
+        <ul>
+            <li>Information generated from the "DSLDoc EAnnotations" included in the meta-model</li>
+            <li><span class="ocl-text">Information generated from the OCL EAnnotations included in the meta-model</span></li>
+            <li>Information generated from the elements included in the meta-model (EClass, EAttribute, EEnum, etc.)</li>
+        </ul>
+    </div>
+
+</body>
+</html>

@@ -5,85 +5,80 @@
 package McpMM;
 
 @gmf.diagram
+@"DSLDoc"(descripcion="Clase raíz que actúa como contenedor principal de todo el modelo de agentes y servicios.")
 class ServiceMCP {
 	attr String nombreServicio;
-	val ServerMCP[*] servermcp;
-	val Agente[*] agente;
-	val Workflow[*] workflow;
+	
+	val Agente[*] agentes;
+	val ServiceMCP[*] servicios;
+	val ServerMCP[*] servidores;
 }
 
 @gmf.node(label="nombreServer", figure="rectangle", color="200,200,255")
+@"DSLDoc"(descripcion="Representa un servidor o infraestructura externa que expone operaciones MCP a las que los agentes pueden conectarse.")
 class ServerMCP {
 	attr String nombreServer;
 	
 	@gmf.compartment(layout="list")
-	val OperacionMCP[*] operacionmcp;
+	val OperacionMCP[*] operaciones;
 }
 
-@Ecore(constraints="R05_AlMenosUnaTarea")
-@"http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"(R05_AlMenosUnaTarea="not (self.realiza->select(t | not t.oclIsTypeOf(TareaInicial) and not t.oclIsTypeOf(TareaFinal))->isEmpty())")
-@gmf.node(label="nombreAgente", figure="rectangle", color="255,200,200")
+@gmf.node(label="nombre", figure="rectangle", color="255,200,200")
+@"DSLDoc"(descripcion="Representa una entidad inteligente autónoma con un rol específico y capacidad de procesamiento.")
 class Agente {
-	attr String nombreAgente;
+	attr String nombre;
+	attr String rol;
 
-	@"http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"(derivation="realiza->size()")
-	volatile transient derived attr int[1] numTareas;
+	@gmf.compartment(layout="free")
+	val Workflow[1] flujo;
 	
-	@gmf.link(target.decoration="arrow", style="dash", label="realiza")
-	ref Tarea[+]#agenteAsignado realiza;
+	@gmf.compartment(layout="list")
+	val Contexto[*] contextos;
 }
 
-@Ecore(constraints="R01_UnaTareaInicio R02_AlMenosUnaTareaFin")
+@Ecore(constraints="R01_UnaTareaInicio R02_UnaTareaFin")
 @"http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"(
-	R01_UnaTareaInicio="self.tarea->select(t | t.oclIsTypeOf(TareaInicial))->size() = 1", 
-	R02_AlMenosUnaTareaFin="self.tarea->select(t | t.oclIsTypeOf(TareaFinal))->size() >= 1"
+	R01_UnaTareaInicio="self.tareas->select(t | t.oclIsTypeOf(Inicio))->size() = 1", 
+	R02_UnaTareaFin="self.tareas->select(t | t.oclIsTypeOf(Final))->size() = 1"
 )
 @gmf.node(label="nombreWorkflow", figure="rounded", color="200,255,200")
+@"DSLDoc"(descripcion="Define el flujo de trabajo o comportamiento que sigue un agente mediante una secuencia de tareas.")
 class Workflow {
 	attr String nombreWorkflow;
 	
-	@gmf.compartment(layout="list")
-	val Contexto[*] contexto;
-	
 	@gmf.compartment(layout="free")
-	val Tarea[*] tarea;
-	
-	@gmf.link(target.decoration="arrow", color="0,200,0", label="empieza")
-	ref TareaInicial[1]#empieza empiezaCon;
-	
-	@gmf.link(target.decoration="arrow", color="200,0,0", label="finaliza")
-	ref TareaFinal[+]#finaliza finalizaCon;
+	val Tarea[+] tareas;
 }
 
 @gmf.node(label="nombreContexto", figure="rectangle", color="255,255,200")
+@"DSLDoc"(descripcion="Representa el estado o conjunto de datos compartidos durante la ejecución del workflow de un agente.")
 class Contexto {
 	attr String nombreContexto;
 	
 	@gmf.compartment(layout="list")
-	val Propiedad[*] propiedad;
+	val Propiedad[*] propiedades;
 	
 	ref Accion[*]#apunta esApuntadoPor;
 }
 
 @gmf.node(label="nombrePropiedad")
+@"DSLDoc"(descripcion="Define un dato individual dentro de un contexto, encapsulando su nombre y su tipo de dato.")
 class Propiedad {
 	attr String nombrePropiedad;
 	attr TipoContexto tipoPropiedad;
 	ref Accion[*]#usa esUsada;
 }
 
-@Ecore(constraints="R06_NoBuclePropio R08_ConexionesAgentes R09_EntradaYSalida R10_NoCiclos")
+@Ecore(constraints="R09_EntradaYSalida R10_NoBuclePropio")
 @"http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"(
-	R06_NoBuclePropio="not (self.sigue = self) and (if self.oclIsTypeOf(TareaAnalisis) then not (self.oclAsType(TareaAnalisis).sigueElse = self) else true endif)", 
-	
-	R08_ConexionesAgentes="if not self.sigue.oclIsUndefined() then if self.oclIsTypeOf(TareaEnvioContexto) and self.sigue.oclIsTypeOf(TareaRecepcionContexto) then not (self.agenteAsignado = self.sigue.agenteAsignado) else self.agenteAsignado = self.sigue.agenteAsignado endif else true endif", 
-	
-	R09_EntradaYSalida="(if self.oclIsTypeOf(TareaInicial) then true else (not self.precede.oclIsUndefined() or not self.precedeElse.oclIsUndefined()) endif) and (if self.oclIsTypeOf(TareaFinal) then true else not self.sigue.oclIsUndefined() endif)", 
-	
-	R10_NoCiclos="let siguientes : Set(Tarea) = Set{self.sigue}->union(if self.oclIsTypeOf(TareaAnalisis) then Set{self.oclAsType(TareaAnalisis).sigueElse} else Set{} endif)->select(x | not x.oclIsUndefined()) in siguientes->forAll(s | not s->closure(t : Tarea | Set{t.sigue}->union(if t.oclIsTypeOf(TareaAnalisis) then Set{t.oclAsType(TareaAnalisis).sigueElse} else Set{} endif)->select(x | not x.oclIsUndefined()))->includes(self))"
+	R09_EntradaYSalida="not self.precede.oclIsUndefined() or not self.sigue.oclIsUndefined()", 
+	R10_NoBuclePropio="self.sigue <> self"
 )
+@"DSLDoc"(descripcion="Clase base abstracta para todos los pasos ejecutables y puntos de control dentro de un workflow.")
 abstract class Tarea {
 	attr String nombreTarea;
+	attr int taskId;
+	attr String taskDesc;
 	
 	@gmf.compartment(layout="list")
 	val Accion[*] accion;
@@ -94,42 +89,43 @@ abstract class Tarea {
 	ref Tarea#precede sigue;
 	
 	ref TareaAnalisis#sigueElse precedeElse;
-	ref Agente#realiza agenteAsignado;
 }
 
+@"DSLDoc"(descripcion="Clase base para aquellas tareas que implican una ejecución u operación concreta, excluyendo los puntos iniciales y finales.")
 abstract class TareaEjecutable extends Tarea {
-	attr int[1] idTarea;
-	attr String descTarea;
-}
-
-@gmf.node(label="nombreTarea", figure="ellipse", color="255,0,0", size="30,30")
-class TareaFinal extends Tarea {
-	ref Workflow[1]#finalizaCon finaliza;
 }
 
 @gmf.node(label="nombreTarea", figure="ellipse", color="0,255,0", size="30,30")
-class TareaInicial extends Tarea {
-	ref Workflow[1]#empiezaCon empieza;
+@"DSLDoc"(descripcion="Nodo inicial que marca el punto de partida indiscutible para la ejecución de un workflow.")
+class Inicio extends Tarea {
+}
+
+@gmf.node(label="nombreTarea", figure="ellipse", color="255,0,0", size="30,30")
+@"DSLDoc"(descripcion="Nodo final que indica la terminación lógica de un workflow.")
+class Final extends Tarea {
 }
 
 @Ecore(constraints="R12_CoherenciaContexto")
-@"http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"(R12_CoherenciaContexto="self.usa.oclIsUndefined() or self.apunta.propiedad->includes(self.usa)")
+@"http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"(R12_CoherenciaContexto="self.usa.oclIsUndefined() or self.apunta.propiedades->includes(self.usa)")
+@"DSLDoc"(descripcion="Clase abstracta que modela las interacciones (lectura/escritura) que una tarea realiza sobre un contexto de datos.")
 abstract class Accion {
 	attr String nombreAccion;
 	
 	ref Contexto[1]#esApuntadoPor apunta;
-	
 	ref Propiedad#esUsada usa;
 }
 
 @gmf.node(label="nombreAccion", figure="rectangle")
+@"DSLDoc"(descripcion="Acción que modifica, actualiza o inserta nuevos datos en un contexto.")
 class Escritura extends Accion {
 }
 
 @gmf.node(label="nombreAccion", figure="rectangle")
+@"DSLDoc"(descripcion="Acción que obtiene o consume datos de un contexto para su procesamiento.")
 class Lectura extends Accion {
 }
 
+@"DSLDoc"(descripcion="Enumeración de los tipos de datos básicos y complejos permitidos en las propiedades de un contexto.")
 enum TipoContexto {
 	ENTERO = 0;
 	CADENA = 1;
@@ -141,6 +137,7 @@ enum TipoContexto {
 }
 
 @gmf.node(label="nombreOperacion")
+@"DSLDoc"(descripcion="Define una operación específica disponible en un ServerMCP que puede ser invocada de manera remota.")
 class OperacionMCP {
 	attr String nombreOperacion;
 	attr String descOperacion;
@@ -148,20 +145,24 @@ class OperacionMCP {
 }
 
 @gmf.node(label="nombreTarea", figure="rectangle", color="200,255,255")
+@"DSLDoc"(descripcion="Tarea encargada de transformar o reformatear un conjunto de datos en base a una regla o prompt.")
 class TareaTransformacionDatos extends TareaEjecutable {
 	attr String prompt;
 }
 
 @gmf.node(label="nombreTarea", figure="rectangle", color="255,200,255")
+@"DSLDoc"(descripcion="Tarea que invoca a un Modelo de Lenguaje Grande (LLM) utilizando un prompt específico para razonamiento o generación de texto.")
 class TareaLLM extends TareaEjecutable {
 	attr String prompt;
 }
 
 @gmf.node(label="nombreTarea", figure="rectangle", color="255,255,255")
+@"DSLDoc"(descripcion="Tarea interactiva que detiene el flujo para requerir intervención o entrada de datos manual por parte de un usuario humano.")
 class TareaUsuario extends TareaEjecutable {
 }
 
 @gmf.node(label="nombreTarea", figure="rectangle", color="255,255,150")
+@"DSLDoc"(descripcion="Tarea de bifurcación condicional que evalúa un estado para decidir continuar por el flujo principal o por un flujo alternativo (Else).")
 class TareaAnalisis extends TareaEjecutable {
 	@gmf.link(target.decoration="arrow", label="sigue Else")
 	ref Tarea[1]#precedeElse sigueElse;
@@ -169,8 +170,13 @@ class TareaAnalisis extends TareaEjecutable {
 }
 
 @gmf.node(label="nombreTarea", figure="rectangle", color="150,255,150")
+@"DSLDoc"(descripcion="Subclase de TareaEjecutable que permite exportar el contexto actual de un flujo para que sea procesado por otro agente.")
 class TareaEnvioContexto extends TareaEjecutable {
-
+	@gmf.link(target.decoration="arrow", color="100,100,100", label="envía a")
+	ref TareaRecepcionContexto enviaA;
+	
+	@gmf.link(target.decoration="arrow", style="dash", color="200,100,0", label="envía prop.")
+	ref Propiedad envioAsociado;
 }
 
 @Ecore(constraints="R07_RecepcionPrecedidaEnvio R11_MismasPropiedadesEnvioRecepcion")
@@ -179,11 +185,17 @@ class TareaEnvioContexto extends TareaEjecutable {
 	R11_MismasPropiedadesEnvioRecepcion="if not self.precede.oclIsUndefined() and self.precede.oclIsTypeOf(TareaEnvioContexto) then self.accion->collect(usa)->asSet() = self.precede.accion->collect(usa)->asSet() else true endif"
 )
 @gmf.node(label="nombreTarea", figure="rectangle", color="150,150,255")
+@"DSLDoc"(descripcion="Subclase de TareaEjecutable para pausar o esperar de forma síncrona/asíncrona la llegada de un contexto externo.")
 class TareaRecepcionContexto extends TareaEjecutable {
-
+	@gmf.link(target.decoration="arrow", color="100,100,100", label="recibe de")
+	ref TareaEnvioContexto recibeDe;
+	
+	@gmf.link(target.decoration="arrow", style="dash", color="200,100,0", label="recibe prop.")
+	ref Propiedad recepcionAsociada;
 }
 
 @gmf.node(label="nombreTarea", figure="rectangle", color="200,200,200")
+@"DSLDoc"(descripcion="Tarea automatizada que se conecta a un ServerMCP para invocar remotamente una OperacionMCP específica.")
 class TareaServerMCP extends TareaEjecutable {
 	@gmf.link(target.decoration="arrow", style="dash", label="ejecuta oper.")
 	ref OperacionMCP[1]#esEjecutadaOperacion ejecutaOperacion;
