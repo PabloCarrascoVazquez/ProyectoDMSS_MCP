@@ -54,7 +54,7 @@ public class ServerMCPCreateCommand extends EditElementCommand {
 		McpMM.ServerMCP newElement = McpMM.McpMMFactory.eINSTANCE.createServerMCP();
 
 		McpMM.ServiceMCP owner = (McpMM.ServiceMCP) getElementToEdit();
-		owner.getServermcp().add(newElement);
+		owner.getServidores().add(newElement);
 
 		doConfigure(newElement, monitor, info);
 

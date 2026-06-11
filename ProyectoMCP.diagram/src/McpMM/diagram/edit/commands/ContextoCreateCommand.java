@@ -53,8 +53,8 @@ public class ContextoCreateCommand extends EditElementCommand {
 	protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
 		McpMM.Contexto newElement = McpMM.McpMMFactory.eINSTANCE.createContexto();
 
-		McpMM.Workflow owner = (McpMM.Workflow) getElementToEdit();
-		owner.getContexto().add(newElement);
+		McpMM.Agente owner = (McpMM.Agente) getElementToEdit();
+		owner.getContextos().add(newElement);
 
 		doConfigure(newElement, monitor, info);
 

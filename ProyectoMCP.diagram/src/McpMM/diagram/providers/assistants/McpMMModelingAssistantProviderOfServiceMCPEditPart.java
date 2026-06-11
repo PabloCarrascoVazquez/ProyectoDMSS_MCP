@@ -21,10 +21,9 @@ public class McpMMModelingAssistantProviderOfServiceMCPEditPart
 	@Override
 
 	public List<IElementType> getTypesForPopupBar(IAdaptable host) {
-		List<IElementType> types = new ArrayList<IElementType>(3);
-		types.add(McpMM.diagram.providers.McpMMElementTypes.ServerMCP_2001);
-		types.add(McpMM.diagram.providers.McpMMElementTypes.Agente_2002);
-		types.add(McpMM.diagram.providers.McpMMElementTypes.Workflow_2003);
+		List<IElementType> types = new ArrayList<IElementType>(2);
+		types.add(McpMM.diagram.providers.McpMMElementTypes.Agente_2001);
+		types.add(McpMM.diagram.providers.McpMMElementTypes.ServerMCP_2002);
 		return types;
 	}
 

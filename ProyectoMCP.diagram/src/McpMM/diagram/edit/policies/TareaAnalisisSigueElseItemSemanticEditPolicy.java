@@ -17,7 +17,7 @@ public class TareaAnalisisSigueElseItemSemanticEditPolicy
 	* @generated
 	*/
 	public TareaAnalisisSigueElseItemSemanticEditPolicy() {
-		super(McpMM.diagram.providers.McpMMElementTypes.TareaAnalisisSigueElse_4007);
+		super(McpMM.diagram.providers.McpMMElementTypes.TareaAnalisisSigueElse_4002);
 	}
 
 	/**

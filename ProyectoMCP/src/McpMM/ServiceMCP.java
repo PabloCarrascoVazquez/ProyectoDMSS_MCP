@@ -16,13 +16,13 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link McpMM.ServiceMCP#getNombreServicio <em>Nombre Servicio</em>}</li>
- *   <li>{@link McpMM.ServiceMCP#getServermcp <em>Servermcp</em>}</li>
- *   <li>{@link McpMM.ServiceMCP#getAgente <em>Agente</em>}</li>
- *   <li>{@link McpMM.ServiceMCP#getWorkflow <em>Workflow</em>}</li>
+ *   <li>{@link McpMM.ServiceMCP#getAgentes <em>Agentes</em>}</li>
+ *   <li>{@link McpMM.ServiceMCP#getServicios <em>Servicios</em>}</li>
+ *   <li>{@link McpMM.ServiceMCP#getServidores <em>Servidores</em>}</li>
  * </ul>
  *
  * @see McpMM.McpMMPackage#getServiceMCP()
- * @model
+ * @model annotation="DSLDoc descripcion='Clase ra\355z que act\372a como contenedor principal de todo el modelo de agentes y servicios.'"
  * @generated
  */
 public interface ServiceMCP extends EObject {
@@ -53,51 +53,51 @@ public interface ServiceMCP extends EObject {
 	void setNombreServicio(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Servermcp</b></em>' containment reference list.
-	 * The list contents are of type {@link McpMM.ServerMCP}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Servermcp</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Servermcp</em>' containment reference list.
-	 * @see McpMM.McpMMPackage#getServiceMCP_Servermcp()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<ServerMCP> getServermcp();
-
-	/**
-	 * Returns the value of the '<em><b>Agente</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Agentes</b></em>' containment reference list.
 	 * The list contents are of type {@link McpMM.Agente}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Agente</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Agentes</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Agente</em>' containment reference list.
-	 * @see McpMM.McpMMPackage#getServiceMCP_Agente()
+	 * @return the value of the '<em>Agentes</em>' containment reference list.
+	 * @see McpMM.McpMMPackage#getServiceMCP_Agentes()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<Agente> getAgente();
+	EList<Agente> getAgentes();
 
 	/**
-	 * Returns the value of the '<em><b>Workflow</b></em>' containment reference list.
-	 * The list contents are of type {@link McpMM.Workflow}.
+	 * Returns the value of the '<em><b>Servicios</b></em>' containment reference list.
+	 * The list contents are of type {@link McpMM.ServiceMCP}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Workflow</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Servicios</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Workflow</em>' containment reference list.
-	 * @see McpMM.McpMMPackage#getServiceMCP_Workflow()
+	 * @return the value of the '<em>Servicios</em>' containment reference list.
+	 * @see McpMM.McpMMPackage#getServiceMCP_Servicios()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<Workflow> getWorkflow();
+	EList<ServiceMCP> getServicios();
+
+	/**
+	 * Returns the value of the '<em><b>Servidores</b></em>' containment reference list.
+	 * The list contents are of type {@link McpMM.ServerMCP}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Servidores</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Servidores</em>' containment reference list.
+	 * @see McpMM.McpMMPackage#getServiceMCP_Servidores()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<ServerMCP> getServidores();
 
 } // ServiceMCP

@@ -102,7 +102,7 @@ public class ServerMCPItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(McpMMPackage.Literals.SERVER_MCP__OPERACIONMCP);
+			childrenFeatures.add(McpMMPackage.Literals.SERVER_MCP__OPERACIONES);
 		}
 		return childrenFeatures;
 	}
@@ -161,7 +161,7 @@ public class ServerMCPItemProvider
 			case McpMMPackage.SERVER_MCP__NOMBRE_SERVER:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case McpMMPackage.SERVER_MCP__OPERACIONMCP:
+			case McpMMPackage.SERVER_MCP__OPERACIONES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -181,7 +181,7 @@ public class ServerMCPItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(McpMMPackage.Literals.SERVER_MCP__OPERACIONMCP,
+				(McpMMPackage.Literals.SERVER_MCP__OPERACIONES,
 				 McpMMFactory.eINSTANCE.createOperacionMCP()));
 	}
 

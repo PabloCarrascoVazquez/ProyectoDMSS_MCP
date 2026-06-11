@@ -119,10 +119,10 @@ public class ContextoEditPart extends ShapeNodeEditPart {
 					.setLabel(getPrimaryShape().getFigureContextoLabelFigure());
 			return true;
 		}
-		if (childEditPart instanceof McpMM.diagram.edit.parts.ContextoContextoPropiedadCompartmentEditPart) {
-			IFigure pane = getPrimaryShape().getContextoPropiedadCompartmentFigure();
+		if (childEditPart instanceof McpMM.diagram.edit.parts.ContextoContextoPropiedadesCompartmentEditPart) {
+			IFigure pane = getPrimaryShape().getContextoPropiedadesCompartmentFigure();
 			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
-			pane.add(((McpMM.diagram.edit.parts.ContextoContextoPropiedadCompartmentEditPart) childEditPart)
+			pane.add(((McpMM.diagram.edit.parts.ContextoContextoPropiedadesCompartmentEditPart) childEditPart)
 					.getFigure());
 			return true;
 		}
@@ -136,9 +136,9 @@ public class ContextoEditPart extends ShapeNodeEditPart {
 		if (childEditPart instanceof McpMM.diagram.edit.parts.ContextoNombreContextoEditPart) {
 			return true;
 		}
-		if (childEditPart instanceof McpMM.diagram.edit.parts.ContextoContextoPropiedadCompartmentEditPart) {
-			IFigure pane = getPrimaryShape().getContextoPropiedadCompartmentFigure();
-			pane.remove(((McpMM.diagram.edit.parts.ContextoContextoPropiedadCompartmentEditPart) childEditPart)
+		if (childEditPart instanceof McpMM.diagram.edit.parts.ContextoContextoPropiedadesCompartmentEditPart) {
+			IFigure pane = getPrimaryShape().getContextoPropiedadesCompartmentFigure();
+			pane.remove(((McpMM.diagram.edit.parts.ContextoContextoPropiedadesCompartmentEditPart) childEditPart)
 					.getFigure());
 			return true;
 		}
@@ -169,8 +169,8 @@ public class ContextoEditPart extends ShapeNodeEditPart {
 	* @generated
 	*/
 	protected IFigure getContentPaneFor(IGraphicalEditPart editPart) {
-		if (editPart instanceof McpMM.diagram.edit.parts.ContextoContextoPropiedadCompartmentEditPart) {
-			return getPrimaryShape().getContextoPropiedadCompartmentFigure();
+		if (editPart instanceof McpMM.diagram.edit.parts.ContextoContextoPropiedadesCompartmentEditPart) {
+			return getPrimaryShape().getContextoPropiedadesCompartmentFigure();
 		}
 		return getContentPane();
 	}
@@ -279,7 +279,7 @@ public class ContextoEditPart extends ShapeNodeEditPart {
 			IElementType type = (IElementType) adapter.getAdapter(IElementType.class);
 			if (type == McpMM.diagram.providers.McpMMElementTypes.Propiedad_3014) {
 				return getChildBySemanticHint(McpMM.diagram.part.McpMMVisualIDRegistry
-						.getType(McpMM.diagram.edit.parts.ContextoContextoPropiedadCompartmentEditPart.VISUAL_ID));
+						.getType(McpMM.diagram.edit.parts.ContextoContextoPropiedadesCompartmentEditPart.VISUAL_ID));
 			}
 		}
 		return super.getTargetEditPart(request);
@@ -297,7 +297,7 @@ public class ContextoEditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
-		private RectangleFigure fContextoPropiedadCompartmentFigure;
+		private RectangleFigure fContextoPropiedadesCompartmentFigure;
 
 		/**
 		 * @generated
@@ -322,11 +322,11 @@ public class ContextoEditPart extends ShapeNodeEditPart {
 
 			this.add(fFigureContextoLabelFigure);
 
-			fContextoPropiedadCompartmentFigure = new RectangleFigure();
+			fContextoPropiedadesCompartmentFigure = new RectangleFigure();
 
-			fContextoPropiedadCompartmentFigure.setOutline(false);
+			fContextoPropiedadesCompartmentFigure.setOutline(false);
 
-			this.add(fContextoPropiedadCompartmentFigure);
+			this.add(fContextoPropiedadesCompartmentFigure);
 
 		}
 
@@ -340,8 +340,8 @@ public class ContextoEditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
-		public RectangleFigure getContextoPropiedadCompartmentFigure() {
-			return fContextoPropiedadCompartmentFigure;
+		public RectangleFigure getContextoPropiedadesCompartmentFigure() {
+			return fContextoPropiedadesCompartmentFigure;
 		}
 
 	}

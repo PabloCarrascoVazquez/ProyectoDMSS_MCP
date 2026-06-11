@@ -54,7 +54,7 @@ public class TareaTransformacionDatosCreateCommand extends EditElementCommand {
 		McpMM.TareaTransformacionDatos newElement = McpMM.McpMMFactory.eINSTANCE.createTareaTransformacionDatos();
 
 		McpMM.Workflow owner = (McpMM.Workflow) getElementToEdit();
-		owner.getTarea().add(newElement);
+		owner.getTareas().add(newElement);
 
 		doConfigure(newElement, monitor, info);
 

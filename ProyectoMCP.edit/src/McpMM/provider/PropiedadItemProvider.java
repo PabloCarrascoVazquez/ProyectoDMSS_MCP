@@ -3,6 +3,7 @@
 package McpMM.provider;
 
 
+import McpMM.McpMMFactory;
 import McpMM.McpMMPackage;
 import McpMM.Propiedad;
 
@@ -13,6 +14,8 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
+
+import org.eclipse.emf.ecore.EStructuralFeature;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
@@ -62,6 +65,8 @@ public class PropiedadItemProvider
 
 			addNombrePropiedadPropertyDescriptor(object);
 			addTipoPropiedadPropertyDescriptor(object);
+			addExtensionPermitidaPropertyDescriptor(object);
+			addPesoMaxMBPropertyDescriptor(object);
 			addEsUsadaPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
@@ -112,6 +117,50 @@ public class PropiedadItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Extension Permitida feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addExtensionPermitidaPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Propiedad_extensionPermitida_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Propiedad_extensionPermitida_feature", "_UI_Propiedad_type"),
+				 McpMMPackage.Literals.PROPIEDAD__EXTENSION_PERMITIDA,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Peso Max MB feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addPesoMaxMBPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Propiedad_pesoMaxMB_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Propiedad_pesoMaxMB_feature", "_UI_Propiedad_type"),
+				 McpMMPackage.Literals.PROPIEDAD__PESO_MAX_MB,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This adds a property descriptor for the Es Usada feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -131,6 +180,36 @@ public class PropiedadItemProvider
 				 null,
 				 null,
 				 null));
+	}
+
+	/**
+	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
+	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
+	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
+		if (childrenFeatures == null) {
+			super.getChildrenFeatures(object);
+			childrenFeatures.add(McpMMPackage.Literals.PROPIEDAD__VERSIONES);
+		}
+		return childrenFeatures;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected EStructuralFeature getChildFeature(Object object, Object child) {
+		// Check the type of the specified child object and return the proper feature to use for
+		// adding (see {@link AddCommand}) it as a child.
+
+		return super.getChildFeature(object, child);
 	}
 
 	/**
@@ -173,7 +252,12 @@ public class PropiedadItemProvider
 		switch (notification.getFeatureID(Propiedad.class)) {
 			case McpMMPackage.PROPIEDAD__NOMBRE_PROPIEDAD:
 			case McpMMPackage.PROPIEDAD__TIPO_PROPIEDAD:
+			case McpMMPackage.PROPIEDAD__EXTENSION_PERMITIDA:
+			case McpMMPackage.PROPIEDAD__PESO_MAX_MB:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+			case McpMMPackage.PROPIEDAD__VERSIONES:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
 		super.notifyChanged(notification);
@@ -189,6 +273,11 @@ public class PropiedadItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add
+			(createChildParameter
+				(McpMMPackage.Literals.PROPIEDAD__VERSIONES,
+				 McpMMFactory.eINSTANCE.createVersionContexto()));
 	}
 
 	/**

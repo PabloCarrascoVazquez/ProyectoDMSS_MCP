@@ -3,7 +3,6 @@
 package McpMM.impl;
 
 import McpMM.Accion;
-import McpMM.Agente;
 import McpMM.McpMMPackage;
 import McpMM.Tarea;
 import McpMM.TareaAnalisis;
@@ -20,7 +19,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -33,11 +32,12 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link McpMM.impl.TareaImpl#getNombreTarea <em>Nombre Tarea</em>}</li>
+ *   <li>{@link McpMM.impl.TareaImpl#getTaskId <em>Task Id</em>}</li>
+ *   <li>{@link McpMM.impl.TareaImpl#getTaskDesc <em>Task Desc</em>}</li>
  *   <li>{@link McpMM.impl.TareaImpl#getAccion <em>Accion</em>}</li>
  *   <li>{@link McpMM.impl.TareaImpl#getPrecede <em>Precede</em>}</li>
  *   <li>{@link McpMM.impl.TareaImpl#getSigue <em>Sigue</em>}</li>
  *   <li>{@link McpMM.impl.TareaImpl#getPrecedeElse <em>Precede Else</em>}</li>
- *   <li>{@link McpMM.impl.TareaImpl#getAgenteAsignado <em>Agente Asignado</em>}</li>
  * </ul>
  *
  * @generated
@@ -62,6 +62,46 @@ public abstract class TareaImpl extends EObjectImpl implements Tarea {
 	 * @ordered
 	 */
 	protected String nombreTarea = NOMBRE_TAREA_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getTaskId() <em>Task Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTaskId()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int TASK_ID_EDEFAULT = 0;
+
+	/**
+	 * The cached value of the '{@link #getTaskId() <em>Task Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTaskId()
+	 * @generated
+	 * @ordered
+	 */
+	protected int taskId = TASK_ID_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getTaskDesc() <em>Task Desc</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTaskDesc()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String TASK_DESC_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getTaskDesc() <em>Task Desc</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTaskDesc()
+	 * @generated
+	 * @ordered
+	 */
+	protected String taskDesc = TASK_DESC_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getAccion() <em>Accion</em>}' containment reference list.
@@ -104,16 +144,6 @@ public abstract class TareaImpl extends EObjectImpl implements Tarea {
 	protected TareaAnalisis precedeElse;
 
 	/**
-	 * The cached value of the '{@link #getAgenteAsignado() <em>Agente Asignado</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getAgenteAsignado()
-	 * @generated
-	 * @ordered
-	 */
-	protected Agente agenteAsignado;
-
-	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -151,6 +181,48 @@ public abstract class TareaImpl extends EObjectImpl implements Tarea {
 		nombreTarea = newNombreTarea;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, McpMMPackage.TAREA__NOMBRE_TAREA, oldNombreTarea, nombreTarea));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public int getTaskId() {
+		return taskId;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setTaskId(int newTaskId) {
+		int oldTaskId = taskId;
+		taskId = newTaskId;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, McpMMPackage.TAREA__TASK_ID, oldTaskId, taskId));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getTaskDesc() {
+		return taskDesc;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setTaskDesc(String newTaskDesc) {
+		String oldTaskDesc = taskDesc;
+		taskDesc = newTaskDesc;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, McpMMPackage.TAREA__TASK_DESC, oldTaskDesc, taskDesc));
 	}
 
 	/**
@@ -350,66 +422,6 @@ public abstract class TareaImpl extends EObjectImpl implements Tarea {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Agente getAgenteAsignado() {
-		if (agenteAsignado != null && agenteAsignado.eIsProxy()) {
-			InternalEObject oldAgenteAsignado = (InternalEObject)agenteAsignado;
-			agenteAsignado = (Agente)eResolveProxy(oldAgenteAsignado);
-			if (agenteAsignado != oldAgenteAsignado) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, McpMMPackage.TAREA__AGENTE_ASIGNADO, oldAgenteAsignado, agenteAsignado));
-			}
-		}
-		return agenteAsignado;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Agente basicGetAgenteAsignado() {
-		return agenteAsignado;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetAgenteAsignado(Agente newAgenteAsignado, NotificationChain msgs) {
-		Agente oldAgenteAsignado = agenteAsignado;
-		agenteAsignado = newAgenteAsignado;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, McpMMPackage.TAREA__AGENTE_ASIGNADO, oldAgenteAsignado, newAgenteAsignado);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setAgenteAsignado(Agente newAgenteAsignado) {
-		if (newAgenteAsignado != agenteAsignado) {
-			NotificationChain msgs = null;
-			if (agenteAsignado != null)
-				msgs = ((InternalEObject)agenteAsignado).eInverseRemove(this, McpMMPackage.AGENTE__REALIZA, Agente.class, msgs);
-			if (newAgenteAsignado != null)
-				msgs = ((InternalEObject)newAgenteAsignado).eInverseAdd(this, McpMMPackage.AGENTE__REALIZA, Agente.class, msgs);
-			msgs = basicSetAgenteAsignado(newAgenteAsignado, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, McpMMPackage.TAREA__AGENTE_ASIGNADO, newAgenteAsignado, newAgenteAsignado));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -425,10 +437,6 @@ public abstract class TareaImpl extends EObjectImpl implements Tarea {
 				if (precedeElse != null)
 					msgs = ((InternalEObject)precedeElse).eInverseRemove(this, McpMMPackage.TAREA_ANALISIS__SIGUE_ELSE, TareaAnalisis.class, msgs);
 				return basicSetPrecedeElse((TareaAnalisis)otherEnd, msgs);
-			case McpMMPackage.TAREA__AGENTE_ASIGNADO:
-				if (agenteAsignado != null)
-					msgs = ((InternalEObject)agenteAsignado).eInverseRemove(this, McpMMPackage.AGENTE__REALIZA, Agente.class, msgs);
-				return basicSetAgenteAsignado((Agente)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -449,8 +457,6 @@ public abstract class TareaImpl extends EObjectImpl implements Tarea {
 				return basicSetSigue(null, msgs);
 			case McpMMPackage.TAREA__PRECEDE_ELSE:
 				return basicSetPrecedeElse(null, msgs);
-			case McpMMPackage.TAREA__AGENTE_ASIGNADO:
-				return basicSetAgenteAsignado(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -465,6 +471,10 @@ public abstract class TareaImpl extends EObjectImpl implements Tarea {
 		switch (featureID) {
 			case McpMMPackage.TAREA__NOMBRE_TAREA:
 				return getNombreTarea();
+			case McpMMPackage.TAREA__TASK_ID:
+				return getTaskId();
+			case McpMMPackage.TAREA__TASK_DESC:
+				return getTaskDesc();
 			case McpMMPackage.TAREA__ACCION:
 				return getAccion();
 			case McpMMPackage.TAREA__PRECEDE:
@@ -476,9 +486,6 @@ public abstract class TareaImpl extends EObjectImpl implements Tarea {
 			case McpMMPackage.TAREA__PRECEDE_ELSE:
 				if (resolve) return getPrecedeElse();
 				return basicGetPrecedeElse();
-			case McpMMPackage.TAREA__AGENTE_ASIGNADO:
-				if (resolve) return getAgenteAsignado();
-				return basicGetAgenteAsignado();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -495,6 +502,12 @@ public abstract class TareaImpl extends EObjectImpl implements Tarea {
 			case McpMMPackage.TAREA__NOMBRE_TAREA:
 				setNombreTarea((String)newValue);
 				return;
+			case McpMMPackage.TAREA__TASK_ID:
+				setTaskId((Integer)newValue);
+				return;
+			case McpMMPackage.TAREA__TASK_DESC:
+				setTaskDesc((String)newValue);
+				return;
 			case McpMMPackage.TAREA__ACCION:
 				getAccion().clear();
 				getAccion().addAll((Collection<? extends Accion>)newValue);
@@ -507,9 +520,6 @@ public abstract class TareaImpl extends EObjectImpl implements Tarea {
 				return;
 			case McpMMPackage.TAREA__PRECEDE_ELSE:
 				setPrecedeElse((TareaAnalisis)newValue);
-				return;
-			case McpMMPackage.TAREA__AGENTE_ASIGNADO:
-				setAgenteAsignado((Agente)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -526,6 +536,12 @@ public abstract class TareaImpl extends EObjectImpl implements Tarea {
 			case McpMMPackage.TAREA__NOMBRE_TAREA:
 				setNombreTarea(NOMBRE_TAREA_EDEFAULT);
 				return;
+			case McpMMPackage.TAREA__TASK_ID:
+				setTaskId(TASK_ID_EDEFAULT);
+				return;
+			case McpMMPackage.TAREA__TASK_DESC:
+				setTaskDesc(TASK_DESC_EDEFAULT);
+				return;
 			case McpMMPackage.TAREA__ACCION:
 				getAccion().clear();
 				return;
@@ -537,9 +553,6 @@ public abstract class TareaImpl extends EObjectImpl implements Tarea {
 				return;
 			case McpMMPackage.TAREA__PRECEDE_ELSE:
 				setPrecedeElse((TareaAnalisis)null);
-				return;
-			case McpMMPackage.TAREA__AGENTE_ASIGNADO:
-				setAgenteAsignado((Agente)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -555,6 +568,10 @@ public abstract class TareaImpl extends EObjectImpl implements Tarea {
 		switch (featureID) {
 			case McpMMPackage.TAREA__NOMBRE_TAREA:
 				return NOMBRE_TAREA_EDEFAULT == null ? nombreTarea != null : !NOMBRE_TAREA_EDEFAULT.equals(nombreTarea);
+			case McpMMPackage.TAREA__TASK_ID:
+				return taskId != TASK_ID_EDEFAULT;
+			case McpMMPackage.TAREA__TASK_DESC:
+				return TASK_DESC_EDEFAULT == null ? taskDesc != null : !TASK_DESC_EDEFAULT.equals(taskDesc);
 			case McpMMPackage.TAREA__ACCION:
 				return accion != null && !accion.isEmpty();
 			case McpMMPackage.TAREA__PRECEDE:
@@ -563,8 +580,6 @@ public abstract class TareaImpl extends EObjectImpl implements Tarea {
 				return sigue != null;
 			case McpMMPackage.TAREA__PRECEDE_ELSE:
 				return precedeElse != null;
-			case McpMMPackage.TAREA__AGENTE_ASIGNADO:
-				return agenteAsignado != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -581,6 +596,10 @@ public abstract class TareaImpl extends EObjectImpl implements Tarea {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (nombreTarea: ");
 		result.append(nombreTarea);
+		result.append(", taskId: ");
+		result.append(taskId);
+		result.append(", taskDesc: ");
+		result.append(taskDesc);
 		result.append(')');
 		return result.toString();
 	}

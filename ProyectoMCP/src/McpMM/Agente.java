@@ -15,88 +15,113 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link McpMM.Agente#getNombreAgente <em>Nombre Agente</em>}</li>
- *   <li>{@link McpMM.Agente#getNumTareas <em>Num Tareas</em>}</li>
- *   <li>{@link McpMM.Agente#getRealiza <em>Realiza</em>}</li>
+ *   <li>{@link McpMM.Agente#getNombre <em>Nombre</em>}</li>
+ *   <li>{@link McpMM.Agente#getRol <em>Rol</em>}</li>
+ *   <li>{@link McpMM.Agente#getFlujo <em>Flujo</em>}</li>
+ *   <li>{@link McpMM.Agente#getContextos <em>Contextos</em>}</li>
  * </ul>
  *
  * @see McpMM.McpMMPackage#getAgente()
- * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='R05_AlMenosUnaTarea'"
- *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot R05_AlMenosUnaTarea='not (self.realiza->select(t | not t.oclIsTypeOf(TareaInicial) and not t.oclIsTypeOf(TareaFinal))->isEmpty())'"
- *        annotation="gmf.node label='nombreAgente' figure='rectangle' color='255,200,200'"
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='R05_LimiteCargaTrabajo'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot R05_LimiteCargaTrabajo='self.flujo.tareas->select(t | t.oclIsKindOf(TareaEjecutable))->size() <= 10'"
+ *        annotation="gmf.node label='nombre' figure='rectangle' color='255,200,200'"
  * @generated
  */
 public interface Agente extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Nombre Agente</b></em>' attribute.
+	 * Returns the value of the '<em><b>Nombre</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Nombre Agente</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Nombre</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Nombre Agente</em>' attribute.
-	 * @see #setNombreAgente(String)
-	 * @see McpMM.McpMMPackage#getAgente_NombreAgente()
+	 * @return the value of the '<em>Nombre</em>' attribute.
+	 * @see #setNombre(String)
+	 * @see McpMM.McpMMPackage#getAgente_Nombre()
 	 * @model
 	 * @generated
 	 */
-	String getNombreAgente();
+	String getNombre();
 
 	/**
-	 * Sets the value of the '{@link McpMM.Agente#getNombreAgente <em>Nombre Agente</em>}' attribute.
+	 * Sets the value of the '{@link McpMM.Agente#getNombre <em>Nombre</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Nombre Agente</em>' attribute.
-	 * @see #getNombreAgente()
+	 * @param value the new value of the '<em>Nombre</em>' attribute.
+	 * @see #getNombre()
 	 * @generated
 	 */
-	void setNombreAgente(String value);
+	void setNombre(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Num Tareas</b></em>' attribute.
+	 * Returns the value of the '<em><b>Rol</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Num Tareas</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Rol</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Num Tareas</em>' attribute.
-	 * @see #setNumTareas(int)
-	 * @see McpMM.McpMMPackage#getAgente_NumTareas()
-	 * @model required="true" transient="true" volatile="true" derived="true"
-	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot derivation='realiza->size()'"
+	 * @return the value of the '<em>Rol</em>' attribute.
+	 * @see #setRol(String)
+	 * @see McpMM.McpMMPackage#getAgente_Rol()
+	 * @model
 	 * @generated
 	 */
-	int getNumTareas();
+	String getRol();
 
 	/**
-	 * Sets the value of the '{@link McpMM.Agente#getNumTareas <em>Num Tareas</em>}' attribute.
+	 * Sets the value of the '{@link McpMM.Agente#getRol <em>Rol</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Num Tareas</em>' attribute.
-	 * @see #getNumTareas()
+	 * @param value the new value of the '<em>Rol</em>' attribute.
+	 * @see #getRol()
 	 * @generated
 	 */
-	void setNumTareas(int value);
+	void setRol(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Realiza</b></em>' reference list.
-	 * The list contents are of type {@link McpMM.Tarea}.
-	 * It is bidirectional and its opposite is '{@link McpMM.Tarea#getAgenteAsignado <em>Agente Asignado</em>}'.
+	 * Returns the value of the '<em><b>Flujo</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Realiza</em>' reference list isn't clear,
+	 * If the meaning of the '<em>Flujo</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Realiza</em>' reference list.
-	 * @see McpMM.McpMMPackage#getAgente_Realiza()
-	 * @see McpMM.Tarea#getAgenteAsignado
-	 * @model opposite="agenteAsignado" required="true"
-	 *        annotation="gmf.link target.decoration='arrow' style='dash' label='realiza'"
+	 * @return the value of the '<em>Flujo</em>' containment reference.
+	 * @see #setFlujo(Workflow)
+	 * @see McpMM.McpMMPackage#getAgente_Flujo()
+	 * @model containment="true" required="true"
+	 *        annotation="gmf.compartment layout='free'"
 	 * @generated
 	 */
-	EList<Tarea> getRealiza();
+	Workflow getFlujo();
+
+	/**
+	 * Sets the value of the '{@link McpMM.Agente#getFlujo <em>Flujo</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Flujo</em>' containment reference.
+	 * @see #getFlujo()
+	 * @generated
+	 */
+	void setFlujo(Workflow value);
+
+	/**
+	 * Returns the value of the '<em><b>Contextos</b></em>' containment reference list.
+	 * The list contents are of type {@link McpMM.Contexto}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Contextos</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Contextos</em>' containment reference list.
+	 * @see McpMM.McpMMPackage#getAgente_Contextos()
+	 * @model containment="true"
+	 *        annotation="gmf.compartment layout='list'"
+	 * @generated
+	 */
+	EList<Contexto> getContextos();
 
 } // Agente

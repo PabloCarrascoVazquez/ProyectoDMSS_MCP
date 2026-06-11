@@ -130,10 +130,9 @@ public class McpMMViewProvider extends AbstractProvider implements IViewProvider
 					return false; // foreign diagram
 				}
 				switch (visualID) {
-				case McpMM.diagram.edit.parts.ServerMCPEditPart.VISUAL_ID:
 				case McpMM.diagram.edit.parts.AgenteEditPart.VISUAL_ID:
+				case McpMM.diagram.edit.parts.ServerMCPEditPart.VISUAL_ID:
 				case McpMM.diagram.edit.parts.WorkflowEditPart.VISUAL_ID:
-				case McpMM.diagram.edit.parts.OperacionMCPEditPart.VISUAL_ID:
 				case McpMM.diagram.edit.parts.TareaTransformacionDatosEditPart.VISUAL_ID:
 				case McpMM.diagram.edit.parts.EscrituraEditPart.VISUAL_ID:
 				case McpMM.diagram.edit.parts.LecturaEditPart.VISUAL_ID:
@@ -143,10 +142,11 @@ public class McpMMViewProvider extends AbstractProvider implements IViewProvider
 				case McpMM.diagram.edit.parts.TareaEnvioContextoEditPart.VISUAL_ID:
 				case McpMM.diagram.edit.parts.TareaRecepcionContextoEditPart.VISUAL_ID:
 				case McpMM.diagram.edit.parts.TareaServerMCPEditPart.VISUAL_ID:
-				case McpMM.diagram.edit.parts.TareaFinalEditPart.VISUAL_ID:
-				case McpMM.diagram.edit.parts.TareaInicialEditPart.VISUAL_ID:
+				case McpMM.diagram.edit.parts.InicioEditPart.VISUAL_ID:
+				case McpMM.diagram.edit.parts.FinalEditPart.VISUAL_ID:
 				case McpMM.diagram.edit.parts.ContextoEditPart.VISUAL_ID:
 				case McpMM.diagram.edit.parts.PropiedadEditPart.VISUAL_ID:
+				case McpMM.diagram.edit.parts.OperacionMCPEditPart.VISUAL_ID:
 					if (domainElement == null || visualID != McpMM.diagram.part.McpMMVisualIDRegistry
 							.getNodeVisualID(op.getContainerView(), domainElement)) {
 						return false; // visual id in semantic hint should match visual id for domain element
@@ -157,10 +157,9 @@ public class McpMMViewProvider extends AbstractProvider implements IViewProvider
 				}
 			}
 		}
-		return McpMM.diagram.edit.parts.ServerMCPEditPart.VISUAL_ID == visualID
-				|| McpMM.diagram.edit.parts.AgenteEditPart.VISUAL_ID == visualID
+		return McpMM.diagram.edit.parts.AgenteEditPart.VISUAL_ID == visualID
+				|| McpMM.diagram.edit.parts.ServerMCPEditPart.VISUAL_ID == visualID
 				|| McpMM.diagram.edit.parts.WorkflowEditPart.VISUAL_ID == visualID
-				|| McpMM.diagram.edit.parts.OperacionMCPEditPart.VISUAL_ID == visualID
 				|| McpMM.diagram.edit.parts.TareaTransformacionDatosEditPart.VISUAL_ID == visualID
 				|| McpMM.diagram.edit.parts.EscrituraEditPart.VISUAL_ID == visualID
 				|| McpMM.diagram.edit.parts.LecturaEditPart.VISUAL_ID == visualID
@@ -170,10 +169,11 @@ public class McpMMViewProvider extends AbstractProvider implements IViewProvider
 				|| McpMM.diagram.edit.parts.TareaEnvioContextoEditPart.VISUAL_ID == visualID
 				|| McpMM.diagram.edit.parts.TareaRecepcionContextoEditPart.VISUAL_ID == visualID
 				|| McpMM.diagram.edit.parts.TareaServerMCPEditPart.VISUAL_ID == visualID
-				|| McpMM.diagram.edit.parts.TareaFinalEditPart.VISUAL_ID == visualID
-				|| McpMM.diagram.edit.parts.TareaInicialEditPart.VISUAL_ID == visualID
+				|| McpMM.diagram.edit.parts.InicioEditPart.VISUAL_ID == visualID
+				|| McpMM.diagram.edit.parts.FinalEditPart.VISUAL_ID == visualID
 				|| McpMM.diagram.edit.parts.ContextoEditPart.VISUAL_ID == visualID
-				|| McpMM.diagram.edit.parts.PropiedadEditPart.VISUAL_ID == visualID;
+				|| McpMM.diagram.edit.parts.PropiedadEditPart.VISUAL_ID == visualID
+				|| McpMM.diagram.edit.parts.OperacionMCPEditPart.VISUAL_ID == visualID;
 	}
 
 	/**
@@ -224,14 +224,12 @@ public class McpMMViewProvider extends AbstractProvider implements IViewProvider
 			visualID = McpMM.diagram.part.McpMMVisualIDRegistry.getVisualID(semanticHint);
 		}
 		switch (visualID) {
-		case McpMM.diagram.edit.parts.ServerMCPEditPart.VISUAL_ID:
-			return createServerMCP_2001(domainElement, containerView, index, persisted, preferencesHint);
 		case McpMM.diagram.edit.parts.AgenteEditPart.VISUAL_ID:
-			return createAgente_2002(domainElement, containerView, index, persisted, preferencesHint);
+			return createAgente_2001(domainElement, containerView, index, persisted, preferencesHint);
+		case McpMM.diagram.edit.parts.ServerMCPEditPart.VISUAL_ID:
+			return createServerMCP_2002(domainElement, containerView, index, persisted, preferencesHint);
 		case McpMM.diagram.edit.parts.WorkflowEditPart.VISUAL_ID:
-			return createWorkflow_2003(domainElement, containerView, index, persisted, preferencesHint);
-		case McpMM.diagram.edit.parts.OperacionMCPEditPart.VISUAL_ID:
-			return createOperacionMCP_3001(domainElement, containerView, index, persisted, preferencesHint);
+			return createWorkflow_3001(domainElement, containerView, index, persisted, preferencesHint);
 		case McpMM.diagram.edit.parts.TareaTransformacionDatosEditPart.VISUAL_ID:
 			return createTareaTransformacionDatos_3002(domainElement, containerView, index, persisted, preferencesHint);
 		case McpMM.diagram.edit.parts.EscrituraEditPart.VISUAL_ID:
@@ -250,14 +248,16 @@ public class McpMMViewProvider extends AbstractProvider implements IViewProvider
 			return createTareaRecepcionContexto_3009(domainElement, containerView, index, persisted, preferencesHint);
 		case McpMM.diagram.edit.parts.TareaServerMCPEditPart.VISUAL_ID:
 			return createTareaServerMCP_3010(domainElement, containerView, index, persisted, preferencesHint);
-		case McpMM.diagram.edit.parts.TareaFinalEditPart.VISUAL_ID:
-			return createTareaFinal_3011(domainElement, containerView, index, persisted, preferencesHint);
-		case McpMM.diagram.edit.parts.TareaInicialEditPart.VISUAL_ID:
-			return createTareaInicial_3012(domainElement, containerView, index, persisted, preferencesHint);
+		case McpMM.diagram.edit.parts.InicioEditPart.VISUAL_ID:
+			return createInicio_3011(domainElement, containerView, index, persisted, preferencesHint);
+		case McpMM.diagram.edit.parts.FinalEditPart.VISUAL_ID:
+			return createFinal_3012(domainElement, containerView, index, persisted, preferencesHint);
 		case McpMM.diagram.edit.parts.ContextoEditPart.VISUAL_ID:
 			return createContexto_3013(domainElement, containerView, index, persisted, preferencesHint);
 		case McpMM.diagram.edit.parts.PropiedadEditPart.VISUAL_ID:
 			return createPropiedad_3014(domainElement, containerView, index, persisted, preferencesHint);
+		case McpMM.diagram.edit.parts.OperacionMCPEditPart.VISUAL_ID:
+			return createOperacionMCP_3015(domainElement, containerView, index, persisted, preferencesHint);
 		}
 		// can't happen, provided #provides(CreateNodeViewOperation) is correct
 		return null;
@@ -271,18 +271,12 @@ public class McpMMViewProvider extends AbstractProvider implements IViewProvider
 		IElementType elementType = getSemanticElementType(semanticAdapter);
 		String elementTypeHint = ((IHintedType) elementType).getSemanticHint();
 		switch (McpMM.diagram.part.McpMMVisualIDRegistry.getVisualID(elementTypeHint)) {
-		case McpMM.diagram.edit.parts.AgenteRealizaEditPart.VISUAL_ID:
-			return createAgenteRealiza_4001(containerView, index, persisted, preferencesHint);
-		case McpMM.diagram.edit.parts.WorkflowEmpiezaConEditPart.VISUAL_ID:
-			return createWorkflowEmpiezaCon_4002(containerView, index, persisted, preferencesHint);
-		case McpMM.diagram.edit.parts.WorkflowFinalizaConEditPart.VISUAL_ID:
-			return createWorkflowFinalizaCon_4003(containerView, index, persisted, preferencesHint);
 		case McpMM.diagram.edit.parts.TareaSigueEditPart.VISUAL_ID:
-			return createTareaSigue_4004(containerView, index, persisted, preferencesHint);
+			return createTareaSigue_4001(containerView, index, persisted, preferencesHint);
 		case McpMM.diagram.edit.parts.TareaAnalisisSigueElseEditPart.VISUAL_ID:
-			return createTareaAnalisisSigueElse_4007(containerView, index, persisted, preferencesHint);
+			return createTareaAnalisisSigueElse_4002(containerView, index, persisted, preferencesHint);
 		case McpMM.diagram.edit.parts.TareaServerMCPEjecutaOperacionEditPart.VISUAL_ID:
-			return createTareaServerMCPEjecutaOperacion_4008(containerView, index, persisted, preferencesHint);
+			return createTareaServerMCPEjecutaOperacion_4003(containerView, index, persisted, preferencesHint);
 		}
 		// can never happen, provided #provides(CreateEdgeViewOperation) is correct
 		return null;
@@ -291,7 +285,54 @@ public class McpMMViewProvider extends AbstractProvider implements IViewProvider
 	/**
 	* @generated
 	*/
-	public Node createServerMCP_2001(EObject domainElement, View containerView, int index, boolean persisted,
+	public Node createAgente_2001(EObject domainElement, View containerView, int index, boolean persisted,
+			PreferencesHint preferencesHint) {
+		Node node = NotationFactory.eINSTANCE.createNode();
+		node.getStyles().add(NotationFactory.eINSTANCE.createDescriptionStyle());
+		node.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
+		node.getStyles().add(NotationFactory.eINSTANCE.createLineStyle());
+		node.getStyles().add(NotationFactory.eINSTANCE.createHintedDiagramLinkStyle());
+		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
+		node.setType(
+				McpMM.diagram.part.McpMMVisualIDRegistry.getType(McpMM.diagram.edit.parts.AgenteEditPart.VISUAL_ID));
+		ViewUtil.insertChildView(containerView, node, index, persisted);
+		node.setElement(domainElement);
+		stampShortcut(containerView, node);
+		// initializeFromPreferences 
+		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
+
+		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
+				IPreferenceConstants.PREF_LINE_COLOR);
+		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE.getLineStyle_LineColor(),
+				FigureUtilities.RGBToInteger(lineRGB));
+		FontStyle nodeFontStyle = (FontStyle) node.getStyle(NotationPackage.Literals.FONT_STYLE);
+		if (nodeFontStyle != null) {
+			FontData fontData = PreferenceConverter.getFontData(prefStore, IPreferenceConstants.PREF_DEFAULT_FONT);
+			nodeFontStyle.setFontName(fontData.getName());
+			nodeFontStyle.setFontHeight(fontData.getHeight());
+			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
+			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
+			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter.getColor(prefStore,
+					IPreferenceConstants.PREF_FONT_COLOR);
+			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB).intValue());
+		}
+		Node label5015 = createLabel(node, McpMM.diagram.part.McpMMVisualIDRegistry
+				.getType(McpMM.diagram.edit.parts.AgenteNombreEditPart.VISUAL_ID));
+		createCompartment(node,
+				McpMM.diagram.part.McpMMVisualIDRegistry
+						.getType(McpMM.diagram.edit.parts.AgenteAgenteFlujoCompartmentEditPart.VISUAL_ID),
+				true, false, false, false);
+		createCompartment(node,
+				McpMM.diagram.part.McpMMVisualIDRegistry
+						.getType(McpMM.diagram.edit.parts.AgenteAgenteContextosCompartmentEditPart.VISUAL_ID),
+				true, false, true, true);
+		return node;
+	}
+
+	/**
+	* @generated
+	*/
+	public Node createServerMCP_2002(EObject domainElement, View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
 		Node node = NotationFactory.eINSTANCE.createNode();
 		node.getStyles().add(NotationFactory.eINSTANCE.createDescriptionStyle());
@@ -322,11 +363,11 @@ public class McpMMViewProvider extends AbstractProvider implements IViewProvider
 					IPreferenceConstants.PREF_FONT_COLOR);
 			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB).intValue());
 		}
-		Node label5002 = createLabel(node, McpMM.diagram.part.McpMMVisualIDRegistry
+		Node label5017 = createLabel(node, McpMM.diagram.part.McpMMVisualIDRegistry
 				.getType(McpMM.diagram.edit.parts.ServerMCPNombreServerEditPart.VISUAL_ID));
 		createCompartment(node,
 				McpMM.diagram.part.McpMMVisualIDRegistry
-						.getType(McpMM.diagram.edit.parts.ServerMCPServerMCPOperacionmcpCompartmentEditPart.VISUAL_ID),
+						.getType(McpMM.diagram.edit.parts.ServerMCPServerMCPOperacionesCompartmentEditPart.VISUAL_ID),
 				true, false, true, true);
 		return node;
 	}
@@ -334,45 +375,7 @@ public class McpMMViewProvider extends AbstractProvider implements IViewProvider
 	/**
 	* @generated
 	*/
-	public Node createAgente_2002(EObject domainElement, View containerView, int index, boolean persisted,
-			PreferencesHint preferencesHint) {
-		Node node = NotationFactory.eINSTANCE.createNode();
-		node.getStyles().add(NotationFactory.eINSTANCE.createDescriptionStyle());
-		node.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
-		node.getStyles().add(NotationFactory.eINSTANCE.createLineStyle());
-		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
-		node.setType(
-				McpMM.diagram.part.McpMMVisualIDRegistry.getType(McpMM.diagram.edit.parts.AgenteEditPart.VISUAL_ID));
-		ViewUtil.insertChildView(containerView, node, index, persisted);
-		node.setElement(domainElement);
-		stampShortcut(containerView, node);
-		// initializeFromPreferences 
-		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
-
-		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
-				IPreferenceConstants.PREF_LINE_COLOR);
-		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE.getLineStyle_LineColor(),
-				FigureUtilities.RGBToInteger(lineRGB));
-		FontStyle nodeFontStyle = (FontStyle) node.getStyle(NotationPackage.Literals.FONT_STYLE);
-		if (nodeFontStyle != null) {
-			FontData fontData = PreferenceConverter.getFontData(prefStore, IPreferenceConstants.PREF_DEFAULT_FONT);
-			nodeFontStyle.setFontName(fontData.getName());
-			nodeFontStyle.setFontHeight(fontData.getHeight());
-			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
-			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
-			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter.getColor(prefStore,
-					IPreferenceConstants.PREF_FONT_COLOR);
-			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB).intValue());
-		}
-		Node label5003 = createLabel(node, McpMM.diagram.part.McpMMVisualIDRegistry
-				.getType(McpMM.diagram.edit.parts.AgenteNombreAgenteEditPart.VISUAL_ID));
-		return node;
-	}
-
-	/**
-	* @generated
-	*/
-	public Node createWorkflow_2003(EObject domainElement, View containerView, int index, boolean persisted,
+	public Node createWorkflow_3001(EObject domainElement, View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
 		Node node = NotationFactory.eINSTANCE.createNode();
 		node.getStyles().add(NotationFactory.eINSTANCE.createDescriptionStyle());
@@ -384,7 +387,6 @@ public class McpMMViewProvider extends AbstractProvider implements IViewProvider
 				McpMM.diagram.part.McpMMVisualIDRegistry.getType(McpMM.diagram.edit.parts.WorkflowEditPart.VISUAL_ID));
 		ViewUtil.insertChildView(containerView, node, index, persisted);
 		node.setElement(domainElement);
-		stampShortcut(containerView, node);
 		// initializeFromPreferences 
 		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
 
@@ -403,54 +405,12 @@ public class McpMMViewProvider extends AbstractProvider implements IViewProvider
 					IPreferenceConstants.PREF_FONT_COLOR);
 			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB).intValue());
 		}
-		Node label5017 = createLabel(node, McpMM.diagram.part.McpMMVisualIDRegistry
+		Node label5012 = createLabel(node, McpMM.diagram.part.McpMMVisualIDRegistry
 				.getType(McpMM.diagram.edit.parts.WorkflowNombreWorkflowEditPart.VISUAL_ID));
 		createCompartment(node,
 				McpMM.diagram.part.McpMMVisualIDRegistry
-						.getType(McpMM.diagram.edit.parts.WorkflowWorkflowContextoCompartmentEditPart.VISUAL_ID),
-				true, false, true, true);
-		createCompartment(node,
-				McpMM.diagram.part.McpMMVisualIDRegistry
-						.getType(McpMM.diagram.edit.parts.WorkflowWorkflowTareaCompartmentEditPart.VISUAL_ID),
+						.getType(McpMM.diagram.edit.parts.WorkflowWorkflowTareasCompartmentEditPart.VISUAL_ID),
 				true, false, false, false);
-		return node;
-	}
-
-	/**
-	* @generated
-	*/
-	public Node createOperacionMCP_3001(EObject domainElement, View containerView, int index, boolean persisted,
-			PreferencesHint preferencesHint) {
-		Shape node = NotationFactory.eINSTANCE.createShape();
-		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
-		node.setType(McpMM.diagram.part.McpMMVisualIDRegistry
-				.getType(McpMM.diagram.edit.parts.OperacionMCPEditPart.VISUAL_ID));
-		ViewUtil.insertChildView(containerView, node, index, persisted);
-		node.setElement(domainElement);
-		// initializeFromPreferences 
-		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
-
-		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
-				IPreferenceConstants.PREF_LINE_COLOR);
-		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE.getLineStyle_LineColor(),
-				FigureUtilities.RGBToInteger(lineRGB));
-		FontStyle nodeFontStyle = (FontStyle) node.getStyle(NotationPackage.Literals.FONT_STYLE);
-		if (nodeFontStyle != null) {
-			FontData fontData = PreferenceConverter.getFontData(prefStore, IPreferenceConstants.PREF_DEFAULT_FONT);
-			nodeFontStyle.setFontName(fontData.getName());
-			nodeFontStyle.setFontHeight(fontData.getHeight());
-			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
-			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
-			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter.getColor(prefStore,
-					IPreferenceConstants.PREF_FONT_COLOR);
-			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB).intValue());
-		}
-		org.eclipse.swt.graphics.RGB fillRGB = PreferenceConverter.getColor(prefStore,
-				IPreferenceConstants.PREF_FILL_COLOR);
-		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE.getFillStyle_FillColor(),
-				FigureUtilities.RGBToInteger(fillRGB));
-		Node label5001 = createLabel(node, McpMM.diagram.part.McpMMVisualIDRegistry
-				.getType(McpMM.diagram.edit.parts.OperacionMCPNombreOperacionEditPart.VISUAL_ID));
 		return node;
 	}
 
@@ -487,7 +447,7 @@ public class McpMMViewProvider extends AbstractProvider implements IViewProvider
 					IPreferenceConstants.PREF_FONT_COLOR);
 			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB).intValue());
 		}
-		Node label5006 = createLabel(node, McpMM.diagram.part.McpMMVisualIDRegistry
+		Node label5003 = createLabel(node, McpMM.diagram.part.McpMMVisualIDRegistry
 				.getType(McpMM.diagram.edit.parts.TareaTransformacionDatosNombreTareaEditPart.VISUAL_ID));
 		createCompartment(node,
 				McpMM.diagram.part.McpMMVisualIDRegistry.getType(
@@ -529,7 +489,7 @@ public class McpMMViewProvider extends AbstractProvider implements IViewProvider
 				IPreferenceConstants.PREF_FILL_COLOR);
 		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE.getFillStyle_FillColor(),
 				FigureUtilities.RGBToInteger(fillRGB));
-		Node label5004 = createLabel(node, McpMM.diagram.part.McpMMVisualIDRegistry
+		Node label5001 = createLabel(node, McpMM.diagram.part.McpMMVisualIDRegistry
 				.getType(McpMM.diagram.edit.parts.EscrituraNombreAccionEditPart.VISUAL_ID));
 		return node;
 	}
@@ -567,7 +527,7 @@ public class McpMMViewProvider extends AbstractProvider implements IViewProvider
 				IPreferenceConstants.PREF_FILL_COLOR);
 		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE.getFillStyle_FillColor(),
 				FigureUtilities.RGBToInteger(fillRGB));
-		Node label5005 = createLabel(node, McpMM.diagram.part.McpMMVisualIDRegistry
+		Node label5002 = createLabel(node, McpMM.diagram.part.McpMMVisualIDRegistry
 				.getType(McpMM.diagram.edit.parts.LecturaNombreAccionEditPart.VISUAL_ID));
 		return node;
 	}
@@ -605,7 +565,7 @@ public class McpMMViewProvider extends AbstractProvider implements IViewProvider
 					IPreferenceConstants.PREF_FONT_COLOR);
 			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB).intValue());
 		}
-		Node label5007 = createLabel(node, McpMM.diagram.part.McpMMVisualIDRegistry
+		Node label5004 = createLabel(node, McpMM.diagram.part.McpMMVisualIDRegistry
 				.getType(McpMM.diagram.edit.parts.TareaLLMNombreTareaEditPart.VISUAL_ID));
 		createCompartment(node,
 				McpMM.diagram.part.McpMMVisualIDRegistry
@@ -647,7 +607,7 @@ public class McpMMViewProvider extends AbstractProvider implements IViewProvider
 					IPreferenceConstants.PREF_FONT_COLOR);
 			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB).intValue());
 		}
-		Node label5008 = createLabel(node, McpMM.diagram.part.McpMMVisualIDRegistry
+		Node label5005 = createLabel(node, McpMM.diagram.part.McpMMVisualIDRegistry
 				.getType(McpMM.diagram.edit.parts.TareaUsuarioNombreTareaEditPart.VISUAL_ID));
 		createCompartment(node,
 				McpMM.diagram.part.McpMMVisualIDRegistry
@@ -689,7 +649,7 @@ public class McpMMViewProvider extends AbstractProvider implements IViewProvider
 					IPreferenceConstants.PREF_FONT_COLOR);
 			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB).intValue());
 		}
-		Node label5009 = createLabel(node, McpMM.diagram.part.McpMMVisualIDRegistry
+		Node label5006 = createLabel(node, McpMM.diagram.part.McpMMVisualIDRegistry
 				.getType(McpMM.diagram.edit.parts.TareaAnalisisNombreTareaEditPart.VISUAL_ID));
 		createCompartment(node,
 				McpMM.diagram.part.McpMMVisualIDRegistry.getType(
@@ -731,7 +691,7 @@ public class McpMMViewProvider extends AbstractProvider implements IViewProvider
 					IPreferenceConstants.PREF_FONT_COLOR);
 			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB).intValue());
 		}
-		Node label5010 = createLabel(node, McpMM.diagram.part.McpMMVisualIDRegistry
+		Node label5007 = createLabel(node, McpMM.diagram.part.McpMMVisualIDRegistry
 				.getType(McpMM.diagram.edit.parts.TareaEnvioContextoNombreTareaEditPart.VISUAL_ID));
 		createCompartment(node,
 				McpMM.diagram.part.McpMMVisualIDRegistry.getType(
@@ -773,7 +733,7 @@ public class McpMMViewProvider extends AbstractProvider implements IViewProvider
 					IPreferenceConstants.PREF_FONT_COLOR);
 			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB).intValue());
 		}
-		Node label5011 = createLabel(node, McpMM.diagram.part.McpMMVisualIDRegistry
+		Node label5008 = createLabel(node, McpMM.diagram.part.McpMMVisualIDRegistry
 				.getType(McpMM.diagram.edit.parts.TareaRecepcionContextoNombreTareaEditPart.VISUAL_ID));
 		createCompartment(node,
 				McpMM.diagram.part.McpMMVisualIDRegistry.getType(
@@ -815,7 +775,7 @@ public class McpMMViewProvider extends AbstractProvider implements IViewProvider
 					IPreferenceConstants.PREF_FONT_COLOR);
 			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB).intValue());
 		}
-		Node label5012 = createLabel(node, McpMM.diagram.part.McpMMVisualIDRegistry
+		Node label5009 = createLabel(node, McpMM.diagram.part.McpMMVisualIDRegistry
 				.getType(McpMM.diagram.edit.parts.TareaServerMCPNombreTareaEditPart.VISUAL_ID));
 		createCompartment(node,
 				McpMM.diagram.part.McpMMVisualIDRegistry.getType(
@@ -827,7 +787,7 @@ public class McpMMViewProvider extends AbstractProvider implements IViewProvider
 	/**
 	* @generated
 	*/
-	public Node createTareaFinal_3011(EObject domainElement, View containerView, int index, boolean persisted,
+	public Node createInicio_3011(EObject domainElement, View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
 		Node node = NotationFactory.eINSTANCE.createNode();
 		node.getStyles().add(NotationFactory.eINSTANCE.createDescriptionStyle());
@@ -835,8 +795,8 @@ public class McpMMViewProvider extends AbstractProvider implements IViewProvider
 		node.getStyles().add(NotationFactory.eINSTANCE.createLineStyle());
 		node.getStyles().add(NotationFactory.eINSTANCE.createHintedDiagramLinkStyle());
 		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
-		node.setType(McpMM.diagram.part.McpMMVisualIDRegistry
-				.getType(McpMM.diagram.edit.parts.TareaFinalEditPart.VISUAL_ID));
+		node.setType(
+				McpMM.diagram.part.McpMMVisualIDRegistry.getType(McpMM.diagram.edit.parts.InicioEditPart.VISUAL_ID));
 		ViewUtil.insertChildView(containerView, node, index, persisted);
 		node.setElement(domainElement);
 		// initializeFromPreferences 
@@ -857,11 +817,11 @@ public class McpMMViewProvider extends AbstractProvider implements IViewProvider
 					IPreferenceConstants.PREF_FONT_COLOR);
 			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB).intValue());
 		}
-		Node label5013 = createLabel(node, McpMM.diagram.part.McpMMVisualIDRegistry
-				.getType(McpMM.diagram.edit.parts.TareaFinalNombreTareaEditPart.VISUAL_ID));
+		Node label5010 = createLabel(node, McpMM.diagram.part.McpMMVisualIDRegistry
+				.getType(McpMM.diagram.edit.parts.InicioNombreTareaEditPart.VISUAL_ID));
 		createCompartment(node,
 				McpMM.diagram.part.McpMMVisualIDRegistry
-						.getType(McpMM.diagram.edit.parts.TareaFinalTareaFinalAccionCompartmentEditPart.VISUAL_ID),
+						.getType(McpMM.diagram.edit.parts.InicioInicioAccionCompartmentEditPart.VISUAL_ID),
 				true, false, true, true);
 		return node;
 	}
@@ -869,7 +829,7 @@ public class McpMMViewProvider extends AbstractProvider implements IViewProvider
 	/**
 	* @generated
 	*/
-	public Node createTareaInicial_3012(EObject domainElement, View containerView, int index, boolean persisted,
+	public Node createFinal_3012(EObject domainElement, View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
 		Node node = NotationFactory.eINSTANCE.createNode();
 		node.getStyles().add(NotationFactory.eINSTANCE.createDescriptionStyle());
@@ -877,8 +837,8 @@ public class McpMMViewProvider extends AbstractProvider implements IViewProvider
 		node.getStyles().add(NotationFactory.eINSTANCE.createLineStyle());
 		node.getStyles().add(NotationFactory.eINSTANCE.createHintedDiagramLinkStyle());
 		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
-		node.setType(McpMM.diagram.part.McpMMVisualIDRegistry
-				.getType(McpMM.diagram.edit.parts.TareaInicialEditPart.VISUAL_ID));
+		node.setType(
+				McpMM.diagram.part.McpMMVisualIDRegistry.getType(McpMM.diagram.edit.parts.FinalEditPart.VISUAL_ID));
 		ViewUtil.insertChildView(containerView, node, index, persisted);
 		node.setElement(domainElement);
 		// initializeFromPreferences 
@@ -899,11 +859,11 @@ public class McpMMViewProvider extends AbstractProvider implements IViewProvider
 					IPreferenceConstants.PREF_FONT_COLOR);
 			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB).intValue());
 		}
-		Node label5014 = createLabel(node, McpMM.diagram.part.McpMMVisualIDRegistry
-				.getType(McpMM.diagram.edit.parts.TareaInicialNombreTareaEditPart.VISUAL_ID));
+		Node label5011 = createLabel(node, McpMM.diagram.part.McpMMVisualIDRegistry
+				.getType(McpMM.diagram.edit.parts.FinalNombreTareaEditPart.VISUAL_ID));
 		createCompartment(node,
 				McpMM.diagram.part.McpMMVisualIDRegistry
-						.getType(McpMM.diagram.edit.parts.TareaInicialTareaInicialAccionCompartmentEditPart.VISUAL_ID),
+						.getType(McpMM.diagram.edit.parts.FinalFinalAccionCompartmentEditPart.VISUAL_ID),
 				true, false, true, true);
 		return node;
 	}
@@ -941,11 +901,11 @@ public class McpMMViewProvider extends AbstractProvider implements IViewProvider
 					IPreferenceConstants.PREF_FONT_COLOR);
 			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB).intValue());
 		}
-		Node label5016 = createLabel(node, McpMM.diagram.part.McpMMVisualIDRegistry
+		Node label5014 = createLabel(node, McpMM.diagram.part.McpMMVisualIDRegistry
 				.getType(McpMM.diagram.edit.parts.ContextoNombreContextoEditPart.VISUAL_ID));
 		createCompartment(node,
 				McpMM.diagram.part.McpMMVisualIDRegistry
-						.getType(McpMM.diagram.edit.parts.ContextoContextoPropiedadCompartmentEditPart.VISUAL_ID),
+						.getType(McpMM.diagram.edit.parts.ContextoContextoPropiedadesCompartmentEditPart.VISUAL_ID),
 				true, false, true, true);
 		return node;
 	}
@@ -983,7 +943,7 @@ public class McpMMViewProvider extends AbstractProvider implements IViewProvider
 				IPreferenceConstants.PREF_FILL_COLOR);
 		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE.getFillStyle_FillColor(),
 				FigureUtilities.RGBToInteger(fillRGB));
-		Node label5015 = createLabel(node, McpMM.diagram.part.McpMMVisualIDRegistry
+		Node label5013 = createLabel(node, McpMM.diagram.part.McpMMVisualIDRegistry
 				.getType(McpMM.diagram.edit.parts.PropiedadNombrePropiedadEditPart.VISUAL_ID));
 		return node;
 	}
@@ -991,146 +951,45 @@ public class McpMMViewProvider extends AbstractProvider implements IViewProvider
 	/**
 	* @generated
 	*/
-	public Edge createAgenteRealiza_4001(View containerView, int index, boolean persisted,
+	public Node createOperacionMCP_3015(EObject domainElement, View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
-		Connector edge = NotationFactory.eINSTANCE.createConnector();
-		edge.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
-		RelativeBendpoints bendpoints = NotationFactory.eINSTANCE.createRelativeBendpoints();
-		ArrayList<RelativeBendpoint> points = new ArrayList<RelativeBendpoint>(2);
-		points.add(new RelativeBendpoint());
-		points.add(new RelativeBendpoint());
-		bendpoints.setPoints(points);
-		edge.setBendpoints(bendpoints);
-		ViewUtil.insertChildView(containerView, edge, index, persisted);
-		edge.setType(McpMM.diagram.part.McpMMVisualIDRegistry
-				.getType(McpMM.diagram.edit.parts.AgenteRealizaEditPart.VISUAL_ID));
-		edge.setElement(null);
-		// initializePreferences
+		Shape node = NotationFactory.eINSTANCE.createShape();
+		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
+		node.setType(McpMM.diagram.part.McpMMVisualIDRegistry
+				.getType(McpMM.diagram.edit.parts.OperacionMCPEditPart.VISUAL_ID));
+		ViewUtil.insertChildView(containerView, node, index, persisted);
+		node.setElement(domainElement);
+		// initializeFromPreferences 
 		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
 
 		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
 				IPreferenceConstants.PREF_LINE_COLOR);
-		ViewUtil.setStructuralFeatureValue(edge, NotationPackage.eINSTANCE.getLineStyle_LineColor(),
+		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE.getLineStyle_LineColor(),
 				FigureUtilities.RGBToInteger(lineRGB));
-		FontStyle edgeFontStyle = (FontStyle) edge.getStyle(NotationPackage.Literals.FONT_STYLE);
-		if (edgeFontStyle != null) {
+		FontStyle nodeFontStyle = (FontStyle) node.getStyle(NotationPackage.Literals.FONT_STYLE);
+		if (nodeFontStyle != null) {
 			FontData fontData = PreferenceConverter.getFontData(prefStore, IPreferenceConstants.PREF_DEFAULT_FONT);
-			edgeFontStyle.setFontName(fontData.getName());
-			edgeFontStyle.setFontHeight(fontData.getHeight());
-			edgeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
-			edgeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
+			nodeFontStyle.setFontName(fontData.getName());
+			nodeFontStyle.setFontHeight(fontData.getHeight());
+			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
+			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
 			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter.getColor(prefStore,
 					IPreferenceConstants.PREF_FONT_COLOR);
-			edgeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB).intValue());
+			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB).intValue());
 		}
-		Routing routing = Routing.get(prefStore.getInt(IPreferenceConstants.PREF_LINE_STYLE));
-		if (routing != null) {
-			ViewUtil.setStructuralFeatureValue(edge, NotationPackage.eINSTANCE.getRoutingStyle_Routing(), routing);
-		}
-		Node label6001 = createLabel(edge, McpMM.diagram.part.McpMMVisualIDRegistry
-				.getType(McpMM.diagram.edit.parts.AgenteRealizaExternalLabelEditPart.VISUAL_ID));
-		label6001.getStyles().add(NotationFactory.eINSTANCE.createDescriptionStyle());
-		label6001.setLayoutConstraint(NotationFactory.eINSTANCE.createLocation());
-		Location location6001 = (Location) label6001.getLayoutConstraint();
-		location6001.setX(0);
-		location6001.setY(40);
-		return edge;
+		org.eclipse.swt.graphics.RGB fillRGB = PreferenceConverter.getColor(prefStore,
+				IPreferenceConstants.PREF_FILL_COLOR);
+		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE.getFillStyle_FillColor(),
+				FigureUtilities.RGBToInteger(fillRGB));
+		Node label5016 = createLabel(node, McpMM.diagram.part.McpMMVisualIDRegistry
+				.getType(McpMM.diagram.edit.parts.OperacionMCPNombreOperacionEditPart.VISUAL_ID));
+		return node;
 	}
 
 	/**
 	* @generated
 	*/
-	public Edge createWorkflowEmpiezaCon_4002(View containerView, int index, boolean persisted,
-			PreferencesHint preferencesHint) {
-		Edge edge = NotationFactory.eINSTANCE.createEdge();
-		edge.getStyles().add(NotationFactory.eINSTANCE.createRoutingStyle());
-		edge.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
-		RelativeBendpoints bendpoints = NotationFactory.eINSTANCE.createRelativeBendpoints();
-		ArrayList<RelativeBendpoint> points = new ArrayList<RelativeBendpoint>(2);
-		points.add(new RelativeBendpoint());
-		points.add(new RelativeBendpoint());
-		bendpoints.setPoints(points);
-		edge.setBendpoints(bendpoints);
-		ViewUtil.insertChildView(containerView, edge, index, persisted);
-		edge.setType(McpMM.diagram.part.McpMMVisualIDRegistry
-				.getType(McpMM.diagram.edit.parts.WorkflowEmpiezaConEditPart.VISUAL_ID));
-		edge.setElement(null);
-		// initializePreferences
-		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
-		FontStyle edgeFontStyle = (FontStyle) edge.getStyle(NotationPackage.Literals.FONT_STYLE);
-		if (edgeFontStyle != null) {
-			FontData fontData = PreferenceConverter.getFontData(prefStore, IPreferenceConstants.PREF_DEFAULT_FONT);
-			edgeFontStyle.setFontName(fontData.getName());
-			edgeFontStyle.setFontHeight(fontData.getHeight());
-			edgeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
-			edgeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
-			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter.getColor(prefStore,
-					IPreferenceConstants.PREF_FONT_COLOR);
-			edgeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB).intValue());
-		}
-		Routing routing = Routing.get(prefStore.getInt(IPreferenceConstants.PREF_LINE_STYLE));
-		if (routing != null) {
-			ViewUtil.setStructuralFeatureValue(edge, NotationPackage.eINSTANCE.getRoutingStyle_Routing(), routing);
-		}
-		Node label6002 = createLabel(edge, McpMM.diagram.part.McpMMVisualIDRegistry
-				.getType(McpMM.diagram.edit.parts.WorkflowEmpiezaConExternalLabelEditPart.VISUAL_ID));
-		label6002.getStyles().add(NotationFactory.eINSTANCE.createDescriptionStyle());
-		label6002.setLayoutConstraint(NotationFactory.eINSTANCE.createLocation());
-		Location location6002 = (Location) label6002.getLayoutConstraint();
-		location6002.setX(0);
-		location6002.setY(40);
-		return edge;
-	}
-
-	/**
-	* @generated
-	*/
-	public Edge createWorkflowFinalizaCon_4003(View containerView, int index, boolean persisted,
-			PreferencesHint preferencesHint) {
-		Edge edge = NotationFactory.eINSTANCE.createEdge();
-		edge.getStyles().add(NotationFactory.eINSTANCE.createRoutingStyle());
-		edge.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
-		RelativeBendpoints bendpoints = NotationFactory.eINSTANCE.createRelativeBendpoints();
-		ArrayList<RelativeBendpoint> points = new ArrayList<RelativeBendpoint>(2);
-		points.add(new RelativeBendpoint());
-		points.add(new RelativeBendpoint());
-		bendpoints.setPoints(points);
-		edge.setBendpoints(bendpoints);
-		ViewUtil.insertChildView(containerView, edge, index, persisted);
-		edge.setType(McpMM.diagram.part.McpMMVisualIDRegistry
-				.getType(McpMM.diagram.edit.parts.WorkflowFinalizaConEditPart.VISUAL_ID));
-		edge.setElement(null);
-		// initializePreferences
-		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
-		FontStyle edgeFontStyle = (FontStyle) edge.getStyle(NotationPackage.Literals.FONT_STYLE);
-		if (edgeFontStyle != null) {
-			FontData fontData = PreferenceConverter.getFontData(prefStore, IPreferenceConstants.PREF_DEFAULT_FONT);
-			edgeFontStyle.setFontName(fontData.getName());
-			edgeFontStyle.setFontHeight(fontData.getHeight());
-			edgeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
-			edgeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
-			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter.getColor(prefStore,
-					IPreferenceConstants.PREF_FONT_COLOR);
-			edgeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB).intValue());
-		}
-		Routing routing = Routing.get(prefStore.getInt(IPreferenceConstants.PREF_LINE_STYLE));
-		if (routing != null) {
-			ViewUtil.setStructuralFeatureValue(edge, NotationPackage.eINSTANCE.getRoutingStyle_Routing(), routing);
-		}
-		Node label6003 = createLabel(edge, McpMM.diagram.part.McpMMVisualIDRegistry
-				.getType(McpMM.diagram.edit.parts.WorkflowFinalizaConExternalLabelEditPart.VISUAL_ID));
-		label6003.getStyles().add(NotationFactory.eINSTANCE.createDescriptionStyle());
-		label6003.setLayoutConstraint(NotationFactory.eINSTANCE.createLocation());
-		Location location6003 = (Location) label6003.getLayoutConstraint();
-		location6003.setX(0);
-		location6003.setY(40);
-		return edge;
-	}
-
-	/**
-	* @generated
-	*/
-	public Edge createTareaSigue_4004(View containerView, int index, boolean persisted,
+	public Edge createTareaSigue_4001(View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
 		Edge edge = NotationFactory.eINSTANCE.createEdge();
 		edge.getStyles().add(NotationFactory.eINSTANCE.createRoutingStyle());
@@ -1162,20 +1021,20 @@ public class McpMMViewProvider extends AbstractProvider implements IViewProvider
 		if (routing != null) {
 			ViewUtil.setStructuralFeatureValue(edge, NotationPackage.eINSTANCE.getRoutingStyle_Routing(), routing);
 		}
-		Node label6004 = createLabel(edge, McpMM.diagram.part.McpMMVisualIDRegistry
+		Node label6001 = createLabel(edge, McpMM.diagram.part.McpMMVisualIDRegistry
 				.getType(McpMM.diagram.edit.parts.TareaSigueExternalLabelEditPart.VISUAL_ID));
-		label6004.getStyles().add(NotationFactory.eINSTANCE.createDescriptionStyle());
-		label6004.setLayoutConstraint(NotationFactory.eINSTANCE.createLocation());
-		Location location6004 = (Location) label6004.getLayoutConstraint();
-		location6004.setX(0);
-		location6004.setY(40);
+		label6001.getStyles().add(NotationFactory.eINSTANCE.createDescriptionStyle());
+		label6001.setLayoutConstraint(NotationFactory.eINSTANCE.createLocation());
+		Location location6001 = (Location) label6001.getLayoutConstraint();
+		location6001.setX(0);
+		location6001.setY(40);
 		return edge;
 	}
 
 	/**
 	* @generated
 	*/
-	public Edge createTareaAnalisisSigueElse_4007(View containerView, int index, boolean persisted,
+	public Edge createTareaAnalisisSigueElse_4002(View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
 		Connector edge = NotationFactory.eINSTANCE.createConnector();
 		edge.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
@@ -1211,20 +1070,20 @@ public class McpMMViewProvider extends AbstractProvider implements IViewProvider
 		if (routing != null) {
 			ViewUtil.setStructuralFeatureValue(edge, NotationPackage.eINSTANCE.getRoutingStyle_Routing(), routing);
 		}
-		Node label6007 = createLabel(edge, McpMM.diagram.part.McpMMVisualIDRegistry
+		Node label6002 = createLabel(edge, McpMM.diagram.part.McpMMVisualIDRegistry
 				.getType(McpMM.diagram.edit.parts.TareaAnalisisSigueElseExternalLabelEditPart.VISUAL_ID));
-		label6007.getStyles().add(NotationFactory.eINSTANCE.createDescriptionStyle());
-		label6007.setLayoutConstraint(NotationFactory.eINSTANCE.createLocation());
-		Location location6007 = (Location) label6007.getLayoutConstraint();
-		location6007.setX(0);
-		location6007.setY(40);
+		label6002.getStyles().add(NotationFactory.eINSTANCE.createDescriptionStyle());
+		label6002.setLayoutConstraint(NotationFactory.eINSTANCE.createLocation());
+		Location location6002 = (Location) label6002.getLayoutConstraint();
+		location6002.setX(0);
+		location6002.setY(40);
 		return edge;
 	}
 
 	/**
 	* @generated
 	*/
-	public Edge createTareaServerMCPEjecutaOperacion_4008(View containerView, int index, boolean persisted,
+	public Edge createTareaServerMCPEjecutaOperacion_4003(View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
 		Connector edge = NotationFactory.eINSTANCE.createConnector();
 		edge.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
@@ -1260,13 +1119,13 @@ public class McpMMViewProvider extends AbstractProvider implements IViewProvider
 		if (routing != null) {
 			ViewUtil.setStructuralFeatureValue(edge, NotationPackage.eINSTANCE.getRoutingStyle_Routing(), routing);
 		}
-		Node label6008 = createLabel(edge, McpMM.diagram.part.McpMMVisualIDRegistry
+		Node label6003 = createLabel(edge, McpMM.diagram.part.McpMMVisualIDRegistry
 				.getType(McpMM.diagram.edit.parts.TareaServerMCPEjecutaOperacionExternalLabelEditPart.VISUAL_ID));
-		label6008.getStyles().add(NotationFactory.eINSTANCE.createDescriptionStyle());
-		label6008.setLayoutConstraint(NotationFactory.eINSTANCE.createLocation());
-		Location location6008 = (Location) label6008.getLayoutConstraint();
-		location6008.setX(0);
-		location6008.setY(40);
+		label6003.getStyles().add(NotationFactory.eINSTANCE.createDescriptionStyle());
+		label6003.setLayoutConstraint(NotationFactory.eINSTANCE.createLocation());
+		Location location6003 = (Location) label6003.getLayoutConstraint();
+		location6003.setX(0);
+		location6003.setY(40);
 		return edge;
 	}
 

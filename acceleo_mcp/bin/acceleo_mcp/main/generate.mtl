@@ -28,12 +28,12 @@
 
     <div class="card">
         <h2>Acceso por Agentes</h2>
-        [if (aService.agente->isEmpty())]
+        [if (aService.agentes->isEmpty())]
             <p>No hay agentes configurados.</p>
         [else]
             <ul>
-            [for (a : Agente | aService.agente)]
-                <li><a href="agente_[i/].html" class="btn" style="margin-bottom: 10px;">Entrar como Agente [i/]</a> (Tareas: [a.numTareas/])</li>
+            [for (a : Agente | aService.agentes)]
+                <li><a href="agente_[i/].html" class="btn" style="margin-bottom: 10px;">Entrar como Agente [i/]</a> (Tareas asignadas: [a.flujo.tareas->size()/])</li>
             [/for]
             </ul>
         [/if]
@@ -43,7 +43,7 @@
 [/file]
 
 [comment 2. GENERAR INDEX INDIVIDUAL POR AGENTE /]
-[for (a : Agente | aService.agente)]
+[for (a : Agente | aService.agentes)]
     [file ('agente_' + i + '.html', false, 'UTF-8')]
     <!DOCTYPE html>
     <html lang="es">
@@ -58,12 +58,12 @@
         </style>
     </head>
     <body>
-        <h1>Panel de Control - Agente [i/] ([a.nombreAgente/])</h1>
+        <h1>Panel de Control - Agente [i/] ([a.nombre/])</h1>
         <a href="index.html" style="color: #e74c3c;">&larr; Volver al inicio</a>
         
         <div class="task-list">
-            <h2>Mis tareas asignadas:</h2>
-            [for (t : Tarea | a.realiza)]
+            <h2>Mis tareas en el flujo:</h2>
+            [for (t : Tarea | a.flujo.tareas)]
                 <div class="task-item">
                     <strong>[t.nombreTarea/]</strong> 
                     <br><br>
@@ -77,8 +77,8 @@
 [/for]
 
 [comment 3. GENERAR TODAS LAS VISTAS DE LAS TAREAS /]
-[for (w : Workflow | aService.workflow)]
-    [for (t : Tarea | w.tarea)]
+[for (a : Agente | aService.agentes)]
+    [for (t : Tarea | a.flujo.tareas)]
         [generateTaskView(t)/]
     [/for]
 [/for]
@@ -113,11 +113,11 @@
 
         [comment LOGICA DE VISTAS POR TIPO DE TAREA /]
 
-        [if (t.oclIsTypeOf(McpMM::TareaInicial))]
+        [if (t.oclIsTypeOf(McpMM::Inicio))]
             <p>Este es el punto de inicio del flujo de trabajo.</p>
             <a href="tarea_[t.sigue.nombreTarea.replaceAll(' ', '_')/].html" class="btn">Comenzar Flujo &rarr;</a>
 
-        [elseif (t.oclIsTypeOf(McpMM::TareaFinal))]
+        [elseif (t.oclIsTypeOf(McpMM::Final))]
             <div style="text-align: center; padding: 40px;">
                 <h2 style="color: #27ae60;">¡Flujo Completado!</h2>
                 <p>Has llegado al final de este proceso.</p>
@@ -127,10 +127,44 @@
         [elseif (t.oclIsTypeOf(McpMM::TareaUsuario))]
             <div class="box">
                 <h3>Formulario de Entrada</h3>
-                <p><em>[t.oclAsType(McpMM::TareaUsuario).descTarea/]</em></p>
+                <p><em>[t.oclAsType(McpMM::TareaUsuario).taskDesc/]</em></p>
                 <form action="tarea_[t.sigue.nombreTarea.replaceAll(' ', '_')/].html" method="GET">
-                    <label><strong>Ingrese los datos solicitados:</strong></label>
-                    <input type="text" name="input_data" placeholder="Escriba aquí..." required>
+                    
+                    [for (a : Accion | t.accion)]
+                       [if (a.oclIsTypeOf(McpMM::Escritura))]
+                          <label><strong>[a.apunta.nombreContexto/]</strong>:</label><br>
+                          [for (p : Propiedad | a.apunta.propiedades)]
+                             <label>[p.nombrePropiedad/]:</label>
+                             [if (p.tipoPropiedad.toString() = 'ARCHIVO')]
+                                <input type="file" name="[p.nombrePropiedad/]" 
+                                       accept="[p.extensionPermitida/]" 
+                                       onchange="if(this.files.item(0).size > ([p.pesoMaxMB/] * 1048576)) {alert('El archivo excede el límite de [p.pesoMaxMB/] MB'); this.value='';}">
+                             [else]
+                                <input type="text" name="[p.nombrePropiedad/]" placeholder="Ingrese [p.nombrePropiedad/]" required>
+                             [/if]
+                             <br>
+                          [/for]
+                       [/if]
+                    [/for]
+
+                    [for (a : Accion | t.accion)]
+                        [if (a.oclIsTypeOf(McpMM::Escritura))]
+                            [if (a.apunta.propiedades.versiones->notEmpty())]
+                                <div class="box" style="font-size: 0.85em; color: #555; background-color: #f9f9f9; border-left: 3px solid #3498db;">
+                                    <h4 style="margin-top: 0;">Histórico de cambios para: [a.apunta.nombreContexto/]</h4>
+                                    <ul style="margin-bottom: 0; padding-left: 20px;">
+                                        [for (p : Propiedad | a.apunta.propiedades)]
+                                            [for (v : VersionContexto | p.versiones)]
+                                                <li><em>[v.fechaModificacion/]</em> - <strong>[p.nombrePropiedad/]</strong> cambió de: <code>[v.valorAnterior/]</code></li>
+                                            [/for]
+                                        [/for]
+                                    </ul>
+                                </div>
+                            [/if]
+                        [/if]
+                    [/for]
+                    
+                    <br>
                     <button type="submit" class="btn">Guardar y Siguiente &rarr;</button>
                 </form>
             </div>

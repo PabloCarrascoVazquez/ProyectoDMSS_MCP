@@ -55,7 +55,7 @@ public class TareaRecepcionContextoNombreTareaEditPart extends CompartmentEditPa
 	/**
 	* @generated
 	*/
-	public static final int VISUAL_ID = 5011;
+	public static final int VISUAL_ID = 5008;
 
 	/**
 	* @generated

@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="ASCII"?>
 <gmfgraph:Canvas xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:gmfgraph="http://www.eclipse.org/gmf/2006/GraphicalDefinition" name="McpMM">
   <figures name="Default">
-    <figures xsi:type="gmfgraph:PolylineDecoration" name="AgenteRealizaFigureTargetDecoration"/>
-    <figures xsi:type="gmfgraph:PolylineDecoration" name="WorkflowEmpiezaConFigureTargetDecoration"/>
-    <figures xsi:type="gmfgraph:PolylineDecoration" name="WorkflowFinalizaConFigureTargetDecoration"/>
     <figures xsi:type="gmfgraph:PolylineDecoration" name="TareaSigueFigureTargetDecoration"/>
     <figures xsi:type="gmfgraph:PolylineDecoration" name="TareaAnalisisSigueElseFigureTargetDecoration"/>
     <figures xsi:type="gmfgraph:PolylineDecoration" name="TareaServerMCPEjecutaOperacionFigureTargetDecoration"/>
@@ -16,10 +13,10 @@
         <children xsi:type="gmfgraph:Label" name="ServerMCPLabelFigure" text="ServerMCP">
           <maximumSize dx="10000" dy="50"/>
         </children>
-        <children xsi:type="gmfgraph:Rectangle" name="ServerMCPOperacionmcpCompartmentFigure" outline="false"/>
+        <children xsi:type="gmfgraph:Rectangle" name="ServerMCPOperacionesCompartmentFigure" outline="false"/>
       </actualFigure>
       <accessors accessor="getFigureServerMCPLabelFigure" figure="//@figures.0/@descriptors.0/@actualFigure/@children.0"/>
-      <accessors accessor="getServerMCPOperacionmcpCompartmentFigure" figure="//@figures.0/@descriptors.0/@actualFigure/@children.1"/>
+      <accessors accessor="getServerMCPOperacionesCompartmentFigure" figure="//@figures.0/@descriptors.0/@actualFigure/@children.1"/>
     </descriptors>
     <descriptors name="AgenteFigure">
       <actualFigure xsi:type="gmfgraph:Rectangle" name="AgenteFigure">
@@ -27,9 +24,15 @@
         <border xsi:type="gmfgraph:MarginBorder">
           <insets top="5" left="5" bottom="5" right="5"/>
         </border>
-        <children xsi:type="gmfgraph:Label" name="AgenteLabelFigure" text="Agente"/>
+        <children xsi:type="gmfgraph:Label" name="AgenteLabelFigure" text="Agente">
+          <maximumSize dx="10000" dy="50"/>
+        </children>
+        <children xsi:type="gmfgraph:Rectangle" name="AgenteFlujoCompartmentFigure" outline="false"/>
+        <children xsi:type="gmfgraph:Rectangle" name="AgenteContextosCompartmentFigure" outline="false"/>
       </actualFigure>
       <accessors accessor="getFigureAgenteLabelFigure" figure="//@figures.0/@descriptors.1/@actualFigure/@children.0"/>
+      <accessors accessor="getAgenteFlujoCompartmentFigure" figure="//@figures.0/@descriptors.1/@actualFigure/@children.1"/>
+      <accessors accessor="getAgenteContextosCompartmentFigure" figure="//@figures.0/@descriptors.1/@actualFigure/@children.2"/>
     </descriptors>
     <descriptors name="WorkflowFigure">
       <actualFigure xsi:type="gmfgraph:RoundedRectangle" name="WorkflowFigure">
@@ -40,12 +43,10 @@
         <children xsi:type="gmfgraph:Label" name="WorkflowLabelFigure" text="Workflow">
           <maximumSize dx="10000" dy="50"/>
         </children>
-        <children xsi:type="gmfgraph:Rectangle" name="WorkflowContextoCompartmentFigure" outline="false"/>
-        <children xsi:type="gmfgraph:Rectangle" name="WorkflowTareaCompartmentFigure" outline="false"/>
+        <children xsi:type="gmfgraph:Rectangle" name="WorkflowTareasCompartmentFigure" outline="false"/>
       </actualFigure>
       <accessors accessor="getFigureWorkflowLabelFigure" figure="//@figures.0/@descriptors.2/@actualFigure/@children.0"/>
-      <accessors accessor="getWorkflowContextoCompartmentFigure" figure="//@figures.0/@descriptors.2/@actualFigure/@children.1"/>
-      <accessors accessor="getWorkflowTareaCompartmentFigure" figure="//@figures.0/@descriptors.2/@actualFigure/@children.2"/>
+      <accessors accessor="getWorkflowTareasCompartmentFigure" figure="//@figures.0/@descriptors.2/@actualFigure/@children.1"/>
     </descriptors>
     <descriptors name="ContextoFigure">
       <actualFigure xsi:type="gmfgraph:Rectangle" name="ContextoFigure">
@@ -56,10 +57,10 @@
         <children xsi:type="gmfgraph:Label" name="ContextoLabelFigure" text="Contexto">
           <maximumSize dx="10000" dy="50"/>
         </children>
-        <children xsi:type="gmfgraph:Rectangle" name="ContextoPropiedadCompartmentFigure" outline="false"/>
+        <children xsi:type="gmfgraph:Rectangle" name="ContextoPropiedadesCompartmentFigure" outline="false"/>
       </actualFigure>
       <accessors accessor="getFigureContextoLabelFigure" figure="//@figures.0/@descriptors.3/@actualFigure/@children.0"/>
-      <accessors accessor="getContextoPropiedadCompartmentFigure" figure="//@figures.0/@descriptors.3/@actualFigure/@children.1"/>
+      <accessors accessor="getContextoPropiedadesCompartmentFigure" figure="//@figures.0/@descriptors.3/@actualFigure/@children.1"/>
     </descriptors>
     <descriptors name="PropiedadFigure">
       <actualFigure xsi:type="gmfgraph:RoundedRectangle" name="PropiedadFigure">
@@ -70,35 +71,35 @@
       </actualFigure>
       <accessors accessor="getFigurePropiedadLabelFigure" figure="//@figures.0/@descriptors.4/@actualFigure/@children.0"/>
     </descriptors>
-    <descriptors name="TareaFinalFigure">
-      <actualFigure xsi:type="gmfgraph:Ellipse" name="TareaFinalFigure">
-        <backgroundColor xsi:type="gmfgraph:RGBColor" red="255"/>
-        <preferredSize dx="30" dy="30"/>
-        <border xsi:type="gmfgraph:MarginBorder">
-          <insets top="5" left="5" bottom="5" right="5"/>
-        </border>
-        <children xsi:type="gmfgraph:Label" name="TareaFinalLabelFigure" text="TareaFinal">
-          <maximumSize dx="10000" dy="50"/>
-        </children>
-        <children xsi:type="gmfgraph:Rectangle" name="TareaFinalAccionCompartmentFigure" outline="false"/>
-      </actualFigure>
-      <accessors accessor="getFigureTareaFinalLabelFigure" figure="//@figures.0/@descriptors.5/@actualFigure/@children.0"/>
-      <accessors accessor="getTareaFinalAccionCompartmentFigure" figure="//@figures.0/@descriptors.5/@actualFigure/@children.1"/>
-    </descriptors>
-    <descriptors name="TareaInicialFigure">
-      <actualFigure xsi:type="gmfgraph:Ellipse" name="TareaInicialFigure">
+    <descriptors name="InicioFigure">
+      <actualFigure xsi:type="gmfgraph:Ellipse" name="InicioFigure">
         <backgroundColor xsi:type="gmfgraph:RGBColor" green="255"/>
         <preferredSize dx="30" dy="30"/>
         <border xsi:type="gmfgraph:MarginBorder">
           <insets top="5" left="5" bottom="5" right="5"/>
         </border>
-        <children xsi:type="gmfgraph:Label" name="TareaInicialLabelFigure" text="TareaInicial">
+        <children xsi:type="gmfgraph:Label" name="InicioLabelFigure" text="Inicio">
           <maximumSize dx="10000" dy="50"/>
         </children>
-        <children xsi:type="gmfgraph:Rectangle" name="TareaInicialAccionCompartmentFigure" outline="false"/>
+        <children xsi:type="gmfgraph:Rectangle" name="InicioAccionCompartmentFigure" outline="false"/>
       </actualFigure>
-      <accessors accessor="getFigureTareaInicialLabelFigure" figure="//@figures.0/@descriptors.6/@actualFigure/@children.0"/>
-      <accessors accessor="getTareaInicialAccionCompartmentFigure" figure="//@figures.0/@descriptors.6/@actualFigure/@children.1"/>
+      <accessors accessor="getFigureInicioLabelFigure" figure="//@figures.0/@descriptors.5/@actualFigure/@children.0"/>
+      <accessors accessor="getInicioAccionCompartmentFigure" figure="//@figures.0/@descriptors.5/@actualFigure/@children.1"/>
+    </descriptors>
+    <descriptors name="FinalFigure">
+      <actualFigure xsi:type="gmfgraph:Ellipse" name="FinalFigure">
+        <backgroundColor xsi:type="gmfgraph:RGBColor" red="255"/>
+        <preferredSize dx="30" dy="30"/>
+        <border xsi:type="gmfgraph:MarginBorder">
+          <insets top="5" left="5" bottom="5" right="5"/>
+        </border>
+        <children xsi:type="gmfgraph:Label" name="FinalLabelFigure" text="Final">
+          <maximumSize dx="10000" dy="50"/>
+        </children>
+        <children xsi:type="gmfgraph:Rectangle" name="FinalAccionCompartmentFigure" outline="false"/>
+      </actualFigure>
+      <accessors accessor="getFigureFinalLabelFigure" figure="//@figures.0/@descriptors.6/@actualFigure/@children.0"/>
+      <accessors accessor="getFinalAccionCompartmentFigure" figure="//@figures.0/@descriptors.6/@actualFigure/@children.1"/>
     </descriptors>
     <descriptors name="EscrituraFigure">
       <actualFigure xsi:type="gmfgraph:Rectangle" name="EscrituraFigure">
@@ -225,30 +226,8 @@
       <accessors accessor="getFigureTareaServerMCPLabelFigure" figure="//@figures.0/@descriptors.16/@actualFigure/@children.0"/>
       <accessors accessor="getTareaServerMCPAccionCompartmentFigure" figure="//@figures.0/@descriptors.16/@actualFigure/@children.1"/>
     </descriptors>
-    <descriptors name="AgenteRealizaFigure">
-      <actualFigure xsi:type="gmfgraph:PolylineConnection" name="AgenteRealizaFigure" lineKind="LINE_DASH" targetDecoration="//@figures.0/@figures.0"/>
-    </descriptors>
-    <descriptors name="AgenteRealizaExternalLabelFigure">
-      <actualFigure xsi:type="gmfgraph:Label" name="AgenteRealizaExternalLabel" text="realiza"/>
-    </descriptors>
-    <descriptors name="WorkflowEmpiezaConFigure">
-      <actualFigure xsi:type="gmfgraph:PolylineConnection" name="WorkflowEmpiezaConFigure" targetDecoration="//@figures.0/@figures.1">
-        <foregroundColor xsi:type="gmfgraph:RGBColor" green="200"/>
-      </actualFigure>
-    </descriptors>
-    <descriptors name="WorkflowEmpiezaConExternalLabelFigure">
-      <actualFigure xsi:type="gmfgraph:Label" name="WorkflowEmpiezaConExternalLabel" text="empieza"/>
-    </descriptors>
-    <descriptors name="WorkflowFinalizaConFigure">
-      <actualFigure xsi:type="gmfgraph:PolylineConnection" name="WorkflowFinalizaConFigure" targetDecoration="//@figures.0/@figures.2">
-        <foregroundColor xsi:type="gmfgraph:RGBColor" red="200"/>
-      </actualFigure>
-    </descriptors>
-    <descriptors name="WorkflowFinalizaConExternalLabelFigure">
-      <actualFigure xsi:type="gmfgraph:Label" name="WorkflowFinalizaConExternalLabel" text="finaliza"/>
-    </descriptors>
     <descriptors name="TareaSigueFigure">
-      <actualFigure xsi:type="gmfgraph:PolylineConnection" name="TareaSigueFigure" targetDecoration="//@figures.0/@figures.3">
+      <actualFigure xsi:type="gmfgraph:PolylineConnection" name="TareaSigueFigure" targetDecoration="//@figures.0/@figures.0">
         <foregroundColor xsi:type="gmfgraph:RGBColor"/>
       </actualFigure>
     </descriptors>
@@ -256,13 +235,13 @@
       <actualFigure xsi:type="gmfgraph:Label" name="TareaSigueExternalLabel" text="sigue"/>
     </descriptors>
     <descriptors name="TareaAnalisisSigueElseFigure">
-      <actualFigure xsi:type="gmfgraph:PolylineConnection" name="TareaAnalisisSigueElseFigure" targetDecoration="//@figures.0/@figures.4"/>
+      <actualFigure xsi:type="gmfgraph:PolylineConnection" name="TareaAnalisisSigueElseFigure" targetDecoration="//@figures.0/@figures.1"/>
     </descriptors>
     <descriptors name="TareaAnalisisSigueElseExternalLabelFigure">
       <actualFigure xsi:type="gmfgraph:Label" name="TareaAnalisisSigueElseExternalLabel" text="sigue Else"/>
     </descriptors>
     <descriptors name="TareaServerMCPEjecutaOperacionFigure">
-      <actualFigure xsi:type="gmfgraph:PolylineConnection" name="TareaServerMCPEjecutaOperacionFigure" lineKind="LINE_DASH" targetDecoration="//@figures.0/@figures.5"/>
+      <actualFigure xsi:type="gmfgraph:PolylineConnection" name="TareaServerMCPEjecutaOperacionFigure" lineKind="LINE_DASH" targetDecoration="//@figures.0/@figures.2"/>
     </descriptors>
     <descriptors name="TareaServerMCPEjecutaOperacionExternalLabelFigure">
       <actualFigure xsi:type="gmfgraph:Label" name="TareaServerMCPEjecutaOperacionExternalLabel" text="ejecuta oper."/>
@@ -273,12 +252,12 @@
   <nodes name="Workflow" figure="WorkflowFigure"/>
   <nodes name="Contexto" figure="ContextoFigure"/>
   <nodes name="Propiedad" figure="PropiedadFigure"/>
-  <nodes name="TareaFinal" figure="TareaFinalFigure">
+  <nodes name="Inicio" figure="InicioFigure">
     <facets xsi:type="gmfgraph:DefaultSizeFacet">
       <defaultSize dx="30" dy="30"/>
     </facets>
   </nodes>
-  <nodes name="TareaInicial" figure="TareaInicialFigure">
+  <nodes name="Final" figure="FinalFigure">
     <facets xsi:type="gmfgraph:DefaultSizeFacet">
       <defaultSize dx="30" dy="30"/>
     </facets>
@@ -293,18 +272,16 @@
   <nodes name="TareaEnvioContexto" figure="TareaEnvioContextoFigure"/>
   <nodes name="TareaRecepcionContexto" figure="TareaRecepcionContextoFigure"/>
   <nodes name="TareaServerMCP" figure="TareaServerMCPFigure"/>
-  <connections name="AgenteRealiza" figure="AgenteRealizaFigure"/>
-  <connections name="WorkflowEmpiezaCon" figure="WorkflowEmpiezaConFigure"/>
-  <connections name="WorkflowFinalizaCon" figure="WorkflowFinalizaConFigure"/>
   <connections name="TareaSigue" figure="TareaSigueFigure"/>
   <connections name="TareaAnalisisSigueElse" figure="TareaAnalisisSigueElseFigure"/>
   <connections name="TareaServerMCPEjecutaOperacion" figure="TareaServerMCPEjecutaOperacionFigure"/>
-  <compartments name="ServerMCPOperacionmcpCompartment" figure="ServerMCPFigure" collapsible="true" accessor="//@figures.0/@descriptors.0/@accessors.1"/>
-  <compartments name="WorkflowContextoCompartment" figure="WorkflowFigure" collapsible="true" accessor="//@figures.0/@descriptors.2/@accessors.1"/>
-  <compartments name="WorkflowTareaCompartment" figure="WorkflowFigure" collapsible="true" accessor="//@figures.0/@descriptors.2/@accessors.2"/>
-  <compartments name="ContextoPropiedadCompartment" figure="ContextoFigure" collapsible="true" accessor="//@figures.0/@descriptors.3/@accessors.1"/>
-  <compartments name="TareaFinalAccionCompartment" figure="TareaFinalFigure" collapsible="true" accessor="//@figures.0/@descriptors.5/@accessors.1"/>
-  <compartments name="TareaInicialAccionCompartment" figure="TareaInicialFigure" collapsible="true" accessor="//@figures.0/@descriptors.6/@accessors.1"/>
+  <compartments name="ServerMCPOperacionesCompartment" figure="ServerMCPFigure" collapsible="true" accessor="//@figures.0/@descriptors.0/@accessors.1"/>
+  <compartments name="AgenteFlujoCompartment" figure="AgenteFigure" collapsible="true" accessor="//@figures.0/@descriptors.1/@accessors.1"/>
+  <compartments name="AgenteContextosCompartment" figure="AgenteFigure" collapsible="true" accessor="//@figures.0/@descriptors.1/@accessors.2"/>
+  <compartments name="WorkflowTareasCompartment" figure="WorkflowFigure" collapsible="true" accessor="//@figures.0/@descriptors.2/@accessors.1"/>
+  <compartments name="ContextoPropiedadesCompartment" figure="ContextoFigure" collapsible="true" accessor="//@figures.0/@descriptors.3/@accessors.1"/>
+  <compartments name="InicioAccionCompartment" figure="InicioFigure" collapsible="true" accessor="//@figures.0/@descriptors.5/@accessors.1"/>
+  <compartments name="FinalAccionCompartment" figure="FinalFigure" collapsible="true" accessor="//@figures.0/@descriptors.6/@accessors.1"/>
   <compartments name="TareaTransformacionDatosAccionCompartment" figure="TareaTransformacionDatosFigure" collapsible="true" accessor="//@figures.0/@descriptors.10/@accessors.1"/>
   <compartments name="TareaLLMAccionCompartment" figure="TareaLLMFigure" collapsible="true" accessor="//@figures.0/@descriptors.11/@accessors.1"/>
   <compartments name="TareaUsuarioAccionCompartment" figure="TareaUsuarioFigure" collapsible="true" accessor="//@figures.0/@descriptors.12/@accessors.1"/>
@@ -317,8 +294,8 @@
   <labels name="WorkflowLabel" figure="WorkflowFigure" accessor="//@figures.0/@descriptors.2/@accessors.0"/>
   <labels name="ContextoLabel" figure="ContextoFigure" accessor="//@figures.0/@descriptors.3/@accessors.0"/>
   <labels name="PropiedadLabel" figure="PropiedadFigure" accessor="//@figures.0/@descriptors.4/@accessors.0"/>
-  <labels name="TareaFinalLabel" figure="TareaFinalFigure" accessor="//@figures.0/@descriptors.5/@accessors.0"/>
-  <labels name="TareaInicialLabel" figure="TareaInicialFigure" accessor="//@figures.0/@descriptors.6/@accessors.0"/>
+  <labels name="InicioLabel" figure="InicioFigure" accessor="//@figures.0/@descriptors.5/@accessors.0"/>
+  <labels name="FinalLabel" figure="FinalFigure" accessor="//@figures.0/@descriptors.6/@accessors.0"/>
   <labels name="EscrituraLabel" figure="EscrituraFigure" accessor="//@figures.0/@descriptors.7/@accessors.0"/>
   <labels name="LecturaLabel" figure="LecturaFigure" accessor="//@figures.0/@descriptors.8/@accessors.0"/>
   <labels name="OperacionMCPLabel" figure="OperacionMCPFigure" accessor="//@figures.0/@descriptors.9/@accessors.0"/>
@@ -329,9 +306,6 @@
   <labels name="TareaEnvioContextoLabel" figure="TareaEnvioContextoFigure" accessor="//@figures.0/@descriptors.14/@accessors.0"/>
   <labels name="TareaRecepcionContextoLabel" figure="TareaRecepcionContextoFigure" accessor="//@figures.0/@descriptors.15/@accessors.0"/>
   <labels name="TareaServerMCPLabel" figure="TareaServerMCPFigure" accessor="//@figures.0/@descriptors.16/@accessors.0"/>
-  <labels name="AgenteRealizaExternalLabel" figure="AgenteRealizaExternalLabelFigure" elementIcon="false"/>
-  <labels name="WorkflowEmpiezaConExternalLabel" figure="WorkflowEmpiezaConExternalLabelFigure" elementIcon="false"/>
-  <labels name="WorkflowFinalizaConExternalLabel" figure="WorkflowFinalizaConExternalLabelFigure" elementIcon="false"/>
   <labels name="TareaSigueExternalLabel" figure="TareaSigueExternalLabelFigure" elementIcon="false"/>
   <labels name="TareaAnalisisSigueElseExternalLabel" figure="TareaAnalisisSigueElseExternalLabelFigure" elementIcon="false"/>
   <labels name="TareaServerMCPEjecutaOperacionExternalLabel" figure="TareaServerMCPEjecutaOperacionExternalLabelFigure" elementIcon="false"/>

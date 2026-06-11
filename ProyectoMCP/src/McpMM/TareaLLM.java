@@ -17,6 +17,7 @@ package McpMM;
  *
  * @see McpMM.McpMMPackage#getTareaLLM()
  * @model annotation="gmf.node label='nombreTarea' figure='rectangle' color='255,200,255'"
+ *        annotation="DSLDoc descripcion='Tarea que invoca a un Modelo de Lenguaje Grande (LLM) utilizando un prompt espec\355fico para razonamiento o generaci\363n de texto.'"
  * @generated
  */
 public interface TareaLLM extends TareaEjecutable {

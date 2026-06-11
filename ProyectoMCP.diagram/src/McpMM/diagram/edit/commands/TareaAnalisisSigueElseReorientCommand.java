@@ -72,7 +72,7 @@ public class TareaAnalisisSigueElseReorientCommand extends EditElementCommand {
 			return false;
 		}
 		return McpMM.diagram.edit.policies.McpMMBaseItemSemanticEditPolicy.getLinkConstraints()
-				.canExistTareaAnalisisSigueElse_4007(getNewSource(), getOldTarget());
+				.canExistTareaAnalisisSigueElse_4002(getNewSource(), getOldTarget());
 	}
 
 	/**
@@ -83,7 +83,7 @@ public class TareaAnalisisSigueElseReorientCommand extends EditElementCommand {
 			return false;
 		}
 		return McpMM.diagram.edit.policies.McpMMBaseItemSemanticEditPolicy.getLinkConstraints()
-				.canExistTareaAnalisisSigueElse_4007(getOldSource(), getNewTarget());
+				.canExistTareaAnalisisSigueElse_4002(getOldSource(), getNewTarget());
 	}
 
 	/**

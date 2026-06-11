@@ -11,6 +11,7 @@ package McpMM;
  *
  * @see McpMM.McpMMPackage#getEscritura()
  * @model annotation="gmf.node label='nombreAccion' figure='rectangle'"
+ *        annotation="DSLDoc descripcion='Acci\363n que modifica, actualiza o inserta nuevos datos en un contexto.'"
  * @generated
  */
 public interface Escritura extends Accion {

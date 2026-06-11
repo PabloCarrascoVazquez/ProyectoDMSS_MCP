@@ -8,55 +8,9 @@
     xmlns:gmftool="http://www.eclipse.org/gmf/2005/ToolDefinition">
   <nodes>
     <containmentFeature
-        href="McpMM.ecore#//ServiceMCP/servermcp"/>
+        href="McpMM.ecore#//ServiceMCP/agentes"/>
     <ownedChild
         relatedDiagrams="//@diagram">
-      <domainMetaElement
-          href="McpMM.ecore#//ServerMCP"/>
-      <labelMappings
-          xsi:type="gmfmap:FeatureLabelMapping">
-        <diagramLabel
-            href="McpMM.gmfgraph#ServerMCPLabel"/>
-        <features
-            href="McpMM.ecore#//ServerMCP/nombreServer"/>
-      </labelMappings>
-      <tool
-          xsi:type="gmftool:CreationTool"
-          href="McpMM.gmftool#//@palette/@tools.0/@tools.6"/>
-      <diagramNode
-          href="McpMM.gmfgraph#ServerMCP"/>
-      <children
-          compartment="//@nodes.0/@ownedChild/@compartments.0">
-        <containmentFeature
-            href="McpMM.ecore#//ServerMCP/operacionmcp"/>
-        <ownedChild>
-          <domainMetaElement
-              href="McpMM.ecore#//OperacionMCP"/>
-          <labelMappings
-              xsi:type="gmfmap:FeatureLabelMapping">
-            <diagramLabel
-                href="McpMM.gmfgraph#OperacionMCPLabel"/>
-            <features
-                href="McpMM.ecore#//OperacionMCP/nombreOperacion"/>
-          </labelMappings>
-          <tool
-              xsi:type="gmftool:CreationTool"
-              href="McpMM.gmftool#//@palette/@tools.0/@tools.4"/>
-          <diagramNode
-              href="McpMM.gmfgraph#OperacionMCP"/>
-        </ownedChild>
-      </children>
-      <compartments
-          children="//@nodes.0/@ownedChild/@children.0">
-        <compartment
-            href="McpMM.gmfgraph#ServerMCPOperacionmcpCompartment"/>
-      </compartments>
-    </ownedChild>
-  </nodes>
-  <nodes>
-    <containmentFeature
-        href="McpMM.ecore#//ServiceMCP/agente"/>
-    <ownedChild>
       <domainMetaElement
           href="McpMM.ecore#//Agente"/>
       <labelMappings
@@ -64,419 +18,425 @@
         <diagramLabel
             href="McpMM.gmfgraph#AgenteLabel"/>
         <features
-            href="McpMM.ecore#//Agente/nombreAgente"/>
+            href="McpMM.ecore#//Agente/nombre"/>
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
           href="McpMM.gmftool#//@palette/@tools.0/@tools.0"/>
       <diagramNode
           href="McpMM.gmfgraph#Agente"/>
-    </ownedChild>
-  </nodes>
-  <nodes>
-    <containmentFeature
-        href="McpMM.ecore#//ServiceMCP/workflow"/>
-    <ownedChild
-        relatedDiagrams="//@diagram">
-      <domainMetaElement
-          href="McpMM.ecore#//Workflow"/>
-      <labelMappings
-          xsi:type="gmfmap:FeatureLabelMapping">
-        <diagramLabel
-            href="McpMM.gmfgraph#WorkflowLabel"/>
-        <features
-            href="McpMM.ecore#//Workflow/nombreWorkflow"/>
-      </labelMappings>
-      <tool
-          xsi:type="gmftool:CreationTool"
-          href="McpMM.gmftool#//@palette/@tools.0/@tools.16"/>
-      <diagramNode
-          href="McpMM.gmfgraph#Workflow"/>
       <children
-          compartment="//@nodes.2/@ownedChild/@compartments.1">
+          compartment="//@nodes.0/@ownedChild/@compartments.0">
         <containmentFeature
-            href="McpMM.ecore#//Workflow/tarea"/>
+            href="McpMM.ecore#//Agente/flujo"/>
         <ownedChild
             relatedDiagrams="//@diagram">
           <domainMetaElement
-              href="McpMM.ecore#//TareaTransformacionDatos"/>
+              href="McpMM.ecore#//Workflow"/>
           <labelMappings
               xsi:type="gmfmap:FeatureLabelMapping">
             <diagramLabel
-                href="McpMM.gmfgraph#TareaTransformacionDatosLabel"/>
+                href="McpMM.gmfgraph#WorkflowLabel"/>
             <features
-                href="McpMM.ecore#//Tarea/nombreTarea"/>
+                href="McpMM.ecore#//Workflow/nombreWorkflow"/>
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="McpMM.gmftool#//@palette/@tools.0/@tools.14"/>
+              href="McpMM.gmftool#//@palette/@tools.0/@tools.16"/>
           <diagramNode
-              href="McpMM.gmfgraph#TareaTransformacionDatos"/>
+              href="McpMM.gmfgraph#Workflow"/>
           <children
-              compartment="//@nodes.2/@ownedChild/@children.0/@ownedChild/@compartments.0"
-              referencedChild="//@nodes.2/@ownedChild/@children.7/@ownedChild/@children.0/@ownedChild">
+              compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
             <containmentFeature
-                href="McpMM.ecore#//Tarea/accion"/>
-          </children>
-          <children
-              compartment="//@nodes.2/@ownedChild/@children.0/@ownedChild/@compartments.0"
-              referencedChild="//@nodes.2/@ownedChild/@children.7/@ownedChild/@children.1/@ownedChild">
-            <containmentFeature
-                href="McpMM.ecore#//Tarea/accion"/>
-          </children>
-          <compartments
-              children="//@nodes.2/@ownedChild/@children.0/@ownedChild/@children.0 //@nodes.2/@ownedChild/@children.0/@ownedChild/@children.1">
-            <compartment
-                href="McpMM.gmfgraph#TareaTransformacionDatosAccionCompartment"/>
-          </compartments>
-        </ownedChild>
-      </children>
-      <children
-          compartment="//@nodes.2/@ownedChild/@compartments.1">
-        <containmentFeature
-            href="McpMM.ecore#//Workflow/tarea"/>
-        <ownedChild
-            relatedDiagrams="//@diagram">
-          <domainMetaElement
-              href="McpMM.ecore#//TareaLLM"/>
-          <labelMappings
-              xsi:type="gmfmap:FeatureLabelMapping">
-            <diagramLabel
-                href="McpMM.gmfgraph#TareaLLMLabel"/>
-            <features
-                href="McpMM.ecore#//Tarea/nombreTarea"/>
-          </labelMappings>
-          <tool
-              xsi:type="gmftool:CreationTool"
-              href="McpMM.gmftool#//@palette/@tools.0/@tools.11"/>
-          <diagramNode
-              href="McpMM.gmfgraph#TareaLLM"/>
-          <children
-              compartment="//@nodes.2/@ownedChild/@children.1/@ownedChild/@compartments.0"
-              referencedChild="//@nodes.2/@ownedChild/@children.7/@ownedChild/@children.0/@ownedChild">
-            <containmentFeature
-                href="McpMM.ecore#//Tarea/accion"/>
-          </children>
-          <children
-              compartment="//@nodes.2/@ownedChild/@children.1/@ownedChild/@compartments.0"
-              referencedChild="//@nodes.2/@ownedChild/@children.7/@ownedChild/@children.1/@ownedChild">
-            <containmentFeature
-                href="McpMM.ecore#//Tarea/accion"/>
-          </children>
-          <compartments
-              children="//@nodes.2/@ownedChild/@children.1/@ownedChild/@children.0 //@nodes.2/@ownedChild/@children.1/@ownedChild/@children.1">
-            <compartment
-                href="McpMM.gmfgraph#TareaLLMAccionCompartment"/>
-          </compartments>
-        </ownedChild>
-      </children>
-      <children
-          compartment="//@nodes.2/@ownedChild/@compartments.1">
-        <containmentFeature
-            href="McpMM.ecore#//Workflow/tarea"/>
-        <ownedChild
-            relatedDiagrams="//@diagram">
-          <domainMetaElement
-              href="McpMM.ecore#//TareaUsuario"/>
-          <labelMappings
-              xsi:type="gmfmap:FeatureLabelMapping">
-            <diagramLabel
-                href="McpMM.gmfgraph#TareaUsuarioLabel"/>
-            <features
-                href="McpMM.ecore#//Tarea/nombreTarea"/>
-          </labelMappings>
-          <tool
-              xsi:type="gmftool:CreationTool"
-              href="McpMM.gmftool#//@palette/@tools.0/@tools.15"/>
-          <diagramNode
-              href="McpMM.gmfgraph#TareaUsuario"/>
-          <children
-              compartment="//@nodes.2/@ownedChild/@children.2/@ownedChild/@compartments.0"
-              referencedChild="//@nodes.2/@ownedChild/@children.7/@ownedChild/@children.0/@ownedChild">
-            <containmentFeature
-                href="McpMM.ecore#//Tarea/accion"/>
-          </children>
-          <children
-              compartment="//@nodes.2/@ownedChild/@children.2/@ownedChild/@compartments.0"
-              referencedChild="//@nodes.2/@ownedChild/@children.7/@ownedChild/@children.1/@ownedChild">
-            <containmentFeature
-                href="McpMM.ecore#//Tarea/accion"/>
-          </children>
-          <compartments
-              children="//@nodes.2/@ownedChild/@children.2/@ownedChild/@children.0 //@nodes.2/@ownedChild/@children.2/@ownedChild/@children.1">
-            <compartment
-                href="McpMM.gmfgraph#TareaUsuarioAccionCompartment"/>
-          </compartments>
-        </ownedChild>
-      </children>
-      <children
-          compartment="//@nodes.2/@ownedChild/@compartments.1">
-        <containmentFeature
-            href="McpMM.ecore#//Workflow/tarea"/>
-        <ownedChild
-            relatedDiagrams="//@diagram">
-          <domainMetaElement
-              href="McpMM.ecore#//TareaAnalisis"/>
-          <labelMappings
-              xsi:type="gmfmap:FeatureLabelMapping">
-            <diagramLabel
-                href="McpMM.gmfgraph#TareaAnalisisLabel"/>
-            <features
-                href="McpMM.ecore#//Tarea/nombreTarea"/>
-          </labelMappings>
-          <tool
-              xsi:type="gmftool:CreationTool"
-              href="McpMM.gmftool#//@palette/@tools.0/@tools.7"/>
-          <diagramNode
-              href="McpMM.gmfgraph#TareaAnalisis"/>
-          <children
-              compartment="//@nodes.2/@ownedChild/@children.3/@ownedChild/@compartments.0"
-              referencedChild="//@nodes.2/@ownedChild/@children.7/@ownedChild/@children.0/@ownedChild">
-            <containmentFeature
-                href="McpMM.ecore#//Tarea/accion"/>
-          </children>
-          <children
-              compartment="//@nodes.2/@ownedChild/@children.3/@ownedChild/@compartments.0"
-              referencedChild="//@nodes.2/@ownedChild/@children.7/@ownedChild/@children.1/@ownedChild">
-            <containmentFeature
-                href="McpMM.ecore#//Tarea/accion"/>
-          </children>
-          <compartments
-              children="//@nodes.2/@ownedChild/@children.3/@ownedChild/@children.0 //@nodes.2/@ownedChild/@children.3/@ownedChild/@children.1">
-            <compartment
-                href="McpMM.gmfgraph#TareaAnalisisAccionCompartment"/>
-          </compartments>
-        </ownedChild>
-      </children>
-      <children
-          compartment="//@nodes.2/@ownedChild/@compartments.1">
-        <containmentFeature
-            href="McpMM.ecore#//Workflow/tarea"/>
-        <ownedChild
-            relatedDiagrams="//@diagram">
-          <domainMetaElement
-              href="McpMM.ecore#//TareaEnvioContexto"/>
-          <labelMappings
-              xsi:type="gmfmap:FeatureLabelMapping">
-            <diagramLabel
-                href="McpMM.gmfgraph#TareaEnvioContextoLabel"/>
-            <features
-                href="McpMM.ecore#//Tarea/nombreTarea"/>
-          </labelMappings>
-          <tool
-              xsi:type="gmftool:CreationTool"
-              href="McpMM.gmftool#//@palette/@tools.0/@tools.8"/>
-          <diagramNode
-              href="McpMM.gmfgraph#TareaEnvioContexto"/>
-          <children
-              compartment="//@nodes.2/@ownedChild/@children.4/@ownedChild/@compartments.0"
-              referencedChild="//@nodes.2/@ownedChild/@children.7/@ownedChild/@children.0/@ownedChild">
-            <containmentFeature
-                href="McpMM.ecore#//Tarea/accion"/>
-          </children>
-          <children
-              compartment="//@nodes.2/@ownedChild/@children.4/@ownedChild/@compartments.0"
-              referencedChild="//@nodes.2/@ownedChild/@children.7/@ownedChild/@children.1/@ownedChild">
-            <containmentFeature
-                href="McpMM.ecore#//Tarea/accion"/>
-          </children>
-          <compartments
-              children="//@nodes.2/@ownedChild/@children.4/@ownedChild/@children.0 //@nodes.2/@ownedChild/@children.4/@ownedChild/@children.1">
-            <compartment
-                href="McpMM.gmfgraph#TareaEnvioContextoAccionCompartment"/>
-          </compartments>
-        </ownedChild>
-      </children>
-      <children
-          compartment="//@nodes.2/@ownedChild/@compartments.1">
-        <containmentFeature
-            href="McpMM.ecore#//Workflow/tarea"/>
-        <ownedChild
-            relatedDiagrams="//@diagram">
-          <domainMetaElement
-              href="McpMM.ecore#//TareaRecepcionContexto"/>
-          <labelMappings
-              xsi:type="gmfmap:FeatureLabelMapping">
-            <diagramLabel
-                href="McpMM.gmfgraph#TareaRecepcionContextoLabel"/>
-            <features
-                href="McpMM.ecore#//Tarea/nombreTarea"/>
-          </labelMappings>
-          <tool
-              xsi:type="gmftool:CreationTool"
-              href="McpMM.gmftool#//@palette/@tools.0/@tools.12"/>
-          <diagramNode
-              href="McpMM.gmfgraph#TareaRecepcionContexto"/>
-          <children
-              compartment="//@nodes.2/@ownedChild/@children.5/@ownedChild/@compartments.0"
-              referencedChild="//@nodes.2/@ownedChild/@children.7/@ownedChild/@children.0/@ownedChild">
-            <containmentFeature
-                href="McpMM.ecore#//Tarea/accion"/>
-          </children>
-          <children
-              compartment="//@nodes.2/@ownedChild/@children.5/@ownedChild/@compartments.0"
-              referencedChild="//@nodes.2/@ownedChild/@children.7/@ownedChild/@children.1/@ownedChild">
-            <containmentFeature
-                href="McpMM.ecore#//Tarea/accion"/>
-          </children>
-          <compartments
-              children="//@nodes.2/@ownedChild/@children.5/@ownedChild/@children.0 //@nodes.2/@ownedChild/@children.5/@ownedChild/@children.1">
-            <compartment
-                href="McpMM.gmfgraph#TareaRecepcionContextoAccionCompartment"/>
-          </compartments>
-        </ownedChild>
-      </children>
-      <children
-          compartment="//@nodes.2/@ownedChild/@compartments.1">
-        <containmentFeature
-            href="McpMM.ecore#//Workflow/tarea"/>
-        <ownedChild
-            relatedDiagrams="//@diagram">
-          <domainMetaElement
-              href="McpMM.ecore#//TareaServerMCP"/>
-          <labelMappings
-              xsi:type="gmfmap:FeatureLabelMapping">
-            <diagramLabel
-                href="McpMM.gmfgraph#TareaServerMCPLabel"/>
-            <features
-                href="McpMM.ecore#//Tarea/nombreTarea"/>
-          </labelMappings>
-          <tool
-              xsi:type="gmftool:CreationTool"
-              href="McpMM.gmftool#//@palette/@tools.0/@tools.13"/>
-          <diagramNode
-              href="McpMM.gmfgraph#TareaServerMCP"/>
-          <children
-              compartment="//@nodes.2/@ownedChild/@children.6/@ownedChild/@compartments.0"
-              referencedChild="//@nodes.2/@ownedChild/@children.7/@ownedChild/@children.0/@ownedChild">
-            <containmentFeature
-                href="McpMM.ecore#//Tarea/accion"/>
-          </children>
-          <children
-              compartment="//@nodes.2/@ownedChild/@children.6/@ownedChild/@compartments.0"
-              referencedChild="//@nodes.2/@ownedChild/@children.7/@ownedChild/@children.1/@ownedChild">
-            <containmentFeature
-                href="McpMM.ecore#//Tarea/accion"/>
-          </children>
-          <compartments
-              children="//@nodes.2/@ownedChild/@children.6/@ownedChild/@children.0 //@nodes.2/@ownedChild/@children.6/@ownedChild/@children.1">
-            <compartment
-                href="McpMM.gmfgraph#TareaServerMCPAccionCompartment"/>
-          </compartments>
-        </ownedChild>
-      </children>
-      <children
-          compartment="//@nodes.2/@ownedChild/@compartments.1">
-        <containmentFeature
-            href="McpMM.ecore#//Workflow/tarea"/>
-        <ownedChild
-            relatedDiagrams="//@diagram">
-          <domainMetaElement
-              href="McpMM.ecore#//TareaFinal"/>
-          <labelMappings
-              xsi:type="gmfmap:FeatureLabelMapping">
-            <diagramLabel
-                href="McpMM.gmfgraph#TareaFinalLabel"/>
-            <features
-                href="McpMM.ecore#//Tarea/nombreTarea"/>
-          </labelMappings>
-          <tool
-              xsi:type="gmftool:CreationTool"
-              href="McpMM.gmftool#//@palette/@tools.0/@tools.9"/>
-          <diagramNode
-              href="McpMM.gmfgraph#TareaFinal"/>
-          <children
-              compartment="//@nodes.2/@ownedChild/@children.7/@ownedChild/@compartments.0">
-            <containmentFeature
-                href="McpMM.ecore#//Tarea/accion"/>
-            <ownedChild>
+                href="McpMM.ecore#//Workflow/tareas"/>
+            <ownedChild
+                relatedDiagrams="//@diagram">
               <domainMetaElement
-                  href="McpMM.ecore#//Escritura"/>
+                  href="McpMM.ecore#//TareaTransformacionDatos"/>
               <labelMappings
                   xsi:type="gmfmap:FeatureLabelMapping">
                 <diagramLabel
-                    href="McpMM.gmfgraph#EscrituraLabel"/>
+                    href="McpMM.gmfgraph#TareaTransformacionDatosLabel"/>
                 <features
-                    href="McpMM.ecore#//Accion/nombreAccion"/>
+                    href="McpMM.ecore#//Tarea/nombreTarea"/>
               </labelMappings>
               <tool
                   xsi:type="gmftool:CreationTool"
-                  href="McpMM.gmftool#//@palette/@tools.0/@tools.2"/>
+                  href="McpMM.gmftool#//@palette/@tools.0/@tools.14"/>
               <diagramNode
-                  href="McpMM.gmfgraph#Escritura"/>
+                  href="McpMM.gmfgraph#TareaTransformacionDatos"/>
+              <children
+                  compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@compartments.0"
+                  referencedChild="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.7/@ownedChild/@children.0/@ownedChild">
+                <containmentFeature
+                    href="McpMM.ecore#//Tarea/accion"/>
+              </children>
+              <children
+                  compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@compartments.0"
+                  referencedChild="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.7/@ownedChild/@children.1/@ownedChild">
+                <containmentFeature
+                    href="McpMM.ecore#//Tarea/accion"/>
+              </children>
+              <compartments
+                  children="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.0 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.1">
+                <compartment
+                    href="McpMM.gmfgraph#TareaTransformacionDatosAccionCompartment"/>
+              </compartments>
             </ownedChild>
           </children>
           <children
-              compartment="//@nodes.2/@ownedChild/@children.7/@ownedChild/@compartments.0">
+              compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
             <containmentFeature
-                href="McpMM.ecore#//Tarea/accion"/>
-            <ownedChild>
+                href="McpMM.ecore#//Workflow/tareas"/>
+            <ownedChild
+                relatedDiagrams="//@diagram">
               <domainMetaElement
-                  href="McpMM.ecore#//Lectura"/>
+                  href="McpMM.ecore#//TareaLLM"/>
               <labelMappings
                   xsi:type="gmfmap:FeatureLabelMapping">
                 <diagramLabel
-                    href="McpMM.gmfgraph#LecturaLabel"/>
+                    href="McpMM.gmfgraph#TareaLLMLabel"/>
                 <features
-                    href="McpMM.ecore#//Accion/nombreAccion"/>
+                    href="McpMM.ecore#//Tarea/nombreTarea"/>
+              </labelMappings>
+              <tool
+                  xsi:type="gmftool:CreationTool"
+                  href="McpMM.gmftool#//@palette/@tools.0/@tools.11"/>
+              <diagramNode
+                  href="McpMM.gmfgraph#TareaLLM"/>
+              <children
+                  compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.1/@ownedChild/@compartments.0"
+                  referencedChild="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.7/@ownedChild/@children.0/@ownedChild">
+                <containmentFeature
+                    href="McpMM.ecore#//Tarea/accion"/>
+              </children>
+              <children
+                  compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.1/@ownedChild/@compartments.0"
+                  referencedChild="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.7/@ownedChild/@children.1/@ownedChild">
+                <containmentFeature
+                    href="McpMM.ecore#//Tarea/accion"/>
+              </children>
+              <compartments
+                  children="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.1/@ownedChild/@children.0 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.1/@ownedChild/@children.1">
+                <compartment
+                    href="McpMM.gmfgraph#TareaLLMAccionCompartment"/>
+              </compartments>
+            </ownedChild>
+          </children>
+          <children
+              compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
+            <containmentFeature
+                href="McpMM.ecore#//Workflow/tareas"/>
+            <ownedChild
+                relatedDiagrams="//@diagram">
+              <domainMetaElement
+                  href="McpMM.ecore#//TareaUsuario"/>
+              <labelMappings
+                  xsi:type="gmfmap:FeatureLabelMapping">
+                <diagramLabel
+                    href="McpMM.gmfgraph#TareaUsuarioLabel"/>
+                <features
+                    href="McpMM.ecore#//Tarea/nombreTarea"/>
+              </labelMappings>
+              <tool
+                  xsi:type="gmftool:CreationTool"
+                  href="McpMM.gmftool#//@palette/@tools.0/@tools.15"/>
+              <diagramNode
+                  href="McpMM.gmfgraph#TareaUsuario"/>
+              <children
+                  compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.2/@ownedChild/@compartments.0"
+                  referencedChild="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.7/@ownedChild/@children.0/@ownedChild">
+                <containmentFeature
+                    href="McpMM.ecore#//Tarea/accion"/>
+              </children>
+              <children
+                  compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.2/@ownedChild/@compartments.0"
+                  referencedChild="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.7/@ownedChild/@children.1/@ownedChild">
+                <containmentFeature
+                    href="McpMM.ecore#//Tarea/accion"/>
+              </children>
+              <compartments
+                  children="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.2/@ownedChild/@children.0 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.2/@ownedChild/@children.1">
+                <compartment
+                    href="McpMM.gmfgraph#TareaUsuarioAccionCompartment"/>
+              </compartments>
+            </ownedChild>
+          </children>
+          <children
+              compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
+            <containmentFeature
+                href="McpMM.ecore#//Workflow/tareas"/>
+            <ownedChild
+                relatedDiagrams="//@diagram">
+              <domainMetaElement
+                  href="McpMM.ecore#//TareaAnalisis"/>
+              <labelMappings
+                  xsi:type="gmfmap:FeatureLabelMapping">
+                <diagramLabel
+                    href="McpMM.gmfgraph#TareaAnalisisLabel"/>
+                <features
+                    href="McpMM.ecore#//Tarea/nombreTarea"/>
+              </labelMappings>
+              <tool
+                  xsi:type="gmftool:CreationTool"
+                  href="McpMM.gmftool#//@palette/@tools.0/@tools.9"/>
+              <diagramNode
+                  href="McpMM.gmfgraph#TareaAnalisis"/>
+              <children
+                  compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@compartments.0"
+                  referencedChild="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.7/@ownedChild/@children.0/@ownedChild">
+                <containmentFeature
+                    href="McpMM.ecore#//Tarea/accion"/>
+              </children>
+              <children
+                  compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@compartments.0"
+                  referencedChild="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.7/@ownedChild/@children.1/@ownedChild">
+                <containmentFeature
+                    href="McpMM.ecore#//Tarea/accion"/>
+              </children>
+              <compartments
+                  children="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.1">
+                <compartment
+                    href="McpMM.gmfgraph#TareaAnalisisAccionCompartment"/>
+              </compartments>
+            </ownedChild>
+          </children>
+          <children
+              compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
+            <containmentFeature
+                href="McpMM.ecore#//Workflow/tareas"/>
+            <ownedChild
+                relatedDiagrams="//@diagram">
+              <domainMetaElement
+                  href="McpMM.ecore#//TareaEnvioContexto"/>
+              <labelMappings
+                  xsi:type="gmfmap:FeatureLabelMapping">
+                <diagramLabel
+                    href="McpMM.gmfgraph#TareaEnvioContextoLabel"/>
+                <features
+                    href="McpMM.ecore#//Tarea/nombreTarea"/>
+              </labelMappings>
+              <tool
+                  xsi:type="gmftool:CreationTool"
+                  href="McpMM.gmftool#//@palette/@tools.0/@tools.10"/>
+              <diagramNode
+                  href="McpMM.gmfgraph#TareaEnvioContexto"/>
+              <children
+                  compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@compartments.0"
+                  referencedChild="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.7/@ownedChild/@children.0/@ownedChild">
+                <containmentFeature
+                    href="McpMM.ecore#//Tarea/accion"/>
+              </children>
+              <children
+                  compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@compartments.0"
+                  referencedChild="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.7/@ownedChild/@children.1/@ownedChild">
+                <containmentFeature
+                    href="McpMM.ecore#//Tarea/accion"/>
+              </children>
+              <compartments
+                  children="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.1">
+                <compartment
+                    href="McpMM.gmfgraph#TareaEnvioContextoAccionCompartment"/>
+              </compartments>
+            </ownedChild>
+          </children>
+          <children
+              compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
+            <containmentFeature
+                href="McpMM.ecore#//Workflow/tareas"/>
+            <ownedChild
+                relatedDiagrams="//@diagram">
+              <domainMetaElement
+                  href="McpMM.ecore#//TareaRecepcionContexto"/>
+              <labelMappings
+                  xsi:type="gmfmap:FeatureLabelMapping">
+                <diagramLabel
+                    href="McpMM.gmfgraph#TareaRecepcionContextoLabel"/>
+                <features
+                    href="McpMM.ecore#//Tarea/nombreTarea"/>
+              </labelMappings>
+              <tool
+                  xsi:type="gmftool:CreationTool"
+                  href="McpMM.gmftool#//@palette/@tools.0/@tools.12"/>
+              <diagramNode
+                  href="McpMM.gmfgraph#TareaRecepcionContexto"/>
+              <children
+                  compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.5/@ownedChild/@compartments.0"
+                  referencedChild="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.7/@ownedChild/@children.0/@ownedChild">
+                <containmentFeature
+                    href="McpMM.ecore#//Tarea/accion"/>
+              </children>
+              <children
+                  compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.5/@ownedChild/@compartments.0"
+                  referencedChild="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.7/@ownedChild/@children.1/@ownedChild">
+                <containmentFeature
+                    href="McpMM.ecore#//Tarea/accion"/>
+              </children>
+              <compartments
+                  children="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.5/@ownedChild/@children.0 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.5/@ownedChild/@children.1">
+                <compartment
+                    href="McpMM.gmfgraph#TareaRecepcionContextoAccionCompartment"/>
+              </compartments>
+            </ownedChild>
+          </children>
+          <children
+              compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
+            <containmentFeature
+                href="McpMM.ecore#//Workflow/tareas"/>
+            <ownedChild
+                relatedDiagrams="//@diagram">
+              <domainMetaElement
+                  href="McpMM.ecore#//TareaServerMCP"/>
+              <labelMappings
+                  xsi:type="gmfmap:FeatureLabelMapping">
+                <diagramLabel
+                    href="McpMM.gmfgraph#TareaServerMCPLabel"/>
+                <features
+                    href="McpMM.ecore#//Tarea/nombreTarea"/>
+              </labelMappings>
+              <tool
+                  xsi:type="gmftool:CreationTool"
+                  href="McpMM.gmftool#//@palette/@tools.0/@tools.13"/>
+              <diagramNode
+                  href="McpMM.gmfgraph#TareaServerMCP"/>
+              <children
+                  compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.6/@ownedChild/@compartments.0"
+                  referencedChild="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.7/@ownedChild/@children.0/@ownedChild">
+                <containmentFeature
+                    href="McpMM.ecore#//Tarea/accion"/>
+              </children>
+              <children
+                  compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.6/@ownedChild/@compartments.0"
+                  referencedChild="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.7/@ownedChild/@children.1/@ownedChild">
+                <containmentFeature
+                    href="McpMM.ecore#//Tarea/accion"/>
+              </children>
+              <compartments
+                  children="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.6/@ownedChild/@children.0 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.6/@ownedChild/@children.1">
+                <compartment
+                    href="McpMM.gmfgraph#TareaServerMCPAccionCompartment"/>
+              </compartments>
+            </ownedChild>
+          </children>
+          <children
+              compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
+            <containmentFeature
+                href="McpMM.ecore#//Workflow/tareas"/>
+            <ownedChild
+                relatedDiagrams="//@diagram">
+              <domainMetaElement
+                  href="McpMM.ecore#//Inicio"/>
+              <labelMappings
+                  xsi:type="gmfmap:FeatureLabelMapping">
+                <diagramLabel
+                    href="McpMM.gmfgraph#InicioLabel"/>
+                <features
+                    href="McpMM.ecore#//Tarea/nombreTarea"/>
+              </labelMappings>
+              <tool
+                  xsi:type="gmftool:CreationTool"
+                  href="McpMM.gmftool#//@palette/@tools.0/@tools.4"/>
+              <diagramNode
+                  href="McpMM.gmfgraph#Inicio"/>
+              <children
+                  compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.7/@ownedChild/@compartments.0">
+                <containmentFeature
+                    href="McpMM.ecore#//Tarea/accion"/>
+                <ownedChild>
+                  <domainMetaElement
+                      href="McpMM.ecore#//Escritura"/>
+                  <labelMappings
+                      xsi:type="gmfmap:FeatureLabelMapping">
+                    <diagramLabel
+                        href="McpMM.gmfgraph#EscrituraLabel"/>
+                    <features
+                        href="McpMM.ecore#//Accion/nombreAccion"/>
+                  </labelMappings>
+                  <tool
+                      xsi:type="gmftool:CreationTool"
+                      href="McpMM.gmftool#//@palette/@tools.0/@tools.2"/>
+                  <diagramNode
+                      href="McpMM.gmfgraph#Escritura"/>
+                </ownedChild>
+              </children>
+              <children
+                  compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.7/@ownedChild/@compartments.0">
+                <containmentFeature
+                    href="McpMM.ecore#//Tarea/accion"/>
+                <ownedChild>
+                  <domainMetaElement
+                      href="McpMM.ecore#//Lectura"/>
+                  <labelMappings
+                      xsi:type="gmfmap:FeatureLabelMapping">
+                    <diagramLabel
+                        href="McpMM.gmfgraph#LecturaLabel"/>
+                    <features
+                        href="McpMM.ecore#//Accion/nombreAccion"/>
+                  </labelMappings>
+                  <tool
+                      xsi:type="gmftool:CreationTool"
+                      href="McpMM.gmftool#//@palette/@tools.0/@tools.5"/>
+                  <diagramNode
+                      href="McpMM.gmfgraph#Lectura"/>
+                </ownedChild>
+              </children>
+              <compartments
+                  children="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.7/@ownedChild/@children.0 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.7/@ownedChild/@children.1">
+                <compartment
+                    href="McpMM.gmfgraph#InicioAccionCompartment"/>
+              </compartments>
+            </ownedChild>
+          </children>
+          <children
+              compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
+            <containmentFeature
+                href="McpMM.ecore#//Workflow/tareas"/>
+            <ownedChild
+                relatedDiagrams="//@diagram">
+              <domainMetaElement
+                  href="McpMM.ecore#//Final"/>
+              <labelMappings
+                  xsi:type="gmfmap:FeatureLabelMapping">
+                <diagramLabel
+                    href="McpMM.gmfgraph#FinalLabel"/>
+                <features
+                    href="McpMM.ecore#//Tarea/nombreTarea"/>
               </labelMappings>
               <tool
                   xsi:type="gmftool:CreationTool"
                   href="McpMM.gmftool#//@palette/@tools.0/@tools.3"/>
               <diagramNode
-                  href="McpMM.gmfgraph#Lectura"/>
+                  href="McpMM.gmfgraph#Final"/>
+              <children
+                  compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.8/@ownedChild/@compartments.0"
+                  referencedChild="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.7/@ownedChild/@children.0/@ownedChild">
+                <containmentFeature
+                    href="McpMM.ecore#//Tarea/accion"/>
+              </children>
+              <children
+                  compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.8/@ownedChild/@compartments.0"
+                  referencedChild="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.7/@ownedChild/@children.1/@ownedChild">
+                <containmentFeature
+                    href="McpMM.ecore#//Tarea/accion"/>
+              </children>
+              <compartments
+                  children="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.8/@ownedChild/@children.0 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.8/@ownedChild/@children.1">
+                <compartment
+                    href="McpMM.gmfgraph#FinalAccionCompartment"/>
+              </compartments>
             </ownedChild>
           </children>
           <compartments
-              children="//@nodes.2/@ownedChild/@children.7/@ownedChild/@children.0 //@nodes.2/@ownedChild/@children.7/@ownedChild/@children.1">
+              children="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.0 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.1 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.2 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.5 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.6 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.7 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.8">
             <compartment
-                href="McpMM.gmfgraph#TareaFinalAccionCompartment"/>
+                href="McpMM.gmfgraph#WorkflowTareasCompartment"/>
           </compartments>
         </ownedChild>
       </children>
       <children
-          compartment="//@nodes.2/@ownedChild/@compartments.1">
+          compartment="//@nodes.0/@ownedChild/@compartments.1">
         <containmentFeature
-            href="McpMM.ecore#//Workflow/tarea"/>
-        <ownedChild
-            relatedDiagrams="//@diagram">
-          <domainMetaElement
-              href="McpMM.ecore#//TareaInicial"/>
-          <labelMappings
-              xsi:type="gmfmap:FeatureLabelMapping">
-            <diagramLabel
-                href="McpMM.gmfgraph#TareaInicialLabel"/>
-            <features
-                href="McpMM.ecore#//Tarea/nombreTarea"/>
-          </labelMappings>
-          <tool
-              xsi:type="gmftool:CreationTool"
-              href="McpMM.gmftool#//@palette/@tools.0/@tools.10"/>
-          <diagramNode
-              href="McpMM.gmfgraph#TareaInicial"/>
-          <children
-              compartment="//@nodes.2/@ownedChild/@children.8/@ownedChild/@compartments.0"
-              referencedChild="//@nodes.2/@ownedChild/@children.7/@ownedChild/@children.0/@ownedChild">
-            <containmentFeature
-                href="McpMM.ecore#//Tarea/accion"/>
-          </children>
-          <children
-              compartment="//@nodes.2/@ownedChild/@children.8/@ownedChild/@compartments.0"
-              referencedChild="//@nodes.2/@ownedChild/@children.7/@ownedChild/@children.1/@ownedChild">
-            <containmentFeature
-                href="McpMM.ecore#//Tarea/accion"/>
-          </children>
-          <compartments
-              children="//@nodes.2/@ownedChild/@children.8/@ownedChild/@children.0 //@nodes.2/@ownedChild/@children.8/@ownedChild/@children.1">
-            <compartment
-                href="McpMM.gmfgraph#TareaInicialAccionCompartment"/>
-          </compartments>
-        </ownedChild>
-      </children>
-      <children
-          compartment="//@nodes.2/@ownedChild/@compartments.0">
-        <containmentFeature
-            href="McpMM.ecore#//Workflow/contexto"/>
+            href="McpMM.ecore#//Agente/contextos"/>
         <ownedChild
             relatedDiagrams="//@diagram">
           <domainMetaElement
@@ -494,9 +454,9 @@
           <diagramNode
               href="McpMM.gmfgraph#Contexto"/>
           <children
-              compartment="//@nodes.2/@ownedChild/@children.9/@ownedChild/@compartments.0">
+              compartment="//@nodes.0/@ownedChild/@children.1/@ownedChild/@compartments.0">
             <containmentFeature
-                href="McpMM.ecore#//Contexto/propiedad"/>
+                href="McpMM.ecore#//Contexto/propiedades"/>
             <ownedChild>
               <domainMetaElement
                   href="McpMM.ecore#//Propiedad"/>
@@ -509,78 +469,77 @@
               </labelMappings>
               <tool
                   xsi:type="gmftool:CreationTool"
-                  href="McpMM.gmftool#//@palette/@tools.0/@tools.5"/>
+                  href="McpMM.gmftool#//@palette/@tools.0/@tools.7"/>
               <diagramNode
                   href="McpMM.gmfgraph#Propiedad"/>
             </ownedChild>
           </children>
           <compartments
-              children="//@nodes.2/@ownedChild/@children.9/@ownedChild/@children.0">
+              children="//@nodes.0/@ownedChild/@children.1/@ownedChild/@children.0">
             <compartment
-                href="McpMM.gmfgraph#ContextoPropiedadCompartment"/>
+                href="McpMM.gmfgraph#ContextoPropiedadesCompartment"/>
           </compartments>
         </ownedChild>
       </children>
       <compartments
-          children="//@nodes.2/@ownedChild/@children.9">
+          children="//@nodes.0/@ownedChild/@children.0">
         <compartment
-            href="McpMM.gmfgraph#WorkflowContextoCompartment"/>
+            href="McpMM.gmfgraph#AgenteFlujoCompartment"/>
       </compartments>
       <compartments
-          children="//@nodes.2/@ownedChild/@children.0 //@nodes.2/@ownedChild/@children.1 //@nodes.2/@ownedChild/@children.2 //@nodes.2/@ownedChild/@children.3 //@nodes.2/@ownedChild/@children.4 //@nodes.2/@ownedChild/@children.5 //@nodes.2/@ownedChild/@children.6 //@nodes.2/@ownedChild/@children.7 //@nodes.2/@ownedChild/@children.8">
+          children="//@nodes.0/@ownedChild/@children.1">
         <compartment
-            href="McpMM.gmfgraph#WorkflowTareaCompartment"/>
+            href="McpMM.gmfgraph#AgenteContextosCompartment"/>
       </compartments>
     </ownedChild>
   </nodes>
-  <links>
-    <labelMappings
-        xsi:type="gmfmap:DesignLabelMapping"
-        readOnly="true">
-      <diagramLabel
-          href="McpMM.gmfgraph#AgenteRealizaExternalLabel"/>
-    </labelMappings>
-    <tool
-        xsi:type="gmftool:CreationTool"
-        href="McpMM.gmftool#//@palette/@tools.1/@tools.3"/>
-    <diagramLink
-        href="McpMM.gmfgraph#AgenteRealiza"/>
-    <linkMetaFeature
-        xsi:type="ecore:EReference"
-        href="McpMM.ecore#//Agente/realiza"/>
-  </links>
-  <links>
-    <labelMappings
-        xsi:type="gmfmap:DesignLabelMapping"
-        readOnly="true">
-      <diagramLabel
-          href="McpMM.gmfgraph#WorkflowEmpiezaConExternalLabel"/>
-    </labelMappings>
-    <tool
-        xsi:type="gmftool:CreationTool"
-        href="McpMM.gmftool#//@palette/@tools.1/@tools.1"/>
-    <diagramLink
-        href="McpMM.gmfgraph#WorkflowEmpiezaCon"/>
-    <linkMetaFeature
-        xsi:type="ecore:EReference"
-        href="McpMM.ecore#//Workflow/empiezaCon"/>
-  </links>
-  <links>
-    <labelMappings
-        xsi:type="gmfmap:DesignLabelMapping"
-        readOnly="true">
-      <diagramLabel
-          href="McpMM.gmfgraph#WorkflowFinalizaConExternalLabel"/>
-    </labelMappings>
-    <tool
-        xsi:type="gmftool:CreationTool"
-        href="McpMM.gmftool#//@palette/@tools.1/@tools.2"/>
-    <diagramLink
-        href="McpMM.gmfgraph#WorkflowFinalizaCon"/>
-    <linkMetaFeature
-        xsi:type="ecore:EReference"
-        href="McpMM.ecore#//Workflow/finalizaCon"/>
-  </links>
+  <nodes>
+    <containmentFeature
+        href="McpMM.ecore#//ServiceMCP/servidores"/>
+    <ownedChild
+        relatedDiagrams="//@diagram">
+      <domainMetaElement
+          href="McpMM.ecore#//ServerMCP"/>
+      <labelMappings
+          xsi:type="gmfmap:FeatureLabelMapping">
+        <diagramLabel
+            href="McpMM.gmfgraph#ServerMCPLabel"/>
+        <features
+            href="McpMM.ecore#//ServerMCP/nombreServer"/>
+      </labelMappings>
+      <tool
+          xsi:type="gmftool:CreationTool"
+          href="McpMM.gmftool#//@palette/@tools.0/@tools.8"/>
+      <diagramNode
+          href="McpMM.gmfgraph#ServerMCP"/>
+      <children
+          compartment="//@nodes.1/@ownedChild/@compartments.0">
+        <containmentFeature
+            href="McpMM.ecore#//ServerMCP/operaciones"/>
+        <ownedChild>
+          <domainMetaElement
+              href="McpMM.ecore#//OperacionMCP"/>
+          <labelMappings
+              xsi:type="gmfmap:FeatureLabelMapping">
+            <diagramLabel
+                href="McpMM.gmfgraph#OperacionMCPLabel"/>
+            <features
+                href="McpMM.ecore#//OperacionMCP/nombreOperacion"/>
+          </labelMappings>
+          <tool
+              xsi:type="gmftool:CreationTool"
+              href="McpMM.gmftool#//@palette/@tools.0/@tools.6"/>
+          <diagramNode
+              href="McpMM.gmfgraph#OperacionMCP"/>
+        </ownedChild>
+      </children>
+      <compartments
+          children="//@nodes.1/@ownedChild/@children.0">
+        <compartment
+            href="McpMM.gmfgraph#ServerMCPOperacionesCompartment"/>
+      </compartments>
+    </ownedChild>
+  </nodes>
   <links>
     <labelMappings
         xsi:type="gmfmap:DesignLabelMapping"
@@ -590,7 +549,7 @@
     </labelMappings>
     <tool
         xsi:type="gmftool:CreationTool"
-        href="McpMM.gmftool#//@palette/@tools.1/@tools.4"/>
+        href="McpMM.gmftool#//@palette/@tools.1/@tools.1"/>
     <diagramLink
         href="McpMM.gmfgraph#TareaSigue"/>
     <linkMetaFeature
@@ -606,7 +565,7 @@
     </labelMappings>
     <tool
         xsi:type="gmftool:CreationTool"
-        href="McpMM.gmftool#//@palette/@tools.1/@tools.5"/>
+        href="McpMM.gmftool#//@palette/@tools.1/@tools.2"/>
     <diagramLink
         href="McpMM.gmfgraph#TareaAnalisisSigueElse"/>
     <linkMetaFeature

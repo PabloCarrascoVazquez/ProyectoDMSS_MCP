@@ -66,6 +66,12 @@ public class McpMMSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
+			case McpMMPackage.VERSION_CONTEXTO: {
+				VersionContexto versionContexto = (VersionContexto)theEObject;
+				T result = caseVersionContexto(versionContexto);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case McpMMPackage.SERVICE_MCP: {
 				ServiceMCP serviceMCP = (ServiceMCP)theEObject;
 				T result = caseServiceMCP(serviceMCP);
@@ -115,17 +121,17 @@ public class McpMMSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case McpMMPackage.TAREA_FINAL: {
-				TareaFinal tareaFinal = (TareaFinal)theEObject;
-				T result = caseTareaFinal(tareaFinal);
-				if (result == null) result = caseTarea(tareaFinal);
+			case McpMMPackage.INICIO: {
+				Inicio inicio = (Inicio)theEObject;
+				T result = caseInicio(inicio);
+				if (result == null) result = caseTarea(inicio);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case McpMMPackage.TAREA_INICIAL: {
-				TareaInicial tareaInicial = (TareaInicial)theEObject;
-				T result = caseTareaInicial(tareaInicial);
-				if (result == null) result = caseTarea(tareaInicial);
+			case McpMMPackage.FINAL: {
+				Final final_ = (Final)theEObject;
+				T result = caseFinal(final_);
+				if (result == null) result = caseTarea(final_);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -213,6 +219,21 @@ public class McpMMSwitch<T> extends Switch<T> {
 			}
 			default: return defaultCase(theEObject);
 		}
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Version Contexto</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Version Contexto</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseVersionContexto(VersionContexto object) {
+		return null;
 	}
 
 	/**
@@ -336,32 +357,32 @@ public class McpMMSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Tarea Final</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Inicio</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Tarea Final</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Inicio</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseTareaFinal(TareaFinal object) {
+	public T caseInicio(Inicio object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Tarea Inicial</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Final</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Tarea Inicial</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Final</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseTareaInicial(TareaInicial object) {
+	public T caseFinal(Final object) {
 		return null;
 	}
 

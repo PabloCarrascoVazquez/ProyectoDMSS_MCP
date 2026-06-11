@@ -16,17 +16,19 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link McpMM.Tarea#getNombreTarea <em>Nombre Tarea</em>}</li>
+ *   <li>{@link McpMM.Tarea#getTaskId <em>Task Id</em>}</li>
+ *   <li>{@link McpMM.Tarea#getTaskDesc <em>Task Desc</em>}</li>
  *   <li>{@link McpMM.Tarea#getAccion <em>Accion</em>}</li>
  *   <li>{@link McpMM.Tarea#getPrecede <em>Precede</em>}</li>
  *   <li>{@link McpMM.Tarea#getSigue <em>Sigue</em>}</li>
  *   <li>{@link McpMM.Tarea#getPrecedeElse <em>Precede Else</em>}</li>
- *   <li>{@link McpMM.Tarea#getAgenteAsignado <em>Agente Asignado</em>}</li>
  * </ul>
  *
  * @see McpMM.McpMMPackage#getTarea()
  * @model abstract="true"
- *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='R06_NoBuclePropio R08_ConexionesAgentes R09_EntradaYSalida R10_NoCiclos'"
- *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot R06_NoBuclePropio='not (self.sigue = self) and (if self.oclIsTypeOf(TareaAnalisis) then not (self.oclAsType(TareaAnalisis).sigueElse = self) else true endif)' R08_ConexionesAgentes='if not self.sigue.oclIsUndefined() then if self.oclIsTypeOf(TareaEnvioContexto) and self.sigue.oclIsTypeOf(TareaRecepcionContexto) then not (self.agenteAsignado = self.sigue.agenteAsignado) else self.agenteAsignado = self.sigue.agenteAsignado endif else true endif' R09_EntradaYSalida='(if self.oclIsTypeOf(TareaInicial) then true else (not self.precede.oclIsUndefined() or not self.precedeElse.oclIsUndefined()) endif) and (if self.oclIsTypeOf(TareaFinal) then true else not self.sigue.oclIsUndefined() endif)' R10_NoCiclos='let siguientes : Set(Tarea) = Set{self.sigue}->union(if self.oclIsTypeOf(TareaAnalisis) then Set{self.oclAsType(TareaAnalisis).sigueElse} else Set{} endif)->select(x | not x.oclIsUndefined()) in siguientes->forAll(s | not s->closure(t : Tarea | Set{t.sigue}->union(if t.oclIsTypeOf(TareaAnalisis) then Set{t.oclAsType(TareaAnalisis).sigueElse} else Set{} endif)->select(x | not x.oclIsUndefined()))->includes(self))'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='R09_EntradaYSalida R10_NoBuclePropio'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot R09_EntradaYSalida='not self.precede.oclIsUndefined() or not self.sigue.oclIsUndefined()' R10_NoBuclePropio='self.sigue <> self'"
+ *        annotation="DSLDoc descripcion='Clase base abstracta para todos los pasos ejecutables y puntos de control dentro de un workflow.'"
  * @generated
  */
 public interface Tarea extends EObject {
@@ -55,6 +57,58 @@ public interface Tarea extends EObject {
 	 * @generated
 	 */
 	void setNombreTarea(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Task Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Task Id</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Task Id</em>' attribute.
+	 * @see #setTaskId(int)
+	 * @see McpMM.McpMMPackage#getTarea_TaskId()
+	 * @model
+	 * @generated
+	 */
+	int getTaskId();
+
+	/**
+	 * Sets the value of the '{@link McpMM.Tarea#getTaskId <em>Task Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Task Id</em>' attribute.
+	 * @see #getTaskId()
+	 * @generated
+	 */
+	void setTaskId(int value);
+
+	/**
+	 * Returns the value of the '<em><b>Task Desc</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Task Desc</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Task Desc</em>' attribute.
+	 * @see #setTaskDesc(String)
+	 * @see McpMM.McpMMPackage#getTarea_TaskDesc()
+	 * @model
+	 * @generated
+	 */
+	String getTaskDesc();
+
+	/**
+	 * Sets the value of the '{@link McpMM.Tarea#getTaskDesc <em>Task Desc</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Task Desc</em>' attribute.
+	 * @see #getTaskDesc()
+	 * @generated
+	 */
+	void setTaskDesc(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Accion</b></em>' containment reference list.
@@ -157,33 +211,5 @@ public interface Tarea extends EObject {
 	 * @generated
 	 */
 	void setPrecedeElse(TareaAnalisis value);
-
-	/**
-	 * Returns the value of the '<em><b>Agente Asignado</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link McpMM.Agente#getRealiza <em>Realiza</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Agente Asignado</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Agente Asignado</em>' reference.
-	 * @see #setAgenteAsignado(Agente)
-	 * @see McpMM.McpMMPackage#getTarea_AgenteAsignado()
-	 * @see McpMM.Agente#getRealiza
-	 * @model opposite="realiza"
-	 * @generated
-	 */
-	Agente getAgenteAsignado();
-
-	/**
-	 * Sets the value of the '{@link McpMM.Tarea#getAgenteAsignado <em>Agente Asignado</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Agente Asignado</em>' reference.
-	 * @see #getAgenteAsignado()
-	 * @generated
-	 */
-	void setAgenteAsignado(Agente value);
 
 } // Tarea

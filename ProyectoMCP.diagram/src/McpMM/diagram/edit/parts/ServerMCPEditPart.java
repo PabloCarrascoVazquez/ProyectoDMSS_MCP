@@ -40,7 +40,7 @@ public class ServerMCPEditPart extends ShapeNodeEditPart {
 	/**
 	* @generated
 	*/
-	public static final int VISUAL_ID = 2001;
+	public static final int VISUAL_ID = 2002;
 
 	/**
 	* @generated
@@ -121,10 +121,10 @@ public class ServerMCPEditPart extends ShapeNodeEditPart {
 					.setLabel(getPrimaryShape().getFigureServerMCPLabelFigure());
 			return true;
 		}
-		if (childEditPart instanceof McpMM.diagram.edit.parts.ServerMCPServerMCPOperacionmcpCompartmentEditPart) {
-			IFigure pane = getPrimaryShape().getServerMCPOperacionmcpCompartmentFigure();
+		if (childEditPart instanceof McpMM.diagram.edit.parts.ServerMCPServerMCPOperacionesCompartmentEditPart) {
+			IFigure pane = getPrimaryShape().getServerMCPOperacionesCompartmentFigure();
 			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
-			pane.add(((McpMM.diagram.edit.parts.ServerMCPServerMCPOperacionmcpCompartmentEditPart) childEditPart)
+			pane.add(((McpMM.diagram.edit.parts.ServerMCPServerMCPOperacionesCompartmentEditPart) childEditPart)
 					.getFigure());
 			return true;
 		}
@@ -138,9 +138,9 @@ public class ServerMCPEditPart extends ShapeNodeEditPart {
 		if (childEditPart instanceof McpMM.diagram.edit.parts.ServerMCPNombreServerEditPart) {
 			return true;
 		}
-		if (childEditPart instanceof McpMM.diagram.edit.parts.ServerMCPServerMCPOperacionmcpCompartmentEditPart) {
-			IFigure pane = getPrimaryShape().getServerMCPOperacionmcpCompartmentFigure();
-			pane.remove(((McpMM.diagram.edit.parts.ServerMCPServerMCPOperacionmcpCompartmentEditPart) childEditPart)
+		if (childEditPart instanceof McpMM.diagram.edit.parts.ServerMCPServerMCPOperacionesCompartmentEditPart) {
+			IFigure pane = getPrimaryShape().getServerMCPOperacionesCompartmentFigure();
+			pane.remove(((McpMM.diagram.edit.parts.ServerMCPServerMCPOperacionesCompartmentEditPart) childEditPart)
 					.getFigure());
 			return true;
 		}
@@ -171,8 +171,8 @@ public class ServerMCPEditPart extends ShapeNodeEditPart {
 	* @generated
 	*/
 	protected IFigure getContentPaneFor(IGraphicalEditPart editPart) {
-		if (editPart instanceof McpMM.diagram.edit.parts.ServerMCPServerMCPOperacionmcpCompartmentEditPart) {
-			return getPrimaryShape().getServerMCPOperacionmcpCompartmentFigure();
+		if (editPart instanceof McpMM.diagram.edit.parts.ServerMCPServerMCPOperacionesCompartmentEditPart) {
+			return getPrimaryShape().getServerMCPOperacionesCompartmentFigure();
 		}
 		return getContentPane();
 	}
@@ -279,9 +279,9 @@ public class ServerMCPEditPart extends ShapeNodeEditPart {
 			CreateElementRequestAdapter adapter = ((CreateViewAndElementRequest) request).getViewAndElementDescriptor()
 					.getCreateElementRequestAdapter();
 			IElementType type = (IElementType) adapter.getAdapter(IElementType.class);
-			if (type == McpMM.diagram.providers.McpMMElementTypes.OperacionMCP_3001) {
+			if (type == McpMM.diagram.providers.McpMMElementTypes.OperacionMCP_3015) {
 				return getChildBySemanticHint(McpMM.diagram.part.McpMMVisualIDRegistry
-						.getType(McpMM.diagram.edit.parts.ServerMCPServerMCPOperacionmcpCompartmentEditPart.VISUAL_ID));
+						.getType(McpMM.diagram.edit.parts.ServerMCPServerMCPOperacionesCompartmentEditPart.VISUAL_ID));
 			}
 		}
 		return super.getTargetEditPart(request);
@@ -311,7 +311,7 @@ public class ServerMCPEditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
-		private RectangleFigure fServerMCPOperacionmcpCompartmentFigure;
+		private RectangleFigure fServerMCPOperacionesCompartmentFigure;
 
 		/**
 		 * @generated
@@ -336,11 +336,11 @@ public class ServerMCPEditPart extends ShapeNodeEditPart {
 
 			this.add(fFigureServerMCPLabelFigure);
 
-			fServerMCPOperacionmcpCompartmentFigure = new RectangleFigure();
+			fServerMCPOperacionesCompartmentFigure = new RectangleFigure();
 
-			fServerMCPOperacionmcpCompartmentFigure.setOutline(false);
+			fServerMCPOperacionesCompartmentFigure.setOutline(false);
 
-			this.add(fServerMCPOperacionmcpCompartmentFigure);
+			this.add(fServerMCPOperacionesCompartmentFigure);
 
 		}
 
@@ -354,8 +354,8 @@ public class ServerMCPEditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
-		public RectangleFigure getServerMCPOperacionmcpCompartmentFigure() {
-			return fServerMCPOperacionmcpCompartmentFigure;
+		public RectangleFigure getServerMCPOperacionesCompartmentFigure() {
+			return fServerMCPOperacionesCompartmentFigure;
 		}
 
 	}

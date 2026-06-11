@@ -8,6 +8,7 @@ import org.eclipse.draw2d.MarginBorder;
 import org.eclipse.draw2d.RectangleFigure;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
+import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.gef.EditPart;
@@ -17,14 +18,18 @@ import org.eclipse.gef.commands.Command;
 import org.eclipse.gef.editpolicies.LayoutEditPolicy;
 import org.eclipse.gef.editpolicies.NonResizableEditPolicy;
 import org.eclipse.gef.requests.CreateRequest;
+import org.eclipse.gmf.runtime.diagram.core.edithelpers.CreateElementRequestAdapter;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
+import org.eclipse.gmf.runtime.diagram.ui.requests.CreateViewAndElementRequest;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
+import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
+import org.eclipse.gmf.tooling.runtime.edit.policies.reparent.CreationEditPolicyWithCustomReparent;
 import org.eclipse.swt.graphics.Color;
 
 /**
@@ -35,7 +40,7 @@ public class AgenteEditPart extends ShapeNodeEditPart {
 	/**
 	* @generated
 	*/
-	public static final int VISUAL_ID = 2002;
+	public static final int VISUAL_ID = 2001;
 
 	/**
 	* @generated
@@ -58,11 +63,13 @@ public class AgenteEditPart extends ShapeNodeEditPart {
 	* @generated
 	*/
 	protected void createDefaultEditPolicies() {
+		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
+				new CreationEditPolicyWithCustomReparent(McpMM.diagram.part.McpMMVisualIDRegistry.TYPED_INSTANCE));
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
 				new McpMM.diagram.edit.policies.AgenteItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
-		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
+		installEditPolicy(EditPolicyRoles.OPEN_ROLE, new McpMM.diagram.edit.policies.OpenDiagramEditPolicy()); // XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
 	}
 
@@ -109,9 +116,21 @@ public class AgenteEditPart extends ShapeNodeEditPart {
 	* @generated
 	*/
 	protected boolean addFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof McpMM.diagram.edit.parts.AgenteNombreAgenteEditPart) {
-			((McpMM.diagram.edit.parts.AgenteNombreAgenteEditPart) childEditPart)
+		if (childEditPart instanceof McpMM.diagram.edit.parts.AgenteNombreEditPart) {
+			((McpMM.diagram.edit.parts.AgenteNombreEditPart) childEditPart)
 					.setLabel(getPrimaryShape().getFigureAgenteLabelFigure());
+			return true;
+		}
+		if (childEditPart instanceof McpMM.diagram.edit.parts.AgenteAgenteFlujoCompartmentEditPart) {
+			IFigure pane = getPrimaryShape().getAgenteFlujoCompartmentFigure();
+			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
+			pane.add(((McpMM.diagram.edit.parts.AgenteAgenteFlujoCompartmentEditPart) childEditPart).getFigure());
+			return true;
+		}
+		if (childEditPart instanceof McpMM.diagram.edit.parts.AgenteAgenteContextosCompartmentEditPart) {
+			IFigure pane = getPrimaryShape().getAgenteContextosCompartmentFigure();
+			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
+			pane.add(((McpMM.diagram.edit.parts.AgenteAgenteContextosCompartmentEditPart) childEditPart).getFigure());
 			return true;
 		}
 		return false;
@@ -121,7 +140,18 @@ public class AgenteEditPart extends ShapeNodeEditPart {
 	* @generated
 	*/
 	protected boolean removeFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof McpMM.diagram.edit.parts.AgenteNombreAgenteEditPart) {
+		if (childEditPart instanceof McpMM.diagram.edit.parts.AgenteNombreEditPart) {
+			return true;
+		}
+		if (childEditPart instanceof McpMM.diagram.edit.parts.AgenteAgenteFlujoCompartmentEditPart) {
+			IFigure pane = getPrimaryShape().getAgenteFlujoCompartmentFigure();
+			pane.remove(((McpMM.diagram.edit.parts.AgenteAgenteFlujoCompartmentEditPart) childEditPart).getFigure());
+			return true;
+		}
+		if (childEditPart instanceof McpMM.diagram.edit.parts.AgenteAgenteContextosCompartmentEditPart) {
+			IFigure pane = getPrimaryShape().getAgenteContextosCompartmentFigure();
+			pane.remove(
+					((McpMM.diagram.edit.parts.AgenteAgenteContextosCompartmentEditPart) childEditPart).getFigure());
 			return true;
 		}
 		return false;
@@ -151,6 +181,12 @@ public class AgenteEditPart extends ShapeNodeEditPart {
 	* @generated
 	*/
 	protected IFigure getContentPaneFor(IGraphicalEditPart editPart) {
+		if (editPart instanceof McpMM.diagram.edit.parts.AgenteAgenteFlujoCompartmentEditPart) {
+			return getPrimaryShape().getAgenteFlujoCompartmentFigure();
+		}
+		if (editPart instanceof McpMM.diagram.edit.parts.AgenteAgenteContextosCompartmentEditPart) {
+			return getPrimaryShape().getAgenteContextosCompartmentFigure();
+		}
 		return getContentPane();
 	}
 
@@ -245,7 +281,23 @@ public class AgenteEditPart extends ShapeNodeEditPart {
 	*/
 	public EditPart getPrimaryChildEditPart() {
 		return getChildBySemanticHint(McpMM.diagram.part.McpMMVisualIDRegistry
-				.getType(McpMM.diagram.edit.parts.AgenteNombreAgenteEditPart.VISUAL_ID));
+				.getType(McpMM.diagram.edit.parts.AgenteNombreEditPart.VISUAL_ID));
+	}
+
+	/**
+	* @generated
+	*/
+	public EditPart getTargetEditPart(Request request) {
+		if (request instanceof CreateViewAndElementRequest) {
+			CreateElementRequestAdapter adapter = ((CreateViewAndElementRequest) request).getViewAndElementDescriptor()
+					.getCreateElementRequestAdapter();
+			IElementType type = (IElementType) adapter.getAdapter(IElementType.class);
+			if (type == McpMM.diagram.providers.McpMMElementTypes.Contexto_3013) {
+				return getChildBySemanticHint(McpMM.diagram.part.McpMMVisualIDRegistry
+						.getType(McpMM.diagram.edit.parts.AgenteAgenteContextosCompartmentEditPart.VISUAL_ID));
+			}
+		}
+		return super.getTargetEditPart(request);
 	}
 
 	/**
@@ -269,6 +321,14 @@ public class AgenteEditPart extends ShapeNodeEditPart {
 		 * @generated
 		 */
 		private WrappingLabel fFigureAgenteLabelFigure;
+		/**
+		 * @generated
+		 */
+		private RectangleFigure fAgenteFlujoCompartmentFigure;
+		/**
+		 * @generated
+		 */
+		private RectangleFigure fAgenteContextosCompartmentFigure;
 
 		/**
 		 * @generated
@@ -288,8 +348,21 @@ public class AgenteEditPart extends ShapeNodeEditPart {
 			fFigureAgenteLabelFigure = new WrappingLabel();
 
 			fFigureAgenteLabelFigure.setText("Agente");
+			fFigureAgenteLabelFigure.setMaximumSize(new Dimension(getMapMode().DPtoLP(10000), getMapMode().DPtoLP(50)));
 
 			this.add(fFigureAgenteLabelFigure);
+
+			fAgenteFlujoCompartmentFigure = new RectangleFigure();
+
+			fAgenteFlujoCompartmentFigure.setOutline(false);
+
+			this.add(fAgenteFlujoCompartmentFigure);
+
+			fAgenteContextosCompartmentFigure = new RectangleFigure();
+
+			fAgenteContextosCompartmentFigure.setOutline(false);
+
+			this.add(fAgenteContextosCompartmentFigure);
 
 		}
 
@@ -298,6 +371,20 @@ public class AgenteEditPart extends ShapeNodeEditPart {
 		 */
 		public WrappingLabel getFigureAgenteLabelFigure() {
 			return fFigureAgenteLabelFigure;
+		}
+
+		/**
+		 * @generated
+		 */
+		public RectangleFigure getAgenteFlujoCompartmentFigure() {
+			return fAgenteFlujoCompartmentFigure;
+		}
+
+		/**
+		 * @generated
+		 */
+		public RectangleFigure getAgenteContextosCompartmentFigure() {
+			return fAgenteContextosCompartmentFigure;
 		}
 
 	}

@@ -18,6 +18,7 @@ package McpMM;
  *
  * @see McpMM.McpMMPackage#getTareaAnalisis()
  * @model annotation="gmf.node label='nombreTarea' figure='rectangle' color='255,255,150'"
+ *        annotation="DSLDoc descripcion='Tarea de bifurcaci\363n condicional que eval\372a un estado para decidir continuar por el flujo principal o por un flujo alternativo (Else).'"
  * @generated
  */
 public interface TareaAnalisis extends TareaEjecutable {

@@ -5,46 +5,42 @@
     xmlns:trace="http://www.eclipse.org/gmf/2006/Trace">
   <nodeTraces
       visualID="2001"
-      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'https://www.example.org/McpMM' and _eClass_.name = 'ServerMCP') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'https://www.example.org/McpMM' and _eClass_.name = 'ServiceMCP') and _containmentMF_.name = 'servermcp')">
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'https://www.example.org/McpMM' and _eClass_.name = 'Agente') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'https://www.example.org/McpMM' and _eClass_.name = 'ServiceMCP') and _containmentMF_.name = 'agentes')">
     <nodeLabelTraces
-        visualID="5002"
+        visualID="5015"
         queryText="true"/>
     <compartmentTraces
         visualID="7001"
         queryText="true"/>
-  </nodeTraces>
-  <nodeTraces
-      visualID="2002"
-      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'https://www.example.org/McpMM' and _eClass_.name = 'Agente') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'https://www.example.org/McpMM' and _eClass_.name = 'ServiceMCP') and _containmentMF_.name = 'agente')">
-    <nodeLabelTraces
-        visualID="5003"
+    <compartmentTraces
+        visualID="7002"
         queryText="true"/>
   </nodeTraces>
   <nodeTraces
-      visualID="2003"
-      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'https://www.example.org/McpMM' and _eClass_.name = 'Workflow') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'https://www.example.org/McpMM' and _eClass_.name = 'ServiceMCP') and _containmentMF_.name = 'workflow')">
+      visualID="2002"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'https://www.example.org/McpMM' and _eClass_.name = 'ServerMCP') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'https://www.example.org/McpMM' and _eClass_.name = 'ServiceMCP') and _containmentMF_.name = 'servidores')">
     <nodeLabelTraces
         visualID="5017"
         queryText="true"/>
     <compartmentTraces
-        visualID="7002"
-        queryText="true"/>
-    <compartmentTraces
-        visualID="7003"
+        visualID="7014"
         queryText="true"/>
   </nodeTraces>
   <childNodeTraces
       visualID="3001"
-      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'https://www.example.org/McpMM' and _eClass_.name = 'OperacionMCP') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'https://www.example.org/McpMM' and _eClass_.name = 'ServerMCP') and _containmentMF_.name = 'operacionmcp')">
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'https://www.example.org/McpMM' and _eClass_.name = 'Workflow') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'https://www.example.org/McpMM' and _eClass_.name = 'Agente') and _containmentMF_.name = 'flujo')">
     <nodeLabelTraces
-        visualID="5001"
+        visualID="5012"
+        queryText="true"/>
+    <compartmentTraces
+        visualID="7003"
         queryText="true"/>
   </childNodeTraces>
   <childNodeTraces
       visualID="3002"
-      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'https://www.example.org/McpMM' and _eClass_.name = 'TareaTransformacionDatos') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'https://www.example.org/McpMM' and _eClass_.name = 'Workflow') and _containmentMF_.name = 'tarea')">
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'https://www.example.org/McpMM' and _eClass_.name = 'TareaTransformacionDatos') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'https://www.example.org/McpMM' and _eClass_.name = 'Workflow') and _containmentMF_.name = 'tareas')">
     <nodeLabelTraces
-        visualID="5006"
+        visualID="5003"
         queryText="true"/>
     <compartmentTraces
         visualID="7004"
@@ -54,21 +50,21 @@
       visualID="3003"
       queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'https://www.example.org/McpMM' and _eClass_.name = 'Escritura') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'https://www.example.org/McpMM' and _eClass_.name = 'Tarea') and _containmentMF_.name = 'accion')">
     <nodeLabelTraces
-        visualID="5004"
+        visualID="5001"
         queryText="true"/>
   </childNodeTraces>
   <childNodeTraces
       visualID="3004"
       queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'https://www.example.org/McpMM' and _eClass_.name = 'Lectura') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'https://www.example.org/McpMM' and _eClass_.name = 'Tarea') and _containmentMF_.name = 'accion')">
     <nodeLabelTraces
-        visualID="5005"
+        visualID="5002"
         queryText="true"/>
   </childNodeTraces>
   <childNodeTraces
       visualID="3005"
-      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'https://www.example.org/McpMM' and _eClass_.name = 'TareaLLM') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'https://www.example.org/McpMM' and _eClass_.name = 'Workflow') and _containmentMF_.name = 'tarea')">
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'https://www.example.org/McpMM' and _eClass_.name = 'TareaLLM') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'https://www.example.org/McpMM' and _eClass_.name = 'Workflow') and _containmentMF_.name = 'tareas')">
     <nodeLabelTraces
-        visualID="5007"
+        visualID="5004"
         queryText="true"/>
     <compartmentTraces
         visualID="7005"
@@ -76,9 +72,9 @@
   </childNodeTraces>
   <childNodeTraces
       visualID="3006"
-      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'https://www.example.org/McpMM' and _eClass_.name = 'TareaUsuario') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'https://www.example.org/McpMM' and _eClass_.name = 'Workflow') and _containmentMF_.name = 'tarea')">
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'https://www.example.org/McpMM' and _eClass_.name = 'TareaUsuario') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'https://www.example.org/McpMM' and _eClass_.name = 'Workflow') and _containmentMF_.name = 'tareas')">
     <nodeLabelTraces
-        visualID="5008"
+        visualID="5005"
         queryText="true"/>
     <compartmentTraces
         visualID="7006"
@@ -86,9 +82,9 @@
   </childNodeTraces>
   <childNodeTraces
       visualID="3007"
-      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'https://www.example.org/McpMM' and _eClass_.name = 'TareaAnalisis') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'https://www.example.org/McpMM' and _eClass_.name = 'Workflow') and _containmentMF_.name = 'tarea')">
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'https://www.example.org/McpMM' and _eClass_.name = 'TareaAnalisis') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'https://www.example.org/McpMM' and _eClass_.name = 'Workflow') and _containmentMF_.name = 'tareas')">
     <nodeLabelTraces
-        visualID="5009"
+        visualID="5006"
         queryText="true"/>
     <compartmentTraces
         visualID="7007"
@@ -96,9 +92,9 @@
   </childNodeTraces>
   <childNodeTraces
       visualID="3008"
-      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'https://www.example.org/McpMM' and _eClass_.name = 'TareaEnvioContexto') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'https://www.example.org/McpMM' and _eClass_.name = 'Workflow') and _containmentMF_.name = 'tarea')">
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'https://www.example.org/McpMM' and _eClass_.name = 'TareaEnvioContexto') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'https://www.example.org/McpMM' and _eClass_.name = 'Workflow') and _containmentMF_.name = 'tareas')">
     <nodeLabelTraces
-        visualID="5010"
+        visualID="5007"
         queryText="true"/>
     <compartmentTraces
         visualID="7008"
@@ -106,9 +102,9 @@
   </childNodeTraces>
   <childNodeTraces
       visualID="3009"
-      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'https://www.example.org/McpMM' and _eClass_.name = 'TareaRecepcionContexto') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'https://www.example.org/McpMM' and _eClass_.name = 'Workflow') and _containmentMF_.name = 'tarea')">
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'https://www.example.org/McpMM' and _eClass_.name = 'TareaRecepcionContexto') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'https://www.example.org/McpMM' and _eClass_.name = 'Workflow') and _containmentMF_.name = 'tareas')">
     <nodeLabelTraces
-        visualID="5011"
+        visualID="5008"
         queryText="true"/>
     <compartmentTraces
         visualID="7009"
@@ -116,9 +112,9 @@
   </childNodeTraces>
   <childNodeTraces
       visualID="3010"
-      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'https://www.example.org/McpMM' and _eClass_.name = 'TareaServerMCP') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'https://www.example.org/McpMM' and _eClass_.name = 'Workflow') and _containmentMF_.name = 'tarea')">
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'https://www.example.org/McpMM' and _eClass_.name = 'TareaServerMCP') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'https://www.example.org/McpMM' and _eClass_.name = 'Workflow') and _containmentMF_.name = 'tareas')">
     <nodeLabelTraces
-        visualID="5012"
+        visualID="5009"
         queryText="true"/>
     <compartmentTraces
         visualID="7010"
@@ -126,9 +122,9 @@
   </childNodeTraces>
   <childNodeTraces
       visualID="3011"
-      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'https://www.example.org/McpMM' and _eClass_.name = 'TareaFinal') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'https://www.example.org/McpMM' and _eClass_.name = 'Workflow') and _containmentMF_.name = 'tarea')">
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'https://www.example.org/McpMM' and _eClass_.name = 'Inicio') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'https://www.example.org/McpMM' and _eClass_.name = 'Workflow') and _containmentMF_.name = 'tareas')">
     <nodeLabelTraces
-        visualID="5013"
+        visualID="5010"
         queryText="true"/>
     <compartmentTraces
         visualID="7011"
@@ -136,9 +132,9 @@
   </childNodeTraces>
   <childNodeTraces
       visualID="3012"
-      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'https://www.example.org/McpMM' and _eClass_.name = 'TareaInicial') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'https://www.example.org/McpMM' and _eClass_.name = 'Workflow') and _containmentMF_.name = 'tarea')">
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'https://www.example.org/McpMM' and _eClass_.name = 'Final') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'https://www.example.org/McpMM' and _eClass_.name = 'Workflow') and _containmentMF_.name = 'tareas')">
     <nodeLabelTraces
-        visualID="5014"
+        visualID="5011"
         queryText="true"/>
     <compartmentTraces
         visualID="7012"
@@ -146,9 +142,9 @@
   </childNodeTraces>
   <childNodeTraces
       visualID="3013"
-      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'https://www.example.org/McpMM' and _eClass_.name = 'Contexto') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'https://www.example.org/McpMM' and _eClass_.name = 'Workflow') and _containmentMF_.name = 'contexto')">
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'https://www.example.org/McpMM' and _eClass_.name = 'Contexto') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'https://www.example.org/McpMM' and _eClass_.name = 'Agente') and _containmentMF_.name = 'contextos')">
     <nodeLabelTraces
-        visualID="5016"
+        visualID="5014"
         queryText="true"/>
     <compartmentTraces
         visualID="7013"
@@ -156,51 +152,37 @@
   </childNodeTraces>
   <childNodeTraces
       visualID="3014"
-      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'https://www.example.org/McpMM' and _eClass_.name = 'Propiedad') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'https://www.example.org/McpMM' and _eClass_.name = 'Contexto') and _containmentMF_.name = 'propiedad')">
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'https://www.example.org/McpMM' and _eClass_.name = 'Propiedad') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'https://www.example.org/McpMM' and _eClass_.name = 'Contexto') and _containmentMF_.name = 'propiedades')">
     <nodeLabelTraces
-        visualID="5015"
+        visualID="5013"
+        queryText="true"/>
+  </childNodeTraces>
+  <childNodeTraces
+      visualID="3015"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'https://www.example.org/McpMM' and _eClass_.name = 'OperacionMCP') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'https://www.example.org/McpMM' and _eClass_.name = 'ServerMCP') and _containmentMF_.name = 'operaciones')">
+    <nodeLabelTraces
+        visualID="5016"
         queryText="true"/>
   </childNodeTraces>
   <linkTraces
       visualID="4001"
-      queryText="modelFacet.oclIsKindOf(gmfgen::FeatureLinkModelFacet) and (let _feature_:ecore::EStructuralFeature = modelFacet.oclAsType(gmfgen::FeatureLinkModelFacet).metaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _feature_.eContainingClass in _eClass_.ePackage.nsURI = 'https://www.example.org/McpMM' and _eClass_.name = 'Agente') and _feature_.name = 'realiza')">
+      queryText="modelFacet.oclIsKindOf(gmfgen::FeatureLinkModelFacet) and (let _feature_:ecore::EStructuralFeature = modelFacet.oclAsType(gmfgen::FeatureLinkModelFacet).metaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _feature_.eContainingClass in _eClass_.ePackage.nsURI = 'https://www.example.org/McpMM' and _eClass_.name = 'Tarea') and _feature_.name = 'sigue')">
     <linkLabelTraces
         visualID="6001"
         queryText="true"/>
   </linkTraces>
   <linkTraces
       visualID="4002"
-      queryText="modelFacet.oclIsKindOf(gmfgen::FeatureLinkModelFacet) and (let _feature_:ecore::EStructuralFeature = modelFacet.oclAsType(gmfgen::FeatureLinkModelFacet).metaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _feature_.eContainingClass in _eClass_.ePackage.nsURI = 'https://www.example.org/McpMM' and _eClass_.name = 'Workflow') and _feature_.name = 'empiezaCon')">
+      queryText="modelFacet.oclIsKindOf(gmfgen::FeatureLinkModelFacet) and (let _feature_:ecore::EStructuralFeature = modelFacet.oclAsType(gmfgen::FeatureLinkModelFacet).metaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _feature_.eContainingClass in _eClass_.ePackage.nsURI = 'https://www.example.org/McpMM' and _eClass_.name = 'TareaAnalisis') and _feature_.name = 'sigueElse')">
     <linkLabelTraces
         visualID="6002"
         queryText="true"/>
   </linkTraces>
   <linkTraces
       visualID="4003"
-      queryText="modelFacet.oclIsKindOf(gmfgen::FeatureLinkModelFacet) and (let _feature_:ecore::EStructuralFeature = modelFacet.oclAsType(gmfgen::FeatureLinkModelFacet).metaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _feature_.eContainingClass in _eClass_.ePackage.nsURI = 'https://www.example.org/McpMM' and _eClass_.name = 'Workflow') and _feature_.name = 'finalizaCon')">
-    <linkLabelTraces
-        visualID="6003"
-        queryText="true"/>
-  </linkTraces>
-  <linkTraces
-      visualID="4004"
-      queryText="modelFacet.oclIsKindOf(gmfgen::FeatureLinkModelFacet) and (let _feature_:ecore::EStructuralFeature = modelFacet.oclAsType(gmfgen::FeatureLinkModelFacet).metaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _feature_.eContainingClass in _eClass_.ePackage.nsURI = 'https://www.example.org/McpMM' and _eClass_.name = 'Tarea') and _feature_.name = 'sigue')">
-    <linkLabelTraces
-        visualID="6004"
-        queryText="true"/>
-  </linkTraces>
-  <linkTraces
-      visualID="4007"
-      queryText="modelFacet.oclIsKindOf(gmfgen::FeatureLinkModelFacet) and (let _feature_:ecore::EStructuralFeature = modelFacet.oclAsType(gmfgen::FeatureLinkModelFacet).metaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _feature_.eContainingClass in _eClass_.ePackage.nsURI = 'https://www.example.org/McpMM' and _eClass_.name = 'TareaAnalisis') and _feature_.name = 'sigueElse')">
-    <linkLabelTraces
-        visualID="6007"
-        queryText="true"/>
-  </linkTraces>
-  <linkTraces
-      visualID="4008"
       queryText="modelFacet.oclIsKindOf(gmfgen::FeatureLinkModelFacet) and (let _feature_:ecore::EStructuralFeature = modelFacet.oclAsType(gmfgen::FeatureLinkModelFacet).metaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _feature_.eContainingClass in _eClass_.ePackage.nsURI = 'https://www.example.org/McpMM' and _eClass_.name = 'TareaServerMCP') and _feature_.name = 'ejecutaOperacion')">
     <linkLabelTraces
-        visualID="6008"
+        visualID="6003"
         queryText="true"/>
   </linkTraces>
 </trace:TraceModel>

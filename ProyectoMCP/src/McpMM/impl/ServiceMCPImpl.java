@@ -6,7 +6,6 @@ import McpMM.Agente;
 import McpMM.McpMMPackage;
 import McpMM.ServerMCP;
 import McpMM.ServiceMCP;
-import McpMM.Workflow;
 
 import java.util.Collection;
 
@@ -20,7 +19,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -33,9 +32,9 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link McpMM.impl.ServiceMCPImpl#getNombreServicio <em>Nombre Servicio</em>}</li>
- *   <li>{@link McpMM.impl.ServiceMCPImpl#getServermcp <em>Servermcp</em>}</li>
- *   <li>{@link McpMM.impl.ServiceMCPImpl#getAgente <em>Agente</em>}</li>
- *   <li>{@link McpMM.impl.ServiceMCPImpl#getWorkflow <em>Workflow</em>}</li>
+ *   <li>{@link McpMM.impl.ServiceMCPImpl#getAgentes <em>Agentes</em>}</li>
+ *   <li>{@link McpMM.impl.ServiceMCPImpl#getServicios <em>Servicios</em>}</li>
+ *   <li>{@link McpMM.impl.ServiceMCPImpl#getServidores <em>Servidores</em>}</li>
  * </ul>
  *
  * @generated
@@ -62,34 +61,34 @@ public class ServiceMCPImpl extends EObjectImpl implements ServiceMCP {
 	protected String nombreServicio = NOMBRE_SERVICIO_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getServermcp() <em>Servermcp</em>}' containment reference list.
+	 * The cached value of the '{@link #getAgentes() <em>Agentes</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getServermcp()
+	 * @see #getAgentes()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ServerMCP> servermcp;
+	protected EList<Agente> agentes;
 
 	/**
-	 * The cached value of the '{@link #getAgente() <em>Agente</em>}' containment reference list.
+	 * The cached value of the '{@link #getServicios() <em>Servicios</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getAgente()
+	 * @see #getServicios()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Agente> agente;
+	protected EList<ServiceMCP> servicios;
 
 	/**
-	 * The cached value of the '{@link #getWorkflow() <em>Workflow</em>}' containment reference list.
+	 * The cached value of the '{@link #getServidores() <em>Servidores</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getWorkflow()
+	 * @see #getServidores()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Workflow> workflow;
+	protected EList<ServerMCP> servidores;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -136,11 +135,11 @@ public class ServiceMCPImpl extends EObjectImpl implements ServiceMCP {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<ServerMCP> getServermcp() {
-		if (servermcp == null) {
-			servermcp = new EObjectContainmentEList<ServerMCP>(ServerMCP.class, this, McpMMPackage.SERVICE_MCP__SERVERMCP);
+	public EList<Agente> getAgentes() {
+		if (agentes == null) {
+			agentes = new EObjectContainmentEList<Agente>(Agente.class, this, McpMMPackage.SERVICE_MCP__AGENTES);
 		}
-		return servermcp;
+		return agentes;
 	}
 
 	/**
@@ -148,11 +147,11 @@ public class ServiceMCPImpl extends EObjectImpl implements ServiceMCP {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Agente> getAgente() {
-		if (agente == null) {
-			agente = new EObjectContainmentEList<Agente>(Agente.class, this, McpMMPackage.SERVICE_MCP__AGENTE);
+	public EList<ServiceMCP> getServicios() {
+		if (servicios == null) {
+			servicios = new EObjectContainmentEList<ServiceMCP>(ServiceMCP.class, this, McpMMPackage.SERVICE_MCP__SERVICIOS);
 		}
-		return agente;
+		return servicios;
 	}
 
 	/**
@@ -160,11 +159,11 @@ public class ServiceMCPImpl extends EObjectImpl implements ServiceMCP {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Workflow> getWorkflow() {
-		if (workflow == null) {
-			workflow = new EObjectContainmentEList<Workflow>(Workflow.class, this, McpMMPackage.SERVICE_MCP__WORKFLOW);
+	public EList<ServerMCP> getServidores() {
+		if (servidores == null) {
+			servidores = new EObjectContainmentEList<ServerMCP>(ServerMCP.class, this, McpMMPackage.SERVICE_MCP__SERVIDORES);
 		}
-		return workflow;
+		return servidores;
 	}
 
 	/**
@@ -175,12 +174,12 @@ public class ServiceMCPImpl extends EObjectImpl implements ServiceMCP {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case McpMMPackage.SERVICE_MCP__SERVERMCP:
-				return ((InternalEList<?>)getServermcp()).basicRemove(otherEnd, msgs);
-			case McpMMPackage.SERVICE_MCP__AGENTE:
-				return ((InternalEList<?>)getAgente()).basicRemove(otherEnd, msgs);
-			case McpMMPackage.SERVICE_MCP__WORKFLOW:
-				return ((InternalEList<?>)getWorkflow()).basicRemove(otherEnd, msgs);
+			case McpMMPackage.SERVICE_MCP__AGENTES:
+				return ((InternalEList<?>)getAgentes()).basicRemove(otherEnd, msgs);
+			case McpMMPackage.SERVICE_MCP__SERVICIOS:
+				return ((InternalEList<?>)getServicios()).basicRemove(otherEnd, msgs);
+			case McpMMPackage.SERVICE_MCP__SERVIDORES:
+				return ((InternalEList<?>)getServidores()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -195,12 +194,12 @@ public class ServiceMCPImpl extends EObjectImpl implements ServiceMCP {
 		switch (featureID) {
 			case McpMMPackage.SERVICE_MCP__NOMBRE_SERVICIO:
 				return getNombreServicio();
-			case McpMMPackage.SERVICE_MCP__SERVERMCP:
-				return getServermcp();
-			case McpMMPackage.SERVICE_MCP__AGENTE:
-				return getAgente();
-			case McpMMPackage.SERVICE_MCP__WORKFLOW:
-				return getWorkflow();
+			case McpMMPackage.SERVICE_MCP__AGENTES:
+				return getAgentes();
+			case McpMMPackage.SERVICE_MCP__SERVICIOS:
+				return getServicios();
+			case McpMMPackage.SERVICE_MCP__SERVIDORES:
+				return getServidores();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -217,17 +216,17 @@ public class ServiceMCPImpl extends EObjectImpl implements ServiceMCP {
 			case McpMMPackage.SERVICE_MCP__NOMBRE_SERVICIO:
 				setNombreServicio((String)newValue);
 				return;
-			case McpMMPackage.SERVICE_MCP__SERVERMCP:
-				getServermcp().clear();
-				getServermcp().addAll((Collection<? extends ServerMCP>)newValue);
+			case McpMMPackage.SERVICE_MCP__AGENTES:
+				getAgentes().clear();
+				getAgentes().addAll((Collection<? extends Agente>)newValue);
 				return;
-			case McpMMPackage.SERVICE_MCP__AGENTE:
-				getAgente().clear();
-				getAgente().addAll((Collection<? extends Agente>)newValue);
+			case McpMMPackage.SERVICE_MCP__SERVICIOS:
+				getServicios().clear();
+				getServicios().addAll((Collection<? extends ServiceMCP>)newValue);
 				return;
-			case McpMMPackage.SERVICE_MCP__WORKFLOW:
-				getWorkflow().clear();
-				getWorkflow().addAll((Collection<? extends Workflow>)newValue);
+			case McpMMPackage.SERVICE_MCP__SERVIDORES:
+				getServidores().clear();
+				getServidores().addAll((Collection<? extends ServerMCP>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -244,14 +243,14 @@ public class ServiceMCPImpl extends EObjectImpl implements ServiceMCP {
 			case McpMMPackage.SERVICE_MCP__NOMBRE_SERVICIO:
 				setNombreServicio(NOMBRE_SERVICIO_EDEFAULT);
 				return;
-			case McpMMPackage.SERVICE_MCP__SERVERMCP:
-				getServermcp().clear();
+			case McpMMPackage.SERVICE_MCP__AGENTES:
+				getAgentes().clear();
 				return;
-			case McpMMPackage.SERVICE_MCP__AGENTE:
-				getAgente().clear();
+			case McpMMPackage.SERVICE_MCP__SERVICIOS:
+				getServicios().clear();
 				return;
-			case McpMMPackage.SERVICE_MCP__WORKFLOW:
-				getWorkflow().clear();
+			case McpMMPackage.SERVICE_MCP__SERVIDORES:
+				getServidores().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -267,12 +266,12 @@ public class ServiceMCPImpl extends EObjectImpl implements ServiceMCP {
 		switch (featureID) {
 			case McpMMPackage.SERVICE_MCP__NOMBRE_SERVICIO:
 				return NOMBRE_SERVICIO_EDEFAULT == null ? nombreServicio != null : !NOMBRE_SERVICIO_EDEFAULT.equals(nombreServicio);
-			case McpMMPackage.SERVICE_MCP__SERVERMCP:
-				return servermcp != null && !servermcp.isEmpty();
-			case McpMMPackage.SERVICE_MCP__AGENTE:
-				return agente != null && !agente.isEmpty();
-			case McpMMPackage.SERVICE_MCP__WORKFLOW:
-				return workflow != null && !workflow.isEmpty();
+			case McpMMPackage.SERVICE_MCP__AGENTES:
+				return agentes != null && !agentes.isEmpty();
+			case McpMMPackage.SERVICE_MCP__SERVICIOS:
+				return servicios != null && !servicios.isEmpty();
+			case McpMMPackage.SERVICE_MCP__SERVIDORES:
+				return servidores != null && !servidores.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

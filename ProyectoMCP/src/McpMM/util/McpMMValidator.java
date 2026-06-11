@@ -86,6 +86,8 @@ public class McpMMValidator extends EObjectValidator {
 	@Override
 	protected boolean validate(int classifierID, Object value, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		switch (classifierID) {
+			case McpMMPackage.VERSION_CONTEXTO:
+				return validateVersionContexto((VersionContexto)value, diagnostics, context);
 			case McpMMPackage.SERVICE_MCP:
 				return validateServiceMCP((ServiceMCP)value, diagnostics, context);
 			case McpMMPackage.SERVER_MCP:
@@ -102,10 +104,10 @@ public class McpMMValidator extends EObjectValidator {
 				return validateTarea((Tarea)value, diagnostics, context);
 			case McpMMPackage.TAREA_EJECUTABLE:
 				return validateTareaEjecutable((TareaEjecutable)value, diagnostics, context);
-			case McpMMPackage.TAREA_FINAL:
-				return validateTareaFinal((TareaFinal)value, diagnostics, context);
-			case McpMMPackage.TAREA_INICIAL:
-				return validateTareaInicial((TareaInicial)value, diagnostics, context);
+			case McpMMPackage.INICIO:
+				return validateInicio((Inicio)value, diagnostics, context);
+			case McpMMPackage.FINAL:
+				return validateFinal((Final)value, diagnostics, context);
 			case McpMMPackage.ACCION:
 				return validateAccion((Accion)value, diagnostics, context);
 			case McpMMPackage.ESCRITURA:
@@ -133,6 +135,15 @@ public class McpMMValidator extends EObjectValidator {
 			default:
 				return true;
 		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateVersionContexto(VersionContexto versionContexto, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(versionContexto, diagnostics, context);
 	}
 
 	/**
@@ -168,25 +179,25 @@ public class McpMMValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_UniqueID(agente, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(agente, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(agente, diagnostics, context);
-		if (result || diagnostics != null) result &= validateAgente_R05_AlMenosUnaTarea(agente, diagnostics, context);
+		if (result || diagnostics != null) result &= validateAgente_R05_LimiteCargaTrabajo(agente, diagnostics, context);
 		return result;
 	}
 
 	/**
-	 * The cached validation expression for the R05_AlMenosUnaTarea constraint of '<em>Agente</em>'.
+	 * The cached validation expression for the R05_LimiteCargaTrabajo constraint of '<em>Agente</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected static final String AGENTE__R05_AL_MENOS_UNA_TAREA__EEXPRESSION = "not (self.realiza->select(t | not t.oclIsTypeOf(TareaInicial) and not t.oclIsTypeOf(TareaFinal))->isEmpty())";
+	protected static final String AGENTE__R05_LIMITE_CARGA_TRABAJO__EEXPRESSION = "self.flujo.tareas->select(t | t.oclIsKindOf(TareaEjecutable))->size() <= 10";
 
 	/**
-	 * Validates the R05_AlMenosUnaTarea constraint of '<em>Agente</em>'.
+	 * Validates the R05_LimiteCargaTrabajo constraint of '<em>Agente</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateAgente_R05_AlMenosUnaTarea(Agente agente, DiagnosticChain diagnostics, Map<Object, Object> context) {
+	public boolean validateAgente_R05_LimiteCargaTrabajo(Agente agente, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return
 			validate
 				(McpMMPackage.Literals.AGENTE,
@@ -194,8 +205,8 @@ public class McpMMValidator extends EObjectValidator {
 				 diagnostics,
 				 context,
 				 "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
-				 "R05_AlMenosUnaTarea",
-				 AGENTE__R05_AL_MENOS_UNA_TAREA__EEXPRESSION,
+				 "R05_LimiteCargaTrabajo",
+				 AGENTE__R05_LIMITE_CARGA_TRABAJO__EEXPRESSION,
 				 Diagnostic.ERROR,
 				 DIAGNOSTIC_SOURCE,
 				 0);
@@ -217,7 +228,7 @@ public class McpMMValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(workflow, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(workflow, diagnostics, context);
 		if (result || diagnostics != null) result &= validateWorkflow_R01_UnaTareaInicio(workflow, diagnostics, context);
-		if (result || diagnostics != null) result &= validateWorkflow_R02_AlMenosUnaTareaFin(workflow, diagnostics, context);
+		if (result || diagnostics != null) result &= validateWorkflow_R02_UnaTareaFin(workflow, diagnostics, context);
 		return result;
 	}
 
@@ -227,7 +238,7 @@ public class McpMMValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected static final String WORKFLOW__R01_UNA_TAREA_INICIO__EEXPRESSION = "self.tarea->select(t | t.oclIsTypeOf(TareaInicial))->size() = 1";
+	protected static final String WORKFLOW__R01_UNA_TAREA_INICIO__EEXPRESSION = "self.tareas->select(t | t.oclIsTypeOf(Inicio))->size() = 1";
 
 	/**
 	 * Validates the R01_UnaTareaInicio constraint of '<em>Workflow</em>'.
@@ -251,20 +262,20 @@ public class McpMMValidator extends EObjectValidator {
 	}
 
 	/**
-	 * The cached validation expression for the R02_AlMenosUnaTareaFin constraint of '<em>Workflow</em>'.
+	 * The cached validation expression for the R02_UnaTareaFin constraint of '<em>Workflow</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected static final String WORKFLOW__R02_AL_MENOS_UNA_TAREA_FIN__EEXPRESSION = "self.tarea->select(t | t.oclIsTypeOf(TareaFinal))->size() >= 1";
+	protected static final String WORKFLOW__R02_UNA_TAREA_FIN__EEXPRESSION = "self.tareas->select(t | t.oclIsTypeOf(Final))->size() = 1";
 
 	/**
-	 * Validates the R02_AlMenosUnaTareaFin constraint of '<em>Workflow</em>'.
+	 * Validates the R02_UnaTareaFin constraint of '<em>Workflow</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateWorkflow_R02_AlMenosUnaTareaFin(Workflow workflow, DiagnosticChain diagnostics, Map<Object, Object> context) {
+	public boolean validateWorkflow_R02_UnaTareaFin(Workflow workflow, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return
 			validate
 				(McpMMPackage.Literals.WORKFLOW,
@@ -272,8 +283,8 @@ public class McpMMValidator extends EObjectValidator {
 				 diagnostics,
 				 context,
 				 "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
-				 "R02_AlMenosUnaTareaFin",
-				 WORKFLOW__R02_AL_MENOS_UNA_TAREA_FIN__EEXPRESSION,
+				 "R02_UnaTareaFin",
+				 WORKFLOW__R02_UNA_TAREA_FIN__EEXPRESSION,
 				 Diagnostic.ERROR,
 				 DIAGNOSTIC_SOURCE,
 				 0);
@@ -312,69 +323,9 @@ public class McpMMValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_UniqueID(tarea, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(tarea, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(tarea, diagnostics, context);
-		if (result || diagnostics != null) result &= validateTarea_R06_NoBuclePropio(tarea, diagnostics, context);
-		if (result || diagnostics != null) result &= validateTarea_R08_ConexionesAgentes(tarea, diagnostics, context);
 		if (result || diagnostics != null) result &= validateTarea_R09_EntradaYSalida(tarea, diagnostics, context);
-		if (result || diagnostics != null) result &= validateTarea_R10_NoCiclos(tarea, diagnostics, context);
+		if (result || diagnostics != null) result &= validateTarea_R10_NoBuclePropio(tarea, diagnostics, context);
 		return result;
-	}
-
-	/**
-	 * The cached validation expression for the R06_NoBuclePropio constraint of '<em>Tarea</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected static final String TAREA__R06_NO_BUCLE_PROPIO__EEXPRESSION = "not (self.sigue = self) and (if self.oclIsTypeOf(TareaAnalisis) then not (self.oclAsType(TareaAnalisis).sigueElse = self) else true endif)";
-
-	/**
-	 * Validates the R06_NoBuclePropio constraint of '<em>Tarea</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateTarea_R06_NoBuclePropio(Tarea tarea, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return
-			validate
-				(McpMMPackage.Literals.TAREA,
-				 tarea,
-				 diagnostics,
-				 context,
-				 "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
-				 "R06_NoBuclePropio",
-				 TAREA__R06_NO_BUCLE_PROPIO__EEXPRESSION,
-				 Diagnostic.ERROR,
-				 DIAGNOSTIC_SOURCE,
-				 0);
-	}
-
-	/**
-	 * The cached validation expression for the R08_ConexionesAgentes constraint of '<em>Tarea</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected static final String TAREA__R08_CONEXIONES_AGENTES__EEXPRESSION = "if not self.sigue.oclIsUndefined() then if self.oclIsTypeOf(TareaEnvioContexto) and self.sigue.oclIsTypeOf(TareaRecepcionContexto) then not (self.agenteAsignado = self.sigue.agenteAsignado) else self.agenteAsignado = self.sigue.agenteAsignado endif else true endif";
-
-	/**
-	 * Validates the R08_ConexionesAgentes constraint of '<em>Tarea</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateTarea_R08_ConexionesAgentes(Tarea tarea, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return
-			validate
-				(McpMMPackage.Literals.TAREA,
-				 tarea,
-				 diagnostics,
-				 context,
-				 "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
-				 "R08_ConexionesAgentes",
-				 TAREA__R08_CONEXIONES_AGENTES__EEXPRESSION,
-				 Diagnostic.ERROR,
-				 DIAGNOSTIC_SOURCE,
-				 0);
 	}
 
 	/**
@@ -383,7 +334,7 @@ public class McpMMValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected static final String TAREA__R09_ENTRADA_YSALIDA__EEXPRESSION = "(if self.oclIsTypeOf(TareaInicial) then true else (not self.precede.oclIsUndefined() or not self.precedeElse.oclIsUndefined()) endif) and (if self.oclIsTypeOf(TareaFinal) then true else not self.sigue.oclIsUndefined() endif)";
+	protected static final String TAREA__R09_ENTRADA_YSALIDA__EEXPRESSION = "not self.precede.oclIsUndefined() or not self.sigue.oclIsUndefined()";
 
 	/**
 	 * Validates the R09_EntradaYSalida constraint of '<em>Tarea</em>'.
@@ -407,20 +358,20 @@ public class McpMMValidator extends EObjectValidator {
 	}
 
 	/**
-	 * The cached validation expression for the R10_NoCiclos constraint of '<em>Tarea</em>'.
+	 * The cached validation expression for the R10_NoBuclePropio constraint of '<em>Tarea</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected static final String TAREA__R10_NO_CICLOS__EEXPRESSION = "let siguientes : Set(Tarea) = Set{self.sigue}->union(if self.oclIsTypeOf(TareaAnalisis) then Set{self.oclAsType(TareaAnalisis).sigueElse} else Set{} endif)->select(x | not x.oclIsUndefined()) in siguientes->forAll(s | not s->closure(t : Tarea | Set{t.sigue}->union(if t.oclIsTypeOf(TareaAnalisis) then Set{t.oclAsType(TareaAnalisis).sigueElse} else Set{} endif)->select(x | not x.oclIsUndefined()))->includes(self))";
+	protected static final String TAREA__R10_NO_BUCLE_PROPIO__EEXPRESSION = "self.sigue <> self";
 
 	/**
-	 * Validates the R10_NoCiclos constraint of '<em>Tarea</em>'.
+	 * Validates the R10_NoBuclePropio constraint of '<em>Tarea</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateTarea_R10_NoCiclos(Tarea tarea, DiagnosticChain diagnostics, Map<Object, Object> context) {
+	public boolean validateTarea_R10_NoBuclePropio(Tarea tarea, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return
 			validate
 				(McpMMPackage.Literals.TAREA,
@@ -428,8 +379,8 @@ public class McpMMValidator extends EObjectValidator {
 				 diagnostics,
 				 context,
 				 "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
-				 "R10_NoCiclos",
-				 TAREA__R10_NO_CICLOS__EEXPRESSION,
+				 "R10_NoBuclePropio",
+				 TAREA__R10_NO_BUCLE_PROPIO__EEXPRESSION,
 				 Diagnostic.ERROR,
 				 DIAGNOSTIC_SOURCE,
 				 0);
@@ -450,10 +401,8 @@ public class McpMMValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_UniqueID(tareaEjecutable, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(tareaEjecutable, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(tareaEjecutable, diagnostics, context);
-		if (result || diagnostics != null) result &= validateTarea_R06_NoBuclePropio(tareaEjecutable, diagnostics, context);
-		if (result || diagnostics != null) result &= validateTarea_R08_ConexionesAgentes(tareaEjecutable, diagnostics, context);
 		if (result || diagnostics != null) result &= validateTarea_R09_EntradaYSalida(tareaEjecutable, diagnostics, context);
-		if (result || diagnostics != null) result &= validateTarea_R10_NoCiclos(tareaEjecutable, diagnostics, context);
+		if (result || diagnostics != null) result &= validateTarea_R10_NoBuclePropio(tareaEjecutable, diagnostics, context);
 		return result;
 	}
 
@@ -462,20 +411,18 @@ public class McpMMValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateTareaFinal(TareaFinal tareaFinal, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(tareaFinal, diagnostics, context)) return false;
-		boolean result = validate_EveryMultiplicityConforms(tareaFinal, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(tareaFinal, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(tareaFinal, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(tareaFinal, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryProxyResolves(tareaFinal, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_UniqueID(tareaFinal, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryKeyUnique(tareaFinal, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(tareaFinal, diagnostics, context);
-		if (result || diagnostics != null) result &= validateTarea_R06_NoBuclePropio(tareaFinal, diagnostics, context);
-		if (result || diagnostics != null) result &= validateTarea_R08_ConexionesAgentes(tareaFinal, diagnostics, context);
-		if (result || diagnostics != null) result &= validateTarea_R09_EntradaYSalida(tareaFinal, diagnostics, context);
-		if (result || diagnostics != null) result &= validateTarea_R10_NoCiclos(tareaFinal, diagnostics, context);
+	public boolean validateInicio(Inicio inicio, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (!validate_NoCircularContainment(inicio, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms(inicio, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(inicio, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(inicio, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(inicio, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(inicio, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(inicio, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(inicio, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(inicio, diagnostics, context);
+		if (result || diagnostics != null) result &= validateTarea_R09_EntradaYSalida(inicio, diagnostics, context);
+		if (result || diagnostics != null) result &= validateTarea_R10_NoBuclePropio(inicio, diagnostics, context);
 		return result;
 	}
 
@@ -484,20 +431,18 @@ public class McpMMValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateTareaInicial(TareaInicial tareaInicial, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(tareaInicial, diagnostics, context)) return false;
-		boolean result = validate_EveryMultiplicityConforms(tareaInicial, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(tareaInicial, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(tareaInicial, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(tareaInicial, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryProxyResolves(tareaInicial, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_UniqueID(tareaInicial, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryKeyUnique(tareaInicial, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(tareaInicial, diagnostics, context);
-		if (result || diagnostics != null) result &= validateTarea_R06_NoBuclePropio(tareaInicial, diagnostics, context);
-		if (result || diagnostics != null) result &= validateTarea_R08_ConexionesAgentes(tareaInicial, diagnostics, context);
-		if (result || diagnostics != null) result &= validateTarea_R09_EntradaYSalida(tareaInicial, diagnostics, context);
-		if (result || diagnostics != null) result &= validateTarea_R10_NoCiclos(tareaInicial, diagnostics, context);
+	public boolean validateFinal(Final final_, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (!validate_NoCircularContainment(final_, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms(final_, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(final_, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(final_, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(final_, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(final_, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(final_, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(final_, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(final_, diagnostics, context);
+		if (result || diagnostics != null) result &= validateTarea_R09_EntradaYSalida(final_, diagnostics, context);
+		if (result || diagnostics != null) result &= validateTarea_R10_NoBuclePropio(final_, diagnostics, context);
 		return result;
 	}
 
@@ -526,7 +471,7 @@ public class McpMMValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected static final String ACCION__R12_COHERENCIA_CONTEXTO__EEXPRESSION = "self.usa.oclIsUndefined() or self.apunta.propiedad->includes(self.usa)";
+	protected static final String ACCION__R12_COHERENCIA_CONTEXTO__EEXPRESSION = "self.usa.oclIsUndefined() or self.apunta.propiedades->includes(self.usa)";
 
 	/**
 	 * Validates the R12_CoherenciaContexto constraint of '<em>Accion</em>'.
@@ -611,10 +556,8 @@ public class McpMMValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_UniqueID(tareaTransformacionDatos, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(tareaTransformacionDatos, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(tareaTransformacionDatos, diagnostics, context);
-		if (result || diagnostics != null) result &= validateTarea_R06_NoBuclePropio(tareaTransformacionDatos, diagnostics, context);
-		if (result || diagnostics != null) result &= validateTarea_R08_ConexionesAgentes(tareaTransformacionDatos, diagnostics, context);
 		if (result || diagnostics != null) result &= validateTarea_R09_EntradaYSalida(tareaTransformacionDatos, diagnostics, context);
-		if (result || diagnostics != null) result &= validateTarea_R10_NoCiclos(tareaTransformacionDatos, diagnostics, context);
+		if (result || diagnostics != null) result &= validateTarea_R10_NoBuclePropio(tareaTransformacionDatos, diagnostics, context);
 		return result;
 	}
 
@@ -633,10 +576,8 @@ public class McpMMValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_UniqueID(tareaLLM, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(tareaLLM, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(tareaLLM, diagnostics, context);
-		if (result || diagnostics != null) result &= validateTarea_R06_NoBuclePropio(tareaLLM, diagnostics, context);
-		if (result || diagnostics != null) result &= validateTarea_R08_ConexionesAgentes(tareaLLM, diagnostics, context);
 		if (result || diagnostics != null) result &= validateTarea_R09_EntradaYSalida(tareaLLM, diagnostics, context);
-		if (result || diagnostics != null) result &= validateTarea_R10_NoCiclos(tareaLLM, diagnostics, context);
+		if (result || diagnostics != null) result &= validateTarea_R10_NoBuclePropio(tareaLLM, diagnostics, context);
 		return result;
 	}
 
@@ -655,10 +596,8 @@ public class McpMMValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_UniqueID(tareaUsuario, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(tareaUsuario, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(tareaUsuario, diagnostics, context);
-		if (result || diagnostics != null) result &= validateTarea_R06_NoBuclePropio(tareaUsuario, diagnostics, context);
-		if (result || diagnostics != null) result &= validateTarea_R08_ConexionesAgentes(tareaUsuario, diagnostics, context);
 		if (result || diagnostics != null) result &= validateTarea_R09_EntradaYSalida(tareaUsuario, diagnostics, context);
-		if (result || diagnostics != null) result &= validateTarea_R10_NoCiclos(tareaUsuario, diagnostics, context);
+		if (result || diagnostics != null) result &= validateTarea_R10_NoBuclePropio(tareaUsuario, diagnostics, context);
 		return result;
 	}
 
@@ -677,10 +616,8 @@ public class McpMMValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_UniqueID(tareaAnalisis, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(tareaAnalisis, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(tareaAnalisis, diagnostics, context);
-		if (result || diagnostics != null) result &= validateTarea_R06_NoBuclePropio(tareaAnalisis, diagnostics, context);
-		if (result || diagnostics != null) result &= validateTarea_R08_ConexionesAgentes(tareaAnalisis, diagnostics, context);
 		if (result || diagnostics != null) result &= validateTarea_R09_EntradaYSalida(tareaAnalisis, diagnostics, context);
-		if (result || diagnostics != null) result &= validateTarea_R10_NoCiclos(tareaAnalisis, diagnostics, context);
+		if (result || diagnostics != null) result &= validateTarea_R10_NoBuclePropio(tareaAnalisis, diagnostics, context);
 		return result;
 	}
 
@@ -699,10 +636,8 @@ public class McpMMValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_UniqueID(tareaEnvioContexto, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(tareaEnvioContexto, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(tareaEnvioContexto, diagnostics, context);
-		if (result || diagnostics != null) result &= validateTarea_R06_NoBuclePropio(tareaEnvioContexto, diagnostics, context);
-		if (result || diagnostics != null) result &= validateTarea_R08_ConexionesAgentes(tareaEnvioContexto, diagnostics, context);
 		if (result || diagnostics != null) result &= validateTarea_R09_EntradaYSalida(tareaEnvioContexto, diagnostics, context);
-		if (result || diagnostics != null) result &= validateTarea_R10_NoCiclos(tareaEnvioContexto, diagnostics, context);
+		if (result || diagnostics != null) result &= validateTarea_R10_NoBuclePropio(tareaEnvioContexto, diagnostics, context);
 		return result;
 	}
 
@@ -721,10 +656,8 @@ public class McpMMValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_UniqueID(tareaRecepcionContexto, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(tareaRecepcionContexto, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(tareaRecepcionContexto, diagnostics, context);
-		if (result || diagnostics != null) result &= validateTarea_R06_NoBuclePropio(tareaRecepcionContexto, diagnostics, context);
-		if (result || diagnostics != null) result &= validateTarea_R08_ConexionesAgentes(tareaRecepcionContexto, diagnostics, context);
 		if (result || diagnostics != null) result &= validateTarea_R09_EntradaYSalida(tareaRecepcionContexto, diagnostics, context);
-		if (result || diagnostics != null) result &= validateTarea_R10_NoCiclos(tareaRecepcionContexto, diagnostics, context);
+		if (result || diagnostics != null) result &= validateTarea_R10_NoBuclePropio(tareaRecepcionContexto, diagnostics, context);
 		if (result || diagnostics != null) result &= validateTareaRecepcionContexto_R07_RecepcionPrecedidaEnvio(tareaRecepcionContexto, diagnostics, context);
 		if (result || diagnostics != null) result &= validateTareaRecepcionContexto_R11_MismasPropiedadesEnvioRecepcion(tareaRecepcionContexto, diagnostics, context);
 		return result;
@@ -803,10 +736,8 @@ public class McpMMValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_UniqueID(tareaServerMCP, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(tareaServerMCP, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(tareaServerMCP, diagnostics, context);
-		if (result || diagnostics != null) result &= validateTarea_R06_NoBuclePropio(tareaServerMCP, diagnostics, context);
-		if (result || diagnostics != null) result &= validateTarea_R08_ConexionesAgentes(tareaServerMCP, diagnostics, context);
 		if (result || diagnostics != null) result &= validateTarea_R09_EntradaYSalida(tareaServerMCP, diagnostics, context);
-		if (result || diagnostics != null) result &= validateTarea_R10_NoCiclos(tareaServerMCP, diagnostics, context);
+		if (result || diagnostics != null) result &= validateTarea_R10_NoBuclePropio(tareaServerMCP, diagnostics, context);
 		return result;
 	}
 

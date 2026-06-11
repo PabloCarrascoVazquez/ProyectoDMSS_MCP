@@ -55,7 +55,7 @@ public class TareaAnalisisNombreTareaEditPart extends CompartmentEditPart implem
 	/**
 	* @generated
 	*/
-	public static final int VISUAL_ID = 5009;
+	public static final int VISUAL_ID = 5006;
 
 	/**
 	* @generated

@@ -64,10 +64,11 @@ public class TareaItemProvider
 			super.getPropertyDescriptors(object);
 
 			addNombreTareaPropertyDescriptor(object);
+			addTaskIdPropertyDescriptor(object);
+			addTaskDescPropertyDescriptor(object);
 			addPrecedePropertyDescriptor(object);
 			addSiguePropertyDescriptor(object);
 			addPrecedeElsePropertyDescriptor(object);
-			addAgenteAsignadoPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -86,6 +87,50 @@ public class TareaItemProvider
 				 getString("_UI_Tarea_nombreTarea_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Tarea_nombreTarea_feature", "_UI_Tarea_type"),
 				 McpMMPackage.Literals.TAREA__NOMBRE_TAREA,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Task Id feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addTaskIdPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Tarea_taskId_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Tarea_taskId_feature", "_UI_Tarea_type"),
+				 McpMMPackage.Literals.TAREA__TASK_ID,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Task Desc feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addTaskDescPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Tarea_taskDesc_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Tarea_taskDesc_feature", "_UI_Tarea_type"),
+				 McpMMPackage.Literals.TAREA__TASK_DESC,
 				 true,
 				 false,
 				 false,
@@ -161,28 +206,6 @@ public class TareaItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Agente Asignado feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addAgenteAsignadoPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Tarea_agenteAsignado_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Tarea_agenteAsignado_feature", "_UI_Tarea_type"),
-				 McpMMPackage.Literals.TAREA__AGENTE_ASIGNADO,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -240,6 +263,8 @@ public class TareaItemProvider
 
 		switch (notification.getFeatureID(Tarea.class)) {
 			case McpMMPackage.TAREA__NOMBRE_TAREA:
+			case McpMMPackage.TAREA__TASK_ID:
+			case McpMMPackage.TAREA__TASK_DESC:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case McpMMPackage.TAREA__ACCION:

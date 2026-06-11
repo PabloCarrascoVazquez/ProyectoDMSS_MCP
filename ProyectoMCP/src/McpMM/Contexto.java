@@ -16,12 +16,13 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link McpMM.Contexto#getNombreContexto <em>Nombre Contexto</em>}</li>
- *   <li>{@link McpMM.Contexto#getPropiedad <em>Propiedad</em>}</li>
+ *   <li>{@link McpMM.Contexto#getPropiedades <em>Propiedades</em>}</li>
  *   <li>{@link McpMM.Contexto#getEsApuntadoPor <em>Es Apuntado Por</em>}</li>
  * </ul>
  *
  * @see McpMM.McpMMPackage#getContexto()
  * @model annotation="gmf.node label='nombreContexto' figure='rectangle' color='255,255,200'"
+ *        annotation="DSLDoc descripcion='Representa el estado o conjunto de datos compartidos durante la ejecuci\363n del workflow de un agente.'"
  * @generated
  */
 public interface Contexto extends EObject {
@@ -52,21 +53,21 @@ public interface Contexto extends EObject {
 	void setNombreContexto(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Propiedad</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Propiedades</b></em>' containment reference list.
 	 * The list contents are of type {@link McpMM.Propiedad}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Propiedad</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Propiedades</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Propiedad</em>' containment reference list.
-	 * @see McpMM.McpMMPackage#getContexto_Propiedad()
+	 * @return the value of the '<em>Propiedades</em>' containment reference list.
+	 * @see McpMM.McpMMPackage#getContexto_Propiedades()
 	 * @model containment="true"
 	 *        annotation="gmf.compartment layout='list'"
 	 * @generated
 	 */
-	EList<Propiedad> getPropiedad();
+	EList<Propiedad> getPropiedades();
 
 	/**
 	 * Returns the value of the '<em><b>Es Apuntado Por</b></em>' reference list.

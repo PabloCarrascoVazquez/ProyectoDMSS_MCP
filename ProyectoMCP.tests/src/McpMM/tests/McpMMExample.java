@@ -4,7 +4,7 @@ package McpMM.tests;
 
 import McpMM.McpMMFactory;
 import McpMM.McpMMPackage;
-import McpMM.ServiceMCP;
+import McpMM.VersionContexto;
 
 import java.io.File;
 import java.io.IOException;
@@ -60,7 +60,7 @@ public class McpMMExample {
 			System.out.println("Enter a list of file paths or URIs that have content like this:");
 			try {
 				Resource resource = resourceSet.createResource(URI.createURI("http:///My.mcpmm"));
-				ServiceMCP root = McpMMFactory.eINSTANCE.createServiceMCP();
+				VersionContexto root = McpMMFactory.eINSTANCE.createVersionContexto();
 				resource.getContents().add(root);
 				resource.save(System.out, null);
 			}

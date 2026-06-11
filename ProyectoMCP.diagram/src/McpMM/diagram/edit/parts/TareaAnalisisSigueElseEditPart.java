@@ -20,7 +20,7 @@ public class TareaAnalisisSigueElseEditPart extends ConnectionNodeEditPart imple
 	/**
 	* @generated
 	*/
-	public static final int VISUAL_ID = 4007;
+	public static final int VISUAL_ID = 4002;
 
 	/**
 	* @generated

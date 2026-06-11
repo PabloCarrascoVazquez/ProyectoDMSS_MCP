@@ -55,7 +55,7 @@ public class ServerMCPNombreServerEditPart extends CompartmentEditPart implement
 	/**
 	* @generated
 	*/
-	public static final int VISUAL_ID = 5002;
+	public static final int VISUAL_ID = 5017;
 
 	/**
 	* @generated
@@ -292,7 +292,7 @@ public class ServerMCPNombreServerEditPart extends CompartmentEditPart implement
 	public IParser getParser() {
 		if (parser == null) {
 			parser = McpMM.diagram.providers.McpMMParserProvider.getParser(
-					McpMM.diagram.providers.McpMMElementTypes.ServerMCP_2001, getParserElement(),
+					McpMM.diagram.providers.McpMMElementTypes.ServerMCP_2002, getParserElement(),
 					McpMM.diagram.part.McpMMVisualIDRegistry
 							.getType(McpMM.diagram.edit.parts.ServerMCPNombreServerEditPart.VISUAL_ID));
 		}

@@ -3,8 +3,9 @@
 package McpMM.impl;
 
 import McpMM.Agente;
+import McpMM.Contexto;
 import McpMM.McpMMPackage;
-import McpMM.Tarea;
+import McpMM.Workflow;
 
 import java.util.Collection;
 
@@ -14,13 +15,12 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -31,53 +31,74 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link McpMM.impl.AgenteImpl#getNombreAgente <em>Nombre Agente</em>}</li>
- *   <li>{@link McpMM.impl.AgenteImpl#getNumTareas <em>Num Tareas</em>}</li>
- *   <li>{@link McpMM.impl.AgenteImpl#getRealiza <em>Realiza</em>}</li>
+ *   <li>{@link McpMM.impl.AgenteImpl#getNombre <em>Nombre</em>}</li>
+ *   <li>{@link McpMM.impl.AgenteImpl#getRol <em>Rol</em>}</li>
+ *   <li>{@link McpMM.impl.AgenteImpl#getFlujo <em>Flujo</em>}</li>
+ *   <li>{@link McpMM.impl.AgenteImpl#getContextos <em>Contextos</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class AgenteImpl extends EObjectImpl implements Agente {
 	/**
-	 * The default value of the '{@link #getNombreAgente() <em>Nombre Agente</em>}' attribute.
+	 * The default value of the '{@link #getNombre() <em>Nombre</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getNombreAgente()
+	 * @see #getNombre()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String NOMBRE_AGENTE_EDEFAULT = null;
+	protected static final String NOMBRE_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getNombreAgente() <em>Nombre Agente</em>}' attribute.
+	 * The cached value of the '{@link #getNombre() <em>Nombre</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getNombreAgente()
+	 * @see #getNombre()
 	 * @generated
 	 * @ordered
 	 */
-	protected String nombreAgente = NOMBRE_AGENTE_EDEFAULT;
+	protected String nombre = NOMBRE_EDEFAULT;
 
 	/**
-	 * The cached setting delegate for the '{@link #getNumTareas() <em>Num Tareas</em>}' attribute.
+	 * The default value of the '{@link #getRol() <em>Rol</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getNumTareas()
+	 * @see #getRol()
 	 * @generated
 	 * @ordered
 	 */
-	protected EStructuralFeature.Internal.SettingDelegate NUM_TAREAS__ESETTING_DELEGATE = ((EStructuralFeature.Internal)McpMMPackage.Literals.AGENTE__NUM_TAREAS).getSettingDelegate();
+	protected static final String ROL_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getRealiza() <em>Realiza</em>}' reference list.
+	 * The cached value of the '{@link #getRol() <em>Rol</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getRealiza()
+	 * @see #getRol()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Tarea> realiza;
+	protected String rol = ROL_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getFlujo() <em>Flujo</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFlujo()
+	 * @generated
+	 * @ordered
+	 */
+	protected Workflow flujo;
+
+	/**
+	 * The cached value of the '{@link #getContextos() <em>Contextos</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getContextos()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Contexto> contextos;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -103,8 +124,8 @@ public class AgenteImpl extends EObjectImpl implements Agente {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getNombreAgente() {
-		return nombreAgente;
+	public String getNombre() {
+		return nombre;
 	}
 
 	/**
@@ -112,11 +133,11 @@ public class AgenteImpl extends EObjectImpl implements Agente {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setNombreAgente(String newNombreAgente) {
-		String oldNombreAgente = nombreAgente;
-		nombreAgente = newNombreAgente;
+	public void setNombre(String newNombre) {
+		String oldNombre = nombre;
+		nombre = newNombre;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, McpMMPackage.AGENTE__NOMBRE_AGENTE, oldNombreAgente, nombreAgente));
+			eNotify(new ENotificationImpl(this, Notification.SET, McpMMPackage.AGENTE__NOMBRE, oldNombre, nombre));
 	}
 
 	/**
@@ -124,8 +145,8 @@ public class AgenteImpl extends EObjectImpl implements Agente {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public int getNumTareas() {
-		return (Integer)NUM_TAREAS__ESETTING_DELEGATE.dynamicGet(this, null, 0, true, false);
+	public String getRol() {
+		return rol;
 	}
 
 	/**
@@ -133,8 +154,11 @@ public class AgenteImpl extends EObjectImpl implements Agente {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setNumTareas(int newNumTareas) {
-		NUM_TAREAS__ESETTING_DELEGATE.dynamicSet(this, null, 0, newNumTareas);
+	public void setRol(String newRol) {
+		String oldRol = rol;
+		rol = newRol;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, McpMMPackage.AGENTE__ROL, oldRol, rol));
 	}
 
 	/**
@@ -142,11 +166,23 @@ public class AgenteImpl extends EObjectImpl implements Agente {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Tarea> getRealiza() {
-		if (realiza == null) {
-			realiza = new EObjectWithInverseResolvingEList<Tarea>(Tarea.class, this, McpMMPackage.AGENTE__REALIZA, McpMMPackage.TAREA__AGENTE_ASIGNADO);
+	public Workflow getFlujo() {
+		return flujo;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetFlujo(Workflow newFlujo, NotificationChain msgs) {
+		Workflow oldFlujo = flujo;
+		flujo = newFlujo;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, McpMMPackage.AGENTE__FLUJO, oldFlujo, newFlujo);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
-		return realiza;
+		return msgs;
 	}
 
 	/**
@@ -154,14 +190,30 @@ public class AgenteImpl extends EObjectImpl implements Agente {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
-	@Override
-	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case McpMMPackage.AGENTE__REALIZA:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getRealiza()).basicAdd(otherEnd, msgs);
+	public void setFlujo(Workflow newFlujo) {
+		if (newFlujo != flujo) {
+			NotificationChain msgs = null;
+			if (flujo != null)
+				msgs = ((InternalEObject)flujo).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - McpMMPackage.AGENTE__FLUJO, null, msgs);
+			if (newFlujo != null)
+				msgs = ((InternalEObject)newFlujo).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - McpMMPackage.AGENTE__FLUJO, null, msgs);
+			msgs = basicSetFlujo(newFlujo, msgs);
+			if (msgs != null) msgs.dispatch();
 		}
-		return super.eInverseAdd(otherEnd, featureID, msgs);
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, McpMMPackage.AGENTE__FLUJO, newFlujo, newFlujo));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Contexto> getContextos() {
+		if (contextos == null) {
+			contextos = new EObjectContainmentEList<Contexto>(Contexto.class, this, McpMMPackage.AGENTE__CONTEXTOS);
+		}
+		return contextos;
 	}
 
 	/**
@@ -172,8 +224,10 @@ public class AgenteImpl extends EObjectImpl implements Agente {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case McpMMPackage.AGENTE__REALIZA:
-				return ((InternalEList<?>)getRealiza()).basicRemove(otherEnd, msgs);
+			case McpMMPackage.AGENTE__FLUJO:
+				return basicSetFlujo(null, msgs);
+			case McpMMPackage.AGENTE__CONTEXTOS:
+				return ((InternalEList<?>)getContextos()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -186,12 +240,14 @@ public class AgenteImpl extends EObjectImpl implements Agente {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case McpMMPackage.AGENTE__NOMBRE_AGENTE:
-				return getNombreAgente();
-			case McpMMPackage.AGENTE__NUM_TAREAS:
-				return getNumTareas();
-			case McpMMPackage.AGENTE__REALIZA:
-				return getRealiza();
+			case McpMMPackage.AGENTE__NOMBRE:
+				return getNombre();
+			case McpMMPackage.AGENTE__ROL:
+				return getRol();
+			case McpMMPackage.AGENTE__FLUJO:
+				return getFlujo();
+			case McpMMPackage.AGENTE__CONTEXTOS:
+				return getContextos();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -205,15 +261,18 @@ public class AgenteImpl extends EObjectImpl implements Agente {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case McpMMPackage.AGENTE__NOMBRE_AGENTE:
-				setNombreAgente((String)newValue);
+			case McpMMPackage.AGENTE__NOMBRE:
+				setNombre((String)newValue);
 				return;
-			case McpMMPackage.AGENTE__NUM_TAREAS:
-				setNumTareas((Integer)newValue);
+			case McpMMPackage.AGENTE__ROL:
+				setRol((String)newValue);
 				return;
-			case McpMMPackage.AGENTE__REALIZA:
-				getRealiza().clear();
-				getRealiza().addAll((Collection<? extends Tarea>)newValue);
+			case McpMMPackage.AGENTE__FLUJO:
+				setFlujo((Workflow)newValue);
+				return;
+			case McpMMPackage.AGENTE__CONTEXTOS:
+				getContextos().clear();
+				getContextos().addAll((Collection<? extends Contexto>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -227,14 +286,17 @@ public class AgenteImpl extends EObjectImpl implements Agente {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case McpMMPackage.AGENTE__NOMBRE_AGENTE:
-				setNombreAgente(NOMBRE_AGENTE_EDEFAULT);
+			case McpMMPackage.AGENTE__NOMBRE:
+				setNombre(NOMBRE_EDEFAULT);
 				return;
-			case McpMMPackage.AGENTE__NUM_TAREAS:
-				NUM_TAREAS__ESETTING_DELEGATE.dynamicUnset(this, null, 0);
+			case McpMMPackage.AGENTE__ROL:
+				setRol(ROL_EDEFAULT);
 				return;
-			case McpMMPackage.AGENTE__REALIZA:
-				getRealiza().clear();
+			case McpMMPackage.AGENTE__FLUJO:
+				setFlujo((Workflow)null);
+				return;
+			case McpMMPackage.AGENTE__CONTEXTOS:
+				getContextos().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -248,12 +310,14 @@ public class AgenteImpl extends EObjectImpl implements Agente {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case McpMMPackage.AGENTE__NOMBRE_AGENTE:
-				return NOMBRE_AGENTE_EDEFAULT == null ? nombreAgente != null : !NOMBRE_AGENTE_EDEFAULT.equals(nombreAgente);
-			case McpMMPackage.AGENTE__NUM_TAREAS:
-				return NUM_TAREAS__ESETTING_DELEGATE.dynamicIsSet(this, null, 0);
-			case McpMMPackage.AGENTE__REALIZA:
-				return realiza != null && !realiza.isEmpty();
+			case McpMMPackage.AGENTE__NOMBRE:
+				return NOMBRE_EDEFAULT == null ? nombre != null : !NOMBRE_EDEFAULT.equals(nombre);
+			case McpMMPackage.AGENTE__ROL:
+				return ROL_EDEFAULT == null ? rol != null : !ROL_EDEFAULT.equals(rol);
+			case McpMMPackage.AGENTE__FLUJO:
+				return flujo != null;
+			case McpMMPackage.AGENTE__CONTEXTOS:
+				return contextos != null && !contextos.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -268,8 +332,10 @@ public class AgenteImpl extends EObjectImpl implements Agente {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (nombreAgente: ");
-		result.append(nombreAgente);
+		result.append(" (nombre: ");
+		result.append(nombre);
+		result.append(", rol: ");
+		result.append(rol);
 		result.append(')');
 		return result.toString();
 	}

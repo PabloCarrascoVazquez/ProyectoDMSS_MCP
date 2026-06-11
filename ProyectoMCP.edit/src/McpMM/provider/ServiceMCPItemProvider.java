@@ -102,9 +102,9 @@ public class ServiceMCPItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(McpMMPackage.Literals.SERVICE_MCP__SERVERMCP);
-			childrenFeatures.add(McpMMPackage.Literals.SERVICE_MCP__AGENTE);
-			childrenFeatures.add(McpMMPackage.Literals.SERVICE_MCP__WORKFLOW);
+			childrenFeatures.add(McpMMPackage.Literals.SERVICE_MCP__AGENTES);
+			childrenFeatures.add(McpMMPackage.Literals.SERVICE_MCP__SERVICIOS);
+			childrenFeatures.add(McpMMPackage.Literals.SERVICE_MCP__SERVIDORES);
 		}
 		return childrenFeatures;
 	}
@@ -163,9 +163,9 @@ public class ServiceMCPItemProvider
 			case McpMMPackage.SERVICE_MCP__NOMBRE_SERVICIO:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case McpMMPackage.SERVICE_MCP__SERVERMCP:
-			case McpMMPackage.SERVICE_MCP__AGENTE:
-			case McpMMPackage.SERVICE_MCP__WORKFLOW:
+			case McpMMPackage.SERVICE_MCP__AGENTES:
+			case McpMMPackage.SERVICE_MCP__SERVICIOS:
+			case McpMMPackage.SERVICE_MCP__SERVIDORES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -185,18 +185,18 @@ public class ServiceMCPItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(McpMMPackage.Literals.SERVICE_MCP__SERVERMCP,
-				 McpMMFactory.eINSTANCE.createServerMCP()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(McpMMPackage.Literals.SERVICE_MCP__AGENTE,
+				(McpMMPackage.Literals.SERVICE_MCP__AGENTES,
 				 McpMMFactory.eINSTANCE.createAgente()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(McpMMPackage.Literals.SERVICE_MCP__WORKFLOW,
-				 McpMMFactory.eINSTANCE.createWorkflow()));
+				(McpMMPackage.Literals.SERVICE_MCP__SERVICIOS,
+				 McpMMFactory.eINSTANCE.createServiceMCP()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(McpMMPackage.Literals.SERVICE_MCP__SERVIDORES,
+				 McpMMFactory.eINSTANCE.createServerMCP()));
 	}
 
 	/**

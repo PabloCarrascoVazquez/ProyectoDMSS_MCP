@@ -54,7 +54,7 @@ public class PropiedadCreateCommand extends EditElementCommand {
 		McpMM.Propiedad newElement = McpMM.McpMMFactory.eINSTANCE.createPropiedad();
 
 		McpMM.Contexto owner = (McpMM.Contexto) getElementToEdit();
-		owner.getPropiedad().add(newElement);
+		owner.getPropiedades().add(newElement);
 
 		doConfigure(newElement, monitor, info);
 

@@ -64,8 +64,6 @@ public class WorkflowItemProvider
 			super.getPropertyDescriptors(object);
 
 			addNombreWorkflowPropertyDescriptor(object);
-			addEmpiezaConPropertyDescriptor(object);
-			addFinalizaConPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -93,50 +91,6 @@ public class WorkflowItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Empieza Con feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addEmpiezaConPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Workflow_empiezaCon_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Workflow_empiezaCon_feature", "_UI_Workflow_type"),
-				 McpMMPackage.Literals.WORKFLOW__EMPIEZA_CON,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Finaliza Con feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addFinalizaConPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Workflow_finalizaCon_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Workflow_finalizaCon_feature", "_UI_Workflow_type"),
-				 McpMMPackage.Literals.WORKFLOW__FINALIZA_CON,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -148,8 +102,7 @@ public class WorkflowItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(McpMMPackage.Literals.WORKFLOW__CONTEXTO);
-			childrenFeatures.add(McpMMPackage.Literals.WORKFLOW__TAREA);
+			childrenFeatures.add(McpMMPackage.Literals.WORKFLOW__TAREAS);
 		}
 		return childrenFeatures;
 	}
@@ -208,8 +161,7 @@ public class WorkflowItemProvider
 			case McpMMPackage.WORKFLOW__NOMBRE_WORKFLOW:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case McpMMPackage.WORKFLOW__CONTEXTO:
-			case McpMMPackage.WORKFLOW__TAREA:
+			case McpMMPackage.WORKFLOW__TAREAS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -229,52 +181,47 @@ public class WorkflowItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(McpMMPackage.Literals.WORKFLOW__CONTEXTO,
-				 McpMMFactory.eINSTANCE.createContexto()));
+				(McpMMPackage.Literals.WORKFLOW__TAREAS,
+				 McpMMFactory.eINSTANCE.createInicio()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(McpMMPackage.Literals.WORKFLOW__TAREA,
-				 McpMMFactory.eINSTANCE.createTareaFinal()));
+				(McpMMPackage.Literals.WORKFLOW__TAREAS,
+				 McpMMFactory.eINSTANCE.createFinal()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(McpMMPackage.Literals.WORKFLOW__TAREA,
-				 McpMMFactory.eINSTANCE.createTareaInicial()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(McpMMPackage.Literals.WORKFLOW__TAREA,
+				(McpMMPackage.Literals.WORKFLOW__TAREAS,
 				 McpMMFactory.eINSTANCE.createTareaTransformacionDatos()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(McpMMPackage.Literals.WORKFLOW__TAREA,
+				(McpMMPackage.Literals.WORKFLOW__TAREAS,
 				 McpMMFactory.eINSTANCE.createTareaLLM()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(McpMMPackage.Literals.WORKFLOW__TAREA,
+				(McpMMPackage.Literals.WORKFLOW__TAREAS,
 				 McpMMFactory.eINSTANCE.createTareaUsuario()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(McpMMPackage.Literals.WORKFLOW__TAREA,
+				(McpMMPackage.Literals.WORKFLOW__TAREAS,
 				 McpMMFactory.eINSTANCE.createTareaAnalisis()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(McpMMPackage.Literals.WORKFLOW__TAREA,
+				(McpMMPackage.Literals.WORKFLOW__TAREAS,
 				 McpMMFactory.eINSTANCE.createTareaEnvioContexto()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(McpMMPackage.Literals.WORKFLOW__TAREA,
+				(McpMMPackage.Literals.WORKFLOW__TAREAS,
 				 McpMMFactory.eINSTANCE.createTareaRecepcionContexto()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(McpMMPackage.Literals.WORKFLOW__TAREA,
+				(McpMMPackage.Literals.WORKFLOW__TAREAS,
 				 McpMMFactory.eINSTANCE.createTareaServerMCP()));
 	}
 

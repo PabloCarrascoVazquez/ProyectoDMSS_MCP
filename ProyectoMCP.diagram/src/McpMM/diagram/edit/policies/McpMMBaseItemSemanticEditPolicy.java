@@ -306,55 +306,7 @@ public class McpMMBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 		/**
 		 * @generated
 		 */
-		public boolean canCreateAgenteRealiza_4001(McpMM.Agente source, McpMM.Tarea target) {
-			if (source != null) {
-				if (source.getRealiza().contains(target)) {
-					return false;
-				}
-			}
-			if (target != null && (target.getAgenteAsignado() != null)) {
-				return false;
-			}
-
-			return canExistAgenteRealiza_4001(source, target);
-		}
-
-		/**
-		 * @generated
-		 */
-		public boolean canCreateWorkflowEmpiezaCon_4002(McpMM.Workflow source, McpMM.TareaInicial target) {
-			if (source != null) {
-				if (source.getEmpiezaCon() != null) {
-					return false;
-				}
-			}
-			if (target != null && (target.getEmpieza() != null)) {
-				return false;
-			}
-
-			return canExistWorkflowEmpiezaCon_4002(source, target);
-		}
-
-		/**
-		 * @generated
-		 */
-		public boolean canCreateWorkflowFinalizaCon_4003(McpMM.Workflow source, McpMM.TareaFinal target) {
-			if (source != null) {
-				if (source.getFinalizaCon().contains(target)) {
-					return false;
-				}
-			}
-			if (target != null && (target.getFinaliza() != null)) {
-				return false;
-			}
-
-			return canExistWorkflowFinalizaCon_4003(source, target);
-		}
-
-		/**
-		 * @generated
-		 */
-		public boolean canCreateTareaSigue_4004(McpMM.Tarea source, McpMM.Tarea target) {
+		public boolean canCreateTareaSigue_4001(McpMM.Tarea source, McpMM.Tarea target) {
 			if (source != null) {
 				if (source.getSigue() != null) {
 					return false;
@@ -364,13 +316,13 @@ public class McpMMBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 				return false;
 			}
 
-			return canExistTareaSigue_4004(source, target);
+			return canExistTareaSigue_4001(source, target);
 		}
 
 		/**
 		 * @generated
 		 */
-		public boolean canCreateTareaAnalisisSigueElse_4007(McpMM.TareaAnalisis source, McpMM.Tarea target) {
+		public boolean canCreateTareaAnalisisSigueElse_4002(McpMM.TareaAnalisis source, McpMM.Tarea target) {
 			if (source != null) {
 				if (source.getSigueElse() != null) {
 					return false;
@@ -380,13 +332,13 @@ public class McpMMBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 				return false;
 			}
 
-			return canExistTareaAnalisisSigueElse_4007(source, target);
+			return canExistTareaAnalisisSigueElse_4002(source, target);
 		}
 
 		/**
 		 * @generated
 		 */
-		public boolean canCreateTareaServerMCPEjecutaOperacion_4008(McpMM.TareaServerMCP source,
+		public boolean canCreateTareaServerMCPEjecutaOperacion_4003(McpMM.TareaServerMCP source,
 				McpMM.OperacionMCP target) {
 			if (source != null) {
 				if (source.getEjecutaOperacion() != null) {
@@ -397,48 +349,27 @@ public class McpMMBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 				return false;
 			}
 
-			return canExistTareaServerMCPEjecutaOperacion_4008(source, target);
+			return canExistTareaServerMCPEjecutaOperacion_4003(source, target);
 		}
 
 		/**
 		* @generated
 		*/
-		public boolean canExistAgenteRealiza_4001(McpMM.Agente source, McpMM.Tarea target) {
+		public boolean canExistTareaSigue_4001(McpMM.Tarea source, McpMM.Tarea target) {
 			return true;
 		}
 
 		/**
 		* @generated
 		*/
-		public boolean canExistWorkflowEmpiezaCon_4002(McpMM.Workflow source, McpMM.TareaInicial target) {
+		public boolean canExistTareaAnalisisSigueElse_4002(McpMM.TareaAnalisis source, McpMM.Tarea target) {
 			return true;
 		}
 
 		/**
 		* @generated
 		*/
-		public boolean canExistWorkflowFinalizaCon_4003(McpMM.Workflow source, McpMM.TareaFinal target) {
-			return true;
-		}
-
-		/**
-		* @generated
-		*/
-		public boolean canExistTareaSigue_4004(McpMM.Tarea source, McpMM.Tarea target) {
-			return true;
-		}
-
-		/**
-		* @generated
-		*/
-		public boolean canExistTareaAnalisisSigueElse_4007(McpMM.TareaAnalisis source, McpMM.Tarea target) {
-			return true;
-		}
-
-		/**
-		* @generated
-		*/
-		public boolean canExistTareaServerMCPEjecutaOperacion_4008(McpMM.TareaServerMCP source,
+		public boolean canExistTareaServerMCPEjecutaOperacion_4003(McpMM.TareaServerMCP source,
 				McpMM.OperacionMCP target) {
 			return true;
 		}

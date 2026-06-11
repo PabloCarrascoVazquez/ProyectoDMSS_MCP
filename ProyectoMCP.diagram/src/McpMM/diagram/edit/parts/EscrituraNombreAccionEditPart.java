@@ -55,7 +55,7 @@ public class EscrituraNombreAccionEditPart extends CompartmentEditPart implement
 	/**
 	* @generated
 	*/
-	public static final int VISUAL_ID = 5004;
+	public static final int VISUAL_ID = 5001;
 
 	/**
 	* @generated

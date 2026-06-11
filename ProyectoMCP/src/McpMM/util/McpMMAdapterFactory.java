@@ -68,6 +68,10 @@ public class McpMMAdapterFactory extends AdapterFactoryImpl {
 	protected McpMMSwitch<Adapter> modelSwitch =
 		new McpMMSwitch<Adapter>() {
 			@Override
+			public Adapter caseVersionContexto(VersionContexto object) {
+				return createVersionContextoAdapter();
+			}
+			@Override
 			public Adapter caseServiceMCP(ServiceMCP object) {
 				return createServiceMCPAdapter();
 			}
@@ -100,12 +104,12 @@ public class McpMMAdapterFactory extends AdapterFactoryImpl {
 				return createTareaEjecutableAdapter();
 			}
 			@Override
-			public Adapter caseTareaFinal(TareaFinal object) {
-				return createTareaFinalAdapter();
+			public Adapter caseInicio(Inicio object) {
+				return createInicioAdapter();
 			}
 			@Override
-			public Adapter caseTareaInicial(TareaInicial object) {
-				return createTareaInicialAdapter();
+			public Adapter caseFinal(Final object) {
+				return createFinalAdapter();
 			}
 			@Override
 			public Adapter caseAccion(Accion object) {
@@ -170,6 +174,20 @@ public class McpMMAdapterFactory extends AdapterFactoryImpl {
 		return modelSwitch.doSwitch((EObject)target);
 	}
 
+
+	/**
+	 * Creates a new adapter for an object of class '{@link McpMM.VersionContexto <em>Version Contexto</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see McpMM.VersionContexto
+	 * @generated
+	 */
+	public Adapter createVersionContextoAdapter() {
+		return null;
+	}
 
 	/**
 	 * Creates a new adapter for an object of class '{@link McpMM.ServiceMCP <em>Service MCP</em>}'.
@@ -284,30 +302,30 @@ public class McpMMAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link McpMM.TareaFinal <em>Tarea Final</em>}'.
+	 * Creates a new adapter for an object of class '{@link McpMM.Inicio <em>Inicio</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see McpMM.TareaFinal
+	 * @see McpMM.Inicio
 	 * @generated
 	 */
-	public Adapter createTareaFinalAdapter() {
+	public Adapter createInicioAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link McpMM.TareaInicial <em>Tarea Inicial</em>}'.
+	 * Creates a new adapter for an object of class '{@link McpMM.Final <em>Final</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see McpMM.TareaInicial
+	 * @see McpMM.Final
 	 * @generated
 	 */
-	public Adapter createTareaInicialAdapter() {
+	public Adapter createFinalAdapter() {
 		return null;
 	}
 

@@ -14,10 +14,16 @@
     <details key="settingDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
     <details key="validationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
   </eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="VersionContexto">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="valorAnterior" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fechaModificacion" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="propiedadAsociada" eType="#//Propiedad"
+        eOpposite="#//Propiedad/versiones"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ServiceMCP">
     <eAnnotations source="gmf.diagram"/>
     <eAnnotations source="DSLDoc">
-      <details key="descripcion" value="Clase raÃ­z que actÃºa como contenedor principal de todo el modelo de agentes y servicios."/>
+      <details key="descripcion" value="Clase raíz que actúa como contenedor principal de todo el modelo de agentes y servicios."/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="nombreServicio" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="agentes" upperBound="-1"
@@ -45,13 +51,16 @@
     </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Agente">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="R05_LimiteCargaTrabajo"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="R05_LimiteCargaTrabajo" value="self.flujo.tareas->select(t | t.oclIsKindOf(TareaEjecutable))->size() &lt;= 10"/>
+    </eAnnotations>
     <eAnnotations source="gmf.node">
       <details key="label" value="nombre"/>
       <details key="figure" value="rectangle"/>
       <details key="color" value="255,200,200"/>
-    </eAnnotations>
-    <eAnnotations source="DSLDoc">
-      <details key="descripcion" value="Representa una entidad inteligente autÃ³noma con un rol especÃ­fico y capacidad de procesamiento."/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="nombre" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="rol" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -99,7 +108,7 @@
       <details key="color" value="255,255,200"/>
     </eAnnotations>
     <eAnnotations source="DSLDoc">
-      <details key="descripcion" value="Representa el estado o conjunto de datos compartidos durante la ejecuciÃ³n del workflow de un agente."/>
+      <details key="descripcion" value="Representa el estado o conjunto de datos compartidos durante la ejecución del workflow de un agente."/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="nombreContexto" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="propiedades" upperBound="-1"
@@ -115,13 +124,14 @@
     <eAnnotations source="gmf.node">
       <details key="label" value="nombrePropiedad"/>
     </eAnnotations>
-    <eAnnotations source="DSLDoc">
-      <details key="descripcion" value="Define un dato individual dentro de un contexto, encapsulando su nombre y su tipo de dato."/>
-    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="nombrePropiedad" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="tipoPropiedad" eType="#//TipoContexto"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="extensionPermitida" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="pesoMaxMB" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="esUsada" upperBound="-1"
         eType="#//Accion" eOpposite="#//Accion/usa"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="versiones" upperBound="-1"
+        eType="#//VersionContexto" containment="true" eOpposite="#//VersionContexto/propiedadAsociada"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Tarea" abstract="true">
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
@@ -158,7 +168,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TareaEjecutable" abstract="true" eSuperTypes="#//Tarea">
     <eAnnotations source="DSLDoc">
-      <details key="descripcion" value="Clase base para aquellas tareas que implican una ejecuciÃ³n u operaciÃ³n concreta, excluyendo los puntos iniciales y finales."/>
+      <details key="descripcion" value="Clase base para aquellas tareas que implican una ejecución u operación concreta, excluyendo los puntos iniciales y finales."/>
     </eAnnotations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Inicio" eSuperTypes="#//Tarea">
@@ -169,7 +179,7 @@
       <details key="size" value="30,30"/>
     </eAnnotations>
     <eAnnotations source="DSLDoc">
-      <details key="descripcion" value="Nodo inicial que marca el punto de partida indiscutible para la ejecuciÃ³n de un workflow."/>
+      <details key="descripcion" value="Nodo inicial que marca el punto de partida indiscutible para la ejecución de un workflow."/>
     </eAnnotations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Final" eSuperTypes="#//Tarea">
@@ -180,7 +190,7 @@
       <details key="size" value="30,30"/>
     </eAnnotations>
     <eAnnotations source="DSLDoc">
-      <details key="descripcion" value="Nodo final que indica la terminaciÃ³n lÃ³gica de un workflow."/>
+      <details key="descripcion" value="Nodo final que indica la terminación lógica de un workflow."/>
     </eAnnotations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Accion" abstract="true">
@@ -205,7 +215,7 @@
       <details key="figure" value="rectangle"/>
     </eAnnotations>
     <eAnnotations source="DSLDoc">
-      <details key="descripcion" value="AcciÃ³n que modifica, actualiza o inserta nuevos datos en un contexto."/>
+      <details key="descripcion" value="Acción que modifica, actualiza o inserta nuevos datos en un contexto."/>
     </eAnnotations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Lectura" eSuperTypes="#//Accion">
@@ -214,12 +224,12 @@
       <details key="figure" value="rectangle"/>
     </eAnnotations>
     <eAnnotations source="DSLDoc">
-      <details key="descripcion" value="AcciÃ³n que obtiene o consume datos de un contexto para su procesamiento."/>
+      <details key="descripcion" value="Acción que obtiene o consume datos de un contexto para su procesamiento."/>
     </eAnnotations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="TipoContexto">
     <eAnnotations source="DSLDoc">
-      <details key="descripcion" value="EnumeraciÃ³n de los tipos de datos bÃ¡sicos y complejos permitidos en las propiedades de un contexto."/>
+      <details key="descripcion" value="Enumeración de los tipos de datos básicos y complejos permitidos en las propiedades de un contexto."/>
     </eAnnotations>
     <eLiterals name="ENTERO"/>
     <eLiterals name="CADENA" value="1"/>
@@ -234,7 +244,7 @@
       <details key="label" value="nombreOperacion"/>
     </eAnnotations>
     <eAnnotations source="DSLDoc">
-      <details key="descripcion" value="Define una operaciÃ³n especÃ­fica disponible en un ServerMCP que puede ser invocada de manera remota."/>
+      <details key="descripcion" value="Define una operación específica disponible en un ServerMCP que puede ser invocada de manera remota."/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="nombreOperacion" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="descOperacion" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -259,7 +269,7 @@
       <details key="color" value="255,200,255"/>
     </eAnnotations>
     <eAnnotations source="DSLDoc">
-      <details key="descripcion" value="Tarea que invoca a un Modelo de Lenguaje Grande (LLM) utilizando un prompt especÃ­fico para razonamiento o generaciÃ³n de texto."/>
+      <details key="descripcion" value="Tarea que invoca a un Modelo de Lenguaje Grande (LLM) utilizando un prompt específico para razonamiento o generación de texto."/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="prompt" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
@@ -270,7 +280,7 @@
       <details key="color" value="255,255,255"/>
     </eAnnotations>
     <eAnnotations source="DSLDoc">
-      <details key="descripcion" value="Tarea interactiva que detiene el flujo para requerir intervenciÃ³n o entrada de datos manual por parte de un usuario humano."/>
+      <details key="descripcion" value="Tarea interactiva que detiene el flujo para requerir intervención o entrada de datos manual por parte de un usuario humano."/>
     </eAnnotations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TareaAnalisis" eSuperTypes="#//TareaEjecutable">
@@ -280,7 +290,7 @@
       <details key="color" value="255,255,150"/>
     </eAnnotations>
     <eAnnotations source="DSLDoc">
-      <details key="descripcion" value="Tarea de bifurcaciÃ³n condicional que evalÃºa un estado para decidir continuar por el flujo principal o por un flujo alternativo (Else)."/>
+      <details key="descripcion" value="Tarea de bifurcación condicional que evalúa un estado para decidir continuar por el flujo principal o por un flujo alternativo (Else)."/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="sigueElse" lowerBound="1"
         eType="#//Tarea" eOpposite="#//Tarea/precedeElse">
@@ -300,21 +310,6 @@
     <eAnnotations source="DSLDoc">
       <details key="descripcion" value="Subclase de TareaEjecutable que permite exportar el contexto actual de un flujo para que sea procesado por otro agente."/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="enviaA" eType="#//TareaRecepcionContexto">
-      <eAnnotations source="gmf.link">
-        <details key="target.decoration" value="arrow"/>
-        <details key="color" value="100,100,100"/>
-        <details key="label" value="envÃ­a a"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="envioAsociado" eType="#//Propiedad">
-      <eAnnotations source="gmf.link">
-        <details key="target.decoration" value="arrow"/>
-        <details key="style" value="dash"/>
-        <details key="color" value="200,100,0"/>
-        <details key="label" value="envÃ­a prop."/>
-      </eAnnotations>
-    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TareaRecepcionContexto" eSuperTypes="#//TareaEjecutable">
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
@@ -330,23 +325,8 @@
       <details key="color" value="150,150,255"/>
     </eAnnotations>
     <eAnnotations source="DSLDoc">
-      <details key="descripcion" value="Subclase de TareaEjecutable para pausar o esperar de forma sÃ­ncrona/asÃ­ncrona la llegada de un contexto externo."/>
+      <details key="descripcion" value="Subclase de TareaEjecutable para pausar o esperar de forma síncrona/asíncrona la llegada de un contexto externo."/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="recibeDe" eType="#//TareaEnvioContexto">
-      <eAnnotations source="gmf.link">
-        <details key="target.decoration" value="arrow"/>
-        <details key="color" value="100,100,100"/>
-        <details key="label" value="recibe de"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="recepcionAsociada" eType="#//Propiedad">
-      <eAnnotations source="gmf.link">
-        <details key="target.decoration" value="arrow"/>
-        <details key="style" value="dash"/>
-        <details key="color" value="200,100,0"/>
-        <details key="label" value="recibe prop."/>
-      </eAnnotations>
-    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TareaServerMCP" eSuperTypes="#//TareaEjecutable">
     <eAnnotations source="gmf.node">
@@ -355,7 +335,7 @@
       <details key="color" value="200,200,200"/>
     </eAnnotations>
     <eAnnotations source="DSLDoc">
-      <details key="descripcion" value="Tarea automatizada que se conecta a un ServerMCP para invocar remotamente una OperacionMCP especÃ­fica."/>
+      <details key="descripcion" value="Tarea automatizada que se conecta a un ServerMCP para invocar remotamente una OperacionMCP específica."/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="ejecutaOperacion" lowerBound="1"
         eType="#//OperacionMCP" eOpposite="#//OperacionMCP/esEjecutadaOperacion">

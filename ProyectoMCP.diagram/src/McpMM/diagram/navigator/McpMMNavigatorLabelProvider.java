@@ -85,18 +85,15 @@ public class McpMMNavigatorLabelProvider extends LabelProvider implements ICommo
 		case McpMM.diagram.edit.parts.ServiceMCPEditPart.VISUAL_ID:
 			return getImage("Navigator?Diagram?https://www.example.org/McpMM?ServiceMCP", //$NON-NLS-1$
 					McpMM.diagram.providers.McpMMElementTypes.ServiceMCP_1000);
-		case McpMM.diagram.edit.parts.ServerMCPEditPart.VISUAL_ID:
-			return getImage("Navigator?TopLevelNode?https://www.example.org/McpMM?ServerMCP", //$NON-NLS-1$
-					McpMM.diagram.providers.McpMMElementTypes.ServerMCP_2001);
 		case McpMM.diagram.edit.parts.AgenteEditPart.VISUAL_ID:
 			return getImage("Navigator?TopLevelNode?https://www.example.org/McpMM?Agente", //$NON-NLS-1$
-					McpMM.diagram.providers.McpMMElementTypes.Agente_2002);
+					McpMM.diagram.providers.McpMMElementTypes.Agente_2001);
+		case McpMM.diagram.edit.parts.ServerMCPEditPart.VISUAL_ID:
+			return getImage("Navigator?TopLevelNode?https://www.example.org/McpMM?ServerMCP", //$NON-NLS-1$
+					McpMM.diagram.providers.McpMMElementTypes.ServerMCP_2002);
 		case McpMM.diagram.edit.parts.WorkflowEditPart.VISUAL_ID:
-			return getImage("Navigator?TopLevelNode?https://www.example.org/McpMM?Workflow", //$NON-NLS-1$
-					McpMM.diagram.providers.McpMMElementTypes.Workflow_2003);
-		case McpMM.diagram.edit.parts.OperacionMCPEditPart.VISUAL_ID:
-			return getImage("Navigator?Node?https://www.example.org/McpMM?OperacionMCP", //$NON-NLS-1$
-					McpMM.diagram.providers.McpMMElementTypes.OperacionMCP_3001);
+			return getImage("Navigator?Node?https://www.example.org/McpMM?Workflow", //$NON-NLS-1$
+					McpMM.diagram.providers.McpMMElementTypes.Workflow_3001);
 		case McpMM.diagram.edit.parts.TareaTransformacionDatosEditPart.VISUAL_ID:
 			return getImage("Navigator?Node?https://www.example.org/McpMM?TareaTransformacionDatos", //$NON-NLS-1$
 					McpMM.diagram.providers.McpMMElementTypes.TareaTransformacionDatos_3002);
@@ -124,36 +121,30 @@ public class McpMMNavigatorLabelProvider extends LabelProvider implements ICommo
 		case McpMM.diagram.edit.parts.TareaServerMCPEditPart.VISUAL_ID:
 			return getImage("Navigator?Node?https://www.example.org/McpMM?TareaServerMCP", //$NON-NLS-1$
 					McpMM.diagram.providers.McpMMElementTypes.TareaServerMCP_3010);
-		case McpMM.diagram.edit.parts.TareaFinalEditPart.VISUAL_ID:
-			return getImage("Navigator?Node?https://www.example.org/McpMM?TareaFinal", //$NON-NLS-1$
-					McpMM.diagram.providers.McpMMElementTypes.TareaFinal_3011);
-		case McpMM.diagram.edit.parts.TareaInicialEditPart.VISUAL_ID:
-			return getImage("Navigator?Node?https://www.example.org/McpMM?TareaInicial", //$NON-NLS-1$
-					McpMM.diagram.providers.McpMMElementTypes.TareaInicial_3012);
+		case McpMM.diagram.edit.parts.InicioEditPart.VISUAL_ID:
+			return getImage("Navigator?Node?https://www.example.org/McpMM?Inicio", //$NON-NLS-1$
+					McpMM.diagram.providers.McpMMElementTypes.Inicio_3011);
+		case McpMM.diagram.edit.parts.FinalEditPart.VISUAL_ID:
+			return getImage("Navigator?Node?https://www.example.org/McpMM?Final", //$NON-NLS-1$
+					McpMM.diagram.providers.McpMMElementTypes.Final_3012);
 		case McpMM.diagram.edit.parts.ContextoEditPart.VISUAL_ID:
 			return getImage("Navigator?Node?https://www.example.org/McpMM?Contexto", //$NON-NLS-1$
 					McpMM.diagram.providers.McpMMElementTypes.Contexto_3013);
 		case McpMM.diagram.edit.parts.PropiedadEditPart.VISUAL_ID:
 			return getImage("Navigator?Node?https://www.example.org/McpMM?Propiedad", //$NON-NLS-1$
 					McpMM.diagram.providers.McpMMElementTypes.Propiedad_3014);
-		case McpMM.diagram.edit.parts.AgenteRealizaEditPart.VISUAL_ID:
-			return getImage("Navigator?Link?https://www.example.org/McpMM?Agente?realiza", //$NON-NLS-1$
-					McpMM.diagram.providers.McpMMElementTypes.AgenteRealiza_4001);
-		case McpMM.diagram.edit.parts.WorkflowEmpiezaConEditPart.VISUAL_ID:
-			return getImage("Navigator?Link?https://www.example.org/McpMM?Workflow?empiezaCon", //$NON-NLS-1$
-					McpMM.diagram.providers.McpMMElementTypes.WorkflowEmpiezaCon_4002);
-		case McpMM.diagram.edit.parts.WorkflowFinalizaConEditPart.VISUAL_ID:
-			return getImage("Navigator?Link?https://www.example.org/McpMM?Workflow?finalizaCon", //$NON-NLS-1$
-					McpMM.diagram.providers.McpMMElementTypes.WorkflowFinalizaCon_4003);
+		case McpMM.diagram.edit.parts.OperacionMCPEditPart.VISUAL_ID:
+			return getImage("Navigator?Node?https://www.example.org/McpMM?OperacionMCP", //$NON-NLS-1$
+					McpMM.diagram.providers.McpMMElementTypes.OperacionMCP_3015);
 		case McpMM.diagram.edit.parts.TareaSigueEditPart.VISUAL_ID:
 			return getImage("Navigator?Link?https://www.example.org/McpMM?Tarea?sigue", //$NON-NLS-1$
-					McpMM.diagram.providers.McpMMElementTypes.TareaSigue_4004);
+					McpMM.diagram.providers.McpMMElementTypes.TareaSigue_4001);
 		case McpMM.diagram.edit.parts.TareaAnalisisSigueElseEditPart.VISUAL_ID:
 			return getImage("Navigator?Link?https://www.example.org/McpMM?TareaAnalisis?sigueElse", //$NON-NLS-1$
-					McpMM.diagram.providers.McpMMElementTypes.TareaAnalisisSigueElse_4007);
+					McpMM.diagram.providers.McpMMElementTypes.TareaAnalisisSigueElse_4002);
 		case McpMM.diagram.edit.parts.TareaServerMCPEjecutaOperacionEditPart.VISUAL_ID:
 			return getImage("Navigator?Link?https://www.example.org/McpMM?TareaServerMCP?ejecutaOperacion", //$NON-NLS-1$
-					McpMM.diagram.providers.McpMMElementTypes.TareaServerMCPEjecutaOperacion_4008);
+					McpMM.diagram.providers.McpMMElementTypes.TareaServerMCPEjecutaOperacion_4003);
 		}
 		return getImage("Navigator?UnknownElement", null); //$NON-NLS-1$
 	}
@@ -215,14 +206,12 @@ public class McpMMNavigatorLabelProvider extends LabelProvider implements ICommo
 		switch (McpMM.diagram.part.McpMMVisualIDRegistry.getVisualID(view)) {
 		case McpMM.diagram.edit.parts.ServiceMCPEditPart.VISUAL_ID:
 			return getServiceMCP_1000Text(view);
-		case McpMM.diagram.edit.parts.ServerMCPEditPart.VISUAL_ID:
-			return getServerMCP_2001Text(view);
 		case McpMM.diagram.edit.parts.AgenteEditPart.VISUAL_ID:
-			return getAgente_2002Text(view);
+			return getAgente_2001Text(view);
+		case McpMM.diagram.edit.parts.ServerMCPEditPart.VISUAL_ID:
+			return getServerMCP_2002Text(view);
 		case McpMM.diagram.edit.parts.WorkflowEditPart.VISUAL_ID:
-			return getWorkflow_2003Text(view);
-		case McpMM.diagram.edit.parts.OperacionMCPEditPart.VISUAL_ID:
-			return getOperacionMCP_3001Text(view);
+			return getWorkflow_3001Text(view);
 		case McpMM.diagram.edit.parts.TareaTransformacionDatosEditPart.VISUAL_ID:
 			return getTareaTransformacionDatos_3002Text(view);
 		case McpMM.diagram.edit.parts.EscrituraEditPart.VISUAL_ID:
@@ -241,26 +230,22 @@ public class McpMMNavigatorLabelProvider extends LabelProvider implements ICommo
 			return getTareaRecepcionContexto_3009Text(view);
 		case McpMM.diagram.edit.parts.TareaServerMCPEditPart.VISUAL_ID:
 			return getTareaServerMCP_3010Text(view);
-		case McpMM.diagram.edit.parts.TareaFinalEditPart.VISUAL_ID:
-			return getTareaFinal_3011Text(view);
-		case McpMM.diagram.edit.parts.TareaInicialEditPart.VISUAL_ID:
-			return getTareaInicial_3012Text(view);
+		case McpMM.diagram.edit.parts.InicioEditPart.VISUAL_ID:
+			return getInicio_3011Text(view);
+		case McpMM.diagram.edit.parts.FinalEditPart.VISUAL_ID:
+			return getFinal_3012Text(view);
 		case McpMM.diagram.edit.parts.ContextoEditPart.VISUAL_ID:
 			return getContexto_3013Text(view);
 		case McpMM.diagram.edit.parts.PropiedadEditPart.VISUAL_ID:
 			return getPropiedad_3014Text(view);
-		case McpMM.diagram.edit.parts.AgenteRealizaEditPart.VISUAL_ID:
-			return getAgenteRealiza_4001Text(view);
-		case McpMM.diagram.edit.parts.WorkflowEmpiezaConEditPart.VISUAL_ID:
-			return getWorkflowEmpiezaCon_4002Text(view);
-		case McpMM.diagram.edit.parts.WorkflowFinalizaConEditPart.VISUAL_ID:
-			return getWorkflowFinalizaCon_4003Text(view);
+		case McpMM.diagram.edit.parts.OperacionMCPEditPart.VISUAL_ID:
+			return getOperacionMCP_3015Text(view);
 		case McpMM.diagram.edit.parts.TareaSigueEditPart.VISUAL_ID:
-			return getTareaSigue_4004Text(view);
+			return getTareaSigue_4001Text(view);
 		case McpMM.diagram.edit.parts.TareaAnalisisSigueElseEditPart.VISUAL_ID:
-			return getTareaAnalisisSigueElse_4007Text(view);
+			return getTareaAnalisisSigueElse_4002Text(view);
 		case McpMM.diagram.edit.parts.TareaServerMCPEjecutaOperacionEditPart.VISUAL_ID:
-			return getTareaServerMCPEjecutaOperacion_4008Text(view);
+			return getTareaServerMCPEjecutaOperacion_4003Text(view);
 		}
 		return getUnknownElementText(view);
 	}
@@ -282,47 +267,29 @@ public class McpMMNavigatorLabelProvider extends LabelProvider implements ICommo
 	/**
 	* @generated
 	*/
-	private String getServerMCP_2001Text(View view) {
+	private String getAgente_2001Text(View view) {
 		IParser parser = McpMM.diagram.providers.McpMMParserProvider.getParser(
-				McpMM.diagram.providers.McpMMElementTypes.ServerMCP_2001,
+				McpMM.diagram.providers.McpMMElementTypes.Agente_2001,
+				view.getElement() != null ? view.getElement() : view, McpMM.diagram.part.McpMMVisualIDRegistry
+						.getType(McpMM.diagram.edit.parts.AgenteNombreEditPart.VISUAL_ID));
+		if (parser != null) {
+			return parser.getPrintString(new EObjectAdapter(view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
+		} else {
+			McpMM.diagram.part.McpMMDiagramEditorPlugin.getInstance()
+					.logError("Parser was not found for label " + 5015); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+	}
+
+	/**
+	* @generated
+	*/
+	private String getServerMCP_2002Text(View view) {
+		IParser parser = McpMM.diagram.providers.McpMMParserProvider.getParser(
+				McpMM.diagram.providers.McpMMElementTypes.ServerMCP_2002,
 				view.getElement() != null ? view.getElement() : view, McpMM.diagram.part.McpMMVisualIDRegistry
 						.getType(McpMM.diagram.edit.parts.ServerMCPNombreServerEditPart.VISUAL_ID));
-		if (parser != null) {
-			return parser.getPrintString(new EObjectAdapter(view.getElement() != null ? view.getElement() : view),
-					ParserOptions.NONE.intValue());
-		} else {
-			McpMM.diagram.part.McpMMDiagramEditorPlugin.getInstance()
-					.logError("Parser was not found for label " + 5002); //$NON-NLS-1$
-			return ""; //$NON-NLS-1$
-		}
-	}
-
-	/**
-	* @generated
-	*/
-	private String getAgente_2002Text(View view) {
-		IParser parser = McpMM.diagram.providers.McpMMParserProvider.getParser(
-				McpMM.diagram.providers.McpMMElementTypes.Agente_2002,
-				view.getElement() != null ? view.getElement() : view, McpMM.diagram.part.McpMMVisualIDRegistry
-						.getType(McpMM.diagram.edit.parts.AgenteNombreAgenteEditPart.VISUAL_ID));
-		if (parser != null) {
-			return parser.getPrintString(new EObjectAdapter(view.getElement() != null ? view.getElement() : view),
-					ParserOptions.NONE.intValue());
-		} else {
-			McpMM.diagram.part.McpMMDiagramEditorPlugin.getInstance()
-					.logError("Parser was not found for label " + 5003); //$NON-NLS-1$
-			return ""; //$NON-NLS-1$
-		}
-	}
-
-	/**
-	* @generated
-	*/
-	private String getWorkflow_2003Text(View view) {
-		IParser parser = McpMM.diagram.providers.McpMMParserProvider.getParser(
-				McpMM.diagram.providers.McpMMElementTypes.Workflow_2003,
-				view.getElement() != null ? view.getElement() : view, McpMM.diagram.part.McpMMVisualIDRegistry
-						.getType(McpMM.diagram.edit.parts.WorkflowNombreWorkflowEditPart.VISUAL_ID));
 		if (parser != null) {
 			return parser.getPrintString(new EObjectAdapter(view.getElement() != null ? view.getElement() : view),
 					ParserOptions.NONE.intValue());
@@ -336,17 +303,17 @@ public class McpMMNavigatorLabelProvider extends LabelProvider implements ICommo
 	/**
 	* @generated
 	*/
-	private String getOperacionMCP_3001Text(View view) {
+	private String getWorkflow_3001Text(View view) {
 		IParser parser = McpMM.diagram.providers.McpMMParserProvider.getParser(
-				McpMM.diagram.providers.McpMMElementTypes.OperacionMCP_3001,
+				McpMM.diagram.providers.McpMMElementTypes.Workflow_3001,
 				view.getElement() != null ? view.getElement() : view, McpMM.diagram.part.McpMMVisualIDRegistry
-						.getType(McpMM.diagram.edit.parts.OperacionMCPNombreOperacionEditPart.VISUAL_ID));
+						.getType(McpMM.diagram.edit.parts.WorkflowNombreWorkflowEditPart.VISUAL_ID));
 		if (parser != null) {
 			return parser.getPrintString(new EObjectAdapter(view.getElement() != null ? view.getElement() : view),
 					ParserOptions.NONE.intValue());
 		} else {
 			McpMM.diagram.part.McpMMDiagramEditorPlugin.getInstance()
-					.logError("Parser was not found for label " + 5001); //$NON-NLS-1$
+					.logError("Parser was not found for label " + 5012); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}
@@ -364,7 +331,7 @@ public class McpMMNavigatorLabelProvider extends LabelProvider implements ICommo
 					ParserOptions.NONE.intValue());
 		} else {
 			McpMM.diagram.part.McpMMDiagramEditorPlugin.getInstance()
-					.logError("Parser was not found for label " + 5006); //$NON-NLS-1$
+					.logError("Parser was not found for label " + 5003); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}
@@ -382,7 +349,7 @@ public class McpMMNavigatorLabelProvider extends LabelProvider implements ICommo
 					ParserOptions.NONE.intValue());
 		} else {
 			McpMM.diagram.part.McpMMDiagramEditorPlugin.getInstance()
-					.logError("Parser was not found for label " + 5004); //$NON-NLS-1$
+					.logError("Parser was not found for label " + 5001); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}
@@ -400,7 +367,7 @@ public class McpMMNavigatorLabelProvider extends LabelProvider implements ICommo
 					ParserOptions.NONE.intValue());
 		} else {
 			McpMM.diagram.part.McpMMDiagramEditorPlugin.getInstance()
-					.logError("Parser was not found for label " + 5005); //$NON-NLS-1$
+					.logError("Parser was not found for label " + 5002); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}
@@ -418,7 +385,7 @@ public class McpMMNavigatorLabelProvider extends LabelProvider implements ICommo
 					ParserOptions.NONE.intValue());
 		} else {
 			McpMM.diagram.part.McpMMDiagramEditorPlugin.getInstance()
-					.logError("Parser was not found for label " + 5007); //$NON-NLS-1$
+					.logError("Parser was not found for label " + 5004); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}
@@ -436,7 +403,7 @@ public class McpMMNavigatorLabelProvider extends LabelProvider implements ICommo
 					ParserOptions.NONE.intValue());
 		} else {
 			McpMM.diagram.part.McpMMDiagramEditorPlugin.getInstance()
-					.logError("Parser was not found for label " + 5008); //$NON-NLS-1$
+					.logError("Parser was not found for label " + 5005); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}
@@ -454,7 +421,7 @@ public class McpMMNavigatorLabelProvider extends LabelProvider implements ICommo
 					ParserOptions.NONE.intValue());
 		} else {
 			McpMM.diagram.part.McpMMDiagramEditorPlugin.getInstance()
-					.logError("Parser was not found for label " + 5009); //$NON-NLS-1$
+					.logError("Parser was not found for label " + 5006); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}
@@ -472,7 +439,7 @@ public class McpMMNavigatorLabelProvider extends LabelProvider implements ICommo
 					ParserOptions.NONE.intValue());
 		} else {
 			McpMM.diagram.part.McpMMDiagramEditorPlugin.getInstance()
-					.logError("Parser was not found for label " + 5010); //$NON-NLS-1$
+					.logError("Parser was not found for label " + 5007); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}
@@ -490,7 +457,7 @@ public class McpMMNavigatorLabelProvider extends LabelProvider implements ICommo
 					ParserOptions.NONE.intValue());
 		} else {
 			McpMM.diagram.part.McpMMDiagramEditorPlugin.getInstance()
-					.logError("Parser was not found for label " + 5011); //$NON-NLS-1$
+					.logError("Parser was not found for label " + 5008); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}
@@ -508,7 +475,7 @@ public class McpMMNavigatorLabelProvider extends LabelProvider implements ICommo
 					ParserOptions.NONE.intValue());
 		} else {
 			McpMM.diagram.part.McpMMDiagramEditorPlugin.getInstance()
-					.logError("Parser was not found for label " + 5012); //$NON-NLS-1$
+					.logError("Parser was not found for label " + 5009); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}
@@ -516,17 +483,17 @@ public class McpMMNavigatorLabelProvider extends LabelProvider implements ICommo
 	/**
 	* @generated
 	*/
-	private String getTareaFinal_3011Text(View view) {
+	private String getInicio_3011Text(View view) {
 		IParser parser = McpMM.diagram.providers.McpMMParserProvider.getParser(
-				McpMM.diagram.providers.McpMMElementTypes.TareaFinal_3011,
+				McpMM.diagram.providers.McpMMElementTypes.Inicio_3011,
 				view.getElement() != null ? view.getElement() : view, McpMM.diagram.part.McpMMVisualIDRegistry
-						.getType(McpMM.diagram.edit.parts.TareaFinalNombreTareaEditPart.VISUAL_ID));
+						.getType(McpMM.diagram.edit.parts.InicioNombreTareaEditPart.VISUAL_ID));
 		if (parser != null) {
 			return parser.getPrintString(new EObjectAdapter(view.getElement() != null ? view.getElement() : view),
 					ParserOptions.NONE.intValue());
 		} else {
 			McpMM.diagram.part.McpMMDiagramEditorPlugin.getInstance()
-					.logError("Parser was not found for label " + 5013); //$NON-NLS-1$
+					.logError("Parser was not found for label " + 5010); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}
@@ -534,17 +501,17 @@ public class McpMMNavigatorLabelProvider extends LabelProvider implements ICommo
 	/**
 	* @generated
 	*/
-	private String getTareaInicial_3012Text(View view) {
+	private String getFinal_3012Text(View view) {
 		IParser parser = McpMM.diagram.providers.McpMMParserProvider.getParser(
-				McpMM.diagram.providers.McpMMElementTypes.TareaInicial_3012,
+				McpMM.diagram.providers.McpMMElementTypes.Final_3012,
 				view.getElement() != null ? view.getElement() : view, McpMM.diagram.part.McpMMVisualIDRegistry
-						.getType(McpMM.diagram.edit.parts.TareaInicialNombreTareaEditPart.VISUAL_ID));
+						.getType(McpMM.diagram.edit.parts.FinalNombreTareaEditPart.VISUAL_ID));
 		if (parser != null) {
 			return parser.getPrintString(new EObjectAdapter(view.getElement() != null ? view.getElement() : view),
 					ParserOptions.NONE.intValue());
 		} else {
 			McpMM.diagram.part.McpMMDiagramEditorPlugin.getInstance()
-					.logError("Parser was not found for label " + 5014); //$NON-NLS-1$
+					.logError("Parser was not found for label " + 5011); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}
@@ -562,7 +529,7 @@ public class McpMMNavigatorLabelProvider extends LabelProvider implements ICommo
 					ParserOptions.NONE.intValue());
 		} else {
 			McpMM.diagram.part.McpMMDiagramEditorPlugin.getInstance()
-					.logError("Parser was not found for label " + 5016); //$NON-NLS-1$
+					.logError("Parser was not found for label " + 5014); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}
@@ -580,7 +547,7 @@ public class McpMMNavigatorLabelProvider extends LabelProvider implements ICommo
 					ParserOptions.NONE.intValue());
 		} else {
 			McpMM.diagram.part.McpMMDiagramEditorPlugin.getInstance()
-					.logError("Parser was not found for label " + 5015); //$NON-NLS-1$
+					.logError("Parser was not found for label " + 5013); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}
@@ -588,9 +555,27 @@ public class McpMMNavigatorLabelProvider extends LabelProvider implements ICommo
 	/**
 	* @generated
 	*/
-	private String getAgenteRealiza_4001Text(View view) {
+	private String getOperacionMCP_3015Text(View view) {
 		IParser parser = McpMM.diagram.providers.McpMMParserProvider.getParser(
-				McpMM.diagram.providers.McpMMElementTypes.AgenteRealiza_4001,
+				McpMM.diagram.providers.McpMMElementTypes.OperacionMCP_3015,
+				view.getElement() != null ? view.getElement() : view, McpMM.diagram.part.McpMMVisualIDRegistry
+						.getType(McpMM.diagram.edit.parts.OperacionMCPNombreOperacionEditPart.VISUAL_ID));
+		if (parser != null) {
+			return parser.getPrintString(new EObjectAdapter(view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
+		} else {
+			McpMM.diagram.part.McpMMDiagramEditorPlugin.getInstance()
+					.logError("Parser was not found for label " + 5016); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+	}
+
+	/**
+	* @generated
+	*/
+	private String getTareaSigue_4001Text(View view) {
+		IParser parser = McpMM.diagram.providers.McpMMParserProvider.getParser(
+				McpMM.diagram.providers.McpMMElementTypes.TareaSigue_4001,
 				view.getElement() != null ? view.getElement() : view, CommonParserHint.DESCRIPTION);
 		if (parser != null) {
 			return parser.getPrintString(new EObjectAdapter(view.getElement() != null ? view.getElement() : view),
@@ -605,9 +590,9 @@ public class McpMMNavigatorLabelProvider extends LabelProvider implements ICommo
 	/**
 	* @generated
 	*/
-	private String getWorkflowEmpiezaCon_4002Text(View view) {
+	private String getTareaAnalisisSigueElse_4002Text(View view) {
 		IParser parser = McpMM.diagram.providers.McpMMParserProvider.getParser(
-				McpMM.diagram.providers.McpMMElementTypes.WorkflowEmpiezaCon_4002,
+				McpMM.diagram.providers.McpMMElementTypes.TareaAnalisisSigueElse_4002,
 				view.getElement() != null ? view.getElement() : view, CommonParserHint.DESCRIPTION);
 		if (parser != null) {
 			return parser.getPrintString(new EObjectAdapter(view.getElement() != null ? view.getElement() : view),
@@ -622,9 +607,9 @@ public class McpMMNavigatorLabelProvider extends LabelProvider implements ICommo
 	/**
 	* @generated
 	*/
-	private String getWorkflowFinalizaCon_4003Text(View view) {
+	private String getTareaServerMCPEjecutaOperacion_4003Text(View view) {
 		IParser parser = McpMM.diagram.providers.McpMMParserProvider.getParser(
-				McpMM.diagram.providers.McpMMElementTypes.WorkflowFinalizaCon_4003,
+				McpMM.diagram.providers.McpMMElementTypes.TareaServerMCPEjecutaOperacion_4003,
 				view.getElement() != null ? view.getElement() : view, CommonParserHint.DESCRIPTION);
 		if (parser != null) {
 			return parser.getPrintString(new EObjectAdapter(view.getElement() != null ? view.getElement() : view),
@@ -632,57 +617,6 @@ public class McpMMNavigatorLabelProvider extends LabelProvider implements ICommo
 		} else {
 			McpMM.diagram.part.McpMMDiagramEditorPlugin.getInstance()
 					.logError("Parser was not found for label " + 6003); //$NON-NLS-1$
-			return ""; //$NON-NLS-1$
-		}
-	}
-
-	/**
-	* @generated
-	*/
-	private String getTareaSigue_4004Text(View view) {
-		IParser parser = McpMM.diagram.providers.McpMMParserProvider.getParser(
-				McpMM.diagram.providers.McpMMElementTypes.TareaSigue_4004,
-				view.getElement() != null ? view.getElement() : view, CommonParserHint.DESCRIPTION);
-		if (parser != null) {
-			return parser.getPrintString(new EObjectAdapter(view.getElement() != null ? view.getElement() : view),
-					ParserOptions.NONE.intValue());
-		} else {
-			McpMM.diagram.part.McpMMDiagramEditorPlugin.getInstance()
-					.logError("Parser was not found for label " + 6004); //$NON-NLS-1$
-			return ""; //$NON-NLS-1$
-		}
-	}
-
-	/**
-	* @generated
-	*/
-	private String getTareaAnalisisSigueElse_4007Text(View view) {
-		IParser parser = McpMM.diagram.providers.McpMMParserProvider.getParser(
-				McpMM.diagram.providers.McpMMElementTypes.TareaAnalisisSigueElse_4007,
-				view.getElement() != null ? view.getElement() : view, CommonParserHint.DESCRIPTION);
-		if (parser != null) {
-			return parser.getPrintString(new EObjectAdapter(view.getElement() != null ? view.getElement() : view),
-					ParserOptions.NONE.intValue());
-		} else {
-			McpMM.diagram.part.McpMMDiagramEditorPlugin.getInstance()
-					.logError("Parser was not found for label " + 6007); //$NON-NLS-1$
-			return ""; //$NON-NLS-1$
-		}
-	}
-
-	/**
-	* @generated
-	*/
-	private String getTareaServerMCPEjecutaOperacion_4008Text(View view) {
-		IParser parser = McpMM.diagram.providers.McpMMParserProvider.getParser(
-				McpMM.diagram.providers.McpMMElementTypes.TareaServerMCPEjecutaOperacion_4008,
-				view.getElement() != null ? view.getElement() : view, CommonParserHint.DESCRIPTION);
-		if (parser != null) {
-			return parser.getPrintString(new EObjectAdapter(view.getElement() != null ? view.getElement() : view),
-					ParserOptions.NONE.intValue());
-		} else {
-			McpMM.diagram.part.McpMMDiagramEditorPlugin.getInstance()
-					.logError("Parser was not found for label " + 6008); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}

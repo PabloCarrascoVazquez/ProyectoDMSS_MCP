@@ -17,6 +17,7 @@ package McpMM;
  *
  * @see McpMM.McpMMPackage#getTareaTransformacionDatos()
  * @model annotation="gmf.node label='nombreTarea' figure='rectangle' color='200,255,255'"
+ *        annotation="DSLDoc descripcion='Tarea encargada de transformar o reformatear un conjunto de datos en base a una regla o prompt.'"
  * @generated
  */
 public interface TareaTransformacionDatos extends TareaEjecutable {

@@ -54,7 +54,7 @@ public class TareaLLMCreateCommand extends EditElementCommand {
 		McpMM.TareaLLM newElement = McpMM.McpMMFactory.eINSTANCE.createTareaLLM();
 
 		McpMM.Workflow owner = (McpMM.Workflow) getElementToEdit();
-		owner.getTarea().add(newElement);
+		owner.getTareas().add(newElement);
 
 		doConfigure(newElement, monitor, info);
 

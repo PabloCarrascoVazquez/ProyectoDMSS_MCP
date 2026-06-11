@@ -10,8 +10,6 @@ import org.eclipse.draw2d.RoundedRectangle;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
 import org.eclipse.draw2d.geometry.Dimension;
-import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.Request;
@@ -19,18 +17,14 @@ import org.eclipse.gef.commands.Command;
 import org.eclipse.gef.editpolicies.LayoutEditPolicy;
 import org.eclipse.gef.editpolicies.NonResizableEditPolicy;
 import org.eclipse.gef.requests.CreateRequest;
-import org.eclipse.gmf.runtime.diagram.core.edithelpers.CreateElementRequestAdapter;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
-import org.eclipse.gmf.runtime.diagram.ui.requests.CreateViewAndElementRequest;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
-import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
-import org.eclipse.gmf.tooling.runtime.edit.policies.reparent.CreationEditPolicyWithCustomReparent;
 import org.eclipse.swt.graphics.Color;
 
 /**
@@ -41,7 +35,7 @@ public class WorkflowEditPart extends ShapeNodeEditPart {
 	/**
 	* @generated
 	*/
-	public static final int VISUAL_ID = 2003;
+	public static final int VISUAL_ID = 3001;
 
 	/**
 	* @generated
@@ -64,8 +58,6 @@ public class WorkflowEditPart extends ShapeNodeEditPart {
 	* @generated
 	*/
 	protected void createDefaultEditPolicies() {
-		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
-				new CreationEditPolicyWithCustomReparent(McpMM.diagram.part.McpMMVisualIDRegistry.TYPED_INSTANCE));
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
 				new McpMM.diagram.edit.policies.WorkflowItemSemanticEditPolicy());
@@ -122,17 +114,10 @@ public class WorkflowEditPart extends ShapeNodeEditPart {
 					.setLabel(getPrimaryShape().getFigureWorkflowLabelFigure());
 			return true;
 		}
-		if (childEditPart instanceof McpMM.diagram.edit.parts.WorkflowWorkflowContextoCompartmentEditPart) {
-			IFigure pane = getPrimaryShape().getWorkflowContextoCompartmentFigure();
+		if (childEditPart instanceof McpMM.diagram.edit.parts.WorkflowWorkflowTareasCompartmentEditPart) {
+			IFigure pane = getPrimaryShape().getWorkflowTareasCompartmentFigure();
 			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
-			pane.add(
-					((McpMM.diagram.edit.parts.WorkflowWorkflowContextoCompartmentEditPart) childEditPart).getFigure());
-			return true;
-		}
-		if (childEditPart instanceof McpMM.diagram.edit.parts.WorkflowWorkflowTareaCompartmentEditPart) {
-			IFigure pane = getPrimaryShape().getWorkflowTareaCompartmentFigure();
-			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
-			pane.add(((McpMM.diagram.edit.parts.WorkflowWorkflowTareaCompartmentEditPart) childEditPart).getFigure());
+			pane.add(((McpMM.diagram.edit.parts.WorkflowWorkflowTareasCompartmentEditPart) childEditPart).getFigure());
 			return true;
 		}
 		return false;
@@ -145,16 +130,10 @@ public class WorkflowEditPart extends ShapeNodeEditPart {
 		if (childEditPart instanceof McpMM.diagram.edit.parts.WorkflowNombreWorkflowEditPart) {
 			return true;
 		}
-		if (childEditPart instanceof McpMM.diagram.edit.parts.WorkflowWorkflowContextoCompartmentEditPart) {
-			IFigure pane = getPrimaryShape().getWorkflowContextoCompartmentFigure();
+		if (childEditPart instanceof McpMM.diagram.edit.parts.WorkflowWorkflowTareasCompartmentEditPart) {
+			IFigure pane = getPrimaryShape().getWorkflowTareasCompartmentFigure();
 			pane.remove(
-					((McpMM.diagram.edit.parts.WorkflowWorkflowContextoCompartmentEditPart) childEditPart).getFigure());
-			return true;
-		}
-		if (childEditPart instanceof McpMM.diagram.edit.parts.WorkflowWorkflowTareaCompartmentEditPart) {
-			IFigure pane = getPrimaryShape().getWorkflowTareaCompartmentFigure();
-			pane.remove(
-					((McpMM.diagram.edit.parts.WorkflowWorkflowTareaCompartmentEditPart) childEditPart).getFigure());
+					((McpMM.diagram.edit.parts.WorkflowWorkflowTareasCompartmentEditPart) childEditPart).getFigure());
 			return true;
 		}
 		return false;
@@ -184,11 +163,8 @@ public class WorkflowEditPart extends ShapeNodeEditPart {
 	* @generated
 	*/
 	protected IFigure getContentPaneFor(IGraphicalEditPart editPart) {
-		if (editPart instanceof McpMM.diagram.edit.parts.WorkflowWorkflowContextoCompartmentEditPart) {
-			return getPrimaryShape().getWorkflowContextoCompartmentFigure();
-		}
-		if (editPart instanceof McpMM.diagram.edit.parts.WorkflowWorkflowTareaCompartmentEditPart) {
-			return getPrimaryShape().getWorkflowTareaCompartmentFigure();
+		if (editPart instanceof McpMM.diagram.edit.parts.WorkflowWorkflowTareasCompartmentEditPart) {
+			return getPrimaryShape().getWorkflowTareasCompartmentFigure();
 		}
 		return getContentPane();
 	}
@@ -288,34 +264,6 @@ public class WorkflowEditPart extends ShapeNodeEditPart {
 	}
 
 	/**
-	* @generated
-	*/
-	public EditPart getTargetEditPart(Request request) {
-		if (request instanceof CreateViewAndElementRequest) {
-			CreateElementRequestAdapter adapter = ((CreateViewAndElementRequest) request).getViewAndElementDescriptor()
-					.getCreateElementRequestAdapter();
-			IElementType type = (IElementType) adapter.getAdapter(IElementType.class);
-			if (type == McpMM.diagram.providers.McpMMElementTypes.Contexto_3013) {
-				return getChildBySemanticHint(McpMM.diagram.part.McpMMVisualIDRegistry
-						.getType(McpMM.diagram.edit.parts.WorkflowWorkflowContextoCompartmentEditPart.VISUAL_ID));
-			}
-		}
-		return super.getTargetEditPart(request);
-	}
-
-	/**
-	* @generated
-	*/
-	protected void handleNotificationEvent(Notification event) {
-		if (event.getNotifier() == getModel()
-				&& EcorePackage.eINSTANCE.getEModelElement_EAnnotations().equals(event.getFeature())) {
-			handleMajorSemanticChange();
-		} else {
-			super.handleNotificationEvent(event);
-		}
-	}
-
-	/**
 	 * @generated
 	 */
 	public class WorkflowFigure extends RoundedRectangle {
@@ -327,11 +275,7 @@ public class WorkflowEditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
-		private RectangleFigure fWorkflowContextoCompartmentFigure;
-		/**
-		 * @generated
-		 */
-		private RectangleFigure fWorkflowTareaCompartmentFigure;
+		private RectangleFigure fWorkflowTareasCompartmentFigure;
 
 		/**
 		 * @generated
@@ -357,17 +301,11 @@ public class WorkflowEditPart extends ShapeNodeEditPart {
 
 			this.add(fFigureWorkflowLabelFigure);
 
-			fWorkflowContextoCompartmentFigure = new RectangleFigure();
+			fWorkflowTareasCompartmentFigure = new RectangleFigure();
 
-			fWorkflowContextoCompartmentFigure.setOutline(false);
+			fWorkflowTareasCompartmentFigure.setOutline(false);
 
-			this.add(fWorkflowContextoCompartmentFigure);
-
-			fWorkflowTareaCompartmentFigure = new RectangleFigure();
-
-			fWorkflowTareaCompartmentFigure.setOutline(false);
-
-			this.add(fWorkflowTareaCompartmentFigure);
+			this.add(fWorkflowTareasCompartmentFigure);
 
 		}
 
@@ -381,15 +319,8 @@ public class WorkflowEditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
-		public RectangleFigure getWorkflowContextoCompartmentFigure() {
-			return fWorkflowContextoCompartmentFigure;
-		}
-
-		/**
-		 * @generated
-		 */
-		public RectangleFigure getWorkflowTareaCompartmentFigure() {
-			return fWorkflowTareaCompartmentFigure;
+		public RectangleFigure getWorkflowTareasCompartmentFigure() {
+			return fWorkflowTareasCompartmentFigure;
 		}
 
 	}

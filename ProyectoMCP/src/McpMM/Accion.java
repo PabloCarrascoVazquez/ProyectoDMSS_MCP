@@ -21,7 +21,8 @@ import org.eclipse.emf.ecore.EObject;
  * @see McpMM.McpMMPackage#getAccion()
  * @model abstract="true"
  *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='R12_CoherenciaContexto'"
- *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot R12_CoherenciaContexto='self.usa.oclIsUndefined() or self.apunta.propiedad->includes(self.usa)'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot R12_CoherenciaContexto='self.usa.oclIsUndefined() or self.apunta.propiedades->includes(self.usa)'"
+ *        annotation="DSLDoc descripcion='Clase abstracta que modela las interacciones (lectura/escritura) que una tarea realiza sobre un contexto de datos.'"
  * @generated
  */
 public interface Accion extends EObject {

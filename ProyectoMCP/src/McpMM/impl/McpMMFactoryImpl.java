@@ -57,14 +57,15 @@ public class McpMMFactoryImpl extends EFactoryImpl implements McpMMFactory {
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
+			case McpMMPackage.VERSION_CONTEXTO: return createVersionContexto();
 			case McpMMPackage.SERVICE_MCP: return createServiceMCP();
 			case McpMMPackage.SERVER_MCP: return createServerMCP();
 			case McpMMPackage.AGENTE: return createAgente();
 			case McpMMPackage.WORKFLOW: return createWorkflow();
 			case McpMMPackage.CONTEXTO: return createContexto();
 			case McpMMPackage.PROPIEDAD: return createPropiedad();
-			case McpMMPackage.TAREA_FINAL: return createTareaFinal();
-			case McpMMPackage.TAREA_INICIAL: return createTareaInicial();
+			case McpMMPackage.INICIO: return createInicio();
+			case McpMMPackage.FINAL: return createFinal();
 			case McpMMPackage.ESCRITURA: return createEscritura();
 			case McpMMPackage.LECTURA: return createLectura();
 			case McpMMPackage.OPERACION_MCP: return createOperacionMCP();
@@ -108,6 +109,16 @@ public class McpMMFactoryImpl extends EFactoryImpl implements McpMMFactory {
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public VersionContexto createVersionContexto() {
+		VersionContextoImpl versionContexto = new VersionContextoImpl();
+		return versionContexto;
 	}
 
 	/**
@@ -175,9 +186,9 @@ public class McpMMFactoryImpl extends EFactoryImpl implements McpMMFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TareaFinal createTareaFinal() {
-		TareaFinalImpl tareaFinal = new TareaFinalImpl();
-		return tareaFinal;
+	public Inicio createInicio() {
+		InicioImpl inicio = new InicioImpl();
+		return inicio;
 	}
 
 	/**
@@ -185,9 +196,9 @@ public class McpMMFactoryImpl extends EFactoryImpl implements McpMMFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TareaInicial createTareaInicial() {
-		TareaInicialImpl tareaInicial = new TareaInicialImpl();
-		return tareaInicial;
+	public Final createFinal() {
+		FinalImpl final_ = new FinalImpl();
+		return final_;
 	}
 
 	/**

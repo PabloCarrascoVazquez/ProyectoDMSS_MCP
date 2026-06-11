@@ -27,7 +27,7 @@ public class ServerMCPItemSemanticEditPolicy extends McpMM.diagram.edit.policies
 	* @generated
 	*/
 	public ServerMCPItemSemanticEditPolicy() {
-		super(McpMM.diagram.providers.McpMMElementTypes.ServerMCP_2001);
+		super(McpMM.diagram.providers.McpMMElementTypes.ServerMCP_2002);
 	}
 
 	/**
@@ -58,7 +58,7 @@ public class ServerMCPItemSemanticEditPolicy extends McpMM.diagram.edit.policies
 		for (Iterator<?> nit = view.getChildren().iterator(); nit.hasNext();) {
 			Node node = (Node) nit.next();
 			switch (McpMM.diagram.part.McpMMVisualIDRegistry.getVisualID(node)) {
-			case McpMM.diagram.edit.parts.ServerMCPServerMCPOperacionmcpCompartmentEditPart.VISUAL_ID:
+			case McpMM.diagram.edit.parts.ServerMCPServerMCPOperacionesCompartmentEditPart.VISUAL_ID:
 				for (Iterator<?> cit = node.getChildren().iterator(); cit.hasNext();) {
 					Node cnode = (Node) cit.next();
 					switch (McpMM.diagram.part.McpMMVisualIDRegistry.getVisualID(cnode)) {

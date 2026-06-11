@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  *
  * @see McpMM.McpMMPackage#getOperacionMCP()
  * @model annotation="gmf.node label='nombreOperacion'"
+ *        annotation="DSLDoc descripcion='Define una operaci\363n espec\355fica disponible en un ServerMCP que puede ser invocada de manera remota.'"
  * @generated
  */
 public interface OperacionMCP extends EObject {

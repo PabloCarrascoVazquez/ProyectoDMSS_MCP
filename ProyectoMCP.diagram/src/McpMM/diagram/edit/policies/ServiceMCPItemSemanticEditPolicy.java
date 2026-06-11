@@ -26,14 +26,11 @@ public class ServiceMCPItemSemanticEditPolicy extends McpMM.diagram.edit.policie
 	* @generated
 	*/
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (McpMM.diagram.providers.McpMMElementTypes.ServerMCP_2001 == req.getElementType()) {
-			return getGEFWrapper(new McpMM.diagram.edit.commands.ServerMCPCreateCommand(req));
-		}
-		if (McpMM.diagram.providers.McpMMElementTypes.Agente_2002 == req.getElementType()) {
+		if (McpMM.diagram.providers.McpMMElementTypes.Agente_2001 == req.getElementType()) {
 			return getGEFWrapper(new McpMM.diagram.edit.commands.AgenteCreateCommand(req));
 		}
-		if (McpMM.diagram.providers.McpMMElementTypes.Workflow_2003 == req.getElementType()) {
-			return getGEFWrapper(new McpMM.diagram.edit.commands.WorkflowCreateCommand(req));
+		if (McpMM.diagram.providers.McpMMElementTypes.ServerMCP_2002 == req.getElementType()) {
+			return getGEFWrapper(new McpMM.diagram.edit.commands.ServerMCPCreateCommand(req));
 		}
 		return super.getCreateCommand(req);
 	}

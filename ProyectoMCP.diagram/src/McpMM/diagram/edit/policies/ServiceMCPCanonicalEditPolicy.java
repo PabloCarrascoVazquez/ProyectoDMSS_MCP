@@ -62,9 +62,8 @@ public class ServiceMCPCanonicalEditPolicy extends CanonicalEditPolicy {
 	protected Set getFeaturesToSynchronize() {
 		if (myFeaturesToSynchronize == null) {
 			myFeaturesToSynchronize = new HashSet<EStructuralFeature>();
-			myFeaturesToSynchronize.add(McpMM.McpMMPackage.eINSTANCE.getServiceMCP_Servermcp());
-			myFeaturesToSynchronize.add(McpMM.McpMMPackage.eINSTANCE.getServiceMCP_Agente());
-			myFeaturesToSynchronize.add(McpMM.McpMMPackage.eINSTANCE.getServiceMCP_Workflow());
+			myFeaturesToSynchronize.add(McpMM.McpMMPackage.eINSTANCE.getServiceMCP_Agentes());
+			myFeaturesToSynchronize.add(McpMM.McpMMPackage.eINSTANCE.getServiceMCP_Servidores());
 		}
 		return myFeaturesToSynchronize;
 	}
@@ -100,9 +99,8 @@ public class ServiceMCPCanonicalEditPolicy extends CanonicalEditPolicy {
 	*/
 	private boolean isMyDiagramElement(View view) {
 		int visualID = McpMM.diagram.part.McpMMVisualIDRegistry.getVisualID(view);
-		return visualID == McpMM.diagram.edit.parts.ServerMCPEditPart.VISUAL_ID
-				|| visualID == McpMM.diagram.edit.parts.AgenteEditPart.VISUAL_ID
-				|| visualID == McpMM.diagram.edit.parts.WorkflowEditPart.VISUAL_ID;
+		return visualID == McpMM.diagram.edit.parts.AgenteEditPart.VISUAL_ID
+				|| visualID == McpMM.diagram.edit.parts.ServerMCPEditPart.VISUAL_ID;
 	}
 
 	/**
@@ -262,30 +260,23 @@ public class ServiceMCPCanonicalEditPolicy extends CanonicalEditPolicy {
 			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
-		case McpMM.diagram.edit.parts.ServerMCPEditPart.VISUAL_ID: {
+		case McpMM.diagram.edit.parts.AgenteEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
-				result.addAll(McpMM.diagram.part.McpMMDiagramUpdater.getServerMCP_2001ContainedLinks(view));
+				result.addAll(McpMM.diagram.part.McpMMDiagramUpdater.getAgente_2001ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
-		case McpMM.diagram.edit.parts.AgenteEditPart.VISUAL_ID: {
+		case McpMM.diagram.edit.parts.ServerMCPEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
-				result.addAll(McpMM.diagram.part.McpMMDiagramUpdater.getAgente_2002ContainedLinks(view));
+				result.addAll(McpMM.diagram.part.McpMMDiagramUpdater.getServerMCP_2002ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case McpMM.diagram.edit.parts.WorkflowEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
-				result.addAll(McpMM.diagram.part.McpMMDiagramUpdater.getWorkflow_2003ContainedLinks(view));
-			}
-			domain2NotationMap.putView(view.getElement(), view);
-			break;
-		}
-		case McpMM.diagram.edit.parts.OperacionMCPEditPart.VISUAL_ID: {
-			if (!domain2NotationMap.containsKey(view.getElement())) {
-				result.addAll(McpMM.diagram.part.McpMMDiagramUpdater.getOperacionMCP_3001ContainedLinks(view));
+				result.addAll(McpMM.diagram.part.McpMMDiagramUpdater.getWorkflow_3001ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;
@@ -355,16 +346,16 @@ public class ServiceMCPCanonicalEditPolicy extends CanonicalEditPolicy {
 			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
-		case McpMM.diagram.edit.parts.TareaFinalEditPart.VISUAL_ID: {
+		case McpMM.diagram.edit.parts.InicioEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
-				result.addAll(McpMM.diagram.part.McpMMDiagramUpdater.getTareaFinal_3011ContainedLinks(view));
+				result.addAll(McpMM.diagram.part.McpMMDiagramUpdater.getInicio_3011ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
-		case McpMM.diagram.edit.parts.TareaInicialEditPart.VISUAL_ID: {
+		case McpMM.diagram.edit.parts.FinalEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
-				result.addAll(McpMM.diagram.part.McpMMDiagramUpdater.getTareaInicial_3012ContainedLinks(view));
+				result.addAll(McpMM.diagram.part.McpMMDiagramUpdater.getFinal_3012ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;
@@ -379,6 +370,13 @@ public class ServiceMCPCanonicalEditPolicy extends CanonicalEditPolicy {
 		case McpMM.diagram.edit.parts.PropiedadEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(McpMM.diagram.part.McpMMDiagramUpdater.getPropiedad_3014ContainedLinks(view));
+			}
+			domain2NotationMap.putView(view.getElement(), view);
+			break;
+		}
+		case McpMM.diagram.edit.parts.OperacionMCPEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(McpMM.diagram.part.McpMMDiagramUpdater.getOperacionMCP_3015ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;

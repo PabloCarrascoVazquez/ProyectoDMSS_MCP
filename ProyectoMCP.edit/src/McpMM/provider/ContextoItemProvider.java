@@ -125,7 +125,7 @@ public class ContextoItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(McpMMPackage.Literals.CONTEXTO__PROPIEDAD);
+			childrenFeatures.add(McpMMPackage.Literals.CONTEXTO__PROPIEDADES);
 		}
 		return childrenFeatures;
 	}
@@ -184,7 +184,7 @@ public class ContextoItemProvider
 			case McpMMPackage.CONTEXTO__NOMBRE_CONTEXTO:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case McpMMPackage.CONTEXTO__PROPIEDAD:
+			case McpMMPackage.CONTEXTO__PROPIEDADES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -204,7 +204,7 @@ public class ContextoItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(McpMMPackage.Literals.CONTEXTO__PROPIEDAD,
+				(McpMMPackage.Literals.CONTEXTO__PROPIEDADES,
 				 McpMMFactory.eINSTANCE.createPropiedad()));
 	}
 

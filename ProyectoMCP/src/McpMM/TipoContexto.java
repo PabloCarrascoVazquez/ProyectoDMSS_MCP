@@ -14,7 +14,7 @@ import org.eclipse.emf.common.util.Enumerator;
  * and utility methods for working with them.
  * <!-- end-user-doc -->
  * @see McpMM.McpMMPackage#getTipoContexto()
- * @model
+ * @model annotation="DSLDoc descripcion='Enumeraci\363n de los tipos de datos b\341sicos y complejos permitidos en las propiedades de un contexto.'"
  * @generated
  */
 public enum TipoContexto implements Enumerator {

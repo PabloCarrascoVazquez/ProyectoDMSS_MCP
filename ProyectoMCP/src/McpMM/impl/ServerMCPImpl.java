@@ -18,7 +18,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -31,7 +31,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link McpMM.impl.ServerMCPImpl#getNombreServer <em>Nombre Server</em>}</li>
- *   <li>{@link McpMM.impl.ServerMCPImpl#getOperacionmcp <em>Operacionmcp</em>}</li>
+ *   <li>{@link McpMM.impl.ServerMCPImpl#getOperaciones <em>Operaciones</em>}</li>
  * </ul>
  *
  * @generated
@@ -58,14 +58,14 @@ public class ServerMCPImpl extends EObjectImpl implements ServerMCP {
 	protected String nombreServer = NOMBRE_SERVER_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getOperacionmcp() <em>Operacionmcp</em>}' containment reference list.
+	 * The cached value of the '{@link #getOperaciones() <em>Operaciones</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getOperacionmcp()
+	 * @see #getOperaciones()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<OperacionMCP> operacionmcp;
+	protected EList<OperacionMCP> operaciones;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -112,11 +112,11 @@ public class ServerMCPImpl extends EObjectImpl implements ServerMCP {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<OperacionMCP> getOperacionmcp() {
-		if (operacionmcp == null) {
-			operacionmcp = new EObjectContainmentEList<OperacionMCP>(OperacionMCP.class, this, McpMMPackage.SERVER_MCP__OPERACIONMCP);
+	public EList<OperacionMCP> getOperaciones() {
+		if (operaciones == null) {
+			operaciones = new EObjectContainmentEList<OperacionMCP>(OperacionMCP.class, this, McpMMPackage.SERVER_MCP__OPERACIONES);
 		}
-		return operacionmcp;
+		return operaciones;
 	}
 
 	/**
@@ -127,8 +127,8 @@ public class ServerMCPImpl extends EObjectImpl implements ServerMCP {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case McpMMPackage.SERVER_MCP__OPERACIONMCP:
-				return ((InternalEList<?>)getOperacionmcp()).basicRemove(otherEnd, msgs);
+			case McpMMPackage.SERVER_MCP__OPERACIONES:
+				return ((InternalEList<?>)getOperaciones()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -143,8 +143,8 @@ public class ServerMCPImpl extends EObjectImpl implements ServerMCP {
 		switch (featureID) {
 			case McpMMPackage.SERVER_MCP__NOMBRE_SERVER:
 				return getNombreServer();
-			case McpMMPackage.SERVER_MCP__OPERACIONMCP:
-				return getOperacionmcp();
+			case McpMMPackage.SERVER_MCP__OPERACIONES:
+				return getOperaciones();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -161,9 +161,9 @@ public class ServerMCPImpl extends EObjectImpl implements ServerMCP {
 			case McpMMPackage.SERVER_MCP__NOMBRE_SERVER:
 				setNombreServer((String)newValue);
 				return;
-			case McpMMPackage.SERVER_MCP__OPERACIONMCP:
-				getOperacionmcp().clear();
-				getOperacionmcp().addAll((Collection<? extends OperacionMCP>)newValue);
+			case McpMMPackage.SERVER_MCP__OPERACIONES:
+				getOperaciones().clear();
+				getOperaciones().addAll((Collection<? extends OperacionMCP>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -180,8 +180,8 @@ public class ServerMCPImpl extends EObjectImpl implements ServerMCP {
 			case McpMMPackage.SERVER_MCP__NOMBRE_SERVER:
 				setNombreServer(NOMBRE_SERVER_EDEFAULT);
 				return;
-			case McpMMPackage.SERVER_MCP__OPERACIONMCP:
-				getOperacionmcp().clear();
+			case McpMMPackage.SERVER_MCP__OPERACIONES:
+				getOperaciones().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -197,8 +197,8 @@ public class ServerMCPImpl extends EObjectImpl implements ServerMCP {
 		switch (featureID) {
 			case McpMMPackage.SERVER_MCP__NOMBRE_SERVER:
 				return NOMBRE_SERVER_EDEFAULT == null ? nombreServer != null : !NOMBRE_SERVER_EDEFAULT.equals(nombreServer);
-			case McpMMPackage.SERVER_MCP__OPERACIONMCP:
-				return operacionmcp != null && !operacionmcp.isEmpty();
+			case McpMMPackage.SERVER_MCP__OPERACIONES:
+				return operaciones != null && !operaciones.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

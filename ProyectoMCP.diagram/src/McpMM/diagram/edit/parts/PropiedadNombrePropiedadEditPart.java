@@ -55,7 +55,7 @@ public class PropiedadNombrePropiedadEditPart extends CompartmentEditPart implem
 	/**
 	* @generated
 	*/
-	public static final int VISUAL_ID = 5015;
+	public static final int VISUAL_ID = 5013;
 
 	/**
 	* @generated

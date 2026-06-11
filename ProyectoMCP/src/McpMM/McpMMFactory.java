@@ -22,6 +22,15 @@ public interface McpMMFactory extends EFactory {
 	McpMMFactory eINSTANCE = McpMM.impl.McpMMFactoryImpl.init();
 
 	/**
+	 * Returns a new object of class '<em>Version Contexto</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Version Contexto</em>'.
+	 * @generated
+	 */
+	VersionContexto createVersionContexto();
+
+	/**
 	 * Returns a new object of class '<em>Service MCP</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -76,22 +85,22 @@ public interface McpMMFactory extends EFactory {
 	Propiedad createPropiedad();
 
 	/**
-	 * Returns a new object of class '<em>Tarea Final</em>'.
+	 * Returns a new object of class '<em>Inicio</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Tarea Final</em>'.
+	 * @return a new object of class '<em>Inicio</em>'.
 	 * @generated
 	 */
-	TareaFinal createTareaFinal();
+	Inicio createInicio();
 
 	/**
-	 * Returns a new object of class '<em>Tarea Inicial</em>'.
+	 * Returns a new object of class '<em>Final</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Tarea Inicial</em>'.
+	 * @return a new object of class '<em>Final</em>'.
 	 * @generated
 	 */
-	TareaInicial createTareaInicial();
+	Final createFinal();
 
 	/**
 	 * Returns a new object of class '<em>Escritura</em>'.

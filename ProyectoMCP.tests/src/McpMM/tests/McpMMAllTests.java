@@ -31,7 +31,6 @@ public class McpMMAllTests extends TestSuite {
 	 */
 	public static Test suite() {
 		TestSuite suite = new McpMMAllTests("McpMM Tests");
-		suite.addTest(McpMMTests.suite());
 		return suite;
 	}
 

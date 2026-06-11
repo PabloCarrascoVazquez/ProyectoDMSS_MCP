@@ -54,7 +54,7 @@ public class TareaServerMCPEjecutaOperacionCreateCommand extends EditElementComm
 		}
 		// target may be null here but it's possible to check constraint
 		return McpMM.diagram.edit.policies.McpMMBaseItemSemanticEditPolicy.getLinkConstraints()
-				.canCreateTareaServerMCPEjecutaOperacion_4008(getSource(), getTarget());
+				.canCreateTareaServerMCPEjecutaOperacion_4003(getSource(), getTarget());
 	}
 
 	/**

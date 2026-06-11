@@ -4,6 +4,7 @@ package McpMM.provider;
 
 
 import McpMM.Agente;
+import McpMM.McpMMFactory;
 import McpMM.McpMMPackage;
 
 import java.util.Collection;
@@ -13,6 +14,8 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
+
+import org.eclipse.emf.ecore.EStructuralFeature;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
@@ -60,27 +63,26 @@ public class AgenteItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addNombreAgentePropertyDescriptor(object);
-			addNumTareasPropertyDescriptor(object);
-			addRealizaPropertyDescriptor(object);
+			addNombrePropertyDescriptor(object);
+			addRolPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Nombre Agente feature.
+	 * This adds a property descriptor for the Nombre feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addNombreAgentePropertyDescriptor(Object object) {
+	protected void addNombrePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Agente_nombreAgente_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Agente_nombreAgente_feature", "_UI_Agente_type"),
-				 McpMMPackage.Literals.AGENTE__NOMBRE_AGENTE,
+				 getString("_UI_Agente_nombre_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Agente_nombre_feature", "_UI_Agente_type"),
+				 McpMMPackage.Literals.AGENTE__NOMBRE,
 				 true,
 				 false,
 				 false,
@@ -90,47 +92,56 @@ public class AgenteItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Num Tareas feature.
+	 * This adds a property descriptor for the Rol feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addNumTareasPropertyDescriptor(Object object) {
+	protected void addRolPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Agente_numTareas_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Agente_numTareas_feature", "_UI_Agente_type"),
-				 McpMMPackage.Literals.AGENTE__NUM_TAREAS,
+				 getString("_UI_Agente_rol_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Agente_rol_feature", "_UI_Agente_type"),
+				 McpMMPackage.Literals.AGENTE__ROL,
 				 true,
 				 false,
 				 false,
-				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
 
 	/**
-	 * This adds a property descriptor for the Realiza feature.
+	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
+	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
+	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addRealizaPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Agente_realiza_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Agente_realiza_feature", "_UI_Agente_type"),
-				 McpMMPackage.Literals.AGENTE__REALIZA,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
+	@Override
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
+		if (childrenFeatures == null) {
+			super.getChildrenFeatures(object);
+			childrenFeatures.add(McpMMPackage.Literals.AGENTE__FLUJO);
+			childrenFeatures.add(McpMMPackage.Literals.AGENTE__CONTEXTOS);
+		}
+		return childrenFeatures;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected EStructuralFeature getChildFeature(Object object, Object child) {
+		// Check the type of the specified child object and return the proper feature to use for
+		// adding (see {@link AddCommand}) it as a child.
+
+		return super.getChildFeature(object, child);
 	}
 
 	/**
@@ -152,7 +163,7 @@ public class AgenteItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Agente)object).getNombreAgente();
+		String label = ((Agente)object).getNombre();
 		return label == null || label.length() == 0 ?
 			getString("_UI_Agente_type") :
 			getString("_UI_Agente_type") + " " + label;
@@ -171,9 +182,13 @@ public class AgenteItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Agente.class)) {
-			case McpMMPackage.AGENTE__NOMBRE_AGENTE:
-			case McpMMPackage.AGENTE__NUM_TAREAS:
+			case McpMMPackage.AGENTE__NOMBRE:
+			case McpMMPackage.AGENTE__ROL:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+			case McpMMPackage.AGENTE__FLUJO:
+			case McpMMPackage.AGENTE__CONTEXTOS:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
 		super.notifyChanged(notification);
@@ -189,6 +204,16 @@ public class AgenteItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add
+			(createChildParameter
+				(McpMMPackage.Literals.AGENTE__FLUJO,
+				 McpMMFactory.eINSTANCE.createWorkflow()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(McpMMPackage.Literals.AGENTE__CONTEXTOS,
+				 McpMMFactory.eINSTANCE.createContexto()));
 	}
 
 	/**

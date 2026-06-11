@@ -4,8 +4,15 @@
 @namespace(uri="https://www.example.org/McpMM", prefix="McpMM")
 package McpMM;
 
+// EXTENSI覰 1: Historial de contexto
+class VersionContexto {
+    attr String valorAnterior;
+    attr String fechaModificacion;
+    ref Propiedad#versiones propiedadAsociada;
+}
+
 @gmf.diagram
-@"DSLDoc"(descripcion="Clase ra铆z que act煤a como contenedor principal de todo el modelo de agentes y servicios.")
+@"DSLDoc"(descripcion="Clase ra韟 que act鷄 como contenedor principal de todo el modelo de agentes y servicios.")
 class ServiceMCP {
 	attr String nombreServicio;
 	
@@ -23,15 +30,16 @@ class ServerMCP {
 	val OperacionMCP[*] operaciones;
 }
 
+@Ecore(constraints="R05_LimiteCargaTrabajo")
+@"http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"(
+    R05_LimiteCargaTrabajo="self.flujo.tareas->select(t | t.oclIsKindOf(TareaEjecutable))->size() <= 10"
+)
 @gmf.node(label="nombre", figure="rectangle", color="255,200,200")
-@"DSLDoc"(descripcion="Representa una entidad inteligente aut贸noma con un rol espec铆fico y capacidad de procesamiento.")
 class Agente {
 	attr String nombre;
 	attr String rol;
-
 	@gmf.compartment(layout="free")
 	val Workflow[1] flujo;
-	
 	@gmf.compartment(layout="list")
 	val Contexto[*] contextos;
 }
@@ -51,7 +59,7 @@ class Workflow {
 }
 
 @gmf.node(label="nombreContexto", figure="rectangle", color="255,255,200")
-@"DSLDoc"(descripcion="Representa el estado o conjunto de datos compartidos durante la ejecuci贸n del workflow de un agente.")
+@"DSLDoc"(descripcion="Representa el estado o conjunto de datos compartidos durante la ejecuci髇 del workflow de un agente.")
 class Contexto {
 	attr String nombreContexto;
 	
@@ -62,11 +70,17 @@ class Contexto {
 }
 
 @gmf.node(label="nombrePropiedad")
-@"DSLDoc"(descripcion="Define un dato individual dentro de un contexto, encapsulando su nombre y su tipo de dato.")
 class Propiedad {
-	attr String nombrePropiedad;
-	attr TipoContexto tipoPropiedad;
-	ref Accion[*]#usa esUsada;
+    attr String nombrePropiedad;
+    attr TipoContexto tipoPropiedad;
+    
+    attr String extensionPermitida; 
+    attr int pesoMaxMB;            
+    
+    ref Accion[*]#usa esUsada;
+    
+    // CORRECCI覰 DEL ERROR DE LA FOTO: A馻dido el #propiedadAsociada
+    val VersionContexto[*]#propiedadAsociada versiones; 
 }
 
 @Ecore(constraints="R09_EntradaYSalida R10_NoBuclePropio")
@@ -91,17 +105,17 @@ abstract class Tarea {
 	ref TareaAnalisis#sigueElse precedeElse;
 }
 
-@"DSLDoc"(descripcion="Clase base para aquellas tareas que implican una ejecuci贸n u operaci贸n concreta, excluyendo los puntos iniciales y finales.")
+@"DSLDoc"(descripcion="Clase base para aquellas tareas que implican una ejecuci髇 u operaci髇 concreta, excluyendo los puntos iniciales y finales.")
 abstract class TareaEjecutable extends Tarea {
 }
 
 @gmf.node(label="nombreTarea", figure="ellipse", color="0,255,0", size="30,30")
-@"DSLDoc"(descripcion="Nodo inicial que marca el punto de partida indiscutible para la ejecuci贸n de un workflow.")
+@"DSLDoc"(descripcion="Nodo inicial que marca el punto de partida indiscutible para la ejecuci髇 de un workflow.")
 class Inicio extends Tarea {
 }
 
 @gmf.node(label="nombreTarea", figure="ellipse", color="255,0,0", size="30,30")
-@"DSLDoc"(descripcion="Nodo final que indica la terminaci贸n l贸gica de un workflow.")
+@"DSLDoc"(descripcion="Nodo final que indica la terminaci髇 l骻ica de un workflow.")
 class Final extends Tarea {
 }
 
@@ -116,16 +130,16 @@ abstract class Accion {
 }
 
 @gmf.node(label="nombreAccion", figure="rectangle")
-@"DSLDoc"(descripcion="Acci贸n que modifica, actualiza o inserta nuevos datos en un contexto.")
+@"DSLDoc"(descripcion="Acci髇 que modifica, actualiza o inserta nuevos datos en un contexto.")
 class Escritura extends Accion {
 }
 
 @gmf.node(label="nombreAccion", figure="rectangle")
-@"DSLDoc"(descripcion="Acci贸n que obtiene o consume datos de un contexto para su procesamiento.")
+@"DSLDoc"(descripcion="Acci髇 que obtiene o consume datos de un contexto para su procesamiento.")
 class Lectura extends Accion {
 }
 
-@"DSLDoc"(descripcion="Enumeraci贸n de los tipos de datos b谩sicos y complejos permitidos en las propiedades de un contexto.")
+@"DSLDoc"(descripcion="Enumeraci髇 de los tipos de datos b醩icos y complejos permitidos en las propiedades de un contexto.")
 enum TipoContexto {
 	ENTERO = 0;
 	CADENA = 1;
@@ -137,7 +151,7 @@ enum TipoContexto {
 }
 
 @gmf.node(label="nombreOperacion")
-@"DSLDoc"(descripcion="Define una operaci贸n espec铆fica disponible en un ServerMCP que puede ser invocada de manera remota.")
+@"DSLDoc"(descripcion="Define una operaci髇 espec韋ica disponible en un ServerMCP que puede ser invocada de manera remota.")
 class OperacionMCP {
 	attr String nombreOperacion;
 	attr String descOperacion;
@@ -151,18 +165,18 @@ class TareaTransformacionDatos extends TareaEjecutable {
 }
 
 @gmf.node(label="nombreTarea", figure="rectangle", color="255,200,255")
-@"DSLDoc"(descripcion="Tarea que invoca a un Modelo de Lenguaje Grande (LLM) utilizando un prompt espec铆fico para razonamiento o generaci贸n de texto.")
+@"DSLDoc"(descripcion="Tarea que invoca a un Modelo de Lenguaje Grande (LLM) utilizando un prompt espec韋ico para razonamiento o generaci髇 de texto.")
 class TareaLLM extends TareaEjecutable {
 	attr String prompt;
 }
 
 @gmf.node(label="nombreTarea", figure="rectangle", color="255,255,255")
-@"DSLDoc"(descripcion="Tarea interactiva que detiene el flujo para requerir intervenci贸n o entrada de datos manual por parte de un usuario humano.")
+@"DSLDoc"(descripcion="Tarea interactiva que detiene el flujo para requerir intervenci髇 o entrada de datos manual por parte de un usuario humano.")
 class TareaUsuario extends TareaEjecutable {
 }
 
 @gmf.node(label="nombreTarea", figure="rectangle", color="255,255,150")
-@"DSLDoc"(descripcion="Tarea de bifurcaci贸n condicional que eval煤a un estado para decidir continuar por el flujo principal o por un flujo alternativo (Else).")
+@"DSLDoc"(descripcion="Tarea de bifurcaci髇 condicional que eval鷄 un estado para decidir continuar por el flujo principal o por un flujo alternativo (Else).")
 class TareaAnalisis extends TareaEjecutable {
 	@gmf.link(target.decoration="arrow", label="sigue Else")
 	ref Tarea[1]#precedeElse sigueElse;
@@ -172,11 +186,7 @@ class TareaAnalisis extends TareaEjecutable {
 @gmf.node(label="nombreTarea", figure="rectangle", color="150,255,150")
 @"DSLDoc"(descripcion="Subclase de TareaEjecutable que permite exportar el contexto actual de un flujo para que sea procesado por otro agente.")
 class TareaEnvioContexto extends TareaEjecutable {
-	@gmf.link(target.decoration="arrow", color="100,100,100", label="env铆a a")
-	ref TareaRecepcionContexto enviaA;
-	
-	@gmf.link(target.decoration="arrow", style="dash", color="200,100,0", label="env铆a prop.")
-	ref Propiedad envioAsociado;
+    // Relaciones borradas para limpieza de dise駉 (Extensi髇 de expresividad)
 }
 
 @Ecore(constraints="R07_RecepcionPrecedidaEnvio R11_MismasPropiedadesEnvioRecepcion")
@@ -185,17 +195,12 @@ class TareaEnvioContexto extends TareaEjecutable {
 	R11_MismasPropiedadesEnvioRecepcion="if not self.precede.oclIsUndefined() and self.precede.oclIsTypeOf(TareaEnvioContexto) then self.accion->collect(usa)->asSet() = self.precede.accion->collect(usa)->asSet() else true endif"
 )
 @gmf.node(label="nombreTarea", figure="rectangle", color="150,150,255")
-@"DSLDoc"(descripcion="Subclase de TareaEjecutable para pausar o esperar de forma s铆ncrona/as铆ncrona la llegada de un contexto externo.")
+@"DSLDoc"(descripcion="Subclase de TareaEjecutable para pausar o esperar de forma s韓crona/as韓crona la llegada de un contexto externo.")
 class TareaRecepcionContexto extends TareaEjecutable {
-	@gmf.link(target.decoration="arrow", color="100,100,100", label="recibe de")
-	ref TareaEnvioContexto recibeDe;
-	
-	@gmf.link(target.decoration="arrow", style="dash", color="200,100,0", label="recibe prop.")
-	ref Propiedad recepcionAsociada;
 }
 
 @gmf.node(label="nombreTarea", figure="rectangle", color="200,200,200")
-@"DSLDoc"(descripcion="Tarea automatizada que se conecta a un ServerMCP para invocar remotamente una OperacionMCP espec铆fica.")
+@"DSLDoc"(descripcion="Tarea automatizada que se conecta a un ServerMCP para invocar remotamente una OperacionMCP espec韋ica.")
 class TareaServerMCP extends TareaEjecutable {
 	@gmf.link(target.decoration="arrow", style="dash", label="ejecuta oper.")
 	ref OperacionMCP[1]#esEjecutadaOperacion ejecutaOperacion;

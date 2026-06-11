@@ -16,11 +16,12 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link McpMM.ServerMCP#getNombreServer <em>Nombre Server</em>}</li>
- *   <li>{@link McpMM.ServerMCP#getOperacionmcp <em>Operacionmcp</em>}</li>
+ *   <li>{@link McpMM.ServerMCP#getOperaciones <em>Operaciones</em>}</li>
  * </ul>
  *
  * @see McpMM.McpMMPackage#getServerMCP()
  * @model annotation="gmf.node label='nombreServer' figure='rectangle' color='200,200,255'"
+ *        annotation="DSLDoc descripcion='Representa un servidor o infraestructura externa que expone operaciones MCP a las que los agentes pueden conectarse.'"
  * @generated
  */
 public interface ServerMCP extends EObject {
@@ -51,20 +52,20 @@ public interface ServerMCP extends EObject {
 	void setNombreServer(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Operacionmcp</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Operaciones</b></em>' containment reference list.
 	 * The list contents are of type {@link McpMM.OperacionMCP}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Operacionmcp</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Operaciones</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Operacionmcp</em>' containment reference list.
-	 * @see McpMM.McpMMPackage#getServerMCP_Operacionmcp()
+	 * @return the value of the '<em>Operaciones</em>' containment reference list.
+	 * @see McpMM.McpMMPackage#getServerMCP_Operaciones()
 	 * @model containment="true"
 	 *        annotation="gmf.compartment layout='list'"
 	 * @generated
 	 */
-	EList<OperacionMCP> getOperacionmcp();
+	EList<OperacionMCP> getOperaciones();
 
 } // ServerMCP

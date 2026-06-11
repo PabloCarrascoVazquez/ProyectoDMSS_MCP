@@ -54,7 +54,7 @@ public class AgenteCreateCommand extends EditElementCommand {
 		McpMM.Agente newElement = McpMM.McpMMFactory.eINSTANCE.createAgente();
 
 		McpMM.ServiceMCP owner = (McpMM.ServiceMCP) getElementToEdit();
-		owner.getAgente().add(newElement);
+		owner.getAgentes().add(newElement);
 
 		doConfigure(newElement, monitor, info);
 

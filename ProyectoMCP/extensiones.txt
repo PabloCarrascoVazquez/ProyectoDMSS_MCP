@@ -1,0 +1,21 @@
+1. Control de Capacidad Computacional (Restricciones OCL)
+Tipo de extensión: Extensión 1 (Aumento de la expresividad del lenguaje).
+
+Descripción técnica: Se ha incorporado una restricción formal a nivel de metamodelo (R05_LimiteCargaTrabajo) validada mediante OCL. Esta regla impide que un diseñador asigne una cantidad excesiva de tareas ejecutables (límite establecido en 10) a un mismo Agente.
+
+Valor aportado: Aporta un alto grado de realismo al modelado del dominio. Permite representar entornos de Inteligencia Artificial donde los agentes computacionales tienen recursos finitos, evitando diseños ineficientes y previniendo cuellos de botella antes de que el flujo llegue a producción.
+
+2. Trazabilidad de Datos (Histórico de Contexto)
+Tipo de extensión: Extensión 1 (Mejora de expresividad y persistencia avanzada).
+
+Descripción técnica: El sistema ha evolucionado de tener una "memoria actual volátil" a contar con trazabilidad completa. Se ha introducido la clase VersionContexto en el metamodelo para almacenar instantáneas de los datos. En la transformación Acceleo, se ha desarrollado la lógica necesaria para renderizar de forma dinámica la línea temporal de cambios siempre que una tarea modifique una variable.
+
+Valor aportado: Demuestra comprensión de los sistemas empresariales reales, donde la auditoría de datos es un requisito legal y funcional crítico. Garantiza que ninguna tarea de Escritura destruya información previa de forma irreversible.
+
+
+3. Seguridad y Validación Dinámica Frontend
+Tipo de extensión: Extensión 4 (Funcionalidad web ampliada y comportamiento dinámico).
+
+Descripción técnica: Se ha enriquecido la clase Propiedad con atributos de configuración de seguridad (extensionPermitida y pesoMaxMB). En lugar de realizar una transformación a HTML estático básico, el módulo Acceleo procesa estos metadatos para inyectar automáticamente scripts de validación (JavaScript vía eventos onchange) y restricciones nativas HTML5 (accept) en los formularios generados.
+
+Valor aportado: Convierte el Lenguaje Específico de Dominio (DSL) en una herramienta proactiva de ciberseguridad. Permite a los arquitectos de software definir políticas de subida de archivos directamente en la fase de modelado gráfico, protegiendo al sistema de cargas maliciosas o sobrecargas de memoria sin tener que picar código a mano posteriormente.

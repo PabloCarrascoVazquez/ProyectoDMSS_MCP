@@ -54,7 +54,7 @@ public class TareaServerMCPCreateCommand extends EditElementCommand {
 		McpMM.TareaServerMCP newElement = McpMM.McpMMFactory.eINSTANCE.createTareaServerMCP();
 
 		McpMM.Workflow owner = (McpMM.Workflow) getElementToEdit();
-		owner.getTarea().add(newElement);
+		owner.getTareas().add(newElement);
 
 		doConfigure(newElement, monitor, info);
 

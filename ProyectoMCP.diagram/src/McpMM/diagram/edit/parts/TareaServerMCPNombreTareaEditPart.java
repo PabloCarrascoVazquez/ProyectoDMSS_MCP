@@ -55,7 +55,7 @@ public class TareaServerMCPNombreTareaEditPart extends CompartmentEditPart imple
 	/**
 	* @generated
 	*/
-	public static final int VISUAL_ID = 5012;
+	public static final int VISUAL_ID = 5009;
 
 	/**
 	* @generated

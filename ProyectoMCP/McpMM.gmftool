@@ -39,6 +39,24 @@
       </tools>
       <tools
           xsi:type="gmftool:CreationTool"
+          title="Final"
+          description="Create new Final">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Inicio"
+          description="Create new Inicio">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
           title="Lectura"
           description="Create new Lectura">
         <smallIcon
@@ -86,24 +104,6 @@
           xsi:type="gmftool:CreationTool"
           title="TareaEnvioContexto"
           description="Create new TareaEnvioContexto">
-        <smallIcon
-            xsi:type="gmftool:DefaultImage"/>
-        <largeIcon
-            xsi:type="gmftool:DefaultImage"/>
-      </tools>
-      <tools
-          xsi:type="gmftool:CreationTool"
-          title="TareaFinal"
-          description="Create new TareaFinal">
-        <smallIcon
-            xsi:type="gmftool:DefaultImage"/>
-        <largeIcon
-            xsi:type="gmftool:DefaultImage"/>
-      </tools>
-      <tools
-          xsi:type="gmftool:CreationTool"
-          title="TareaInicial"
-          description="Create new TareaInicial">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon
@@ -172,33 +172,6 @@
           xsi:type="gmftool:CreationTool"
           title="EjecutaOperacion"
           description="Create new EjecutaOperacion">
-        <smallIcon
-            xsi:type="gmftool:DefaultImage"/>
-        <largeIcon
-            xsi:type="gmftool:DefaultImage"/>
-      </tools>
-      <tools
-          xsi:type="gmftool:CreationTool"
-          title="EmpiezaCon"
-          description="Create new EmpiezaCon">
-        <smallIcon
-            xsi:type="gmftool:DefaultImage"/>
-        <largeIcon
-            xsi:type="gmftool:DefaultImage"/>
-      </tools>
-      <tools
-          xsi:type="gmftool:CreationTool"
-          title="FinalizaCon"
-          description="Create new FinalizaCon">
-        <smallIcon
-            xsi:type="gmftool:DefaultImage"/>
-        <largeIcon
-            xsi:type="gmftool:DefaultImage"/>
-      </tools>
-      <tools
-          xsi:type="gmftool:CreationTool"
-          title="Realiza"
-          description="Create new Realiza">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon

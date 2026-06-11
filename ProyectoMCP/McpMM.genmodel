@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="" modelDirectory="/ProyectoMCP/src" modelPluginID="ProyectoMCP"
-    modelName="McpMM" importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0"
-    copyrightFields="false" tableProviders="true" operationReflection="true">
+    modelName="McpMM" importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0"
+    copyrightFields="false">
   <foreignModel>McpMM.emf</foreignModel>
   <genPackages prefix="McpMM" disposableProviderFactory="true" ecorePackage="McpMM.ecore#/">
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="McpMM.ecore#//TipoContexto">
@@ -14,56 +14,56 @@
       <genEnumLiterals ecoreEnumLiteral="McpMM.ecore#//TipoContexto/ARCHIVO"/>
       <genEnumLiterals ecoreEnumLiteral="McpMM.ecore#//TipoContexto/COLECCION_ARCHIVOS"/>
     </genEnums>
+    <genClasses ecoreClass="McpMM.ecore#//VersionContexto">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute McpMM.ecore#//VersionContexto/valorAnterior"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute McpMM.ecore#//VersionContexto/fechaModificacion"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference McpMM.ecore#//VersionContexto/propiedadAsociada"/>
+    </genClasses>
     <genClasses ecoreClass="McpMM.ecore#//ServiceMCP">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute McpMM.ecore#//ServiceMCP/nombreServicio"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference McpMM.ecore#//ServiceMCP/servermcp"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference McpMM.ecore#//ServiceMCP/agente"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference McpMM.ecore#//ServiceMCP/workflow"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference McpMM.ecore#//ServiceMCP/agentes"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference McpMM.ecore#//ServiceMCP/servicios"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference McpMM.ecore#//ServiceMCP/servidores"/>
     </genClasses>
     <genClasses ecoreClass="McpMM.ecore#//ServerMCP">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute McpMM.ecore#//ServerMCP/nombreServer"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference McpMM.ecore#//ServerMCP/operacionmcp"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference McpMM.ecore#//ServerMCP/operaciones"/>
     </genClasses>
     <genClasses ecoreClass="McpMM.ecore#//Agente">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute McpMM.ecore#//Agente/nombreAgente"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute McpMM.ecore#//Agente/numTareas"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference McpMM.ecore#//Agente/realiza"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute McpMM.ecore#//Agente/nombre"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute McpMM.ecore#//Agente/rol"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference McpMM.ecore#//Agente/flujo"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference McpMM.ecore#//Agente/contextos"/>
     </genClasses>
     <genClasses ecoreClass="McpMM.ecore#//Workflow">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute McpMM.ecore#//Workflow/nombreWorkflow"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference McpMM.ecore#//Workflow/contexto"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference McpMM.ecore#//Workflow/tarea"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference McpMM.ecore#//Workflow/empiezaCon"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference McpMM.ecore#//Workflow/finalizaCon"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference McpMM.ecore#//Workflow/tareas"/>
     </genClasses>
     <genClasses ecoreClass="McpMM.ecore#//Contexto">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute McpMM.ecore#//Contexto/nombreContexto"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference McpMM.ecore#//Contexto/propiedad"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference McpMM.ecore#//Contexto/propiedades"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference McpMM.ecore#//Contexto/esApuntadoPor"/>
     </genClasses>
     <genClasses ecoreClass="McpMM.ecore#//Propiedad">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute McpMM.ecore#//Propiedad/nombrePropiedad"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute McpMM.ecore#//Propiedad/tipoPropiedad"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute McpMM.ecore#//Propiedad/extensionPermitida"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute McpMM.ecore#//Propiedad/pesoMaxMB"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference McpMM.ecore#//Propiedad/esUsada"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference McpMM.ecore#//Propiedad/versiones"/>
     </genClasses>
     <genClasses image="false" ecoreClass="McpMM.ecore#//Tarea">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute McpMM.ecore#//Tarea/nombreTarea"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute McpMM.ecore#//Tarea/taskId"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute McpMM.ecore#//Tarea/taskDesc"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference McpMM.ecore#//Tarea/accion"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference McpMM.ecore#//Tarea/precede"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference McpMM.ecore#//Tarea/sigue"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference McpMM.ecore#//Tarea/precedeElse"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference McpMM.ecore#//Tarea/agenteAsignado"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="McpMM.ecore#//TareaEjecutable">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute McpMM.ecore#//TareaEjecutable/idTarea"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute McpMM.ecore#//TareaEjecutable/descTarea"/>
-    </genClasses>
-    <genClasses ecoreClass="McpMM.ecore#//TareaFinal">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference McpMM.ecore#//TareaFinal/finaliza"/>
-    </genClasses>
-    <genClasses ecoreClass="McpMM.ecore#//TareaInicial">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference McpMM.ecore#//TareaInicial/empieza"/>
-    </genClasses>
+    <genClasses image="false" ecoreClass="McpMM.ecore#//TareaEjecutable"/>
+    <genClasses ecoreClass="McpMM.ecore#//Inicio"/>
+    <genClasses ecoreClass="McpMM.ecore#//Final"/>
     <genClasses image="false" ecoreClass="McpMM.ecore#//Accion">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute McpMM.ecore#//Accion/nombreAccion"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference McpMM.ecore#//Accion/apunta"/>

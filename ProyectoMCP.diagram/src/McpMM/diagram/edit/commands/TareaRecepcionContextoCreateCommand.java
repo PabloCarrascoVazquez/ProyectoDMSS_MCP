@@ -54,7 +54,7 @@ public class TareaRecepcionContextoCreateCommand extends EditElementCommand {
 		McpMM.TareaRecepcionContexto newElement = McpMM.McpMMFactory.eINSTANCE.createTareaRecepcionContexto();
 
 		McpMM.Workflow owner = (McpMM.Workflow) getElementToEdit();
-		owner.getTarea().add(newElement);
+		owner.getTareas().add(newElement);
 
 		doConfigure(newElement, monitor, info);
 

@@ -55,7 +55,7 @@ public class ContextoItemSemanticEditPolicy extends McpMM.diagram.edit.policies.
 		for (Iterator<?> nit = view.getChildren().iterator(); nit.hasNext();) {
 			Node node = (Node) nit.next();
 			switch (McpMM.diagram.part.McpMMVisualIDRegistry.getVisualID(node)) {
-			case McpMM.diagram.edit.parts.ContextoContextoPropiedadCompartmentEditPart.VISUAL_ID:
+			case McpMM.diagram.edit.parts.ContextoContextoPropiedadesCompartmentEditPart.VISUAL_ID:
 				for (Iterator<?> cit = node.getChildren().iterator(); cit.hasNext();) {
 					Node cnode = (Node) cit.next();
 					switch (McpMM.diagram.part.McpMMVisualIDRegistry.getVisualID(cnode)) {

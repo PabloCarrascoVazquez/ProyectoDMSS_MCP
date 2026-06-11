@@ -18,6 +18,7 @@ package McpMM;
  *
  * @see McpMM.McpMMPackage#getTareaServerMCP()
  * @model annotation="gmf.node label='nombreTarea' figure='rectangle' color='200,200,200'"
+ *        annotation="DSLDoc descripcion='Tarea automatizada que se conecta a un ServerMCP para invocar remotamente una OperacionMCP espec\355fica.'"
  * @generated
  */
 public interface TareaServerMCP extends TareaEjecutable {

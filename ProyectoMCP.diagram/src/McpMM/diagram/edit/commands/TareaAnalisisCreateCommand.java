@@ -54,7 +54,7 @@ public class TareaAnalisisCreateCommand extends EditElementCommand {
 		McpMM.TareaAnalisis newElement = McpMM.McpMMFactory.eINSTANCE.createTareaAnalisis();
 
 		McpMM.Workflow owner = (McpMM.Workflow) getElementToEdit();
-		owner.getTarea().add(newElement);
+		owner.getTareas().add(newElement);
 
 		doConfigure(newElement, monitor, info);
 

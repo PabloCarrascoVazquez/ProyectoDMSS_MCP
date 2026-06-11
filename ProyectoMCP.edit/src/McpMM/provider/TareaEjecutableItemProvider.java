@@ -3,7 +3,6 @@
 package McpMM.provider;
 
 
-import McpMM.McpMMPackage;
 import McpMM.TareaEjecutable;
 
 import java.util.Collection;
@@ -12,10 +11,7 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
  * This is the item provider adapter for a {@link McpMM.TareaEjecutable} object.
@@ -45,54 +41,8 @@ public class TareaEjecutableItemProvider extends TareaItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addIdTareaPropertyDescriptor(object);
-			addDescTareaPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Id Tarea feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addIdTareaPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_TareaEjecutable_idTarea_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_TareaEjecutable_idTarea_feature", "_UI_TareaEjecutable_type"),
-				 McpMMPackage.Literals.TAREA_EJECUTABLE__ID_TAREA,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Desc Tarea feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addDescTareaPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_TareaEjecutable_descTarea_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_TareaEjecutable_descTarea_feature", "_UI_TareaEjecutable_type"),
-				 McpMMPackage.Literals.TAREA_EJECUTABLE__DESC_TAREA,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
 	}
 
 	/**
@@ -120,13 +70,6 @@ public class TareaEjecutableItemProvider extends TareaItemProvider {
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
-
-		switch (notification.getFeatureID(TareaEjecutable.class)) {
-			case McpMMPackage.TAREA_EJECUTABLE__ID_TAREA:
-			case McpMMPackage.TAREA_EJECUTABLE__DESC_TAREA:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-		}
 		super.notifyChanged(notification);
 	}
 

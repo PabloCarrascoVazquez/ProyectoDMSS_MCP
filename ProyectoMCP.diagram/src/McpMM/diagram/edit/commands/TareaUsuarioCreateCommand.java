@@ -54,7 +54,7 @@ public class TareaUsuarioCreateCommand extends EditElementCommand {
 		McpMM.TareaUsuario newElement = McpMM.McpMMFactory.eINSTANCE.createTareaUsuario();
 
 		McpMM.Workflow owner = (McpMM.Workflow) getElementToEdit();
-		owner.getTarea().add(newElement);
+		owner.getTareas().add(newElement);
 
 		doConfigure(newElement, monitor, info);
 

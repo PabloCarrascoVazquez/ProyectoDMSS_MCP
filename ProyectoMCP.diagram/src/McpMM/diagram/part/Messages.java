@@ -286,82 +286,82 @@ public class Messages extends NLS {
 	/**
 	* @generated
 	*/
-	public static String Lectura4CreationTool_title;
+	public static String Final4CreationTool_title;
 
 	/**
 	* @generated
 	*/
-	public static String Lectura4CreationTool_desc;
+	public static String Final4CreationTool_desc;
 
 	/**
 	* @generated
 	*/
-	public static String OperacionMCP5CreationTool_title;
+	public static String Inicio5CreationTool_title;
 
 	/**
 	* @generated
 	*/
-	public static String OperacionMCP5CreationTool_desc;
+	public static String Inicio5CreationTool_desc;
 
 	/**
 	* @generated
 	*/
-	public static String Propiedad6CreationTool_title;
+	public static String Lectura6CreationTool_title;
 
 	/**
 	* @generated
 	*/
-	public static String Propiedad6CreationTool_desc;
+	public static String Lectura6CreationTool_desc;
 
 	/**
 	* @generated
 	*/
-	public static String ServerMCP7CreationTool_title;
+	public static String OperacionMCP7CreationTool_title;
 
 	/**
 	* @generated
 	*/
-	public static String ServerMCP7CreationTool_desc;
+	public static String OperacionMCP7CreationTool_desc;
 
 	/**
 	* @generated
 	*/
-	public static String TareaAnalisis8CreationTool_title;
+	public static String Propiedad8CreationTool_title;
 
 	/**
 	* @generated
 	*/
-	public static String TareaAnalisis8CreationTool_desc;
+	public static String Propiedad8CreationTool_desc;
 
 	/**
 	* @generated
 	*/
-	public static String TareaEnvioContexto9CreationTool_title;
+	public static String ServerMCP9CreationTool_title;
 
 	/**
 	* @generated
 	*/
-	public static String TareaEnvioContexto9CreationTool_desc;
+	public static String ServerMCP9CreationTool_desc;
 
 	/**
 	* @generated
 	*/
-	public static String TareaFinal10CreationTool_title;
+	public static String TareaAnalisis10CreationTool_title;
 
 	/**
 	* @generated
 	*/
-	public static String TareaFinal10CreationTool_desc;
+	public static String TareaAnalisis10CreationTool_desc;
 
 	/**
 	* @generated
 	*/
-	public static String TareaInicial11CreationTool_title;
+	public static String TareaEnvioContexto11CreationTool_title;
 
 	/**
 	* @generated
 	*/
-	public static String TareaInicial11CreationTool_desc;
+	public static String TareaEnvioContexto11CreationTool_desc;
 
 	/**
 	* @generated
@@ -436,67 +436,37 @@ public class Messages extends NLS {
 	/**
 	* @generated
 	*/
-	public static String EmpiezaCon2CreationTool_title;
+	public static String Sigue2CreationTool_title;
 
 	/**
 	* @generated
 	*/
-	public static String EmpiezaCon2CreationTool_desc;
+	public static String Sigue2CreationTool_desc;
 
 	/**
 	* @generated
 	*/
-	public static String FinalizaCon3CreationTool_title;
+	public static String SigueElse3CreationTool_title;
 
 	/**
 	* @generated
 	*/
-	public static String FinalizaCon3CreationTool_desc;
+	public static String SigueElse3CreationTool_desc;
 
 	/**
 	* @generated
 	*/
-	public static String Realiza4CreationTool_title;
+	public static String AgenteAgenteFlujoCompartmentEditPart_title;
 
 	/**
 	* @generated
 	*/
-	public static String Realiza4CreationTool_desc;
+	public static String AgenteAgenteContextosCompartmentEditPart_title;
 
 	/**
 	* @generated
 	*/
-	public static String Sigue5CreationTool_title;
-
-	/**
-	* @generated
-	*/
-	public static String Sigue5CreationTool_desc;
-
-	/**
-	* @generated
-	*/
-	public static String SigueElse6CreationTool_title;
-
-	/**
-	* @generated
-	*/
-	public static String SigueElse6CreationTool_desc;
-
-	/**
-	* @generated
-	*/
-	public static String ServerMCPServerMCPOperacionmcpCompartmentEditPart_title;
-
-	/**
-	* @generated
-	*/
-	public static String WorkflowWorkflowContextoCompartmentEditPart_title;
-
-	/**
-	* @generated
-	*/
-	public static String WorkflowWorkflowTareaCompartmentEditPart_title;
+	public static String WorkflowWorkflowTareasCompartmentEditPart_title;
 
 	/**
 	* @generated
@@ -536,17 +506,22 @@ public class Messages extends NLS {
 	/**
 	* @generated
 	*/
-	public static String TareaFinalTareaFinalAccionCompartmentEditPart_title;
+	public static String InicioInicioAccionCompartmentEditPart_title;
 
 	/**
 	* @generated
 	*/
-	public static String TareaInicialTareaInicialAccionCompartmentEditPart_title;
+	public static String FinalFinalAccionCompartmentEditPart_title;
 
 	/**
 	* @generated
 	*/
-	public static String ContextoContextoPropiedadCompartmentEditPart_title;
+	public static String ContextoContextoPropiedadesCompartmentEditPart_title;
+
+	/**
+	* @generated
+	*/
+	public static String ServerMCPServerMCPOperacionesCompartmentEditPart_title;
 
 	/**
 	* @generated
@@ -557,21 +532,6 @@ public class Messages extends NLS {
 	* @generated
 	*/
 	public static String NavigatorGroupName_ServiceMCP_1000_links;
-
-	/**
-	* @generated
-	*/
-	public static String NavigatorGroupName_Agente_2002_outgoinglinks;
-
-	/**
-	* @generated
-	*/
-	public static String NavigatorGroupName_Workflow_2003_outgoinglinks;
-
-	/**
-	* @generated
-	*/
-	public static String NavigatorGroupName_OperacionMCP_3001_incominglinks;
 
 	/**
 	* @generated
@@ -646,82 +606,57 @@ public class Messages extends NLS {
 	/**
 	* @generated
 	*/
-	public static String NavigatorGroupName_TareaFinal_3011_incominglinks;
+	public static String NavigatorGroupName_Inicio_3011_incominglinks;
 
 	/**
 	* @generated
 	*/
-	public static String NavigatorGroupName_TareaFinal_3011_outgoinglinks;
+	public static String NavigatorGroupName_Inicio_3011_outgoinglinks;
 
 	/**
 	* @generated
 	*/
-	public static String NavigatorGroupName_TareaInicial_3012_incominglinks;
+	public static String NavigatorGroupName_Final_3012_incominglinks;
 
 	/**
 	* @generated
 	*/
-	public static String NavigatorGroupName_TareaInicial_3012_outgoinglinks;
+	public static String NavigatorGroupName_Final_3012_outgoinglinks;
 
 	/**
 	* @generated
 	*/
-	public static String NavigatorGroupName_AgenteRealiza_4001_target;
+	public static String NavigatorGroupName_OperacionMCP_3015_incominglinks;
 
 	/**
 	* @generated
 	*/
-	public static String NavigatorGroupName_AgenteRealiza_4001_source;
+	public static String NavigatorGroupName_TareaSigue_4001_target;
 
 	/**
 	* @generated
 	*/
-	public static String NavigatorGroupName_WorkflowEmpiezaCon_4002_target;
+	public static String NavigatorGroupName_TareaSigue_4001_source;
 
 	/**
 	* @generated
 	*/
-	public static String NavigatorGroupName_WorkflowEmpiezaCon_4002_source;
+	public static String NavigatorGroupName_TareaAnalisisSigueElse_4002_target;
 
 	/**
 	* @generated
 	*/
-	public static String NavigatorGroupName_WorkflowFinalizaCon_4003_target;
+	public static String NavigatorGroupName_TareaAnalisisSigueElse_4002_source;
 
 	/**
 	* @generated
 	*/
-	public static String NavigatorGroupName_WorkflowFinalizaCon_4003_source;
+	public static String NavigatorGroupName_TareaServerMCPEjecutaOperacion_4003_target;
 
 	/**
 	* @generated
 	*/
-	public static String NavigatorGroupName_TareaSigue_4004_target;
-
-	/**
-	* @generated
-	*/
-	public static String NavigatorGroupName_TareaSigue_4004_source;
-
-	/**
-	* @generated
-	*/
-	public static String NavigatorGroupName_TareaAnalisisSigueElse_4007_target;
-
-	/**
-	* @generated
-	*/
-	public static String NavigatorGroupName_TareaAnalisisSigueElse_4007_source;
-
-	/**
-	* @generated
-	*/
-	public static String NavigatorGroupName_TareaServerMCPEjecutaOperacion_4008_target;
-
-	/**
-	* @generated
-	*/
-	public static String NavigatorGroupName_TareaServerMCPEjecutaOperacion_4008_source;
+	public static String NavigatorGroupName_TareaServerMCPEjecutaOperacion_4003_source;
 
 	/**
 	* @generated

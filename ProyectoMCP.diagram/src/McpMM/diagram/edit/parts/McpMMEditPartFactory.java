@@ -26,29 +26,23 @@ public class McpMMEditPartFactory implements EditPartFactory {
 			case McpMM.diagram.edit.parts.ServiceMCPEditPart.VISUAL_ID:
 				return new McpMM.diagram.edit.parts.ServiceMCPEditPart(view);
 
+			case McpMM.diagram.edit.parts.AgenteEditPart.VISUAL_ID:
+				return new McpMM.diagram.edit.parts.AgenteEditPart(view);
+
+			case McpMM.diagram.edit.parts.AgenteNombreEditPart.VISUAL_ID:
+				return new McpMM.diagram.edit.parts.AgenteNombreEditPart(view);
+
 			case McpMM.diagram.edit.parts.ServerMCPEditPart.VISUAL_ID:
 				return new McpMM.diagram.edit.parts.ServerMCPEditPart(view);
 
 			case McpMM.diagram.edit.parts.ServerMCPNombreServerEditPart.VISUAL_ID:
 				return new McpMM.diagram.edit.parts.ServerMCPNombreServerEditPart(view);
 
-			case McpMM.diagram.edit.parts.AgenteEditPart.VISUAL_ID:
-				return new McpMM.diagram.edit.parts.AgenteEditPart(view);
-
-			case McpMM.diagram.edit.parts.AgenteNombreAgenteEditPart.VISUAL_ID:
-				return new McpMM.diagram.edit.parts.AgenteNombreAgenteEditPart(view);
-
 			case McpMM.diagram.edit.parts.WorkflowEditPart.VISUAL_ID:
 				return new McpMM.diagram.edit.parts.WorkflowEditPart(view);
 
 			case McpMM.diagram.edit.parts.WorkflowNombreWorkflowEditPart.VISUAL_ID:
 				return new McpMM.diagram.edit.parts.WorkflowNombreWorkflowEditPart(view);
-
-			case McpMM.diagram.edit.parts.OperacionMCPEditPart.VISUAL_ID:
-				return new McpMM.diagram.edit.parts.OperacionMCPEditPart(view);
-
-			case McpMM.diagram.edit.parts.OperacionMCPNombreOperacionEditPart.VISUAL_ID:
-				return new McpMM.diagram.edit.parts.OperacionMCPNombreOperacionEditPart(view);
 
 			case McpMM.diagram.edit.parts.TareaTransformacionDatosEditPart.VISUAL_ID:
 				return new McpMM.diagram.edit.parts.TareaTransformacionDatosEditPart(view);
@@ -104,17 +98,17 @@ public class McpMMEditPartFactory implements EditPartFactory {
 			case McpMM.diagram.edit.parts.TareaServerMCPNombreTareaEditPart.VISUAL_ID:
 				return new McpMM.diagram.edit.parts.TareaServerMCPNombreTareaEditPart(view);
 
-			case McpMM.diagram.edit.parts.TareaFinalEditPart.VISUAL_ID:
-				return new McpMM.diagram.edit.parts.TareaFinalEditPart(view);
+			case McpMM.diagram.edit.parts.InicioEditPart.VISUAL_ID:
+				return new McpMM.diagram.edit.parts.InicioEditPart(view);
 
-			case McpMM.diagram.edit.parts.TareaFinalNombreTareaEditPart.VISUAL_ID:
-				return new McpMM.diagram.edit.parts.TareaFinalNombreTareaEditPart(view);
+			case McpMM.diagram.edit.parts.InicioNombreTareaEditPart.VISUAL_ID:
+				return new McpMM.diagram.edit.parts.InicioNombreTareaEditPart(view);
 
-			case McpMM.diagram.edit.parts.TareaInicialEditPart.VISUAL_ID:
-				return new McpMM.diagram.edit.parts.TareaInicialEditPart(view);
+			case McpMM.diagram.edit.parts.FinalEditPart.VISUAL_ID:
+				return new McpMM.diagram.edit.parts.FinalEditPart(view);
 
-			case McpMM.diagram.edit.parts.TareaInicialNombreTareaEditPart.VISUAL_ID:
-				return new McpMM.diagram.edit.parts.TareaInicialNombreTareaEditPart(view);
+			case McpMM.diagram.edit.parts.FinalNombreTareaEditPart.VISUAL_ID:
+				return new McpMM.diagram.edit.parts.FinalNombreTareaEditPart(view);
 
 			case McpMM.diagram.edit.parts.ContextoEditPart.VISUAL_ID:
 				return new McpMM.diagram.edit.parts.ContextoEditPart(view);
@@ -128,14 +122,20 @@ public class McpMMEditPartFactory implements EditPartFactory {
 			case McpMM.diagram.edit.parts.PropiedadNombrePropiedadEditPart.VISUAL_ID:
 				return new McpMM.diagram.edit.parts.PropiedadNombrePropiedadEditPart(view);
 
-			case McpMM.diagram.edit.parts.ServerMCPServerMCPOperacionmcpCompartmentEditPart.VISUAL_ID:
-				return new McpMM.diagram.edit.parts.ServerMCPServerMCPOperacionmcpCompartmentEditPart(view);
+			case McpMM.diagram.edit.parts.OperacionMCPEditPart.VISUAL_ID:
+				return new McpMM.diagram.edit.parts.OperacionMCPEditPart(view);
 
-			case McpMM.diagram.edit.parts.WorkflowWorkflowContextoCompartmentEditPart.VISUAL_ID:
-				return new McpMM.diagram.edit.parts.WorkflowWorkflowContextoCompartmentEditPart(view);
+			case McpMM.diagram.edit.parts.OperacionMCPNombreOperacionEditPart.VISUAL_ID:
+				return new McpMM.diagram.edit.parts.OperacionMCPNombreOperacionEditPart(view);
 
-			case McpMM.diagram.edit.parts.WorkflowWorkflowTareaCompartmentEditPart.VISUAL_ID:
-				return new McpMM.diagram.edit.parts.WorkflowWorkflowTareaCompartmentEditPart(view);
+			case McpMM.diagram.edit.parts.AgenteAgenteFlujoCompartmentEditPart.VISUAL_ID:
+				return new McpMM.diagram.edit.parts.AgenteAgenteFlujoCompartmentEditPart(view);
+
+			case McpMM.diagram.edit.parts.AgenteAgenteContextosCompartmentEditPart.VISUAL_ID:
+				return new McpMM.diagram.edit.parts.AgenteAgenteContextosCompartmentEditPart(view);
+
+			case McpMM.diagram.edit.parts.WorkflowWorkflowTareasCompartmentEditPart.VISUAL_ID:
+				return new McpMM.diagram.edit.parts.WorkflowWorkflowTareasCompartmentEditPart(view);
 
 			case McpMM.diagram.edit.parts.TareaTransformacionDatosTareaTransformacionDatosAccionCompartmentEditPart.VISUAL_ID:
 				return new McpMM.diagram.edit.parts.TareaTransformacionDatosTareaTransformacionDatosAccionCompartmentEditPart(
@@ -160,32 +160,17 @@ public class McpMMEditPartFactory implements EditPartFactory {
 			case McpMM.diagram.edit.parts.TareaServerMCPTareaServerMCPAccionCompartmentEditPart.VISUAL_ID:
 				return new McpMM.diagram.edit.parts.TareaServerMCPTareaServerMCPAccionCompartmentEditPart(view);
 
-			case McpMM.diagram.edit.parts.TareaFinalTareaFinalAccionCompartmentEditPart.VISUAL_ID:
-				return new McpMM.diagram.edit.parts.TareaFinalTareaFinalAccionCompartmentEditPart(view);
+			case McpMM.diagram.edit.parts.InicioInicioAccionCompartmentEditPart.VISUAL_ID:
+				return new McpMM.diagram.edit.parts.InicioInicioAccionCompartmentEditPart(view);
 
-			case McpMM.diagram.edit.parts.TareaInicialTareaInicialAccionCompartmentEditPart.VISUAL_ID:
-				return new McpMM.diagram.edit.parts.TareaInicialTareaInicialAccionCompartmentEditPart(view);
+			case McpMM.diagram.edit.parts.FinalFinalAccionCompartmentEditPart.VISUAL_ID:
+				return new McpMM.diagram.edit.parts.FinalFinalAccionCompartmentEditPart(view);
 
-			case McpMM.diagram.edit.parts.ContextoContextoPropiedadCompartmentEditPart.VISUAL_ID:
-				return new McpMM.diagram.edit.parts.ContextoContextoPropiedadCompartmentEditPart(view);
+			case McpMM.diagram.edit.parts.ContextoContextoPropiedadesCompartmentEditPart.VISUAL_ID:
+				return new McpMM.diagram.edit.parts.ContextoContextoPropiedadesCompartmentEditPart(view);
 
-			case McpMM.diagram.edit.parts.AgenteRealizaEditPart.VISUAL_ID:
-				return new McpMM.diagram.edit.parts.AgenteRealizaEditPart(view);
-
-			case McpMM.diagram.edit.parts.AgenteRealizaExternalLabelEditPart.VISUAL_ID:
-				return new McpMM.diagram.edit.parts.AgenteRealizaExternalLabelEditPart(view);
-
-			case McpMM.diagram.edit.parts.WorkflowEmpiezaConEditPart.VISUAL_ID:
-				return new McpMM.diagram.edit.parts.WorkflowEmpiezaConEditPart(view);
-
-			case McpMM.diagram.edit.parts.WorkflowEmpiezaConExternalLabelEditPart.VISUAL_ID:
-				return new McpMM.diagram.edit.parts.WorkflowEmpiezaConExternalLabelEditPart(view);
-
-			case McpMM.diagram.edit.parts.WorkflowFinalizaConEditPart.VISUAL_ID:
-				return new McpMM.diagram.edit.parts.WorkflowFinalizaConEditPart(view);
-
-			case McpMM.diagram.edit.parts.WorkflowFinalizaConExternalLabelEditPart.VISUAL_ID:
-				return new McpMM.diagram.edit.parts.WorkflowFinalizaConExternalLabelEditPart(view);
+			case McpMM.diagram.edit.parts.ServerMCPServerMCPOperacionesCompartmentEditPart.VISUAL_ID:
+				return new McpMM.diagram.edit.parts.ServerMCPServerMCPOperacionesCompartmentEditPart(view);
 
 			case McpMM.diagram.edit.parts.TareaSigueEditPart.VISUAL_ID:
 				return new McpMM.diagram.edit.parts.TareaSigueEditPart(view);

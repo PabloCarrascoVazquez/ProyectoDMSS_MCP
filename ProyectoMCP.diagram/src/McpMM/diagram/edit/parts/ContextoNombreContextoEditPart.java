@@ -55,7 +55,7 @@ public class ContextoNombreContextoEditPart extends CompartmentEditPart implemen
 	/**
 	* @generated
 	*/
-	public static final int VISUAL_ID = 5016;
+	public static final int VISUAL_ID = 5014;
 
 	/**
 	* @generated

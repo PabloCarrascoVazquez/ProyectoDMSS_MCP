@@ -19,7 +19,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -33,7 +33,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link McpMM.impl.ContextoImpl#getNombreContexto <em>Nombre Contexto</em>}</li>
- *   <li>{@link McpMM.impl.ContextoImpl#getPropiedad <em>Propiedad</em>}</li>
+ *   <li>{@link McpMM.impl.ContextoImpl#getPropiedades <em>Propiedades</em>}</li>
  *   <li>{@link McpMM.impl.ContextoImpl#getEsApuntadoPor <em>Es Apuntado Por</em>}</li>
  * </ul>
  *
@@ -61,14 +61,14 @@ public class ContextoImpl extends EObjectImpl implements Contexto {
 	protected String nombreContexto = NOMBRE_CONTEXTO_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getPropiedad() <em>Propiedad</em>}' containment reference list.
+	 * The cached value of the '{@link #getPropiedades() <em>Propiedades</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getPropiedad()
+	 * @see #getPropiedades()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Propiedad> propiedad;
+	protected EList<Propiedad> propiedades;
 
 	/**
 	 * The cached value of the '{@link #getEsApuntadoPor() <em>Es Apuntado Por</em>}' reference list.
@@ -125,11 +125,11 @@ public class ContextoImpl extends EObjectImpl implements Contexto {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Propiedad> getPropiedad() {
-		if (propiedad == null) {
-			propiedad = new EObjectContainmentEList<Propiedad>(Propiedad.class, this, McpMMPackage.CONTEXTO__PROPIEDAD);
+	public EList<Propiedad> getPropiedades() {
+		if (propiedades == null) {
+			propiedades = new EObjectContainmentEList<Propiedad>(Propiedad.class, this, McpMMPackage.CONTEXTO__PROPIEDADES);
 		}
-		return propiedad;
+		return propiedades;
 	}
 
 	/**
@@ -167,8 +167,8 @@ public class ContextoImpl extends EObjectImpl implements Contexto {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case McpMMPackage.CONTEXTO__PROPIEDAD:
-				return ((InternalEList<?>)getPropiedad()).basicRemove(otherEnd, msgs);
+			case McpMMPackage.CONTEXTO__PROPIEDADES:
+				return ((InternalEList<?>)getPropiedades()).basicRemove(otherEnd, msgs);
 			case McpMMPackage.CONTEXTO__ES_APUNTADO_POR:
 				return ((InternalEList<?>)getEsApuntadoPor()).basicRemove(otherEnd, msgs);
 		}
@@ -185,8 +185,8 @@ public class ContextoImpl extends EObjectImpl implements Contexto {
 		switch (featureID) {
 			case McpMMPackage.CONTEXTO__NOMBRE_CONTEXTO:
 				return getNombreContexto();
-			case McpMMPackage.CONTEXTO__PROPIEDAD:
-				return getPropiedad();
+			case McpMMPackage.CONTEXTO__PROPIEDADES:
+				return getPropiedades();
 			case McpMMPackage.CONTEXTO__ES_APUNTADO_POR:
 				return getEsApuntadoPor();
 		}
@@ -205,9 +205,9 @@ public class ContextoImpl extends EObjectImpl implements Contexto {
 			case McpMMPackage.CONTEXTO__NOMBRE_CONTEXTO:
 				setNombreContexto((String)newValue);
 				return;
-			case McpMMPackage.CONTEXTO__PROPIEDAD:
-				getPropiedad().clear();
-				getPropiedad().addAll((Collection<? extends Propiedad>)newValue);
+			case McpMMPackage.CONTEXTO__PROPIEDADES:
+				getPropiedades().clear();
+				getPropiedades().addAll((Collection<? extends Propiedad>)newValue);
 				return;
 			case McpMMPackage.CONTEXTO__ES_APUNTADO_POR:
 				getEsApuntadoPor().clear();
@@ -228,8 +228,8 @@ public class ContextoImpl extends EObjectImpl implements Contexto {
 			case McpMMPackage.CONTEXTO__NOMBRE_CONTEXTO:
 				setNombreContexto(NOMBRE_CONTEXTO_EDEFAULT);
 				return;
-			case McpMMPackage.CONTEXTO__PROPIEDAD:
-				getPropiedad().clear();
+			case McpMMPackage.CONTEXTO__PROPIEDADES:
+				getPropiedades().clear();
 				return;
 			case McpMMPackage.CONTEXTO__ES_APUNTADO_POR:
 				getEsApuntadoPor().clear();
@@ -248,8 +248,8 @@ public class ContextoImpl extends EObjectImpl implements Contexto {
 		switch (featureID) {
 			case McpMMPackage.CONTEXTO__NOMBRE_CONTEXTO:
 				return NOMBRE_CONTEXTO_EDEFAULT == null ? nombreContexto != null : !NOMBRE_CONTEXTO_EDEFAULT.equals(nombreContexto);
-			case McpMMPackage.CONTEXTO__PROPIEDAD:
-				return propiedad != null && !propiedad.isEmpty();
+			case McpMMPackage.CONTEXTO__PROPIEDADES:
+				return propiedades != null && !propiedades.isEmpty();
 			case McpMMPackage.CONTEXTO__ES_APUNTADO_POR:
 				return esApuntadoPor != null && !esApuntadoPor.isEmpty();
 		}

@@ -72,6 +72,29 @@ public class McpMMItemProviderAdapterFactory extends McpMMAdapterFactory impleme
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link McpMM.VersionContexto} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected VersionContextoItemProvider versionContextoItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link McpMM.VersionContexto}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createVersionContextoAdapter() {
+		if (versionContextoItemProvider == null) {
+			versionContextoItemProvider = new VersionContextoItemProvider(this);
+		}
+
+		return versionContextoItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link McpMM.ServiceMCP} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -210,49 +233,49 @@ public class McpMMItemProviderAdapterFactory extends McpMMAdapterFactory impleme
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link McpMM.TareaFinal} instances.
+	 * This keeps track of the one adapter used for all {@link McpMM.Inicio} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected TareaFinalItemProvider tareaFinalItemProvider;
+	protected InicioItemProvider inicioItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link McpMM.TareaFinal}.
+	 * This creates an adapter for a {@link McpMM.Inicio}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createTareaFinalAdapter() {
-		if (tareaFinalItemProvider == null) {
-			tareaFinalItemProvider = new TareaFinalItemProvider(this);
+	public Adapter createInicioAdapter() {
+		if (inicioItemProvider == null) {
+			inicioItemProvider = new InicioItemProvider(this);
 		}
 
-		return tareaFinalItemProvider;
+		return inicioItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link McpMM.TareaInicial} instances.
+	 * This keeps track of the one adapter used for all {@link McpMM.Final} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected TareaInicialItemProvider tareaInicialItemProvider;
+	protected FinalItemProvider finalItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link McpMM.TareaInicial}.
+	 * This creates an adapter for a {@link McpMM.Final}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createTareaInicialAdapter() {
-		if (tareaInicialItemProvider == null) {
-			tareaInicialItemProvider = new TareaInicialItemProvider(this);
+	public Adapter createFinalAdapter() {
+		if (finalItemProvider == null) {
+			finalItemProvider = new FinalItemProvider(this);
 		}
 
-		return tareaInicialItemProvider;
+		return finalItemProvider;
 	}
 
 	/**
@@ -584,14 +607,15 @@ public class McpMMItemProviderAdapterFactory extends McpMMAdapterFactory impleme
 	 * @generated
 	 */
 	public void dispose() {
+		if (versionContextoItemProvider != null) versionContextoItemProvider.dispose();
 		if (serviceMCPItemProvider != null) serviceMCPItemProvider.dispose();
 		if (serverMCPItemProvider != null) serverMCPItemProvider.dispose();
 		if (agenteItemProvider != null) agenteItemProvider.dispose();
 		if (workflowItemProvider != null) workflowItemProvider.dispose();
 		if (contextoItemProvider != null) contextoItemProvider.dispose();
 		if (propiedadItemProvider != null) propiedadItemProvider.dispose();
-		if (tareaFinalItemProvider != null) tareaFinalItemProvider.dispose();
-		if (tareaInicialItemProvider != null) tareaInicialItemProvider.dispose();
+		if (inicioItemProvider != null) inicioItemProvider.dispose();
+		if (finalItemProvider != null) finalItemProvider.dispose();
 		if (escrituraItemProvider != null) escrituraItemProvider.dispose();
 		if (lecturaItemProvider != null) lecturaItemProvider.dispose();
 		if (operacionMCPItemProvider != null) operacionMCPItemProvider.dispose();
