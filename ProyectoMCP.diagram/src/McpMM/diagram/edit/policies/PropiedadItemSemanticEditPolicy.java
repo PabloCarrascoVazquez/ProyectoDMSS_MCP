@@ -20,7 +20,7 @@ public class PropiedadItemSemanticEditPolicy extends McpMM.diagram.edit.policies
 	* @generated
 	*/
 	public PropiedadItemSemanticEditPolicy() {
-		super(McpMM.diagram.providers.McpMMElementTypes.Propiedad_3014);
+		super(McpMM.diagram.providers.McpMMElementTypes.Propiedad_3002);
 	}
 
 	/**

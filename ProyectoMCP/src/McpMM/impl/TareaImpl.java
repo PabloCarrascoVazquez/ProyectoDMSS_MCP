@@ -19,8 +19,9 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
-
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -114,14 +115,14 @@ public abstract class TareaImpl extends EObjectImpl implements Tarea {
 	protected EList<Accion> accion;
 
 	/**
-	 * The cached value of the '{@link #getPrecede() <em>Precede</em>}' reference.
+	 * The cached value of the '{@link #getPrecede() <em>Precede</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getPrecede()
 	 * @generated
 	 * @ordered
 	 */
-	protected Tarea precede;
+	protected EList<Tarea> precede;
 
 	/**
 	 * The cached value of the '{@link #getSigue() <em>Sigue</em>}' reference.
@@ -134,14 +135,14 @@ public abstract class TareaImpl extends EObjectImpl implements Tarea {
 	protected Tarea sigue;
 
 	/**
-	 * The cached value of the '{@link #getPrecedeElse() <em>Precede Else</em>}' reference.
+	 * The cached value of the '{@link #getPrecedeElse() <em>Precede Else</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getPrecedeElse()
 	 * @generated
 	 * @ordered
 	 */
-	protected TareaAnalisis precedeElse;
+	protected EList<TareaAnalisis> precedeElse;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -242,59 +243,11 @@ public abstract class TareaImpl extends EObjectImpl implements Tarea {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Tarea getPrecede() {
-		if (precede != null && precede.eIsProxy()) {
-			InternalEObject oldPrecede = (InternalEObject)precede;
-			precede = (Tarea)eResolveProxy(oldPrecede);
-			if (precede != oldPrecede) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, McpMMPackage.TAREA__PRECEDE, oldPrecede, precede));
-			}
+	public EList<Tarea> getPrecede() {
+		if (precede == null) {
+			precede = new EObjectWithInverseResolvingEList<Tarea>(Tarea.class, this, McpMMPackage.TAREA__PRECEDE, McpMMPackage.TAREA__SIGUE);
 		}
 		return precede;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Tarea basicGetPrecede() {
-		return precede;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetPrecede(Tarea newPrecede, NotificationChain msgs) {
-		Tarea oldPrecede = precede;
-		precede = newPrecede;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, McpMMPackage.TAREA__PRECEDE, oldPrecede, newPrecede);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setPrecede(Tarea newPrecede) {
-		if (newPrecede != precede) {
-			NotificationChain msgs = null;
-			if (precede != null)
-				msgs = ((InternalEObject)precede).eInverseRemove(this, McpMMPackage.TAREA__SIGUE, Tarea.class, msgs);
-			if (newPrecede != null)
-				msgs = ((InternalEObject)newPrecede).eInverseAdd(this, McpMMPackage.TAREA__SIGUE, Tarea.class, msgs);
-			msgs = basicSetPrecede(newPrecede, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, McpMMPackage.TAREA__PRECEDE, newPrecede, newPrecede));
 	}
 
 	/**
@@ -362,14 +315,9 @@ public abstract class TareaImpl extends EObjectImpl implements Tarea {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TareaAnalisis getPrecedeElse() {
-		if (precedeElse != null && precedeElse.eIsProxy()) {
-			InternalEObject oldPrecedeElse = (InternalEObject)precedeElse;
-			precedeElse = (TareaAnalisis)eResolveProxy(oldPrecedeElse);
-			if (precedeElse != oldPrecedeElse) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, McpMMPackage.TAREA__PRECEDE_ELSE, oldPrecedeElse, precedeElse));
-			}
+	public EList<TareaAnalisis> getPrecedeElse() {
+		if (precedeElse == null) {
+			precedeElse = new EObjectWithInverseResolvingEList<TareaAnalisis>(TareaAnalisis.class, this, McpMMPackage.TAREA__PRECEDE_ELSE, McpMMPackage.TAREA_ANALISIS__SIGUE_ELSE);
 		}
 		return precedeElse;
 	}
@@ -379,64 +327,18 @@ public abstract class TareaImpl extends EObjectImpl implements Tarea {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TareaAnalisis basicGetPrecedeElse() {
-		return precedeElse;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetPrecedeElse(TareaAnalisis newPrecedeElse, NotificationChain msgs) {
-		TareaAnalisis oldPrecedeElse = precedeElse;
-		precedeElse = newPrecedeElse;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, McpMMPackage.TAREA__PRECEDE_ELSE, oldPrecedeElse, newPrecedeElse);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setPrecedeElse(TareaAnalisis newPrecedeElse) {
-		if (newPrecedeElse != precedeElse) {
-			NotificationChain msgs = null;
-			if (precedeElse != null)
-				msgs = ((InternalEObject)precedeElse).eInverseRemove(this, McpMMPackage.TAREA_ANALISIS__SIGUE_ELSE, TareaAnalisis.class, msgs);
-			if (newPrecedeElse != null)
-				msgs = ((InternalEObject)newPrecedeElse).eInverseAdd(this, McpMMPackage.TAREA_ANALISIS__SIGUE_ELSE, TareaAnalisis.class, msgs);
-			msgs = basicSetPrecedeElse(newPrecedeElse, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, McpMMPackage.TAREA__PRECEDE_ELSE, newPrecedeElse, newPrecedeElse));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case McpMMPackage.TAREA__PRECEDE:
-				if (precede != null)
-					msgs = ((InternalEObject)precede).eInverseRemove(this, McpMMPackage.TAREA__SIGUE, Tarea.class, msgs);
-				return basicSetPrecede((Tarea)otherEnd, msgs);
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getPrecede()).basicAdd(otherEnd, msgs);
 			case McpMMPackage.TAREA__SIGUE:
 				if (sigue != null)
 					msgs = ((InternalEObject)sigue).eInverseRemove(this, McpMMPackage.TAREA__PRECEDE, Tarea.class, msgs);
 				return basicSetSigue((Tarea)otherEnd, msgs);
 			case McpMMPackage.TAREA__PRECEDE_ELSE:
-				if (precedeElse != null)
-					msgs = ((InternalEObject)precedeElse).eInverseRemove(this, McpMMPackage.TAREA_ANALISIS__SIGUE_ELSE, TareaAnalisis.class, msgs);
-				return basicSetPrecedeElse((TareaAnalisis)otherEnd, msgs);
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getPrecedeElse()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -452,11 +354,11 @@ public abstract class TareaImpl extends EObjectImpl implements Tarea {
 			case McpMMPackage.TAREA__ACCION:
 				return ((InternalEList<?>)getAccion()).basicRemove(otherEnd, msgs);
 			case McpMMPackage.TAREA__PRECEDE:
-				return basicSetPrecede(null, msgs);
+				return ((InternalEList<?>)getPrecede()).basicRemove(otherEnd, msgs);
 			case McpMMPackage.TAREA__SIGUE:
 				return basicSetSigue(null, msgs);
 			case McpMMPackage.TAREA__PRECEDE_ELSE:
-				return basicSetPrecedeElse(null, msgs);
+				return ((InternalEList<?>)getPrecedeElse()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -478,14 +380,12 @@ public abstract class TareaImpl extends EObjectImpl implements Tarea {
 			case McpMMPackage.TAREA__ACCION:
 				return getAccion();
 			case McpMMPackage.TAREA__PRECEDE:
-				if (resolve) return getPrecede();
-				return basicGetPrecede();
+				return getPrecede();
 			case McpMMPackage.TAREA__SIGUE:
 				if (resolve) return getSigue();
 				return basicGetSigue();
 			case McpMMPackage.TAREA__PRECEDE_ELSE:
-				if (resolve) return getPrecedeElse();
-				return basicGetPrecedeElse();
+				return getPrecedeElse();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -513,13 +413,15 @@ public abstract class TareaImpl extends EObjectImpl implements Tarea {
 				getAccion().addAll((Collection<? extends Accion>)newValue);
 				return;
 			case McpMMPackage.TAREA__PRECEDE:
-				setPrecede((Tarea)newValue);
+				getPrecede().clear();
+				getPrecede().addAll((Collection<? extends Tarea>)newValue);
 				return;
 			case McpMMPackage.TAREA__SIGUE:
 				setSigue((Tarea)newValue);
 				return;
 			case McpMMPackage.TAREA__PRECEDE_ELSE:
-				setPrecedeElse((TareaAnalisis)newValue);
+				getPrecedeElse().clear();
+				getPrecedeElse().addAll((Collection<? extends TareaAnalisis>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -546,13 +448,13 @@ public abstract class TareaImpl extends EObjectImpl implements Tarea {
 				getAccion().clear();
 				return;
 			case McpMMPackage.TAREA__PRECEDE:
-				setPrecede((Tarea)null);
+				getPrecede().clear();
 				return;
 			case McpMMPackage.TAREA__SIGUE:
 				setSigue((Tarea)null);
 				return;
 			case McpMMPackage.TAREA__PRECEDE_ELSE:
-				setPrecedeElse((TareaAnalisis)null);
+				getPrecedeElse().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -575,11 +477,11 @@ public abstract class TareaImpl extends EObjectImpl implements Tarea {
 			case McpMMPackage.TAREA__ACCION:
 				return accion != null && !accion.isEmpty();
 			case McpMMPackage.TAREA__PRECEDE:
-				return precede != null;
+				return precede != null && !precede.isEmpty();
 			case McpMMPackage.TAREA__SIGUE:
 				return sigue != null;
 			case McpMMPackage.TAREA__PRECEDE_ELSE:
-				return precedeElse != null;
+				return precedeElse != null && !precedeElse.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

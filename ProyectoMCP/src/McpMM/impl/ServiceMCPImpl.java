@@ -7,6 +7,7 @@ import McpMM.McpMMPackage;
 import McpMM.ServerMCP;
 import McpMM.ServiceMCP;
 
+import McpMM.Workflow;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -19,7 +20,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
-
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -35,6 +36,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link McpMM.impl.ServiceMCPImpl#getAgentes <em>Agentes</em>}</li>
  *   <li>{@link McpMM.impl.ServiceMCPImpl#getServicios <em>Servicios</em>}</li>
  *   <li>{@link McpMM.impl.ServiceMCPImpl#getServidores <em>Servidores</em>}</li>
+ *   <li>{@link McpMM.impl.ServiceMCPImpl#getWorkflows <em>Workflows</em>}</li>
  * </ul>
  *
  * @generated
@@ -89,6 +91,16 @@ public class ServiceMCPImpl extends EObjectImpl implements ServiceMCP {
 	 * @ordered
 	 */
 	protected EList<ServerMCP> servidores;
+
+	/**
+	 * The cached value of the '{@link #getWorkflows() <em>Workflows</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getWorkflows()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Workflow> workflows;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -171,6 +183,18 @@ public class ServiceMCPImpl extends EObjectImpl implements ServiceMCP {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Workflow> getWorkflows() {
+		if (workflows == null) {
+			workflows = new EObjectContainmentEList<Workflow>(Workflow.class, this, McpMMPackage.SERVICE_MCP__WORKFLOWS);
+		}
+		return workflows;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -180,6 +204,8 @@ public class ServiceMCPImpl extends EObjectImpl implements ServiceMCP {
 				return ((InternalEList<?>)getServicios()).basicRemove(otherEnd, msgs);
 			case McpMMPackage.SERVICE_MCP__SERVIDORES:
 				return ((InternalEList<?>)getServidores()).basicRemove(otherEnd, msgs);
+			case McpMMPackage.SERVICE_MCP__WORKFLOWS:
+				return ((InternalEList<?>)getWorkflows()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -200,6 +226,8 @@ public class ServiceMCPImpl extends EObjectImpl implements ServiceMCP {
 				return getServicios();
 			case McpMMPackage.SERVICE_MCP__SERVIDORES:
 				return getServidores();
+			case McpMMPackage.SERVICE_MCP__WORKFLOWS:
+				return getWorkflows();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -228,6 +256,10 @@ public class ServiceMCPImpl extends EObjectImpl implements ServiceMCP {
 				getServidores().clear();
 				getServidores().addAll((Collection<? extends ServerMCP>)newValue);
 				return;
+			case McpMMPackage.SERVICE_MCP__WORKFLOWS:
+				getWorkflows().clear();
+				getWorkflows().addAll((Collection<? extends Workflow>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -252,6 +284,9 @@ public class ServiceMCPImpl extends EObjectImpl implements ServiceMCP {
 			case McpMMPackage.SERVICE_MCP__SERVIDORES:
 				getServidores().clear();
 				return;
+			case McpMMPackage.SERVICE_MCP__WORKFLOWS:
+				getWorkflows().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -272,6 +307,8 @@ public class ServiceMCPImpl extends EObjectImpl implements ServiceMCP {
 				return servicios != null && !servicios.isEmpty();
 			case McpMMPackage.SERVICE_MCP__SERVIDORES:
 				return servidores != null && !servidores.isEmpty();
+			case McpMMPackage.SERVICE_MCP__WORKFLOWS:
+				return workflows != null && !workflows.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

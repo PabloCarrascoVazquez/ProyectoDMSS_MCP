@@ -57,7 +57,7 @@ public class TareaSigueExternalLabelEditPart extends LabelEditPart implements IT
 	/**
 	* @generated
 	*/
-	public static final int VISUAL_ID = 6001;
+	public static final int VISUAL_ID = 6002;
 
 	/**
 	* @generated
@@ -305,7 +305,7 @@ public class TareaSigueExternalLabelEditPart extends LabelEditPart implements IT
 	public IParser getParser() {
 		if (parser == null) {
 			parser = McpMM.diagram.providers.McpMMParserProvider.getParser(
-					McpMM.diagram.providers.McpMMElementTypes.TareaSigue_4001, getParserElement(),
+					McpMM.diagram.providers.McpMMElementTypes.TareaSigue_4002, getParserElement(),
 					CommonParserHint.DESCRIPTION);
 		}
 		return parser;

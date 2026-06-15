@@ -35,34 +35,32 @@ public class McpMMDiagramUpdater {
 		switch (McpMM.diagram.part.McpMMVisualIDRegistry.getVisualID(view)) {
 		case McpMM.diagram.edit.parts.ServiceMCPEditPart.VISUAL_ID:
 			return getServiceMCP_1000SemanticChildren(view);
-		case McpMM.diagram.edit.parts.AgenteAgenteFlujoCompartmentEditPart.VISUAL_ID:
-			return getAgenteAgenteFlujoCompartment_7001SemanticChildren(view);
 		case McpMM.diagram.edit.parts.AgenteAgenteContextosCompartmentEditPart.VISUAL_ID:
-			return getAgenteAgenteContextosCompartment_7002SemanticChildren(view);
-		case McpMM.diagram.edit.parts.WorkflowWorkflowTareasCompartmentEditPart.VISUAL_ID:
-			return getWorkflowWorkflowTareasCompartment_7003SemanticChildren(view);
-		case McpMM.diagram.edit.parts.TareaTransformacionDatosTareaTransformacionDatosAccionCompartmentEditPart.VISUAL_ID:
-			return getTareaTransformacionDatosTareaTransformacionDatosAccionCompartment_7004SemanticChildren(view);
-		case McpMM.diagram.edit.parts.TareaLLMTareaLLMAccionCompartmentEditPart.VISUAL_ID:
-			return getTareaLLMTareaLLMAccionCompartment_7005SemanticChildren(view);
-		case McpMM.diagram.edit.parts.TareaUsuarioTareaUsuarioAccionCompartmentEditPart.VISUAL_ID:
-			return getTareaUsuarioTareaUsuarioAccionCompartment_7006SemanticChildren(view);
-		case McpMM.diagram.edit.parts.TareaAnalisisTareaAnalisisAccionCompartmentEditPart.VISUAL_ID:
-			return getTareaAnalisisTareaAnalisisAccionCompartment_7007SemanticChildren(view);
-		case McpMM.diagram.edit.parts.TareaEnvioContextoTareaEnvioContextoAccionCompartmentEditPart.VISUAL_ID:
-			return getTareaEnvioContextoTareaEnvioContextoAccionCompartment_7008SemanticChildren(view);
-		case McpMM.diagram.edit.parts.TareaRecepcionContextoTareaRecepcionContextoAccionCompartmentEditPart.VISUAL_ID:
-			return getTareaRecepcionContextoTareaRecepcionContextoAccionCompartment_7009SemanticChildren(view);
-		case McpMM.diagram.edit.parts.TareaServerMCPTareaServerMCPAccionCompartmentEditPart.VISUAL_ID:
-			return getTareaServerMCPTareaServerMCPAccionCompartment_7010SemanticChildren(view);
-		case McpMM.diagram.edit.parts.InicioInicioAccionCompartmentEditPart.VISUAL_ID:
-			return getInicioInicioAccionCompartment_7011SemanticChildren(view);
-		case McpMM.diagram.edit.parts.FinalFinalAccionCompartmentEditPart.VISUAL_ID:
-			return getFinalFinalAccionCompartment_7012SemanticChildren(view);
+			return getAgenteAgenteContextosCompartment_7001SemanticChildren(view);
 		case McpMM.diagram.edit.parts.ContextoContextoPropiedadesCompartmentEditPart.VISUAL_ID:
-			return getContextoContextoPropiedadesCompartment_7013SemanticChildren(view);
+			return getContextoContextoPropiedadesCompartment_7002SemanticChildren(view);
 		case McpMM.diagram.edit.parts.ServerMCPServerMCPOperacionesCompartmentEditPart.VISUAL_ID:
-			return getServerMCPServerMCPOperacionesCompartment_7014SemanticChildren(view);
+			return getServerMCPServerMCPOperacionesCompartment_7003SemanticChildren(view);
+		case McpMM.diagram.edit.parts.WorkflowWorkflowTareasCompartmentEditPart.VISUAL_ID:
+			return getWorkflowWorkflowTareasCompartment_7004SemanticChildren(view);
+		case McpMM.diagram.edit.parts.TareaTransformacionDatosTareaTransformacionDatosAccionCompartmentEditPart.VISUAL_ID:
+			return getTareaTransformacionDatosTareaTransformacionDatosAccionCompartment_7005SemanticChildren(view);
+		case McpMM.diagram.edit.parts.TareaLLMTareaLLMAccionCompartmentEditPart.VISUAL_ID:
+			return getTareaLLMTareaLLMAccionCompartment_7006SemanticChildren(view);
+		case McpMM.diagram.edit.parts.TareaUsuarioTareaUsuarioAccionCompartmentEditPart.VISUAL_ID:
+			return getTareaUsuarioTareaUsuarioAccionCompartment_7007SemanticChildren(view);
+		case McpMM.diagram.edit.parts.TareaAnalisisTareaAnalisisAccionCompartmentEditPart.VISUAL_ID:
+			return getTareaAnalisisTareaAnalisisAccionCompartment_7008SemanticChildren(view);
+		case McpMM.diagram.edit.parts.TareaEnvioContextoTareaEnvioContextoAccionCompartmentEditPart.VISUAL_ID:
+			return getTareaEnvioContextoTareaEnvioContextoAccionCompartment_7009SemanticChildren(view);
+		case McpMM.diagram.edit.parts.TareaRecepcionContextoTareaRecepcionContextoAccionCompartmentEditPart.VISUAL_ID:
+			return getTareaRecepcionContextoTareaRecepcionContextoAccionCompartment_7010SemanticChildren(view);
+		case McpMM.diagram.edit.parts.TareaServerMCPTareaServerMCPAccionCompartmentEditPart.VISUAL_ID:
+			return getTareaServerMCPTareaServerMCPAccionCompartment_7011SemanticChildren(view);
+		case McpMM.diagram.edit.parts.InicioInicioAccionCompartmentEditPart.VISUAL_ID:
+			return getInicioInicioAccionCompartment_7012SemanticChildren(view);
+		case McpMM.diagram.edit.parts.FinalFinalAccionCompartmentEditPart.VISUAL_ID:
+			return getFinalFinalAccionCompartment_7013SemanticChildren(view);
 		}
 		return Collections.emptyList();
 	}
@@ -92,28 +90,12 @@ public class McpMMDiagramUpdater {
 				continue;
 			}
 		}
-		return result;
-	}
-
-	/**
-	* @generated
-	*/
-	public static List<McpMM.diagram.part.McpMMNodeDescriptor> getAgenteAgenteFlujoCompartment_7001SemanticChildren(
-			View view) {
-		if (false == view.eContainer() instanceof View) {
-			return Collections.emptyList();
-		}
-		View containerView = (View) view.eContainer();
-		if (!containerView.isSetElement()) {
-			return Collections.emptyList();
-		}
-		McpMM.Agente modelElement = (McpMM.Agente) containerView.getElement();
-		LinkedList<McpMM.diagram.part.McpMMNodeDescriptor> result = new LinkedList<McpMM.diagram.part.McpMMNodeDescriptor>();
-		{
-			McpMM.Workflow childElement = modelElement.getFlujo();
+		for (Iterator<?> it = modelElement.getWorkflows().iterator(); it.hasNext();) {
+			McpMM.Workflow childElement = (McpMM.Workflow) it.next();
 			int visualID = McpMM.diagram.part.McpMMVisualIDRegistry.getNodeVisualID(view, childElement);
 			if (visualID == McpMM.diagram.edit.parts.WorkflowEditPart.VISUAL_ID) {
 				result.add(new McpMM.diagram.part.McpMMNodeDescriptor(childElement, visualID));
+				continue;
 			}
 		}
 		return result;
@@ -122,7 +104,7 @@ public class McpMMDiagramUpdater {
 	/**
 	* @generated
 	*/
-	public static List<McpMM.diagram.part.McpMMNodeDescriptor> getAgenteAgenteContextosCompartment_7002SemanticChildren(
+	public static List<McpMM.diagram.part.McpMMNodeDescriptor> getAgenteAgenteContextosCompartment_7001SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.emptyList();
@@ -147,7 +129,57 @@ public class McpMMDiagramUpdater {
 	/**
 	* @generated
 	*/
-	public static List<McpMM.diagram.part.McpMMNodeDescriptor> getWorkflowWorkflowTareasCompartment_7003SemanticChildren(
+	public static List<McpMM.diagram.part.McpMMNodeDescriptor> getContextoContextoPropiedadesCompartment_7002SemanticChildren(
+			View view) {
+		if (false == view.eContainer() instanceof View) {
+			return Collections.emptyList();
+		}
+		View containerView = (View) view.eContainer();
+		if (!containerView.isSetElement()) {
+			return Collections.emptyList();
+		}
+		McpMM.Contexto modelElement = (McpMM.Contexto) containerView.getElement();
+		LinkedList<McpMM.diagram.part.McpMMNodeDescriptor> result = new LinkedList<McpMM.diagram.part.McpMMNodeDescriptor>();
+		for (Iterator<?> it = modelElement.getPropiedades().iterator(); it.hasNext();) {
+			McpMM.Propiedad childElement = (McpMM.Propiedad) it.next();
+			int visualID = McpMM.diagram.part.McpMMVisualIDRegistry.getNodeVisualID(view, childElement);
+			if (visualID == McpMM.diagram.edit.parts.PropiedadEditPart.VISUAL_ID) {
+				result.add(new McpMM.diagram.part.McpMMNodeDescriptor(childElement, visualID));
+				continue;
+			}
+		}
+		return result;
+	}
+
+	/**
+	* @generated
+	*/
+	public static List<McpMM.diagram.part.McpMMNodeDescriptor> getServerMCPServerMCPOperacionesCompartment_7003SemanticChildren(
+			View view) {
+		if (false == view.eContainer() instanceof View) {
+			return Collections.emptyList();
+		}
+		View containerView = (View) view.eContainer();
+		if (!containerView.isSetElement()) {
+			return Collections.emptyList();
+		}
+		McpMM.ServerMCP modelElement = (McpMM.ServerMCP) containerView.getElement();
+		LinkedList<McpMM.diagram.part.McpMMNodeDescriptor> result = new LinkedList<McpMM.diagram.part.McpMMNodeDescriptor>();
+		for (Iterator<?> it = modelElement.getOperaciones().iterator(); it.hasNext();) {
+			McpMM.OperacionMCP childElement = (McpMM.OperacionMCP) it.next();
+			int visualID = McpMM.diagram.part.McpMMVisualIDRegistry.getNodeVisualID(view, childElement);
+			if (visualID == McpMM.diagram.edit.parts.OperacionMCPEditPart.VISUAL_ID) {
+				result.add(new McpMM.diagram.part.McpMMNodeDescriptor(childElement, visualID));
+				continue;
+			}
+		}
+		return result;
+	}
+
+	/**
+	* @generated
+	*/
+	public static List<McpMM.diagram.part.McpMMNodeDescriptor> getWorkflowWorkflowTareasCompartment_7004SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.emptyList();
@@ -204,7 +236,7 @@ public class McpMMDiagramUpdater {
 	/**
 	* @generated
 	*/
-	public static List<McpMM.diagram.part.McpMMNodeDescriptor> getTareaTransformacionDatosTareaTransformacionDatosAccionCompartment_7004SemanticChildren(
+	public static List<McpMM.diagram.part.McpMMNodeDescriptor> getTareaTransformacionDatosTareaTransformacionDatosAccionCompartment_7005SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.emptyList();
@@ -233,7 +265,7 @@ public class McpMMDiagramUpdater {
 	/**
 	* @generated
 	*/
-	public static List<McpMM.diagram.part.McpMMNodeDescriptor> getTareaLLMTareaLLMAccionCompartment_7005SemanticChildren(
+	public static List<McpMM.diagram.part.McpMMNodeDescriptor> getTareaLLMTareaLLMAccionCompartment_7006SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.emptyList();
@@ -262,7 +294,7 @@ public class McpMMDiagramUpdater {
 	/**
 	* @generated
 	*/
-	public static List<McpMM.diagram.part.McpMMNodeDescriptor> getTareaUsuarioTareaUsuarioAccionCompartment_7006SemanticChildren(
+	public static List<McpMM.diagram.part.McpMMNodeDescriptor> getTareaUsuarioTareaUsuarioAccionCompartment_7007SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.emptyList();
@@ -291,7 +323,7 @@ public class McpMMDiagramUpdater {
 	/**
 	* @generated
 	*/
-	public static List<McpMM.diagram.part.McpMMNodeDescriptor> getTareaAnalisisTareaAnalisisAccionCompartment_7007SemanticChildren(
+	public static List<McpMM.diagram.part.McpMMNodeDescriptor> getTareaAnalisisTareaAnalisisAccionCompartment_7008SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.emptyList();
@@ -320,7 +352,7 @@ public class McpMMDiagramUpdater {
 	/**
 	* @generated
 	*/
-	public static List<McpMM.diagram.part.McpMMNodeDescriptor> getTareaEnvioContextoTareaEnvioContextoAccionCompartment_7008SemanticChildren(
+	public static List<McpMM.diagram.part.McpMMNodeDescriptor> getTareaEnvioContextoTareaEnvioContextoAccionCompartment_7009SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.emptyList();
@@ -349,7 +381,7 @@ public class McpMMDiagramUpdater {
 	/**
 	* @generated
 	*/
-	public static List<McpMM.diagram.part.McpMMNodeDescriptor> getTareaRecepcionContextoTareaRecepcionContextoAccionCompartment_7009SemanticChildren(
+	public static List<McpMM.diagram.part.McpMMNodeDescriptor> getTareaRecepcionContextoTareaRecepcionContextoAccionCompartment_7010SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.emptyList();
@@ -378,7 +410,7 @@ public class McpMMDiagramUpdater {
 	/**
 	* @generated
 	*/
-	public static List<McpMM.diagram.part.McpMMNodeDescriptor> getTareaServerMCPTareaServerMCPAccionCompartment_7010SemanticChildren(
+	public static List<McpMM.diagram.part.McpMMNodeDescriptor> getTareaServerMCPTareaServerMCPAccionCompartment_7011SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.emptyList();
@@ -407,7 +439,7 @@ public class McpMMDiagramUpdater {
 	/**
 	* @generated
 	*/
-	public static List<McpMM.diagram.part.McpMMNodeDescriptor> getInicioInicioAccionCompartment_7011SemanticChildren(
+	public static List<McpMM.diagram.part.McpMMNodeDescriptor> getInicioInicioAccionCompartment_7012SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.emptyList();
@@ -436,7 +468,7 @@ public class McpMMDiagramUpdater {
 	/**
 	* @generated
 	*/
-	public static List<McpMM.diagram.part.McpMMNodeDescriptor> getFinalFinalAccionCompartment_7012SemanticChildren(
+	public static List<McpMM.diagram.part.McpMMNodeDescriptor> getFinalFinalAccionCompartment_7013SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.emptyList();
@@ -465,56 +497,6 @@ public class McpMMDiagramUpdater {
 	/**
 	* @generated
 	*/
-	public static List<McpMM.diagram.part.McpMMNodeDescriptor> getContextoContextoPropiedadesCompartment_7013SemanticChildren(
-			View view) {
-		if (false == view.eContainer() instanceof View) {
-			return Collections.emptyList();
-		}
-		View containerView = (View) view.eContainer();
-		if (!containerView.isSetElement()) {
-			return Collections.emptyList();
-		}
-		McpMM.Contexto modelElement = (McpMM.Contexto) containerView.getElement();
-		LinkedList<McpMM.diagram.part.McpMMNodeDescriptor> result = new LinkedList<McpMM.diagram.part.McpMMNodeDescriptor>();
-		for (Iterator<?> it = modelElement.getPropiedades().iterator(); it.hasNext();) {
-			McpMM.Propiedad childElement = (McpMM.Propiedad) it.next();
-			int visualID = McpMM.diagram.part.McpMMVisualIDRegistry.getNodeVisualID(view, childElement);
-			if (visualID == McpMM.diagram.edit.parts.PropiedadEditPart.VISUAL_ID) {
-				result.add(new McpMM.diagram.part.McpMMNodeDescriptor(childElement, visualID));
-				continue;
-			}
-		}
-		return result;
-	}
-
-	/**
-	* @generated
-	*/
-	public static List<McpMM.diagram.part.McpMMNodeDescriptor> getServerMCPServerMCPOperacionesCompartment_7014SemanticChildren(
-			View view) {
-		if (false == view.eContainer() instanceof View) {
-			return Collections.emptyList();
-		}
-		View containerView = (View) view.eContainer();
-		if (!containerView.isSetElement()) {
-			return Collections.emptyList();
-		}
-		McpMM.ServerMCP modelElement = (McpMM.ServerMCP) containerView.getElement();
-		LinkedList<McpMM.diagram.part.McpMMNodeDescriptor> result = new LinkedList<McpMM.diagram.part.McpMMNodeDescriptor>();
-		for (Iterator<?> it = modelElement.getOperaciones().iterator(); it.hasNext();) {
-			McpMM.OperacionMCP childElement = (McpMM.OperacionMCP) it.next();
-			int visualID = McpMM.diagram.part.McpMMVisualIDRegistry.getNodeVisualID(view, childElement);
-			if (visualID == McpMM.diagram.edit.parts.OperacionMCPEditPart.VISUAL_ID) {
-				result.add(new McpMM.diagram.part.McpMMNodeDescriptor(childElement, visualID));
-				continue;
-			}
-		}
-		return result;
-	}
-
-	/**
-	* @generated
-	*/
 	public static List<McpMM.diagram.part.McpMMLinkDescriptor> getContainedLinks(View view) {
 		switch (McpMM.diagram.part.McpMMVisualIDRegistry.getVisualID(view)) {
 		case McpMM.diagram.edit.parts.ServiceMCPEditPart.VISUAL_ID:
@@ -524,35 +506,35 @@ public class McpMMDiagramUpdater {
 		case McpMM.diagram.edit.parts.ServerMCPEditPart.VISUAL_ID:
 			return getServerMCP_2002ContainedLinks(view);
 		case McpMM.diagram.edit.parts.WorkflowEditPart.VISUAL_ID:
-			return getWorkflow_3001ContainedLinks(view);
-		case McpMM.diagram.edit.parts.TareaTransformacionDatosEditPart.VISUAL_ID:
-			return getTareaTransformacionDatos_3002ContainedLinks(view);
-		case McpMM.diagram.edit.parts.EscrituraEditPart.VISUAL_ID:
-			return getEscritura_3003ContainedLinks(view);
-		case McpMM.diagram.edit.parts.LecturaEditPart.VISUAL_ID:
-			return getLectura_3004ContainedLinks(view);
-		case McpMM.diagram.edit.parts.TareaLLMEditPart.VISUAL_ID:
-			return getTareaLLM_3005ContainedLinks(view);
-		case McpMM.diagram.edit.parts.TareaUsuarioEditPart.VISUAL_ID:
-			return getTareaUsuario_3006ContainedLinks(view);
-		case McpMM.diagram.edit.parts.TareaAnalisisEditPart.VISUAL_ID:
-			return getTareaAnalisis_3007ContainedLinks(view);
-		case McpMM.diagram.edit.parts.TareaEnvioContextoEditPart.VISUAL_ID:
-			return getTareaEnvioContexto_3008ContainedLinks(view);
-		case McpMM.diagram.edit.parts.TareaRecepcionContextoEditPart.VISUAL_ID:
-			return getTareaRecepcionContexto_3009ContainedLinks(view);
-		case McpMM.diagram.edit.parts.TareaServerMCPEditPart.VISUAL_ID:
-			return getTareaServerMCP_3010ContainedLinks(view);
-		case McpMM.diagram.edit.parts.InicioEditPart.VISUAL_ID:
-			return getInicio_3011ContainedLinks(view);
-		case McpMM.diagram.edit.parts.FinalEditPart.VISUAL_ID:
-			return getFinal_3012ContainedLinks(view);
+			return getWorkflow_2003ContainedLinks(view);
 		case McpMM.diagram.edit.parts.ContextoEditPart.VISUAL_ID:
-			return getContexto_3013ContainedLinks(view);
+			return getContexto_3001ContainedLinks(view);
 		case McpMM.diagram.edit.parts.PropiedadEditPart.VISUAL_ID:
-			return getPropiedad_3014ContainedLinks(view);
+			return getPropiedad_3002ContainedLinks(view);
 		case McpMM.diagram.edit.parts.OperacionMCPEditPart.VISUAL_ID:
-			return getOperacionMCP_3015ContainedLinks(view);
+			return getOperacionMCP_3003ContainedLinks(view);
+		case McpMM.diagram.edit.parts.TareaTransformacionDatosEditPart.VISUAL_ID:
+			return getTareaTransformacionDatos_3004ContainedLinks(view);
+		case McpMM.diagram.edit.parts.EscrituraEditPart.VISUAL_ID:
+			return getEscritura_3005ContainedLinks(view);
+		case McpMM.diagram.edit.parts.LecturaEditPart.VISUAL_ID:
+			return getLectura_3006ContainedLinks(view);
+		case McpMM.diagram.edit.parts.TareaLLMEditPart.VISUAL_ID:
+			return getTareaLLM_3007ContainedLinks(view);
+		case McpMM.diagram.edit.parts.TareaUsuarioEditPart.VISUAL_ID:
+			return getTareaUsuario_3008ContainedLinks(view);
+		case McpMM.diagram.edit.parts.TareaAnalisisEditPart.VISUAL_ID:
+			return getTareaAnalisis_3009ContainedLinks(view);
+		case McpMM.diagram.edit.parts.TareaEnvioContextoEditPart.VISUAL_ID:
+			return getTareaEnvioContexto_3010ContainedLinks(view);
+		case McpMM.diagram.edit.parts.TareaRecepcionContextoEditPart.VISUAL_ID:
+			return getTareaRecepcionContexto_3011ContainedLinks(view);
+		case McpMM.diagram.edit.parts.TareaServerMCPEditPart.VISUAL_ID:
+			return getTareaServerMCP_3012ContainedLinks(view);
+		case McpMM.diagram.edit.parts.InicioEditPart.VISUAL_ID:
+			return getInicio_3013ContainedLinks(view);
+		case McpMM.diagram.edit.parts.FinalEditPart.VISUAL_ID:
+			return getFinal_3014ContainedLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -567,35 +549,35 @@ public class McpMMDiagramUpdater {
 		case McpMM.diagram.edit.parts.ServerMCPEditPart.VISUAL_ID:
 			return getServerMCP_2002IncomingLinks(view);
 		case McpMM.diagram.edit.parts.WorkflowEditPart.VISUAL_ID:
-			return getWorkflow_3001IncomingLinks(view);
-		case McpMM.diagram.edit.parts.TareaTransformacionDatosEditPart.VISUAL_ID:
-			return getTareaTransformacionDatos_3002IncomingLinks(view);
-		case McpMM.diagram.edit.parts.EscrituraEditPart.VISUAL_ID:
-			return getEscritura_3003IncomingLinks(view);
-		case McpMM.diagram.edit.parts.LecturaEditPart.VISUAL_ID:
-			return getLectura_3004IncomingLinks(view);
-		case McpMM.diagram.edit.parts.TareaLLMEditPart.VISUAL_ID:
-			return getTareaLLM_3005IncomingLinks(view);
-		case McpMM.diagram.edit.parts.TareaUsuarioEditPart.VISUAL_ID:
-			return getTareaUsuario_3006IncomingLinks(view);
-		case McpMM.diagram.edit.parts.TareaAnalisisEditPart.VISUAL_ID:
-			return getTareaAnalisis_3007IncomingLinks(view);
-		case McpMM.diagram.edit.parts.TareaEnvioContextoEditPart.VISUAL_ID:
-			return getTareaEnvioContexto_3008IncomingLinks(view);
-		case McpMM.diagram.edit.parts.TareaRecepcionContextoEditPart.VISUAL_ID:
-			return getTareaRecepcionContexto_3009IncomingLinks(view);
-		case McpMM.diagram.edit.parts.TareaServerMCPEditPart.VISUAL_ID:
-			return getTareaServerMCP_3010IncomingLinks(view);
-		case McpMM.diagram.edit.parts.InicioEditPart.VISUAL_ID:
-			return getInicio_3011IncomingLinks(view);
-		case McpMM.diagram.edit.parts.FinalEditPart.VISUAL_ID:
-			return getFinal_3012IncomingLinks(view);
+			return getWorkflow_2003IncomingLinks(view);
 		case McpMM.diagram.edit.parts.ContextoEditPart.VISUAL_ID:
-			return getContexto_3013IncomingLinks(view);
+			return getContexto_3001IncomingLinks(view);
 		case McpMM.diagram.edit.parts.PropiedadEditPart.VISUAL_ID:
-			return getPropiedad_3014IncomingLinks(view);
+			return getPropiedad_3002IncomingLinks(view);
 		case McpMM.diagram.edit.parts.OperacionMCPEditPart.VISUAL_ID:
-			return getOperacionMCP_3015IncomingLinks(view);
+			return getOperacionMCP_3003IncomingLinks(view);
+		case McpMM.diagram.edit.parts.TareaTransformacionDatosEditPart.VISUAL_ID:
+			return getTareaTransformacionDatos_3004IncomingLinks(view);
+		case McpMM.diagram.edit.parts.EscrituraEditPart.VISUAL_ID:
+			return getEscritura_3005IncomingLinks(view);
+		case McpMM.diagram.edit.parts.LecturaEditPart.VISUAL_ID:
+			return getLectura_3006IncomingLinks(view);
+		case McpMM.diagram.edit.parts.TareaLLMEditPart.VISUAL_ID:
+			return getTareaLLM_3007IncomingLinks(view);
+		case McpMM.diagram.edit.parts.TareaUsuarioEditPart.VISUAL_ID:
+			return getTareaUsuario_3008IncomingLinks(view);
+		case McpMM.diagram.edit.parts.TareaAnalisisEditPart.VISUAL_ID:
+			return getTareaAnalisis_3009IncomingLinks(view);
+		case McpMM.diagram.edit.parts.TareaEnvioContextoEditPart.VISUAL_ID:
+			return getTareaEnvioContexto_3010IncomingLinks(view);
+		case McpMM.diagram.edit.parts.TareaRecepcionContextoEditPart.VISUAL_ID:
+			return getTareaRecepcionContexto_3011IncomingLinks(view);
+		case McpMM.diagram.edit.parts.TareaServerMCPEditPart.VISUAL_ID:
+			return getTareaServerMCP_3012IncomingLinks(view);
+		case McpMM.diagram.edit.parts.InicioEditPart.VISUAL_ID:
+			return getInicio_3013IncomingLinks(view);
+		case McpMM.diagram.edit.parts.FinalEditPart.VISUAL_ID:
+			return getFinal_3014IncomingLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -610,35 +592,35 @@ public class McpMMDiagramUpdater {
 		case McpMM.diagram.edit.parts.ServerMCPEditPart.VISUAL_ID:
 			return getServerMCP_2002OutgoingLinks(view);
 		case McpMM.diagram.edit.parts.WorkflowEditPart.VISUAL_ID:
-			return getWorkflow_3001OutgoingLinks(view);
-		case McpMM.diagram.edit.parts.TareaTransformacionDatosEditPart.VISUAL_ID:
-			return getTareaTransformacionDatos_3002OutgoingLinks(view);
-		case McpMM.diagram.edit.parts.EscrituraEditPart.VISUAL_ID:
-			return getEscritura_3003OutgoingLinks(view);
-		case McpMM.diagram.edit.parts.LecturaEditPart.VISUAL_ID:
-			return getLectura_3004OutgoingLinks(view);
-		case McpMM.diagram.edit.parts.TareaLLMEditPart.VISUAL_ID:
-			return getTareaLLM_3005OutgoingLinks(view);
-		case McpMM.diagram.edit.parts.TareaUsuarioEditPart.VISUAL_ID:
-			return getTareaUsuario_3006OutgoingLinks(view);
-		case McpMM.diagram.edit.parts.TareaAnalisisEditPart.VISUAL_ID:
-			return getTareaAnalisis_3007OutgoingLinks(view);
-		case McpMM.diagram.edit.parts.TareaEnvioContextoEditPart.VISUAL_ID:
-			return getTareaEnvioContexto_3008OutgoingLinks(view);
-		case McpMM.diagram.edit.parts.TareaRecepcionContextoEditPart.VISUAL_ID:
-			return getTareaRecepcionContexto_3009OutgoingLinks(view);
-		case McpMM.diagram.edit.parts.TareaServerMCPEditPart.VISUAL_ID:
-			return getTareaServerMCP_3010OutgoingLinks(view);
-		case McpMM.diagram.edit.parts.InicioEditPart.VISUAL_ID:
-			return getInicio_3011OutgoingLinks(view);
-		case McpMM.diagram.edit.parts.FinalEditPart.VISUAL_ID:
-			return getFinal_3012OutgoingLinks(view);
+			return getWorkflow_2003OutgoingLinks(view);
 		case McpMM.diagram.edit.parts.ContextoEditPart.VISUAL_ID:
-			return getContexto_3013OutgoingLinks(view);
+			return getContexto_3001OutgoingLinks(view);
 		case McpMM.diagram.edit.parts.PropiedadEditPart.VISUAL_ID:
-			return getPropiedad_3014OutgoingLinks(view);
+			return getPropiedad_3002OutgoingLinks(view);
 		case McpMM.diagram.edit.parts.OperacionMCPEditPart.VISUAL_ID:
-			return getOperacionMCP_3015OutgoingLinks(view);
+			return getOperacionMCP_3003OutgoingLinks(view);
+		case McpMM.diagram.edit.parts.TareaTransformacionDatosEditPart.VISUAL_ID:
+			return getTareaTransformacionDatos_3004OutgoingLinks(view);
+		case McpMM.diagram.edit.parts.EscrituraEditPart.VISUAL_ID:
+			return getEscritura_3005OutgoingLinks(view);
+		case McpMM.diagram.edit.parts.LecturaEditPart.VISUAL_ID:
+			return getLectura_3006OutgoingLinks(view);
+		case McpMM.diagram.edit.parts.TareaLLMEditPart.VISUAL_ID:
+			return getTareaLLM_3007OutgoingLinks(view);
+		case McpMM.diagram.edit.parts.TareaUsuarioEditPart.VISUAL_ID:
+			return getTareaUsuario_3008OutgoingLinks(view);
+		case McpMM.diagram.edit.parts.TareaAnalisisEditPart.VISUAL_ID:
+			return getTareaAnalisis_3009OutgoingLinks(view);
+		case McpMM.diagram.edit.parts.TareaEnvioContextoEditPart.VISUAL_ID:
+			return getTareaEnvioContexto_3010OutgoingLinks(view);
+		case McpMM.diagram.edit.parts.TareaRecepcionContextoEditPart.VISUAL_ID:
+			return getTareaRecepcionContexto_3011OutgoingLinks(view);
+		case McpMM.diagram.edit.parts.TareaServerMCPEditPart.VISUAL_ID:
+			return getTareaServerMCP_3012OutgoingLinks(view);
+		case McpMM.diagram.edit.parts.InicioEditPart.VISUAL_ID:
+			return getInicio_3013OutgoingLinks(view);
+		case McpMM.diagram.edit.parts.FinalEditPart.VISUAL_ID:
+			return getFinal_3014OutgoingLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -654,7 +636,10 @@ public class McpMMDiagramUpdater {
 	 * @generated
 	 */
 	public static List<McpMM.diagram.part.McpMMLinkDescriptor> getAgente_2001ContainedLinks(View view) {
-		return Collections.emptyList();
+		McpMM.Agente modelElement = (McpMM.Agente) view.getElement();
+		LinkedList<McpMM.diagram.part.McpMMLinkDescriptor> result = new LinkedList<McpMM.diagram.part.McpMMLinkDescriptor>();
+		result.addAll(getOutgoingFeatureModelFacetLinks_Agente_Tareas_4001(modelElement));
+		return result;
 	}
 
 	/**
@@ -667,136 +652,136 @@ public class McpMMDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<McpMM.diagram.part.McpMMLinkDescriptor> getWorkflow_3001ContainedLinks(View view) {
+	public static List<McpMM.diagram.part.McpMMLinkDescriptor> getWorkflow_2003ContainedLinks(View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<McpMM.diagram.part.McpMMLinkDescriptor> getTareaTransformacionDatos_3002ContainedLinks(
+	public static List<McpMM.diagram.part.McpMMLinkDescriptor> getContexto_3001ContainedLinks(View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<McpMM.diagram.part.McpMMLinkDescriptor> getPropiedad_3002ContainedLinks(View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<McpMM.diagram.part.McpMMLinkDescriptor> getOperacionMCP_3003ContainedLinks(View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<McpMM.diagram.part.McpMMLinkDescriptor> getTareaTransformacionDatos_3004ContainedLinks(
 			View view) {
 		McpMM.TareaTransformacionDatos modelElement = (McpMM.TareaTransformacionDatos) view.getElement();
 		LinkedList<McpMM.diagram.part.McpMMLinkDescriptor> result = new LinkedList<McpMM.diagram.part.McpMMLinkDescriptor>();
-		result.addAll(getOutgoingFeatureModelFacetLinks_Tarea_Sigue_4001(modelElement));
+		result.addAll(getOutgoingFeatureModelFacetLinks_Tarea_Sigue_4002(modelElement));
 		return result;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<McpMM.diagram.part.McpMMLinkDescriptor> getEscritura_3003ContainedLinks(View view) {
+	public static List<McpMM.diagram.part.McpMMLinkDescriptor> getEscritura_3005ContainedLinks(View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<McpMM.diagram.part.McpMMLinkDescriptor> getLectura_3004ContainedLinks(View view) {
+	public static List<McpMM.diagram.part.McpMMLinkDescriptor> getLectura_3006ContainedLinks(View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<McpMM.diagram.part.McpMMLinkDescriptor> getTareaLLM_3005ContainedLinks(View view) {
+	public static List<McpMM.diagram.part.McpMMLinkDescriptor> getTareaLLM_3007ContainedLinks(View view) {
 		McpMM.TareaLLM modelElement = (McpMM.TareaLLM) view.getElement();
 		LinkedList<McpMM.diagram.part.McpMMLinkDescriptor> result = new LinkedList<McpMM.diagram.part.McpMMLinkDescriptor>();
-		result.addAll(getOutgoingFeatureModelFacetLinks_Tarea_Sigue_4001(modelElement));
+		result.addAll(getOutgoingFeatureModelFacetLinks_Tarea_Sigue_4002(modelElement));
 		return result;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<McpMM.diagram.part.McpMMLinkDescriptor> getTareaUsuario_3006ContainedLinks(View view) {
+	public static List<McpMM.diagram.part.McpMMLinkDescriptor> getTareaUsuario_3008ContainedLinks(View view) {
 		McpMM.TareaUsuario modelElement = (McpMM.TareaUsuario) view.getElement();
 		LinkedList<McpMM.diagram.part.McpMMLinkDescriptor> result = new LinkedList<McpMM.diagram.part.McpMMLinkDescriptor>();
-		result.addAll(getOutgoingFeatureModelFacetLinks_Tarea_Sigue_4001(modelElement));
+		result.addAll(getOutgoingFeatureModelFacetLinks_Tarea_Sigue_4002(modelElement));
 		return result;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<McpMM.diagram.part.McpMMLinkDescriptor> getTareaAnalisis_3007ContainedLinks(View view) {
+	public static List<McpMM.diagram.part.McpMMLinkDescriptor> getTareaAnalisis_3009ContainedLinks(View view) {
 		McpMM.TareaAnalisis modelElement = (McpMM.TareaAnalisis) view.getElement();
 		LinkedList<McpMM.diagram.part.McpMMLinkDescriptor> result = new LinkedList<McpMM.diagram.part.McpMMLinkDescriptor>();
-		result.addAll(getOutgoingFeatureModelFacetLinks_Tarea_Sigue_4001(modelElement));
-		result.addAll(getOutgoingFeatureModelFacetLinks_TareaAnalisis_SigueElse_4002(modelElement));
+		result.addAll(getOutgoingFeatureModelFacetLinks_Tarea_Sigue_4002(modelElement));
+		result.addAll(getOutgoingFeatureModelFacetLinks_TareaAnalisis_SigueElse_4003(modelElement));
 		return result;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<McpMM.diagram.part.McpMMLinkDescriptor> getTareaEnvioContexto_3008ContainedLinks(View view) {
+	public static List<McpMM.diagram.part.McpMMLinkDescriptor> getTareaEnvioContexto_3010ContainedLinks(View view) {
 		McpMM.TareaEnvioContexto modelElement = (McpMM.TareaEnvioContexto) view.getElement();
 		LinkedList<McpMM.diagram.part.McpMMLinkDescriptor> result = new LinkedList<McpMM.diagram.part.McpMMLinkDescriptor>();
-		result.addAll(getOutgoingFeatureModelFacetLinks_Tarea_Sigue_4001(modelElement));
+		result.addAll(getOutgoingFeatureModelFacetLinks_Tarea_Sigue_4002(modelElement));
 		return result;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<McpMM.diagram.part.McpMMLinkDescriptor> getTareaRecepcionContexto_3009ContainedLinks(View view) {
+	public static List<McpMM.diagram.part.McpMMLinkDescriptor> getTareaRecepcionContexto_3011ContainedLinks(View view) {
 		McpMM.TareaRecepcionContexto modelElement = (McpMM.TareaRecepcionContexto) view.getElement();
 		LinkedList<McpMM.diagram.part.McpMMLinkDescriptor> result = new LinkedList<McpMM.diagram.part.McpMMLinkDescriptor>();
-		result.addAll(getOutgoingFeatureModelFacetLinks_Tarea_Sigue_4001(modelElement));
+		result.addAll(getOutgoingFeatureModelFacetLinks_Tarea_Sigue_4002(modelElement));
 		return result;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<McpMM.diagram.part.McpMMLinkDescriptor> getTareaServerMCP_3010ContainedLinks(View view) {
+	public static List<McpMM.diagram.part.McpMMLinkDescriptor> getTareaServerMCP_3012ContainedLinks(View view) {
 		McpMM.TareaServerMCP modelElement = (McpMM.TareaServerMCP) view.getElement();
 		LinkedList<McpMM.diagram.part.McpMMLinkDescriptor> result = new LinkedList<McpMM.diagram.part.McpMMLinkDescriptor>();
-		result.addAll(getOutgoingFeatureModelFacetLinks_Tarea_Sigue_4001(modelElement));
-		result.addAll(getOutgoingFeatureModelFacetLinks_TareaServerMCP_EjecutaOperacion_4003(modelElement));
+		result.addAll(getOutgoingFeatureModelFacetLinks_Tarea_Sigue_4002(modelElement));
+		result.addAll(getOutgoingFeatureModelFacetLinks_TareaServerMCP_EjecutaOperacion_4004(modelElement));
 		return result;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<McpMM.diagram.part.McpMMLinkDescriptor> getInicio_3011ContainedLinks(View view) {
+	public static List<McpMM.diagram.part.McpMMLinkDescriptor> getInicio_3013ContainedLinks(View view) {
 		McpMM.Inicio modelElement = (McpMM.Inicio) view.getElement();
 		LinkedList<McpMM.diagram.part.McpMMLinkDescriptor> result = new LinkedList<McpMM.diagram.part.McpMMLinkDescriptor>();
-		result.addAll(getOutgoingFeatureModelFacetLinks_Tarea_Sigue_4001(modelElement));
+		result.addAll(getOutgoingFeatureModelFacetLinks_Tarea_Sigue_4002(modelElement));
 		return result;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<McpMM.diagram.part.McpMMLinkDescriptor> getFinal_3012ContainedLinks(View view) {
+	public static List<McpMM.diagram.part.McpMMLinkDescriptor> getFinal_3014ContainedLinks(View view) {
 		McpMM.Final modelElement = (McpMM.Final) view.getElement();
 		LinkedList<McpMM.diagram.part.McpMMLinkDescriptor> result = new LinkedList<McpMM.diagram.part.McpMMLinkDescriptor>();
-		result.addAll(getOutgoingFeatureModelFacetLinks_Tarea_Sigue_4001(modelElement));
+		result.addAll(getOutgoingFeatureModelFacetLinks_Tarea_Sigue_4002(modelElement));
 		return result;
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List<McpMM.diagram.part.McpMMLinkDescriptor> getContexto_3013ContainedLinks(View view) {
-		return Collections.emptyList();
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List<McpMM.diagram.part.McpMMLinkDescriptor> getPropiedad_3014ContainedLinks(View view) {
-		return Collections.emptyList();
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List<McpMM.diagram.part.McpMMLinkDescriptor> getOperacionMCP_3015ContainedLinks(View view) {
-		return Collections.emptyList();
 	}
 
 	/**
@@ -816,166 +801,173 @@ public class McpMMDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<McpMM.diagram.part.McpMMLinkDescriptor> getWorkflow_3001IncomingLinks(View view) {
+	public static List<McpMM.diagram.part.McpMMLinkDescriptor> getWorkflow_2003IncomingLinks(View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<McpMM.diagram.part.McpMMLinkDescriptor> getTareaTransformacionDatos_3002IncomingLinks(
-			View view) {
-		McpMM.TareaTransformacionDatos modelElement = (McpMM.TareaTransformacionDatos) view.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
-				.find(view.eResource().getResourceSet().getResources());
-		LinkedList<McpMM.diagram.part.McpMMLinkDescriptor> result = new LinkedList<McpMM.diagram.part.McpMMLinkDescriptor>();
-		result.addAll(getIncomingFeatureModelFacetLinks_Tarea_Sigue_4001(modelElement, crossReferences));
-		result.addAll(getIncomingFeatureModelFacetLinks_TareaAnalisis_SigueElse_4002(modelElement, crossReferences));
-		return result;
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List<McpMM.diagram.part.McpMMLinkDescriptor> getEscritura_3003IncomingLinks(View view) {
+	public static List<McpMM.diagram.part.McpMMLinkDescriptor> getContexto_3001IncomingLinks(View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<McpMM.diagram.part.McpMMLinkDescriptor> getLectura_3004IncomingLinks(View view) {
+	public static List<McpMM.diagram.part.McpMMLinkDescriptor> getPropiedad_3002IncomingLinks(View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<McpMM.diagram.part.McpMMLinkDescriptor> getTareaLLM_3005IncomingLinks(View view) {
-		McpMM.TareaLLM modelElement = (McpMM.TareaLLM) view.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
-				.find(view.eResource().getResourceSet().getResources());
-		LinkedList<McpMM.diagram.part.McpMMLinkDescriptor> result = new LinkedList<McpMM.diagram.part.McpMMLinkDescriptor>();
-		result.addAll(getIncomingFeatureModelFacetLinks_Tarea_Sigue_4001(modelElement, crossReferences));
-		result.addAll(getIncomingFeatureModelFacetLinks_TareaAnalisis_SigueElse_4002(modelElement, crossReferences));
-		return result;
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List<McpMM.diagram.part.McpMMLinkDescriptor> getTareaUsuario_3006IncomingLinks(View view) {
-		McpMM.TareaUsuario modelElement = (McpMM.TareaUsuario) view.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
-				.find(view.eResource().getResourceSet().getResources());
-		LinkedList<McpMM.diagram.part.McpMMLinkDescriptor> result = new LinkedList<McpMM.diagram.part.McpMMLinkDescriptor>();
-		result.addAll(getIncomingFeatureModelFacetLinks_Tarea_Sigue_4001(modelElement, crossReferences));
-		result.addAll(getIncomingFeatureModelFacetLinks_TareaAnalisis_SigueElse_4002(modelElement, crossReferences));
-		return result;
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List<McpMM.diagram.part.McpMMLinkDescriptor> getTareaAnalisis_3007IncomingLinks(View view) {
-		McpMM.TareaAnalisis modelElement = (McpMM.TareaAnalisis) view.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
-				.find(view.eResource().getResourceSet().getResources());
-		LinkedList<McpMM.diagram.part.McpMMLinkDescriptor> result = new LinkedList<McpMM.diagram.part.McpMMLinkDescriptor>();
-		result.addAll(getIncomingFeatureModelFacetLinks_Tarea_Sigue_4001(modelElement, crossReferences));
-		result.addAll(getIncomingFeatureModelFacetLinks_TareaAnalisis_SigueElse_4002(modelElement, crossReferences));
-		return result;
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List<McpMM.diagram.part.McpMMLinkDescriptor> getTareaEnvioContexto_3008IncomingLinks(View view) {
-		McpMM.TareaEnvioContexto modelElement = (McpMM.TareaEnvioContexto) view.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
-				.find(view.eResource().getResourceSet().getResources());
-		LinkedList<McpMM.diagram.part.McpMMLinkDescriptor> result = new LinkedList<McpMM.diagram.part.McpMMLinkDescriptor>();
-		result.addAll(getIncomingFeatureModelFacetLinks_Tarea_Sigue_4001(modelElement, crossReferences));
-		result.addAll(getIncomingFeatureModelFacetLinks_TareaAnalisis_SigueElse_4002(modelElement, crossReferences));
-		return result;
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List<McpMM.diagram.part.McpMMLinkDescriptor> getTareaRecepcionContexto_3009IncomingLinks(View view) {
-		McpMM.TareaRecepcionContexto modelElement = (McpMM.TareaRecepcionContexto) view.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
-				.find(view.eResource().getResourceSet().getResources());
-		LinkedList<McpMM.diagram.part.McpMMLinkDescriptor> result = new LinkedList<McpMM.diagram.part.McpMMLinkDescriptor>();
-		result.addAll(getIncomingFeatureModelFacetLinks_Tarea_Sigue_4001(modelElement, crossReferences));
-		result.addAll(getIncomingFeatureModelFacetLinks_TareaAnalisis_SigueElse_4002(modelElement, crossReferences));
-		return result;
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List<McpMM.diagram.part.McpMMLinkDescriptor> getTareaServerMCP_3010IncomingLinks(View view) {
-		McpMM.TareaServerMCP modelElement = (McpMM.TareaServerMCP) view.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
-				.find(view.eResource().getResourceSet().getResources());
-		LinkedList<McpMM.diagram.part.McpMMLinkDescriptor> result = new LinkedList<McpMM.diagram.part.McpMMLinkDescriptor>();
-		result.addAll(getIncomingFeatureModelFacetLinks_Tarea_Sigue_4001(modelElement, crossReferences));
-		result.addAll(getIncomingFeatureModelFacetLinks_TareaAnalisis_SigueElse_4002(modelElement, crossReferences));
-		return result;
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List<McpMM.diagram.part.McpMMLinkDescriptor> getInicio_3011IncomingLinks(View view) {
-		McpMM.Inicio modelElement = (McpMM.Inicio) view.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
-				.find(view.eResource().getResourceSet().getResources());
-		LinkedList<McpMM.diagram.part.McpMMLinkDescriptor> result = new LinkedList<McpMM.diagram.part.McpMMLinkDescriptor>();
-		result.addAll(getIncomingFeatureModelFacetLinks_Tarea_Sigue_4001(modelElement, crossReferences));
-		result.addAll(getIncomingFeatureModelFacetLinks_TareaAnalisis_SigueElse_4002(modelElement, crossReferences));
-		return result;
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List<McpMM.diagram.part.McpMMLinkDescriptor> getFinal_3012IncomingLinks(View view) {
-		McpMM.Final modelElement = (McpMM.Final) view.getElement();
-		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
-				.find(view.eResource().getResourceSet().getResources());
-		LinkedList<McpMM.diagram.part.McpMMLinkDescriptor> result = new LinkedList<McpMM.diagram.part.McpMMLinkDescriptor>();
-		result.addAll(getIncomingFeatureModelFacetLinks_Tarea_Sigue_4001(modelElement, crossReferences));
-		result.addAll(getIncomingFeatureModelFacetLinks_TareaAnalisis_SigueElse_4002(modelElement, crossReferences));
-		return result;
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List<McpMM.diagram.part.McpMMLinkDescriptor> getContexto_3013IncomingLinks(View view) {
-		return Collections.emptyList();
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List<McpMM.diagram.part.McpMMLinkDescriptor> getPropiedad_3014IncomingLinks(View view) {
-		return Collections.emptyList();
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List<McpMM.diagram.part.McpMMLinkDescriptor> getOperacionMCP_3015IncomingLinks(View view) {
+	public static List<McpMM.diagram.part.McpMMLinkDescriptor> getOperacionMCP_3003IncomingLinks(View view) {
 		McpMM.OperacionMCP modelElement = (McpMM.OperacionMCP) view.getElement();
 		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
 		LinkedList<McpMM.diagram.part.McpMMLinkDescriptor> result = new LinkedList<McpMM.diagram.part.McpMMLinkDescriptor>();
 		result.addAll(
-				getIncomingFeatureModelFacetLinks_TareaServerMCP_EjecutaOperacion_4003(modelElement, crossReferences));
+				getIncomingFeatureModelFacetLinks_TareaServerMCP_EjecutaOperacion_4004(modelElement, crossReferences));
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<McpMM.diagram.part.McpMMLinkDescriptor> getTareaTransformacionDatos_3004IncomingLinks(
+			View view) {
+		McpMM.TareaTransformacionDatos modelElement = (McpMM.TareaTransformacionDatos) view.getElement();
+		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+				.find(view.eResource().getResourceSet().getResources());
+		LinkedList<McpMM.diagram.part.McpMMLinkDescriptor> result = new LinkedList<McpMM.diagram.part.McpMMLinkDescriptor>();
+		result.addAll(getIncomingFeatureModelFacetLinks_Agente_Tareas_4001(modelElement, crossReferences));
+		result.addAll(getIncomingFeatureModelFacetLinks_Tarea_Sigue_4002(modelElement, crossReferences));
+		result.addAll(getIncomingFeatureModelFacetLinks_TareaAnalisis_SigueElse_4003(modelElement, crossReferences));
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<McpMM.diagram.part.McpMMLinkDescriptor> getEscritura_3005IncomingLinks(View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<McpMM.diagram.part.McpMMLinkDescriptor> getLectura_3006IncomingLinks(View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<McpMM.diagram.part.McpMMLinkDescriptor> getTareaLLM_3007IncomingLinks(View view) {
+		McpMM.TareaLLM modelElement = (McpMM.TareaLLM) view.getElement();
+		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+				.find(view.eResource().getResourceSet().getResources());
+		LinkedList<McpMM.diagram.part.McpMMLinkDescriptor> result = new LinkedList<McpMM.diagram.part.McpMMLinkDescriptor>();
+		result.addAll(getIncomingFeatureModelFacetLinks_Agente_Tareas_4001(modelElement, crossReferences));
+		result.addAll(getIncomingFeatureModelFacetLinks_Tarea_Sigue_4002(modelElement, crossReferences));
+		result.addAll(getIncomingFeatureModelFacetLinks_TareaAnalisis_SigueElse_4003(modelElement, crossReferences));
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<McpMM.diagram.part.McpMMLinkDescriptor> getTareaUsuario_3008IncomingLinks(View view) {
+		McpMM.TareaUsuario modelElement = (McpMM.TareaUsuario) view.getElement();
+		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+				.find(view.eResource().getResourceSet().getResources());
+		LinkedList<McpMM.diagram.part.McpMMLinkDescriptor> result = new LinkedList<McpMM.diagram.part.McpMMLinkDescriptor>();
+		result.addAll(getIncomingFeatureModelFacetLinks_Agente_Tareas_4001(modelElement, crossReferences));
+		result.addAll(getIncomingFeatureModelFacetLinks_Tarea_Sigue_4002(modelElement, crossReferences));
+		result.addAll(getIncomingFeatureModelFacetLinks_TareaAnalisis_SigueElse_4003(modelElement, crossReferences));
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<McpMM.diagram.part.McpMMLinkDescriptor> getTareaAnalisis_3009IncomingLinks(View view) {
+		McpMM.TareaAnalisis modelElement = (McpMM.TareaAnalisis) view.getElement();
+		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+				.find(view.eResource().getResourceSet().getResources());
+		LinkedList<McpMM.diagram.part.McpMMLinkDescriptor> result = new LinkedList<McpMM.diagram.part.McpMMLinkDescriptor>();
+		result.addAll(getIncomingFeatureModelFacetLinks_Agente_Tareas_4001(modelElement, crossReferences));
+		result.addAll(getIncomingFeatureModelFacetLinks_Tarea_Sigue_4002(modelElement, crossReferences));
+		result.addAll(getIncomingFeatureModelFacetLinks_TareaAnalisis_SigueElse_4003(modelElement, crossReferences));
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<McpMM.diagram.part.McpMMLinkDescriptor> getTareaEnvioContexto_3010IncomingLinks(View view) {
+		McpMM.TareaEnvioContexto modelElement = (McpMM.TareaEnvioContexto) view.getElement();
+		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+				.find(view.eResource().getResourceSet().getResources());
+		LinkedList<McpMM.diagram.part.McpMMLinkDescriptor> result = new LinkedList<McpMM.diagram.part.McpMMLinkDescriptor>();
+		result.addAll(getIncomingFeatureModelFacetLinks_Agente_Tareas_4001(modelElement, crossReferences));
+		result.addAll(getIncomingFeatureModelFacetLinks_Tarea_Sigue_4002(modelElement, crossReferences));
+		result.addAll(getIncomingFeatureModelFacetLinks_TareaAnalisis_SigueElse_4003(modelElement, crossReferences));
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<McpMM.diagram.part.McpMMLinkDescriptor> getTareaRecepcionContexto_3011IncomingLinks(View view) {
+		McpMM.TareaRecepcionContexto modelElement = (McpMM.TareaRecepcionContexto) view.getElement();
+		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+				.find(view.eResource().getResourceSet().getResources());
+		LinkedList<McpMM.diagram.part.McpMMLinkDescriptor> result = new LinkedList<McpMM.diagram.part.McpMMLinkDescriptor>();
+		result.addAll(getIncomingFeatureModelFacetLinks_Agente_Tareas_4001(modelElement, crossReferences));
+		result.addAll(getIncomingFeatureModelFacetLinks_Tarea_Sigue_4002(modelElement, crossReferences));
+		result.addAll(getIncomingFeatureModelFacetLinks_TareaAnalisis_SigueElse_4003(modelElement, crossReferences));
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<McpMM.diagram.part.McpMMLinkDescriptor> getTareaServerMCP_3012IncomingLinks(View view) {
+		McpMM.TareaServerMCP modelElement = (McpMM.TareaServerMCP) view.getElement();
+		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+				.find(view.eResource().getResourceSet().getResources());
+		LinkedList<McpMM.diagram.part.McpMMLinkDescriptor> result = new LinkedList<McpMM.diagram.part.McpMMLinkDescriptor>();
+		result.addAll(getIncomingFeatureModelFacetLinks_Agente_Tareas_4001(modelElement, crossReferences));
+		result.addAll(getIncomingFeatureModelFacetLinks_Tarea_Sigue_4002(modelElement, crossReferences));
+		result.addAll(getIncomingFeatureModelFacetLinks_TareaAnalisis_SigueElse_4003(modelElement, crossReferences));
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<McpMM.diagram.part.McpMMLinkDescriptor> getInicio_3013IncomingLinks(View view) {
+		McpMM.Inicio modelElement = (McpMM.Inicio) view.getElement();
+		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+				.find(view.eResource().getResourceSet().getResources());
+		LinkedList<McpMM.diagram.part.McpMMLinkDescriptor> result = new LinkedList<McpMM.diagram.part.McpMMLinkDescriptor>();
+		result.addAll(getIncomingFeatureModelFacetLinks_Tarea_Sigue_4002(modelElement, crossReferences));
+		result.addAll(getIncomingFeatureModelFacetLinks_TareaAnalisis_SigueElse_4003(modelElement, crossReferences));
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<McpMM.diagram.part.McpMMLinkDescriptor> getFinal_3014IncomingLinks(View view) {
+		McpMM.Final modelElement = (McpMM.Final) view.getElement();
+		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+				.find(view.eResource().getResourceSet().getResources());
+		LinkedList<McpMM.diagram.part.McpMMLinkDescriptor> result = new LinkedList<McpMM.diagram.part.McpMMLinkDescriptor>();
+		result.addAll(getIncomingFeatureModelFacetLinks_Tarea_Sigue_4002(modelElement, crossReferences));
+		result.addAll(getIncomingFeatureModelFacetLinks_TareaAnalisis_SigueElse_4003(modelElement, crossReferences));
 		return result;
 	}
 
@@ -983,7 +975,10 @@ public class McpMMDiagramUpdater {
 	 * @generated
 	 */
 	public static List<McpMM.diagram.part.McpMMLinkDescriptor> getAgente_2001OutgoingLinks(View view) {
-		return Collections.emptyList();
+		McpMM.Agente modelElement = (McpMM.Agente) view.getElement();
+		LinkedList<McpMM.diagram.part.McpMMLinkDescriptor> result = new LinkedList<McpMM.diagram.part.McpMMLinkDescriptor>();
+		result.addAll(getOutgoingFeatureModelFacetLinks_Agente_Tareas_4001(modelElement));
+		return result;
 	}
 
 	/**
@@ -996,149 +991,166 @@ public class McpMMDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<McpMM.diagram.part.McpMMLinkDescriptor> getWorkflow_3001OutgoingLinks(View view) {
+	public static List<McpMM.diagram.part.McpMMLinkDescriptor> getWorkflow_2003OutgoingLinks(View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<McpMM.diagram.part.McpMMLinkDescriptor> getTareaTransformacionDatos_3002OutgoingLinks(
+	public static List<McpMM.diagram.part.McpMMLinkDescriptor> getContexto_3001OutgoingLinks(View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<McpMM.diagram.part.McpMMLinkDescriptor> getPropiedad_3002OutgoingLinks(View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<McpMM.diagram.part.McpMMLinkDescriptor> getOperacionMCP_3003OutgoingLinks(View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<McpMM.diagram.part.McpMMLinkDescriptor> getTareaTransformacionDatos_3004OutgoingLinks(
 			View view) {
 		McpMM.TareaTransformacionDatos modelElement = (McpMM.TareaTransformacionDatos) view.getElement();
 		LinkedList<McpMM.diagram.part.McpMMLinkDescriptor> result = new LinkedList<McpMM.diagram.part.McpMMLinkDescriptor>();
-		result.addAll(getOutgoingFeatureModelFacetLinks_Tarea_Sigue_4001(modelElement));
+		result.addAll(getOutgoingFeatureModelFacetLinks_Tarea_Sigue_4002(modelElement));
 		return result;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<McpMM.diagram.part.McpMMLinkDescriptor> getEscritura_3003OutgoingLinks(View view) {
+	public static List<McpMM.diagram.part.McpMMLinkDescriptor> getEscritura_3005OutgoingLinks(View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<McpMM.diagram.part.McpMMLinkDescriptor> getLectura_3004OutgoingLinks(View view) {
+	public static List<McpMM.diagram.part.McpMMLinkDescriptor> getLectura_3006OutgoingLinks(View view) {
 		return Collections.emptyList();
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<McpMM.diagram.part.McpMMLinkDescriptor> getTareaLLM_3005OutgoingLinks(View view) {
+	public static List<McpMM.diagram.part.McpMMLinkDescriptor> getTareaLLM_3007OutgoingLinks(View view) {
 		McpMM.TareaLLM modelElement = (McpMM.TareaLLM) view.getElement();
 		LinkedList<McpMM.diagram.part.McpMMLinkDescriptor> result = new LinkedList<McpMM.diagram.part.McpMMLinkDescriptor>();
-		result.addAll(getOutgoingFeatureModelFacetLinks_Tarea_Sigue_4001(modelElement));
+		result.addAll(getOutgoingFeatureModelFacetLinks_Tarea_Sigue_4002(modelElement));
 		return result;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<McpMM.diagram.part.McpMMLinkDescriptor> getTareaUsuario_3006OutgoingLinks(View view) {
+	public static List<McpMM.diagram.part.McpMMLinkDescriptor> getTareaUsuario_3008OutgoingLinks(View view) {
 		McpMM.TareaUsuario modelElement = (McpMM.TareaUsuario) view.getElement();
 		LinkedList<McpMM.diagram.part.McpMMLinkDescriptor> result = new LinkedList<McpMM.diagram.part.McpMMLinkDescriptor>();
-		result.addAll(getOutgoingFeatureModelFacetLinks_Tarea_Sigue_4001(modelElement));
+		result.addAll(getOutgoingFeatureModelFacetLinks_Tarea_Sigue_4002(modelElement));
 		return result;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<McpMM.diagram.part.McpMMLinkDescriptor> getTareaAnalisis_3007OutgoingLinks(View view) {
+	public static List<McpMM.diagram.part.McpMMLinkDescriptor> getTareaAnalisis_3009OutgoingLinks(View view) {
 		McpMM.TareaAnalisis modelElement = (McpMM.TareaAnalisis) view.getElement();
 		LinkedList<McpMM.diagram.part.McpMMLinkDescriptor> result = new LinkedList<McpMM.diagram.part.McpMMLinkDescriptor>();
-		result.addAll(getOutgoingFeatureModelFacetLinks_Tarea_Sigue_4001(modelElement));
-		result.addAll(getOutgoingFeatureModelFacetLinks_TareaAnalisis_SigueElse_4002(modelElement));
+		result.addAll(getOutgoingFeatureModelFacetLinks_Tarea_Sigue_4002(modelElement));
+		result.addAll(getOutgoingFeatureModelFacetLinks_TareaAnalisis_SigueElse_4003(modelElement));
 		return result;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<McpMM.diagram.part.McpMMLinkDescriptor> getTareaEnvioContexto_3008OutgoingLinks(View view) {
+	public static List<McpMM.diagram.part.McpMMLinkDescriptor> getTareaEnvioContexto_3010OutgoingLinks(View view) {
 		McpMM.TareaEnvioContexto modelElement = (McpMM.TareaEnvioContexto) view.getElement();
 		LinkedList<McpMM.diagram.part.McpMMLinkDescriptor> result = new LinkedList<McpMM.diagram.part.McpMMLinkDescriptor>();
-		result.addAll(getOutgoingFeatureModelFacetLinks_Tarea_Sigue_4001(modelElement));
+		result.addAll(getOutgoingFeatureModelFacetLinks_Tarea_Sigue_4002(modelElement));
 		return result;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<McpMM.diagram.part.McpMMLinkDescriptor> getTareaRecepcionContexto_3009OutgoingLinks(View view) {
+	public static List<McpMM.diagram.part.McpMMLinkDescriptor> getTareaRecepcionContexto_3011OutgoingLinks(View view) {
 		McpMM.TareaRecepcionContexto modelElement = (McpMM.TareaRecepcionContexto) view.getElement();
 		LinkedList<McpMM.diagram.part.McpMMLinkDescriptor> result = new LinkedList<McpMM.diagram.part.McpMMLinkDescriptor>();
-		result.addAll(getOutgoingFeatureModelFacetLinks_Tarea_Sigue_4001(modelElement));
+		result.addAll(getOutgoingFeatureModelFacetLinks_Tarea_Sigue_4002(modelElement));
 		return result;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<McpMM.diagram.part.McpMMLinkDescriptor> getTareaServerMCP_3010OutgoingLinks(View view) {
+	public static List<McpMM.diagram.part.McpMMLinkDescriptor> getTareaServerMCP_3012OutgoingLinks(View view) {
 		McpMM.TareaServerMCP modelElement = (McpMM.TareaServerMCP) view.getElement();
 		LinkedList<McpMM.diagram.part.McpMMLinkDescriptor> result = new LinkedList<McpMM.diagram.part.McpMMLinkDescriptor>();
-		result.addAll(getOutgoingFeatureModelFacetLinks_Tarea_Sigue_4001(modelElement));
-		result.addAll(getOutgoingFeatureModelFacetLinks_TareaServerMCP_EjecutaOperacion_4003(modelElement));
+		result.addAll(getOutgoingFeatureModelFacetLinks_Tarea_Sigue_4002(modelElement));
+		result.addAll(getOutgoingFeatureModelFacetLinks_TareaServerMCP_EjecutaOperacion_4004(modelElement));
 		return result;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<McpMM.diagram.part.McpMMLinkDescriptor> getInicio_3011OutgoingLinks(View view) {
+	public static List<McpMM.diagram.part.McpMMLinkDescriptor> getInicio_3013OutgoingLinks(View view) {
 		McpMM.Inicio modelElement = (McpMM.Inicio) view.getElement();
 		LinkedList<McpMM.diagram.part.McpMMLinkDescriptor> result = new LinkedList<McpMM.diagram.part.McpMMLinkDescriptor>();
-		result.addAll(getOutgoingFeatureModelFacetLinks_Tarea_Sigue_4001(modelElement));
+		result.addAll(getOutgoingFeatureModelFacetLinks_Tarea_Sigue_4002(modelElement));
 		return result;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<McpMM.diagram.part.McpMMLinkDescriptor> getFinal_3012OutgoingLinks(View view) {
+	public static List<McpMM.diagram.part.McpMMLinkDescriptor> getFinal_3014OutgoingLinks(View view) {
 		McpMM.Final modelElement = (McpMM.Final) view.getElement();
 		LinkedList<McpMM.diagram.part.McpMMLinkDescriptor> result = new LinkedList<McpMM.diagram.part.McpMMLinkDescriptor>();
-		result.addAll(getOutgoingFeatureModelFacetLinks_Tarea_Sigue_4001(modelElement));
+		result.addAll(getOutgoingFeatureModelFacetLinks_Tarea_Sigue_4002(modelElement));
 		return result;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<McpMM.diagram.part.McpMMLinkDescriptor> getContexto_3013OutgoingLinks(View view) {
-		return Collections.emptyList();
+	private static Collection<McpMM.diagram.part.McpMMLinkDescriptor> getIncomingFeatureModelFacetLinks_Agente_Tareas_4001(
+			McpMM.TareaEjecutable target, Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences) {
+		LinkedList<McpMM.diagram.part.McpMMLinkDescriptor> result = new LinkedList<McpMM.diagram.part.McpMMLinkDescriptor>();
+		Collection<EStructuralFeature.Setting> settings = crossReferences.get(target);
+		for (EStructuralFeature.Setting setting : settings) {
+			if (setting.getEStructuralFeature() == McpMM.McpMMPackage.eINSTANCE.getAgente_Tareas()) {
+				result.add(new McpMM.diagram.part.McpMMLinkDescriptor(setting.getEObject(), target,
+						McpMM.diagram.providers.McpMMElementTypes.AgenteTareas_4001,
+						McpMM.diagram.edit.parts.AgenteTareasEditPart.VISUAL_ID));
+			}
+		}
+		return result;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<McpMM.diagram.part.McpMMLinkDescriptor> getPropiedad_3014OutgoingLinks(View view) {
-		return Collections.emptyList();
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List<McpMM.diagram.part.McpMMLinkDescriptor> getOperacionMCP_3015OutgoingLinks(View view) {
-		return Collections.emptyList();
-	}
-
-	/**
-	 * @generated
-	 */
-	private static Collection<McpMM.diagram.part.McpMMLinkDescriptor> getIncomingFeatureModelFacetLinks_Tarea_Sigue_4001(
+	private static Collection<McpMM.diagram.part.McpMMLinkDescriptor> getIncomingFeatureModelFacetLinks_Tarea_Sigue_4002(
 			McpMM.Tarea target, Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences) {
 		LinkedList<McpMM.diagram.part.McpMMLinkDescriptor> result = new LinkedList<McpMM.diagram.part.McpMMLinkDescriptor>();
 		Collection<EStructuralFeature.Setting> settings = crossReferences.get(target);
 		for (EStructuralFeature.Setting setting : settings) {
 			if (setting.getEStructuralFeature() == McpMM.McpMMPackage.eINSTANCE.getTarea_Sigue()) {
 				result.add(new McpMM.diagram.part.McpMMLinkDescriptor(setting.getEObject(), target,
-						McpMM.diagram.providers.McpMMElementTypes.TareaSigue_4001,
+						McpMM.diagram.providers.McpMMElementTypes.TareaSigue_4002,
 						McpMM.diagram.edit.parts.TareaSigueEditPart.VISUAL_ID));
 			}
 		}
@@ -1148,14 +1160,14 @@ public class McpMMDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	private static Collection<McpMM.diagram.part.McpMMLinkDescriptor> getIncomingFeatureModelFacetLinks_TareaAnalisis_SigueElse_4002(
+	private static Collection<McpMM.diagram.part.McpMMLinkDescriptor> getIncomingFeatureModelFacetLinks_TareaAnalisis_SigueElse_4003(
 			McpMM.Tarea target, Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences) {
 		LinkedList<McpMM.diagram.part.McpMMLinkDescriptor> result = new LinkedList<McpMM.diagram.part.McpMMLinkDescriptor>();
 		Collection<EStructuralFeature.Setting> settings = crossReferences.get(target);
 		for (EStructuralFeature.Setting setting : settings) {
 			if (setting.getEStructuralFeature() == McpMM.McpMMPackage.eINSTANCE.getTareaAnalisis_SigueElse()) {
 				result.add(new McpMM.diagram.part.McpMMLinkDescriptor(setting.getEObject(), target,
-						McpMM.diagram.providers.McpMMElementTypes.TareaAnalisisSigueElse_4002,
+						McpMM.diagram.providers.McpMMElementTypes.TareaAnalisisSigueElse_4003,
 						McpMM.diagram.edit.parts.TareaAnalisisSigueElseEditPart.VISUAL_ID));
 			}
 		}
@@ -1165,14 +1177,14 @@ public class McpMMDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	private static Collection<McpMM.diagram.part.McpMMLinkDescriptor> getIncomingFeatureModelFacetLinks_TareaServerMCP_EjecutaOperacion_4003(
+	private static Collection<McpMM.diagram.part.McpMMLinkDescriptor> getIncomingFeatureModelFacetLinks_TareaServerMCP_EjecutaOperacion_4004(
 			McpMM.OperacionMCP target, Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences) {
 		LinkedList<McpMM.diagram.part.McpMMLinkDescriptor> result = new LinkedList<McpMM.diagram.part.McpMMLinkDescriptor>();
 		Collection<EStructuralFeature.Setting> settings = crossReferences.get(target);
 		for (EStructuralFeature.Setting setting : settings) {
 			if (setting.getEStructuralFeature() == McpMM.McpMMPackage.eINSTANCE.getTareaServerMCP_EjecutaOperacion()) {
 				result.add(new McpMM.diagram.part.McpMMLinkDescriptor(setting.getEObject(), target,
-						McpMM.diagram.providers.McpMMElementTypes.TareaServerMCPEjecutaOperacion_4003,
+						McpMM.diagram.providers.McpMMElementTypes.TareaServerMCPEjecutaOperacion_4004,
 						McpMM.diagram.edit.parts.TareaServerMCPEjecutaOperacionEditPart.VISUAL_ID));
 			}
 		}
@@ -1182,7 +1194,22 @@ public class McpMMDiagramUpdater {
 	/**
 	* @generated
 	*/
-	private static Collection<McpMM.diagram.part.McpMMLinkDescriptor> getOutgoingFeatureModelFacetLinks_Tarea_Sigue_4001(
+	private static Collection<McpMM.diagram.part.McpMMLinkDescriptor> getOutgoingFeatureModelFacetLinks_Agente_Tareas_4001(
+			McpMM.Agente source) {
+		LinkedList<McpMM.diagram.part.McpMMLinkDescriptor> result = new LinkedList<McpMM.diagram.part.McpMMLinkDescriptor>();
+		for (Iterator<?> destinations = source.getTareas().iterator(); destinations.hasNext();) {
+			McpMM.TareaEjecutable destination = (McpMM.TareaEjecutable) destinations.next();
+			result.add(new McpMM.diagram.part.McpMMLinkDescriptor(source, destination,
+					McpMM.diagram.providers.McpMMElementTypes.AgenteTareas_4001,
+					McpMM.diagram.edit.parts.AgenteTareasEditPart.VISUAL_ID));
+		}
+		return result;
+	}
+
+	/**
+	* @generated
+	*/
+	private static Collection<McpMM.diagram.part.McpMMLinkDescriptor> getOutgoingFeatureModelFacetLinks_Tarea_Sigue_4002(
 			McpMM.Tarea source) {
 		LinkedList<McpMM.diagram.part.McpMMLinkDescriptor> result = new LinkedList<McpMM.diagram.part.McpMMLinkDescriptor>();
 		McpMM.Tarea destination = source.getSigue();
@@ -1190,7 +1217,7 @@ public class McpMMDiagramUpdater {
 			return result;
 		}
 		result.add(new McpMM.diagram.part.McpMMLinkDescriptor(source, destination,
-				McpMM.diagram.providers.McpMMElementTypes.TareaSigue_4001,
+				McpMM.diagram.providers.McpMMElementTypes.TareaSigue_4002,
 				McpMM.diagram.edit.parts.TareaSigueEditPart.VISUAL_ID));
 		return result;
 	}
@@ -1198,7 +1225,7 @@ public class McpMMDiagramUpdater {
 	/**
 	* @generated
 	*/
-	private static Collection<McpMM.diagram.part.McpMMLinkDescriptor> getOutgoingFeatureModelFacetLinks_TareaAnalisis_SigueElse_4002(
+	private static Collection<McpMM.diagram.part.McpMMLinkDescriptor> getOutgoingFeatureModelFacetLinks_TareaAnalisis_SigueElse_4003(
 			McpMM.TareaAnalisis source) {
 		LinkedList<McpMM.diagram.part.McpMMLinkDescriptor> result = new LinkedList<McpMM.diagram.part.McpMMLinkDescriptor>();
 		McpMM.Tarea destination = source.getSigueElse();
@@ -1206,7 +1233,7 @@ public class McpMMDiagramUpdater {
 			return result;
 		}
 		result.add(new McpMM.diagram.part.McpMMLinkDescriptor(source, destination,
-				McpMM.diagram.providers.McpMMElementTypes.TareaAnalisisSigueElse_4002,
+				McpMM.diagram.providers.McpMMElementTypes.TareaAnalisisSigueElse_4003,
 				McpMM.diagram.edit.parts.TareaAnalisisSigueElseEditPart.VISUAL_ID));
 		return result;
 	}
@@ -1214,7 +1241,7 @@ public class McpMMDiagramUpdater {
 	/**
 	* @generated
 	*/
-	private static Collection<McpMM.diagram.part.McpMMLinkDescriptor> getOutgoingFeatureModelFacetLinks_TareaServerMCP_EjecutaOperacion_4003(
+	private static Collection<McpMM.diagram.part.McpMMLinkDescriptor> getOutgoingFeatureModelFacetLinks_TareaServerMCP_EjecutaOperacion_4004(
 			McpMM.TareaServerMCP source) {
 		LinkedList<McpMM.diagram.part.McpMMLinkDescriptor> result = new LinkedList<McpMM.diagram.part.McpMMLinkDescriptor>();
 		McpMM.OperacionMCP destination = source.getEjecutaOperacion();
@@ -1222,7 +1249,7 @@ public class McpMMDiagramUpdater {
 			return result;
 		}
 		result.add(new McpMM.diagram.part.McpMMLinkDescriptor(source, destination,
-				McpMM.diagram.providers.McpMMElementTypes.TareaServerMCPEjecutaOperacion_4003,
+				McpMM.diagram.providers.McpMMElementTypes.TareaServerMCPEjecutaOperacion_4004,
 				McpMM.diagram.edit.parts.TareaServerMCPEjecutaOperacionEditPart.VISUAL_ID));
 		return result;
 	}

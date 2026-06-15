@@ -65,6 +65,7 @@ public class AgenteItemProvider
 
 			addNombrePropertyDescriptor(object);
 			addRolPropertyDescriptor(object);
+			addTareasPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -114,6 +115,28 @@ public class AgenteItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Tareas feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addTareasPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Agente_tareas_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Agente_tareas_feature", "_UI_Agente_type"),
+				 McpMMPackage.Literals.AGENTE__TAREAS,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -125,7 +148,6 @@ public class AgenteItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(McpMMPackage.Literals.AGENTE__FLUJO);
 			childrenFeatures.add(McpMMPackage.Literals.AGENTE__CONTEXTOS);
 		}
 		return childrenFeatures;
@@ -186,7 +208,6 @@ public class AgenteItemProvider
 			case McpMMPackage.AGENTE__ROL:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case McpMMPackage.AGENTE__FLUJO:
 			case McpMMPackage.AGENTE__CONTEXTOS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
@@ -204,11 +225,6 @@ public class AgenteItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add
-			(createChildParameter
-				(McpMMPackage.Literals.AGENTE__FLUJO,
-				 McpMMFactory.eINSTANCE.createWorkflow()));
 
 		newChildDescriptors.add
 			(createChildParameter

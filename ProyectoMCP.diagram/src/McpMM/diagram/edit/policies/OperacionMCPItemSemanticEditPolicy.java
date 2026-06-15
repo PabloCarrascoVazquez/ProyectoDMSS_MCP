@@ -27,7 +27,7 @@ public class OperacionMCPItemSemanticEditPolicy extends McpMM.diagram.edit.polic
 	* @generated
 	*/
 	public OperacionMCPItemSemanticEditPolicy() {
-		super(McpMM.diagram.providers.McpMMElementTypes.OperacionMCP_3015);
+		super(McpMM.diagram.providers.McpMMElementTypes.OperacionMCP_3003);
 	}
 
 	/**
@@ -73,7 +73,7 @@ public class OperacionMCPItemSemanticEditPolicy extends McpMM.diagram.edit.polic
 	 * @generated
 	 */
 	protected Command getStartCreateRelationshipCommand(CreateRelationshipRequest req) {
-		if (McpMM.diagram.providers.McpMMElementTypes.TareaServerMCPEjecutaOperacion_4003 == req.getElementType()) {
+		if (McpMM.diagram.providers.McpMMElementTypes.TareaServerMCPEjecutaOperacion_4004 == req.getElementType()) {
 			return null;
 		}
 		return null;
@@ -83,7 +83,7 @@ public class OperacionMCPItemSemanticEditPolicy extends McpMM.diagram.edit.polic
 	 * @generated
 	 */
 	protected Command getCompleteCreateRelationshipCommand(CreateRelationshipRequest req) {
-		if (McpMM.diagram.providers.McpMMElementTypes.TareaServerMCPEjecutaOperacion_4003 == req.getElementType()) {
+		if (McpMM.diagram.providers.McpMMElementTypes.TareaServerMCPEjecutaOperacion_4004 == req.getElementType()) {
 			return getGEFWrapper(new McpMM.diagram.edit.commands.TareaServerMCPEjecutaOperacionCreateCommand(req,
 					req.getSource(), req.getTarget()));
 		}

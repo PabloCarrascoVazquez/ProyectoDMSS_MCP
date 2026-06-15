@@ -55,7 +55,7 @@ public class FinalNombreTareaEditPart extends CompartmentEditPart implements ITe
 	/**
 	* @generated
 	*/
-	public static final int VISUAL_ID = 5011;
+	public static final int VISUAL_ID = 5016;
 
 	/**
 	* @generated
@@ -292,7 +292,7 @@ public class FinalNombreTareaEditPart extends CompartmentEditPart implements ITe
 	public IParser getParser() {
 		if (parser == null) {
 			parser = McpMM.diagram.providers.McpMMParserProvider.getParser(
-					McpMM.diagram.providers.McpMMElementTypes.Final_3012, getParserElement(),
+					McpMM.diagram.providers.McpMMElementTypes.Final_3014, getParserElement(),
 					McpMM.diagram.part.McpMMVisualIDRegistry
 							.getType(McpMM.diagram.edit.parts.FinalNombreTareaEditPart.VISUAL_ID));
 		}

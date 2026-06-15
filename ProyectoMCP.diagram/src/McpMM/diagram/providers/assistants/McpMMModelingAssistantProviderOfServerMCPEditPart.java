@@ -22,7 +22,7 @@ public class McpMMModelingAssistantProviderOfServerMCPEditPart
 
 	public List<IElementType> getTypesForPopupBar(IAdaptable host) {
 		List<IElementType> types = new ArrayList<IElementType>(1);
-		types.add(McpMM.diagram.providers.McpMMElementTypes.OperacionMCP_3015);
+		types.add(McpMM.diagram.providers.McpMMElementTypes.OperacionMCP_3003);
 		return types;
 	}
 

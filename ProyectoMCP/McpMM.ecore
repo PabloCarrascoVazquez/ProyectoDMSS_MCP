@@ -32,6 +32,8 @@
         eType="#//ServiceMCP" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="servidores" upperBound="-1"
         eType="#//ServerMCP" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="workflows" upperBound="-1"
+        eType="#//Workflow" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ServerMCP">
     <eAnnotations source="gmf.node">
@@ -55,7 +57,7 @@
       <details key="constraints" value="R05_LimiteCargaTrabajo"/>
     </eAnnotations>
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
-      <details key="R05_LimiteCargaTrabajo" value="self.flujo.tareas->select(t | t.oclIsKindOf(TareaEjecutable))->size() &lt;= 10"/>
+      <details key="R05_LimiteCargaTrabajo" value="self.tareas->size() &lt;= 10"/>
     </eAnnotations>
     <eAnnotations source="gmf.node">
       <details key="label" value="nombre"/>
@@ -64,10 +66,13 @@
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="nombre" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="rol" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="flujo" lowerBound="1" eType="#//Workflow"
-        containment="true">
-      <eAnnotations source="gmf.compartment">
-        <details key="layout" value="free"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="tareas" upperBound="-1"
+        eType="#//TareaEjecutable" eOpposite="#//TareaEjecutable/ejecutadaPor">
+      <eAnnotations source="gmf.link">
+        <details key="target.decoration" value="arrow"/>
+        <details key="style" value="solid"/>
+        <details key="color" value="0,0,0"/>
+        <details key="label" value="ejecuta"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="contextos" upperBound="-1"
@@ -135,10 +140,9 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Tarea" abstract="true">
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
-      <details key="constraints" value="R09_EntradaYSalida R10_NoBuclePropio"/>
+      <details key="constraints" value="R10_NoBuclePropio"/>
     </eAnnotations>
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
-      <details key="R09_EntradaYSalida" value="not self.precede.oclIsUndefined() or not self.sigue.oclIsUndefined()"/>
       <details key="R10_NoBuclePropio" value="self.sigue &lt;> self"/>
     </eAnnotations>
     <eAnnotations source="DSLDoc">
@@ -153,8 +157,8 @@
         <details key="layout" value="list"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="precede" eType="#//Tarea"
-        eOpposite="#//Tarea/sigue"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="precede" upperBound="-1"
+        eType="#//Tarea" eOpposite="#//Tarea/sigue"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="sigue" eType="#//Tarea"
         eOpposite="#//Tarea/precede">
       <eAnnotations source="gmf.link">
@@ -163,26 +167,43 @@
         <details key="label" value="sigue"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="precedeElse" eType="#//TareaAnalisis"
-        eOpposite="#//TareaAnalisis/sigueElse"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="precedeElse" upperBound="-1"
+        eType="#//TareaAnalisis" eOpposite="#//TareaAnalisis/sigueElse"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TareaEjecutable" abstract="true" eSuperTypes="#//Tarea">
-    <eAnnotations source="DSLDoc">
-      <details key="descripcion" value="Clase base para aquellas tareas que implican una ejecución u operación concreta, excluyendo los puntos iniciales y finales."/>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="R09_EntradaYSalida"/>
     </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="R09_EntradaYSalida" value="(self.precede->notEmpty() or self.precedeElse->notEmpty()) and not self.sigue.oclIsUndefined()"/>
+    </eAnnotations>
+    <eAnnotations source="DSLDoc">
+      <details key="descripcion" value="Clase base para aquellas tareas."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ejecutadaPor" lowerBound="1"
+        eType="#//Agente" eOpposite="#//Agente/tareas"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Inicio" eSuperTypes="#//Tarea">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="R03_InicioSinEntradas"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="R03_InicioSinEntradas" value="self.precede->isEmpty() and self.precedeElse->isEmpty()"/>
+    </eAnnotations>
     <eAnnotations source="gmf.node">
       <details key="label" value="nombreTarea"/>
       <details key="figure" value="ellipse"/>
       <details key="color" value="0,255,0"/>
       <details key="size" value="30,30"/>
     </eAnnotations>
-    <eAnnotations source="DSLDoc">
-      <details key="descripcion" value="Nodo inicial que marca el punto de partida indiscutible para la ejecución de un workflow."/>
-    </eAnnotations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Final" eSuperTypes="#//Tarea">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="R04_FinSinSalidas"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="R04_FinSinSalidas" value="self.sigue.oclIsUndefined()"/>
+    </eAnnotations>
     <eAnnotations source="gmf.node">
       <details key="label" value="nombreTarea"/>
       <details key="figure" value="ellipse"/>
@@ -198,7 +219,7 @@
       <details key="constraints" value="R12_CoherenciaContexto"/>
     </eAnnotations>
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
-      <details key="R12_CoherenciaContexto" value="self.usa.oclIsUndefined() or self.apunta.propiedades->includes(self.usa)"/>
+      <details key="R12_CoherenciaContexto" value="self.usa->forAll(p | self.apunta.propiedades->includes(p))"/>
     </eAnnotations>
     <eAnnotations source="DSLDoc">
       <details key="descripcion" value="Clase abstracta que modela las interacciones (lectura/escritura) que una tarea realiza sobre un contexto de datos."/>
@@ -206,7 +227,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="nombreAccion" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="apunta" lowerBound="1"
         eType="#//Contexto" eOpposite="#//Contexto/esApuntadoPor"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="usa" eType="#//Propiedad"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="usa" upperBound="-1" eType="#//Propiedad"
         eOpposite="#//Propiedad/esUsada"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Escritura" eSuperTypes="#//Accion">
@@ -313,19 +334,17 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TareaRecepcionContexto" eSuperTypes="#//TareaEjecutable">
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
-      <details key="constraints" value="R07_RecepcionPrecedidaEnvio R11_MismasPropiedadesEnvioRecepcion"/>
+      <details key="constraints" value="R07_RecepcionPrecedidaEnvio R11_MismasPropiedadesEnvioRecepcion R08_DistintosAgentes"/>
     </eAnnotations>
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
-      <details key="R07_RecepcionPrecedidaEnvio" value="not self.precede.oclIsUndefined() and self.precede.oclIsTypeOf(TareaEnvioContexto)"/>
-      <details key="R11_MismasPropiedadesEnvioRecepcion" value="if not self.precede.oclIsUndefined() and self.precede.oclIsTypeOf(TareaEnvioContexto) then self.accion->collect(usa)->asSet() = self.precede.accion->collect(usa)->asSet() else true endif"/>
+      <details key="R07_RecepcionPrecedidaEnvio" value="self.precede->exists(t | t.oclIsTypeOf(TareaEnvioContexto))"/>
+      <details key="R11_MismasPropiedadesEnvioRecepcion" value="self.precede->select(t | t.oclIsTypeOf(TareaEnvioContexto))->forAll(e | self.accion->collect(usa)->asSet() = e.accion->collect(usa)->asSet())"/>
+      <details key="R08_DistintosAgentes" value="self.precede->select(t | t.oclIsTypeOf(TareaEnvioContexto))->forAll(e | self.ejecutadaPor &lt;> e.oclAsType(TareaEjecutable).ejecutadaPor)"/>
     </eAnnotations>
     <eAnnotations source="gmf.node">
       <details key="label" value="nombreTarea"/>
       <details key="figure" value="rectangle"/>
       <details key="color" value="150,150,255"/>
-    </eAnnotations>
-    <eAnnotations source="DSLDoc">
-      <details key="descripcion" value="Subclase de TareaEjecutable para pausar o esperar de forma síncrona/asíncrona la llegada de un contexto externo."/>
     </eAnnotations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TareaServerMCP" eSuperTypes="#//TareaEjecutable">

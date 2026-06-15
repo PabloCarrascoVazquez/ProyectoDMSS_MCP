@@ -16,7 +16,7 @@ public class TareaSigueItemSemanticEditPolicy extends McpMM.diagram.edit.policie
 	* @generated
 	*/
 	public TareaSigueItemSemanticEditPolicy() {
-		super(McpMM.diagram.providers.McpMMElementTypes.TareaSigue_4001);
+		super(McpMM.diagram.providers.McpMMElementTypes.TareaSigue_4002);
 	}
 
 	/**

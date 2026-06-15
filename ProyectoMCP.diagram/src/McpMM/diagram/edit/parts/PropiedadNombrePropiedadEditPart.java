@@ -55,7 +55,7 @@ public class PropiedadNombrePropiedadEditPart extends CompartmentEditPart implem
 	/**
 	* @generated
 	*/
-	public static final int VISUAL_ID = 5013;
+	public static final int VISUAL_ID = 5001;
 
 	/**
 	* @generated
@@ -292,7 +292,7 @@ public class PropiedadNombrePropiedadEditPart extends CompartmentEditPart implem
 	public IParser getParser() {
 		if (parser == null) {
 			parser = McpMM.diagram.providers.McpMMParserProvider.getParser(
-					McpMM.diagram.providers.McpMMElementTypes.Propiedad_3014, getParserElement(),
+					McpMM.diagram.providers.McpMMElementTypes.Propiedad_3002, getParserElement(),
 					McpMM.diagram.part.McpMMVisualIDRegistry
 							.getType(McpMM.diagram.edit.parts.PropiedadNombrePropiedadEditPart.VISUAL_ID));
 		}

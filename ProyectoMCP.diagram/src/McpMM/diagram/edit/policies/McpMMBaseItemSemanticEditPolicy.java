@@ -306,39 +306,55 @@ public class McpMMBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 		/**
 		 * @generated
 		 */
-		public boolean canCreateTareaSigue_4001(McpMM.Tarea source, McpMM.Tarea target) {
+		public boolean canCreateAgenteTareas_4001(McpMM.Agente source, McpMM.TareaEjecutable target) {
+			if (source != null) {
+				if (source.getTareas().contains(target)) {
+					return false;
+				}
+			}
+			if (target != null && (target.getEjecutadaPor() != null)) {
+				return false;
+			}
+
+			return canExistAgenteTareas_4001(source, target);
+		}
+
+		/**
+		 * @generated
+		 */
+		public boolean canCreateTareaSigue_4002(McpMM.Tarea source, McpMM.Tarea target) {
 			if (source != null) {
 				if (source.getSigue() != null) {
 					return false;
 				}
 			}
-			if (target != null && (target.getPrecede() != null)) {
+			if (target != null && (target.getPrecede().contains(target))) {
 				return false;
 			}
 
-			return canExistTareaSigue_4001(source, target);
+			return canExistTareaSigue_4002(source, target);
 		}
 
 		/**
 		 * @generated
 		 */
-		public boolean canCreateTareaAnalisisSigueElse_4002(McpMM.TareaAnalisis source, McpMM.Tarea target) {
+		public boolean canCreateTareaAnalisisSigueElse_4003(McpMM.TareaAnalisis source, McpMM.Tarea target) {
 			if (source != null) {
 				if (source.getSigueElse() != null) {
 					return false;
 				}
 			}
-			if (target != null && (target.getPrecedeElse() != null)) {
+			if (target != null && (target.getPrecedeElse().contains(target))) {
 				return false;
 			}
 
-			return canExistTareaAnalisisSigueElse_4002(source, target);
+			return canExistTareaAnalisisSigueElse_4003(source, target);
 		}
 
 		/**
 		 * @generated
 		 */
-		public boolean canCreateTareaServerMCPEjecutaOperacion_4003(McpMM.TareaServerMCP source,
+		public boolean canCreateTareaServerMCPEjecutaOperacion_4004(McpMM.TareaServerMCP source,
 				McpMM.OperacionMCP target) {
 			if (source != null) {
 				if (source.getEjecutaOperacion() != null) {
@@ -349,27 +365,34 @@ public class McpMMBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 				return false;
 			}
 
-			return canExistTareaServerMCPEjecutaOperacion_4003(source, target);
+			return canExistTareaServerMCPEjecutaOperacion_4004(source, target);
 		}
 
 		/**
 		* @generated
 		*/
-		public boolean canExistTareaSigue_4001(McpMM.Tarea source, McpMM.Tarea target) {
+		public boolean canExistAgenteTareas_4001(McpMM.Agente source, McpMM.TareaEjecutable target) {
 			return true;
 		}
 
 		/**
 		* @generated
 		*/
-		public boolean canExistTareaAnalisisSigueElse_4002(McpMM.TareaAnalisis source, McpMM.Tarea target) {
+		public boolean canExistTareaSigue_4002(McpMM.Tarea source, McpMM.Tarea target) {
 			return true;
 		}
 
 		/**
 		* @generated
 		*/
-		public boolean canExistTareaServerMCPEjecutaOperacion_4003(McpMM.TareaServerMCP source,
+		public boolean canExistTareaAnalisisSigueElse_4003(McpMM.TareaAnalisis source, McpMM.Tarea target) {
+			return true;
+		}
+
+		/**
+		* @generated
+		*/
+		public boolean canExistTareaServerMCPEjecutaOperacion_4004(McpMM.TareaServerMCP source,
 				McpMM.OperacionMCP target) {
 			return true;
 		}

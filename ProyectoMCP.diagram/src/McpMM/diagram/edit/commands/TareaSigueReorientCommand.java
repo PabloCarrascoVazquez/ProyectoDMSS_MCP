@@ -72,7 +72,7 @@ public class TareaSigueReorientCommand extends EditElementCommand {
 			return false;
 		}
 		return McpMM.diagram.edit.policies.McpMMBaseItemSemanticEditPolicy.getLinkConstraints()
-				.canExistTareaSigue_4001(getNewSource(), getOldTarget());
+				.canExistTareaSigue_4002(getNewSource(), getOldTarget());
 	}
 
 	/**
@@ -83,7 +83,7 @@ public class TareaSigueReorientCommand extends EditElementCommand {
 			return false;
 		}
 		return McpMM.diagram.edit.policies.McpMMBaseItemSemanticEditPolicy.getLinkConstraints()
-				.canExistTareaSigue_4001(getOldSource(), getNewTarget());
+				.canExistTareaSigue_4002(getOldSource(), getNewTarget());
 	}
 
 	/**

@@ -363,6 +363,15 @@ public class McpMMPackageImpl extends EPackageImpl implements McpMMPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getServiceMCP_Workflows() {
+		return (EReference)serviceMCPEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getServerMCP() {
 		return serverMCPEClass;
 	}
@@ -417,7 +426,7 @@ public class McpMMPackageImpl extends EPackageImpl implements McpMMPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getAgente_Flujo() {
+	public EReference getAgente_Tareas() {
 		return (EReference)agenteEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -635,6 +644,15 @@ public class McpMMPackageImpl extends EPackageImpl implements McpMMPackage {
 	 */
 	public EClass getTareaEjecutable() {
 		return tareaEjecutableEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getTareaEjecutable_EjecutadaPor() {
+		return (EReference)tareaEjecutableEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -909,6 +927,7 @@ public class McpMMPackageImpl extends EPackageImpl implements McpMMPackage {
 		createEReference(serviceMCPEClass, SERVICE_MCP__AGENTES);
 		createEReference(serviceMCPEClass, SERVICE_MCP__SERVICIOS);
 		createEReference(serviceMCPEClass, SERVICE_MCP__SERVIDORES);
+		createEReference(serviceMCPEClass, SERVICE_MCP__WORKFLOWS);
 
 		serverMCPEClass = createEClass(SERVER_MCP);
 		createEAttribute(serverMCPEClass, SERVER_MCP__NOMBRE_SERVER);
@@ -917,7 +936,7 @@ public class McpMMPackageImpl extends EPackageImpl implements McpMMPackage {
 		agenteEClass = createEClass(AGENTE);
 		createEAttribute(agenteEClass, AGENTE__NOMBRE);
 		createEAttribute(agenteEClass, AGENTE__ROL);
-		createEReference(agenteEClass, AGENTE__FLUJO);
+		createEReference(agenteEClass, AGENTE__TAREAS);
 		createEReference(agenteEClass, AGENTE__CONTEXTOS);
 
 		workflowEClass = createEClass(WORKFLOW);
@@ -947,6 +966,7 @@ public class McpMMPackageImpl extends EPackageImpl implements McpMMPackage {
 		createEReference(tareaEClass, TAREA__PRECEDE_ELSE);
 
 		tareaEjecutableEClass = createEClass(TAREA_EJECUTABLE);
+		createEReference(tareaEjecutableEClass, TAREA_EJECUTABLE__EJECUTADA_POR);
 
 		inicioEClass = createEClass(INICIO);
 
@@ -1042,6 +1062,7 @@ public class McpMMPackageImpl extends EPackageImpl implements McpMMPackage {
 		initEReference(getServiceMCP_Agentes(), this.getAgente(), null, "agentes", null, 0, -1, ServiceMCP.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getServiceMCP_Servicios(), this.getServiceMCP(), null, "servicios", null, 0, -1, ServiceMCP.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getServiceMCP_Servidores(), this.getServerMCP(), null, "servidores", null, 0, -1, ServiceMCP.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getServiceMCP_Workflows(), this.getWorkflow(), null, "workflows", null, 0, -1, ServiceMCP.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(serverMCPEClass, ServerMCP.class, "ServerMCP", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getServerMCP_NombreServer(), ecorePackage.getEString(), "nombreServer", null, 0, 1, ServerMCP.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1050,7 +1071,7 @@ public class McpMMPackageImpl extends EPackageImpl implements McpMMPackage {
 		initEClass(agenteEClass, Agente.class, "Agente", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getAgente_Nombre(), ecorePackage.getEString(), "nombre", null, 0, 1, Agente.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAgente_Rol(), ecorePackage.getEString(), "rol", null, 0, 1, Agente.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getAgente_Flujo(), this.getWorkflow(), null, "flujo", null, 1, 1, Agente.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAgente_Tareas(), this.getTareaEjecutable(), this.getTareaEjecutable_EjecutadaPor(), "tareas", null, 0, -1, Agente.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAgente_Contextos(), this.getContexto(), null, "contextos", null, 0, -1, Agente.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(workflowEClass, Workflow.class, "Workflow", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1075,11 +1096,12 @@ public class McpMMPackageImpl extends EPackageImpl implements McpMMPackage {
 		initEAttribute(getTarea_TaskId(), ecorePackage.getEInt(), "taskId", null, 0, 1, Tarea.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTarea_TaskDesc(), ecorePackage.getEString(), "taskDesc", null, 0, 1, Tarea.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTarea_Accion(), this.getAccion(), null, "accion", null, 0, -1, Tarea.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTarea_Precede(), this.getTarea(), this.getTarea_Sigue(), "precede", null, 0, 1, Tarea.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTarea_Precede(), this.getTarea(), this.getTarea_Sigue(), "precede", null, 0, -1, Tarea.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTarea_Sigue(), this.getTarea(), this.getTarea_Precede(), "sigue", null, 0, 1, Tarea.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTarea_PrecedeElse(), this.getTareaAnalisis(), this.getTareaAnalisis_SigueElse(), "precedeElse", null, 0, 1, Tarea.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTarea_PrecedeElse(), this.getTareaAnalisis(), this.getTareaAnalisis_SigueElse(), "precedeElse", null, 0, -1, Tarea.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(tareaEjecutableEClass, TareaEjecutable.class, "TareaEjecutable", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getTareaEjecutable_EjecutadaPor(), this.getAgente(), this.getAgente_Tareas(), "ejecutadaPor", null, 1, 1, TareaEjecutable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(inicioEClass, Inicio.class, "Inicio", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1088,7 +1110,7 @@ public class McpMMPackageImpl extends EPackageImpl implements McpMMPackage {
 		initEClass(accionEClass, Accion.class, "Accion", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getAccion_NombreAccion(), ecorePackage.getEString(), "nombreAccion", null, 0, 1, Accion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAccion_Apunta(), this.getContexto(), this.getContexto_EsApuntadoPor(), "apunta", null, 1, 1, Accion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getAccion_Usa(), this.getPropiedad(), this.getPropiedad_EsUsada(), "usa", null, 0, 1, Accion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAccion_Usa(), this.getPropiedad(), this.getPropiedad_EsUsada(), "usa", null, 0, -1, Accion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(escrituraEClass, Escritura.class, "Escritura", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1199,7 +1221,25 @@ public class McpMMPackageImpl extends EPackageImpl implements McpMMPackage {
 		  (tareaEClass, 
 		   source, 
 		   new String[] {
-			 "constraints", "R09_EntradaYSalida R10_NoBuclePropio"
+			 "constraints", "R10_NoBuclePropio"
+		   });	
+		addAnnotation
+		  (tareaEjecutableEClass, 
+		   source, 
+		   new String[] {
+			 "constraints", "R09_EntradaYSalida"
+		   });	
+		addAnnotation
+		  (inicioEClass, 
+		   source, 
+		   new String[] {
+			 "constraints", "R03_InicioSinEntradas"
+		   });	
+		addAnnotation
+		  (finalEClass, 
+		   source, 
+		   new String[] {
+			 "constraints", "R04_FinSinSalidas"
 		   });	
 		addAnnotation
 		  (accionEClass, 
@@ -1211,7 +1251,7 @@ public class McpMMPackageImpl extends EPackageImpl implements McpMMPackage {
 		  (tareaRecepcionContextoEClass, 
 		   source, 
 		   new String[] {
-			 "constraints", "R07_RecepcionPrecedidaEnvio R11_MismasPropiedadesEnvioRecepcion"
+			 "constraints", "R07_RecepcionPrecedidaEnvio R11_MismasPropiedadesEnvioRecepcion R08_DistintosAgentes"
 		   });
 	}
 
@@ -1272,13 +1312,7 @@ public class McpMMPackageImpl extends EPackageImpl implements McpMMPackage {
 		  (tareaEjecutableEClass, 
 		   source, 
 		   new String[] {
-			 "descripcion", "Clase base para aquellas tareas que implican una ejecuci\u00f3n u operaci\u00f3n concreta, excluyendo los puntos iniciales y finales."
-		   });	
-		addAnnotation
-		  (inicioEClass, 
-		   source, 
-		   new String[] {
-			 "descripcion", "Nodo inicial que marca el punto de partida indiscutible para la ejecuci\u00f3n de un workflow."
+			 "descripcion", "Clase base para aquellas tareas."
 		   });	
 		addAnnotation
 		  (finalEClass, 
@@ -1345,12 +1379,6 @@ public class McpMMPackageImpl extends EPackageImpl implements McpMMPackage {
 		   source, 
 		   new String[] {
 			 "descripcion", "Subclase de TareaEjecutable que permite exportar el contexto actual de un flujo para que sea procesado por otro agente."
-		   });	
-		addAnnotation
-		  (tareaRecepcionContextoEClass, 
-		   source, 
-		   new String[] {
-			 "descripcion", "Subclase de TareaEjecutable para pausar o esperar de forma s\u00edncrona/as\u00edncrona la llegada de un contexto externo."
 		   });	
 		addAnnotation
 		  (tareaServerMCPEClass, 
@@ -1517,12 +1545,6 @@ public class McpMMPackageImpl extends EPackageImpl implements McpMMPackage {
 			 "layout", "list"
 		   });	
 		addAnnotation
-		  (getAgente_Flujo(), 
-		   source, 
-		   new String[] {
-			 "layout", "free"
-		   });	
-		addAnnotation
 		  (getAgente_Contextos(), 
 		   source, 
 		   new String[] {
@@ -1560,7 +1582,7 @@ public class McpMMPackageImpl extends EPackageImpl implements McpMMPackage {
 		  (agenteEClass, 
 		   source, 
 		   new String[] {
-			 "R05_LimiteCargaTrabajo", "self.flujo.tareas->select(t | t.oclIsKindOf(TareaEjecutable))->size() <= 10"
+			 "R05_LimiteCargaTrabajo", "self.tareas->size() <= 10"
 		   });	
 		addAnnotation
 		  (workflowEClass, 
@@ -1573,21 +1595,39 @@ public class McpMMPackageImpl extends EPackageImpl implements McpMMPackage {
 		  (tareaEClass, 
 		   source, 
 		   new String[] {
-			 "R09_EntradaYSalida", "not self.precede.oclIsUndefined() or not self.sigue.oclIsUndefined()",
 			 "R10_NoBuclePropio", "self.sigue <> self"
+		   });	
+		addAnnotation
+		  (tareaEjecutableEClass, 
+		   source, 
+		   new String[] {
+			 "R09_EntradaYSalida", "(self.precede->notEmpty() or self.precedeElse->notEmpty()) and not self.sigue.oclIsUndefined()"
+		   });	
+		addAnnotation
+		  (inicioEClass, 
+		   source, 
+		   new String[] {
+			 "R03_InicioSinEntradas", "self.precede->isEmpty() and self.precedeElse->isEmpty()"
+		   });	
+		addAnnotation
+		  (finalEClass, 
+		   source, 
+		   new String[] {
+			 "R04_FinSinSalidas", "self.sigue.oclIsUndefined()"
 		   });	
 		addAnnotation
 		  (accionEClass, 
 		   source, 
 		   new String[] {
-			 "R12_CoherenciaContexto", "self.usa.oclIsUndefined() or self.apunta.propiedades->includes(self.usa)"
+			 "R12_CoherenciaContexto", "self.usa->forAll(p | self.apunta.propiedades->includes(p))"
 		   });	
 		addAnnotation
 		  (tareaRecepcionContextoEClass, 
 		   source, 
 		   new String[] {
-			 "R07_RecepcionPrecedidaEnvio", "not self.precede.oclIsUndefined() and self.precede.oclIsTypeOf(TareaEnvioContexto)",
-			 "R11_MismasPropiedadesEnvioRecepcion", "if not self.precede.oclIsUndefined() and self.precede.oclIsTypeOf(TareaEnvioContexto) then self.accion->collect(usa)->asSet() = self.precede.accion->collect(usa)->asSet() else true endif"
+			 "R07_RecepcionPrecedidaEnvio", "self.precede->exists(t | t.oclIsTypeOf(TareaEnvioContexto))",
+			 "R11_MismasPropiedadesEnvioRecepcion", "self.precede->select(t | t.oclIsTypeOf(TareaEnvioContexto))->forAll(e | self.accion->collect(usa)->asSet() = e.accion->collect(usa)->asSet())",
+			 "R08_DistintosAgentes", "self.precede->select(t | t.oclIsTypeOf(TareaEnvioContexto))->forAll(e | self.ejecutadaPor <> e.oclAsType(TareaEjecutable).ejecutadaPor)"
 		   });
 	}
 
@@ -1599,6 +1639,15 @@ public class McpMMPackageImpl extends EPackageImpl implements McpMMPackage {
 	 */
 	protected void createGmf_3Annotations() {
 		String source = "gmf.link";	
+		addAnnotation
+		  (getAgente_Tareas(), 
+		   source, 
+		   new String[] {
+			 "target.decoration", "arrow",
+			 "style", "solid",
+			 "color", "0,0,0",
+			 "label", "ejecuta"
+		   });	
 		addAnnotation
 		  (getTarea_Sigue(), 
 		   source, 

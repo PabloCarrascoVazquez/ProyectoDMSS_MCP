@@ -53,7 +53,7 @@ public class TareaAnalisisSigueElseCreateCommand extends EditElementCommand {
 		}
 		// target may be null here but it's possible to check constraint
 		return McpMM.diagram.edit.policies.McpMMBaseItemSemanticEditPolicy.getLinkConstraints()
-				.canCreateTareaAnalisisSigueElse_4002(getSource(), getTarget());
+				.canCreateTareaAnalisisSigueElse_4003(getSource(), getTarget());
 	}
 
 	/**

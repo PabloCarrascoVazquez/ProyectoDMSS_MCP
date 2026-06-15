@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link McpMM.ServiceMCP#getAgentes <em>Agentes</em>}</li>
  *   <li>{@link McpMM.ServiceMCP#getServicios <em>Servicios</em>}</li>
  *   <li>{@link McpMM.ServiceMCP#getServidores <em>Servidores</em>}</li>
+ *   <li>{@link McpMM.ServiceMCP#getWorkflows <em>Workflows</em>}</li>
  * </ul>
  *
  * @see McpMM.McpMMPackage#getServiceMCP()
@@ -99,5 +100,21 @@ public interface ServiceMCP extends EObject {
 	 * @generated
 	 */
 	EList<ServerMCP> getServidores();
+
+	/**
+	 * Returns the value of the '<em><b>Workflows</b></em>' containment reference list.
+	 * The list contents are of type {@link McpMM.Workflow}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Workflows</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Workflows</em>' containment reference list.
+	 * @see McpMM.McpMMPackage#getServiceMCP_Workflows()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Workflow> getWorkflows();
 
 } // ServiceMCP

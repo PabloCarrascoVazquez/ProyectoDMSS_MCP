@@ -258,8 +258,8 @@
          </object>
          <context viewClass="org.eclipse.gmf.runtime.notation.Node" containerViews="referencing-diagrams"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Diagram" semanticHints="McpMM"/>
-         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="2001,2002,3001,3002,3003,3004,3005,3006,3007,3008,3009,3010,3011,3012,3013,3014,3015"/>
-         <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints="4001,4002,4003"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="2001,2002,2003,3001,3002,3003,3004,3005,3006,3007,3008,3009,3010,3011,3012,3013,3014"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints="4001,4002,4003,4004"/>
       </viewProvider>
    </extension>
 
@@ -271,16 +271,16 @@
             <method name="getType()" value="McpMM"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-nodes">
-            <method name="getType()" value="2001,2002,3001,3002,3003,3004,3005,3006,3007,3008,3009,3010,3011,3012,3013,3014,3015"/>
+            <method name="getType()" value="2001,2002,2003,3001,3002,3003,3004,3005,3006,3007,3008,3009,3010,3011,3012,3013,3014"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Edge" id="generated-links">
-            <method name="getType()" value="4001,4002,4003"/>
+            <method name="getType()" value="4001,4002,4003,4004"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-labels">
-            <method name="getType()" value="5015,5017,5012,5003,5001,5002,5004,5005,5006,5007,5008,5009,5010,5011,5014,5013,5016"/>
+            <method name="getType()" value="5003,5005,5017,5002,5001,5004,5008,5006,5007,5009,5010,5011,5012,5013,5014,5015,5016"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-compartments">
-            <method name="getType()" value="7001,7002,7003,7004,7005,7006,7007,7008,7009,7010,7011,7012,7013,7014"/>
+            <method name="getType()" value="7001,7002,7003,7004,7005,7006,7007,7008,7009,7010,7011,7012,7013"/>
          </object>
          <context views="generated-diagram,generated-nodes,generated-links,generated-labels,generated-compartments"/>
       </editpartProvider>
@@ -306,78 +306,78 @@
       </modelingAssistantProvider>
             <modelingAssistantProvider class="McpMM.diagram.providers.assistants.McpMMModelingAssistantProviderOfWorkflowEditPart">
          <Priority name="Lowest"/>
-         <object class="McpMM.diagram.edit.parts.WorkflowEditPart" id="Workflow_3001"/>
-         <context elements="Workflow_3001"/>
-      </modelingAssistantProvider>
-            <modelingAssistantProvider class="McpMM.diagram.providers.assistants.McpMMModelingAssistantProviderOfTareaTransformacionDatosEditPart">
-         <Priority name="Lowest"/>
-         <object class="McpMM.diagram.edit.parts.TareaTransformacionDatosEditPart" id="TareaTransformacionDatos_3002"/>
-         <context elements="TareaTransformacionDatos_3002"/>
-      </modelingAssistantProvider>
-            <modelingAssistantProvider class="McpMM.diagram.providers.assistants.McpMMModelingAssistantProviderOfEscrituraEditPart">
-         <Priority name="Lowest"/>
-         <object class="McpMM.diagram.edit.parts.EscrituraEditPart" id="Escritura_3003"/>
-         <context elements="Escritura_3003"/>
-      </modelingAssistantProvider>
-            <modelingAssistantProvider class="McpMM.diagram.providers.assistants.McpMMModelingAssistantProviderOfLecturaEditPart">
-         <Priority name="Lowest"/>
-         <object class="McpMM.diagram.edit.parts.LecturaEditPart" id="Lectura_3004"/>
-         <context elements="Lectura_3004"/>
-      </modelingAssistantProvider>
-            <modelingAssistantProvider class="McpMM.diagram.providers.assistants.McpMMModelingAssistantProviderOfTareaLLMEditPart">
-         <Priority name="Lowest"/>
-         <object class="McpMM.diagram.edit.parts.TareaLLMEditPart" id="TareaLLM_3005"/>
-         <context elements="TareaLLM_3005"/>
-      </modelingAssistantProvider>
-            <modelingAssistantProvider class="McpMM.diagram.providers.assistants.McpMMModelingAssistantProviderOfTareaUsuarioEditPart">
-         <Priority name="Lowest"/>
-         <object class="McpMM.diagram.edit.parts.TareaUsuarioEditPart" id="TareaUsuario_3006"/>
-         <context elements="TareaUsuario_3006"/>
-      </modelingAssistantProvider>
-            <modelingAssistantProvider class="McpMM.diagram.providers.assistants.McpMMModelingAssistantProviderOfTareaAnalisisEditPart">
-         <Priority name="Lowest"/>
-         <object class="McpMM.diagram.edit.parts.TareaAnalisisEditPart" id="TareaAnalisis_3007"/>
-         <context elements="TareaAnalisis_3007"/>
-      </modelingAssistantProvider>
-            <modelingAssistantProvider class="McpMM.diagram.providers.assistants.McpMMModelingAssistantProviderOfTareaEnvioContextoEditPart">
-         <Priority name="Lowest"/>
-         <object class="McpMM.diagram.edit.parts.TareaEnvioContextoEditPart" id="TareaEnvioContexto_3008"/>
-         <context elements="TareaEnvioContexto_3008"/>
-      </modelingAssistantProvider>
-            <modelingAssistantProvider class="McpMM.diagram.providers.assistants.McpMMModelingAssistantProviderOfTareaRecepcionContextoEditPart">
-         <Priority name="Lowest"/>
-         <object class="McpMM.diagram.edit.parts.TareaRecepcionContextoEditPart" id="TareaRecepcionContexto_3009"/>
-         <context elements="TareaRecepcionContexto_3009"/>
-      </modelingAssistantProvider>
-            <modelingAssistantProvider class="McpMM.diagram.providers.assistants.McpMMModelingAssistantProviderOfTareaServerMCPEditPart">
-         <Priority name="Lowest"/>
-         <object class="McpMM.diagram.edit.parts.TareaServerMCPEditPart" id="TareaServerMCP_3010"/>
-         <context elements="TareaServerMCP_3010"/>
-      </modelingAssistantProvider>
-            <modelingAssistantProvider class="McpMM.diagram.providers.assistants.McpMMModelingAssistantProviderOfInicioEditPart">
-         <Priority name="Lowest"/>
-         <object class="McpMM.diagram.edit.parts.InicioEditPart" id="Inicio_3011"/>
-         <context elements="Inicio_3011"/>
-      </modelingAssistantProvider>
-            <modelingAssistantProvider class="McpMM.diagram.providers.assistants.McpMMModelingAssistantProviderOfFinalEditPart">
-         <Priority name="Lowest"/>
-         <object class="McpMM.diagram.edit.parts.FinalEditPart" id="Final_3012"/>
-         <context elements="Final_3012"/>
+         <object class="McpMM.diagram.edit.parts.WorkflowEditPart" id="Workflow_2003"/>
+         <context elements="Workflow_2003"/>
       </modelingAssistantProvider>
             <modelingAssistantProvider class="McpMM.diagram.providers.assistants.McpMMModelingAssistantProviderOfContextoEditPart">
          <Priority name="Lowest"/>
-         <object class="McpMM.diagram.edit.parts.ContextoEditPart" id="Contexto_3013"/>
-         <context elements="Contexto_3013"/>
+         <object class="McpMM.diagram.edit.parts.ContextoEditPart" id="Contexto_3001"/>
+         <context elements="Contexto_3001"/>
       </modelingAssistantProvider>
             <modelingAssistantProvider class="McpMM.diagram.providers.assistants.McpMMModelingAssistantProviderOfPropiedadEditPart">
          <Priority name="Lowest"/>
-         <object class="McpMM.diagram.edit.parts.PropiedadEditPart" id="Propiedad_3014"/>
-         <context elements="Propiedad_3014"/>
+         <object class="McpMM.diagram.edit.parts.PropiedadEditPart" id="Propiedad_3002"/>
+         <context elements="Propiedad_3002"/>
       </modelingAssistantProvider>
             <modelingAssistantProvider class="McpMM.diagram.providers.assistants.McpMMModelingAssistantProviderOfOperacionMCPEditPart">
          <Priority name="Lowest"/>
-         <object class="McpMM.diagram.edit.parts.OperacionMCPEditPart" id="OperacionMCP_3015"/>
-         <context elements="OperacionMCP_3015"/>
+         <object class="McpMM.diagram.edit.parts.OperacionMCPEditPart" id="OperacionMCP_3003"/>
+         <context elements="OperacionMCP_3003"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="McpMM.diagram.providers.assistants.McpMMModelingAssistantProviderOfTareaTransformacionDatosEditPart">
+         <Priority name="Lowest"/>
+         <object class="McpMM.diagram.edit.parts.TareaTransformacionDatosEditPart" id="TareaTransformacionDatos_3004"/>
+         <context elements="TareaTransformacionDatos_3004"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="McpMM.diagram.providers.assistants.McpMMModelingAssistantProviderOfEscrituraEditPart">
+         <Priority name="Lowest"/>
+         <object class="McpMM.diagram.edit.parts.EscrituraEditPart" id="Escritura_3005"/>
+         <context elements="Escritura_3005"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="McpMM.diagram.providers.assistants.McpMMModelingAssistantProviderOfLecturaEditPart">
+         <Priority name="Lowest"/>
+         <object class="McpMM.diagram.edit.parts.LecturaEditPart" id="Lectura_3006"/>
+         <context elements="Lectura_3006"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="McpMM.diagram.providers.assistants.McpMMModelingAssistantProviderOfTareaLLMEditPart">
+         <Priority name="Lowest"/>
+         <object class="McpMM.diagram.edit.parts.TareaLLMEditPart" id="TareaLLM_3007"/>
+         <context elements="TareaLLM_3007"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="McpMM.diagram.providers.assistants.McpMMModelingAssistantProviderOfTareaUsuarioEditPart">
+         <Priority name="Lowest"/>
+         <object class="McpMM.diagram.edit.parts.TareaUsuarioEditPart" id="TareaUsuario_3008"/>
+         <context elements="TareaUsuario_3008"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="McpMM.diagram.providers.assistants.McpMMModelingAssistantProviderOfTareaAnalisisEditPart">
+         <Priority name="Lowest"/>
+         <object class="McpMM.diagram.edit.parts.TareaAnalisisEditPart" id="TareaAnalisis_3009"/>
+         <context elements="TareaAnalisis_3009"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="McpMM.diagram.providers.assistants.McpMMModelingAssistantProviderOfTareaEnvioContextoEditPart">
+         <Priority name="Lowest"/>
+         <object class="McpMM.diagram.edit.parts.TareaEnvioContextoEditPart" id="TareaEnvioContexto_3010"/>
+         <context elements="TareaEnvioContexto_3010"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="McpMM.diagram.providers.assistants.McpMMModelingAssistantProviderOfTareaRecepcionContextoEditPart">
+         <Priority name="Lowest"/>
+         <object class="McpMM.diagram.edit.parts.TareaRecepcionContextoEditPart" id="TareaRecepcionContexto_3011"/>
+         <context elements="TareaRecepcionContexto_3011"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="McpMM.diagram.providers.assistants.McpMMModelingAssistantProviderOfTareaServerMCPEditPart">
+         <Priority name="Lowest"/>
+         <object class="McpMM.diagram.edit.parts.TareaServerMCPEditPart" id="TareaServerMCP_3012"/>
+         <context elements="TareaServerMCP_3012"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="McpMM.diagram.providers.assistants.McpMMModelingAssistantProviderOfInicioEditPart">
+         <Priority name="Lowest"/>
+         <object class="McpMM.diagram.edit.parts.InicioEditPart" id="Inicio_3013"/>
+         <context elements="Inicio_3013"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="McpMM.diagram.providers.assistants.McpMMModelingAssistantProviderOfFinalEditPart">
+         <Priority name="Lowest"/>
+         <object class="McpMM.diagram.edit.parts.FinalEditPart" id="Final_3014"/>
+         <context elements="Final_3014"/>
       </modelingAssistantProvider>
       
    </extension>
@@ -402,7 +402,7 @@
       <decoratorProvider class="McpMM.diagram.providers.McpMMShortcutsDecoratorProvider">
          <Priority name="Lowest"/>
          <object class="org.eclipse.gmf.runtime.notation.Node(org.eclipse.gmf.runtime.notation)" id="generated-top-nodes">
-            <method name="getType()" value="2001,2002"/>
+            <method name="getType()" value="2001,2002,2003"/>
          </object>
          <context decoratorTargets="generated-top-nodes"/>
       </decoratorProvider>
@@ -442,158 +442,158 @@
       </metamodel>
       <metamodel nsURI="https://www.example.org/McpMM">
          <metamodelType
-               id="ProyectoMCP.diagram.Workflow_3001"
-               name="%metatype.name.Workflow_3001"
+               id="ProyectoMCP.diagram.Workflow_2003"
+               name="%metatype.name.Workflow_2003"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
                eclass="Workflow"
                edithelper="McpMM.diagram.edit.helpers.WorkflowEditHelper">
+            <param name="semanticHint" value="2003"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="https://www.example.org/McpMM">
+         <metamodelType
+               id="ProyectoMCP.diagram.Contexto_3001"
+               name="%metatype.name.Contexto_3001"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="Contexto"
+               edithelper="McpMM.diagram.edit.helpers.ContextoEditHelper">
             <param name="semanticHint" value="3001"/>
          </metamodelType>
       </metamodel>
       <metamodel nsURI="https://www.example.org/McpMM">
          <metamodelType
-               id="ProyectoMCP.diagram.TareaTransformacionDatos_3002"
-               name="%metatype.name.TareaTransformacionDatos_3002"
+               id="ProyectoMCP.diagram.Propiedad_3002"
+               name="%metatype.name.Propiedad_3002"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="TareaTransformacionDatos"
-               edithelper="McpMM.diagram.edit.helpers.TareaTransformacionDatosEditHelper">
+               eclass="Propiedad"
+               edithelper="McpMM.diagram.edit.helpers.PropiedadEditHelper">
             <param name="semanticHint" value="3002"/>
          </metamodelType>
       </metamodel>
       <metamodel nsURI="https://www.example.org/McpMM">
          <metamodelType
-               id="ProyectoMCP.diagram.Escritura_3003"
-               name="%metatype.name.Escritura_3003"
+               id="ProyectoMCP.diagram.OperacionMCP_3003"
+               name="%metatype.name.OperacionMCP_3003"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="Escritura"
-               edithelper="McpMM.diagram.edit.helpers.EscrituraEditHelper">
+               eclass="OperacionMCP"
+               edithelper="McpMM.diagram.edit.helpers.OperacionMCPEditHelper">
             <param name="semanticHint" value="3003"/>
          </metamodelType>
       </metamodel>
       <metamodel nsURI="https://www.example.org/McpMM">
          <metamodelType
-               id="ProyectoMCP.diagram.Lectura_3004"
-               name="%metatype.name.Lectura_3004"
+               id="ProyectoMCP.diagram.TareaTransformacionDatos_3004"
+               name="%metatype.name.TareaTransformacionDatos_3004"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="Lectura"
-               edithelper="McpMM.diagram.edit.helpers.LecturaEditHelper">
+               eclass="TareaTransformacionDatos"
+               edithelper="McpMM.diagram.edit.helpers.TareaTransformacionDatosEditHelper">
             <param name="semanticHint" value="3004"/>
          </metamodelType>
       </metamodel>
       <metamodel nsURI="https://www.example.org/McpMM">
          <metamodelType
-               id="ProyectoMCP.diagram.TareaLLM_3005"
-               name="%metatype.name.TareaLLM_3005"
+               id="ProyectoMCP.diagram.Escritura_3005"
+               name="%metatype.name.Escritura_3005"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="TareaLLM"
-               edithelper="McpMM.diagram.edit.helpers.TareaLLMEditHelper">
+               eclass="Escritura"
+               edithelper="McpMM.diagram.edit.helpers.EscrituraEditHelper">
             <param name="semanticHint" value="3005"/>
          </metamodelType>
       </metamodel>
       <metamodel nsURI="https://www.example.org/McpMM">
          <metamodelType
-               id="ProyectoMCP.diagram.TareaUsuario_3006"
-               name="%metatype.name.TareaUsuario_3006"
+               id="ProyectoMCP.diagram.Lectura_3006"
+               name="%metatype.name.Lectura_3006"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="TareaUsuario"
-               edithelper="McpMM.diagram.edit.helpers.TareaUsuarioEditHelper">
+               eclass="Lectura"
+               edithelper="McpMM.diagram.edit.helpers.LecturaEditHelper">
             <param name="semanticHint" value="3006"/>
          </metamodelType>
       </metamodel>
       <metamodel nsURI="https://www.example.org/McpMM">
          <metamodelType
-               id="ProyectoMCP.diagram.TareaAnalisis_3007"
-               name="%metatype.name.TareaAnalisis_3007"
+               id="ProyectoMCP.diagram.TareaLLM_3007"
+               name="%metatype.name.TareaLLM_3007"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="TareaAnalisis"
-               edithelper="McpMM.diagram.edit.helpers.TareaAnalisisEditHelper">
+               eclass="TareaLLM"
+               edithelper="McpMM.diagram.edit.helpers.TareaLLMEditHelper">
             <param name="semanticHint" value="3007"/>
          </metamodelType>
       </metamodel>
       <metamodel nsURI="https://www.example.org/McpMM">
          <metamodelType
-               id="ProyectoMCP.diagram.TareaEnvioContexto_3008"
-               name="%metatype.name.TareaEnvioContexto_3008"
+               id="ProyectoMCP.diagram.TareaUsuario_3008"
+               name="%metatype.name.TareaUsuario_3008"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="TareaEnvioContexto"
-               edithelper="McpMM.diagram.edit.helpers.TareaEnvioContextoEditHelper">
+               eclass="TareaUsuario"
+               edithelper="McpMM.diagram.edit.helpers.TareaUsuarioEditHelper">
             <param name="semanticHint" value="3008"/>
          </metamodelType>
       </metamodel>
       <metamodel nsURI="https://www.example.org/McpMM">
          <metamodelType
-               id="ProyectoMCP.diagram.TareaRecepcionContexto_3009"
-               name="%metatype.name.TareaRecepcionContexto_3009"
+               id="ProyectoMCP.diagram.TareaAnalisis_3009"
+               name="%metatype.name.TareaAnalisis_3009"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="TareaRecepcionContexto"
-               edithelper="McpMM.diagram.edit.helpers.TareaRecepcionContextoEditHelper">
+               eclass="TareaAnalisis"
+               edithelper="McpMM.diagram.edit.helpers.TareaAnalisisEditHelper">
             <param name="semanticHint" value="3009"/>
          </metamodelType>
       </metamodel>
       <metamodel nsURI="https://www.example.org/McpMM">
          <metamodelType
-               id="ProyectoMCP.diagram.TareaServerMCP_3010"
-               name="%metatype.name.TareaServerMCP_3010"
+               id="ProyectoMCP.diagram.TareaEnvioContexto_3010"
+               name="%metatype.name.TareaEnvioContexto_3010"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="TareaServerMCP"
-               edithelper="McpMM.diagram.edit.helpers.TareaServerMCPEditHelper">
+               eclass="TareaEnvioContexto"
+               edithelper="McpMM.diagram.edit.helpers.TareaEnvioContextoEditHelper">
             <param name="semanticHint" value="3010"/>
          </metamodelType>
       </metamodel>
       <metamodel nsURI="https://www.example.org/McpMM">
          <metamodelType
-               id="ProyectoMCP.diagram.Inicio_3011"
-               name="%metatype.name.Inicio_3011"
+               id="ProyectoMCP.diagram.TareaRecepcionContexto_3011"
+               name="%metatype.name.TareaRecepcionContexto_3011"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="Inicio"
-               edithelper="McpMM.diagram.edit.helpers.InicioEditHelper">
+               eclass="TareaRecepcionContexto"
+               edithelper="McpMM.diagram.edit.helpers.TareaRecepcionContextoEditHelper">
             <param name="semanticHint" value="3011"/>
          </metamodelType>
       </metamodel>
       <metamodel nsURI="https://www.example.org/McpMM">
          <metamodelType
-               id="ProyectoMCP.diagram.Final_3012"
-               name="%metatype.name.Final_3012"
+               id="ProyectoMCP.diagram.TareaServerMCP_3012"
+               name="%metatype.name.TareaServerMCP_3012"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="Final"
-               edithelper="McpMM.diagram.edit.helpers.FinalEditHelper">
+               eclass="TareaServerMCP"
+               edithelper="McpMM.diagram.edit.helpers.TareaServerMCPEditHelper">
             <param name="semanticHint" value="3012"/>
          </metamodelType>
       </metamodel>
       <metamodel nsURI="https://www.example.org/McpMM">
          <metamodelType
-               id="ProyectoMCP.diagram.Contexto_3013"
-               name="%metatype.name.Contexto_3013"
+               id="ProyectoMCP.diagram.Inicio_3013"
+               name="%metatype.name.Inicio_3013"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="Contexto"
-               edithelper="McpMM.diagram.edit.helpers.ContextoEditHelper">
+               eclass="Inicio"
+               edithelper="McpMM.diagram.edit.helpers.InicioEditHelper">
             <param name="semanticHint" value="3013"/>
          </metamodelType>
       </metamodel>
       <metamodel nsURI="https://www.example.org/McpMM">
          <metamodelType
-               id="ProyectoMCP.diagram.Propiedad_3014"
-               name="%metatype.name.Propiedad_3014"
+               id="ProyectoMCP.diagram.Final_3014"
+               name="%metatype.name.Final_3014"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="Propiedad"
-               edithelper="McpMM.diagram.edit.helpers.PropiedadEditHelper">
+               eclass="Final"
+               edithelper="McpMM.diagram.edit.helpers.FinalEditHelper">
             <param name="semanticHint" value="3014"/>
          </metamodelType>
       </metamodel>
       <metamodel nsURI="https://www.example.org/McpMM">
-         <metamodelType
-               id="ProyectoMCP.diagram.OperacionMCP_3015"
-               name="%metatype.name.OperacionMCP_3015"
-               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="OperacionMCP"
-               edithelper="McpMM.diagram.edit.helpers.OperacionMCPEditHelper">
-            <param name="semanticHint" value="3015"/>
-         </metamodelType>
-      </metamodel>
-      <metamodel nsURI="https://www.example.org/McpMM">
          <specializationType
-               id="ProyectoMCP.diagram.TareaSigue_4001"
-               name="%metatype.name.TareaSigue_4001"
+               id="ProyectoMCP.diagram.AgenteTareas_4001"
+               name="%metatype.name.AgenteTareas_4001"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
             <specializes id="org.eclipse.gmf.runtime.emf.type.core.null"/>
             <param name="semanticHint" value="4001"/>
@@ -601,8 +601,8 @@
       </metamodel>
       <metamodel nsURI="https://www.example.org/McpMM">
          <specializationType
-               id="ProyectoMCP.diagram.TareaAnalisisSigueElse_4002"
-               name="%metatype.name.TareaAnalisisSigueElse_4002"
+               id="ProyectoMCP.diagram.TareaSigue_4002"
+               name="%metatype.name.TareaSigue_4002"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
             <specializes id="org.eclipse.gmf.runtime.emf.type.core.null"/>
             <param name="semanticHint" value="4002"/>
@@ -610,11 +610,20 @@
       </metamodel>
       <metamodel nsURI="https://www.example.org/McpMM">
          <specializationType
-               id="ProyectoMCP.diagram.TareaServerMCPEjecutaOperacion_4003"
-               name="%metatype.name.TareaServerMCPEjecutaOperacion_4003"
+               id="ProyectoMCP.diagram.TareaAnalisisSigueElse_4003"
+               name="%metatype.name.TareaAnalisisSigueElse_4003"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
             <specializes id="org.eclipse.gmf.runtime.emf.type.core.null"/>
             <param name="semanticHint" value="4003"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="https://www.example.org/McpMM">
+         <specializationType
+               id="ProyectoMCP.diagram.TareaServerMCPEjecutaOperacion_4004"
+               name="%metatype.name.TareaServerMCPEjecutaOperacion_4004"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.eclipse.gmf.runtime.emf.type.core.null"/>
+            <param name="semanticHint" value="4004"/>
          </specializationType>
       </metamodel>
    </extension>
@@ -632,24 +641,25 @@
          <elementType ref="ProyectoMCP.diagram.ServiceMCP_1000"/>
          <elementType ref="ProyectoMCP.diagram.Agente_2001"/>
          <elementType ref="ProyectoMCP.diagram.ServerMCP_2002"/>
-         <elementType ref="ProyectoMCP.diagram.Workflow_3001"/>
-         <elementType ref="ProyectoMCP.diagram.TareaTransformacionDatos_3002"/>
-         <elementType ref="ProyectoMCP.diagram.Escritura_3003"/>
-         <elementType ref="ProyectoMCP.diagram.Lectura_3004"/>
-         <elementType ref="ProyectoMCP.diagram.TareaLLM_3005"/>
-         <elementType ref="ProyectoMCP.diagram.TareaUsuario_3006"/>
-         <elementType ref="ProyectoMCP.diagram.TareaAnalisis_3007"/>
-         <elementType ref="ProyectoMCP.diagram.TareaEnvioContexto_3008"/>
-         <elementType ref="ProyectoMCP.diagram.TareaRecepcionContexto_3009"/>
-         <elementType ref="ProyectoMCP.diagram.TareaServerMCP_3010"/>
-         <elementType ref="ProyectoMCP.diagram.Inicio_3011"/>
-         <elementType ref="ProyectoMCP.diagram.Final_3012"/>
-         <elementType ref="ProyectoMCP.diagram.Contexto_3013"/>
-         <elementType ref="ProyectoMCP.diagram.Propiedad_3014"/>
-         <elementType ref="ProyectoMCP.diagram.OperacionMCP_3015"/>
-         <elementType ref="ProyectoMCP.diagram.TareaSigue_4001"/>
-         <elementType ref="ProyectoMCP.diagram.TareaAnalisisSigueElse_4002"/>
-         <elementType ref="ProyectoMCP.diagram.TareaServerMCPEjecutaOperacion_4003"/>
+         <elementType ref="ProyectoMCP.diagram.Workflow_2003"/>
+         <elementType ref="ProyectoMCP.diagram.Contexto_3001"/>
+         <elementType ref="ProyectoMCP.diagram.Propiedad_3002"/>
+         <elementType ref="ProyectoMCP.diagram.OperacionMCP_3003"/>
+         <elementType ref="ProyectoMCP.diagram.TareaTransformacionDatos_3004"/>
+         <elementType ref="ProyectoMCP.diagram.Escritura_3005"/>
+         <elementType ref="ProyectoMCP.diagram.Lectura_3006"/>
+         <elementType ref="ProyectoMCP.diagram.TareaLLM_3007"/>
+         <elementType ref="ProyectoMCP.diagram.TareaUsuario_3008"/>
+         <elementType ref="ProyectoMCP.diagram.TareaAnalisis_3009"/>
+         <elementType ref="ProyectoMCP.diagram.TareaEnvioContexto_3010"/>
+         <elementType ref="ProyectoMCP.diagram.TareaRecepcionContexto_3011"/>
+         <elementType ref="ProyectoMCP.diagram.TareaServerMCP_3012"/>
+         <elementType ref="ProyectoMCP.diagram.Inicio_3013"/>
+         <elementType ref="ProyectoMCP.diagram.Final_3014"/>
+         <elementType ref="ProyectoMCP.diagram.AgenteTareas_4001"/>
+         <elementType ref="ProyectoMCP.diagram.TareaSigue_4002"/>
+         <elementType ref="ProyectoMCP.diagram.TareaAnalisisSigueElse_4003"/>
+         <elementType ref="ProyectoMCP.diagram.TareaServerMCPEjecutaOperacion_4004"/>
          <advice ref="org.eclipse.gmf.runtime.diagram.core.advice.notationDepdendents"/>
       </binding>
    </extension>

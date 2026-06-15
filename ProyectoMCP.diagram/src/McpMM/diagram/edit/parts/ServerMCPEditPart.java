@@ -279,7 +279,7 @@ public class ServerMCPEditPart extends ShapeNodeEditPart {
 			CreateElementRequestAdapter adapter = ((CreateViewAndElementRequest) request).getViewAndElementDescriptor()
 					.getCreateElementRequestAdapter();
 			IElementType type = (IElementType) adapter.getAdapter(IElementType.class);
-			if (type == McpMM.diagram.providers.McpMMElementTypes.OperacionMCP_3015) {
+			if (type == McpMM.diagram.providers.McpMMElementTypes.OperacionMCP_3003) {
 				return getChildBySemanticHint(McpMM.diagram.part.McpMMVisualIDRegistry
 						.getType(McpMM.diagram.edit.parts.ServerMCPServerMCPOperacionesCompartmentEditPart.VISUAL_ID));
 			}

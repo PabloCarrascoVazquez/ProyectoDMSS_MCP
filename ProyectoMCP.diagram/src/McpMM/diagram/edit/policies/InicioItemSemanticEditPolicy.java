@@ -29,7 +29,7 @@ public class InicioItemSemanticEditPolicy extends McpMM.diagram.edit.policies.Mc
 	* @generated
 	*/
 	public InicioItemSemanticEditPolicy() {
-		super(McpMM.diagram.providers.McpMMElementTypes.Inicio_3011);
+		super(McpMM.diagram.providers.McpMMElementTypes.Inicio_3013);
 	}
 
 	/**
@@ -126,11 +126,11 @@ public class InicioItemSemanticEditPolicy extends McpMM.diagram.edit.policies.Mc
 	 * @generated
 	 */
 	protected Command getStartCreateRelationshipCommand(CreateRelationshipRequest req) {
-		if (McpMM.diagram.providers.McpMMElementTypes.TareaSigue_4001 == req.getElementType()) {
+		if (McpMM.diagram.providers.McpMMElementTypes.TareaSigue_4002 == req.getElementType()) {
 			return getGEFWrapper(
 					new McpMM.diagram.edit.commands.TareaSigueCreateCommand(req, req.getSource(), req.getTarget()));
 		}
-		if (McpMM.diagram.providers.McpMMElementTypes.TareaAnalisisSigueElse_4002 == req.getElementType()) {
+		if (McpMM.diagram.providers.McpMMElementTypes.TareaAnalisisSigueElse_4003 == req.getElementType()) {
 			return null;
 		}
 		return null;
@@ -140,11 +140,11 @@ public class InicioItemSemanticEditPolicy extends McpMM.diagram.edit.policies.Mc
 	 * @generated
 	 */
 	protected Command getCompleteCreateRelationshipCommand(CreateRelationshipRequest req) {
-		if (McpMM.diagram.providers.McpMMElementTypes.TareaSigue_4001 == req.getElementType()) {
+		if (McpMM.diagram.providers.McpMMElementTypes.TareaSigue_4002 == req.getElementType()) {
 			return getGEFWrapper(
 					new McpMM.diagram.edit.commands.TareaSigueCreateCommand(req, req.getSource(), req.getTarget()));
 		}
-		if (McpMM.diagram.providers.McpMMElementTypes.TareaAnalisisSigueElse_4002 == req.getElementType()) {
+		if (McpMM.diagram.providers.McpMMElementTypes.TareaAnalisisSigueElse_4003 == req.getElementType()) {
 			return getGEFWrapper(new McpMM.diagram.edit.commands.TareaAnalisisSigueElseCreateCommand(req,
 					req.getSource(), req.getTarget()));
 		}

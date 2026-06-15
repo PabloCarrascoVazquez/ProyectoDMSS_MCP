@@ -17,7 +17,7 @@ public class TareaServerMCPEjecutaOperacionItemSemanticEditPolicy
 	* @generated
 	*/
 	public TareaServerMCPEjecutaOperacionItemSemanticEditPolicy() {
-		super(McpMM.diagram.providers.McpMMElementTypes.TareaServerMCPEjecutaOperacion_4003);
+		super(McpMM.diagram.providers.McpMMElementTypes.TareaServerMCPEjecutaOperacion_4004);
 	}
 
 	/**

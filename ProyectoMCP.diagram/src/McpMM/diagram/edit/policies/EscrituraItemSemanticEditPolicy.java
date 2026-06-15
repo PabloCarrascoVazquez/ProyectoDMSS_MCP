@@ -20,7 +20,7 @@ public class EscrituraItemSemanticEditPolicy extends McpMM.diagram.edit.policies
 	* @generated
 	*/
 	public EscrituraItemSemanticEditPolicy() {
-		super(McpMM.diagram.providers.McpMMElementTypes.Escritura_3003);
+		super(McpMM.diagram.providers.McpMMElementTypes.Escritura_3005);
 	}
 
 	/**

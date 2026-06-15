@@ -32,6 +32,9 @@ public class ServiceMCPItemSemanticEditPolicy extends McpMM.diagram.edit.policie
 		if (McpMM.diagram.providers.McpMMElementTypes.ServerMCP_2002 == req.getElementType()) {
 			return getGEFWrapper(new McpMM.diagram.edit.commands.ServerMCPCreateCommand(req));
 		}
+		if (McpMM.diagram.providers.McpMMElementTypes.Workflow_2003 == req.getElementType()) {
+			return getGEFWrapper(new McpMM.diagram.edit.commands.WorkflowCreateCommand(req));
+		}
 		return super.getCreateCommand(req);
 	}
 

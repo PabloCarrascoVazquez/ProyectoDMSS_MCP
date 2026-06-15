@@ -55,7 +55,7 @@ public class ServerMCPNombreServerEditPart extends CompartmentEditPart implement
 	/**
 	* @generated
 	*/
-	public static final int VISUAL_ID = 5017;
+	public static final int VISUAL_ID = 5005;
 
 	/**
 	* @generated

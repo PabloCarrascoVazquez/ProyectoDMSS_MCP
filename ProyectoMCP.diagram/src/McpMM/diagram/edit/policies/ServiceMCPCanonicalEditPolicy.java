@@ -64,6 +64,7 @@ public class ServiceMCPCanonicalEditPolicy extends CanonicalEditPolicy {
 			myFeaturesToSynchronize = new HashSet<EStructuralFeature>();
 			myFeaturesToSynchronize.add(McpMM.McpMMPackage.eINSTANCE.getServiceMCP_Agentes());
 			myFeaturesToSynchronize.add(McpMM.McpMMPackage.eINSTANCE.getServiceMCP_Servidores());
+			myFeaturesToSynchronize.add(McpMM.McpMMPackage.eINSTANCE.getServiceMCP_Workflows());
 		}
 		return myFeaturesToSynchronize;
 	}
@@ -100,7 +101,8 @@ public class ServiceMCPCanonicalEditPolicy extends CanonicalEditPolicy {
 	private boolean isMyDiagramElement(View view) {
 		int visualID = McpMM.diagram.part.McpMMVisualIDRegistry.getVisualID(view);
 		return visualID == McpMM.diagram.edit.parts.AgenteEditPart.VISUAL_ID
-				|| visualID == McpMM.diagram.edit.parts.ServerMCPEditPart.VISUAL_ID;
+				|| visualID == McpMM.diagram.edit.parts.ServerMCPEditPart.VISUAL_ID
+				|| visualID == McpMM.diagram.edit.parts.WorkflowEditPart.VISUAL_ID;
 	}
 
 	/**
@@ -276,7 +278,28 @@ public class ServiceMCPCanonicalEditPolicy extends CanonicalEditPolicy {
 		}
 		case McpMM.diagram.edit.parts.WorkflowEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
-				result.addAll(McpMM.diagram.part.McpMMDiagramUpdater.getWorkflow_3001ContainedLinks(view));
+				result.addAll(McpMM.diagram.part.McpMMDiagramUpdater.getWorkflow_2003ContainedLinks(view));
+			}
+			domain2NotationMap.putView(view.getElement(), view);
+			break;
+		}
+		case McpMM.diagram.edit.parts.ContextoEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(McpMM.diagram.part.McpMMDiagramUpdater.getContexto_3001ContainedLinks(view));
+			}
+			domain2NotationMap.putView(view.getElement(), view);
+			break;
+		}
+		case McpMM.diagram.edit.parts.PropiedadEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(McpMM.diagram.part.McpMMDiagramUpdater.getPropiedad_3002ContainedLinks(view));
+			}
+			domain2NotationMap.putView(view.getElement(), view);
+			break;
+		}
+		case McpMM.diagram.edit.parts.OperacionMCPEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(McpMM.diagram.part.McpMMDiagramUpdater.getOperacionMCP_3003ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;
@@ -284,49 +307,49 @@ public class ServiceMCPCanonicalEditPolicy extends CanonicalEditPolicy {
 		case McpMM.diagram.edit.parts.TareaTransformacionDatosEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(
-						McpMM.diagram.part.McpMMDiagramUpdater.getTareaTransformacionDatos_3002ContainedLinks(view));
+						McpMM.diagram.part.McpMMDiagramUpdater.getTareaTransformacionDatos_3004ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case McpMM.diagram.edit.parts.EscrituraEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
-				result.addAll(McpMM.diagram.part.McpMMDiagramUpdater.getEscritura_3003ContainedLinks(view));
+				result.addAll(McpMM.diagram.part.McpMMDiagramUpdater.getEscritura_3005ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case McpMM.diagram.edit.parts.LecturaEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
-				result.addAll(McpMM.diagram.part.McpMMDiagramUpdater.getLectura_3004ContainedLinks(view));
+				result.addAll(McpMM.diagram.part.McpMMDiagramUpdater.getLectura_3006ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case McpMM.diagram.edit.parts.TareaLLMEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
-				result.addAll(McpMM.diagram.part.McpMMDiagramUpdater.getTareaLLM_3005ContainedLinks(view));
+				result.addAll(McpMM.diagram.part.McpMMDiagramUpdater.getTareaLLM_3007ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case McpMM.diagram.edit.parts.TareaUsuarioEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
-				result.addAll(McpMM.diagram.part.McpMMDiagramUpdater.getTareaUsuario_3006ContainedLinks(view));
+				result.addAll(McpMM.diagram.part.McpMMDiagramUpdater.getTareaUsuario_3008ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case McpMM.diagram.edit.parts.TareaAnalisisEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
-				result.addAll(McpMM.diagram.part.McpMMDiagramUpdater.getTareaAnalisis_3007ContainedLinks(view));
+				result.addAll(McpMM.diagram.part.McpMMDiagramUpdater.getTareaAnalisis_3009ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case McpMM.diagram.edit.parts.TareaEnvioContextoEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
-				result.addAll(McpMM.diagram.part.McpMMDiagramUpdater.getTareaEnvioContexto_3008ContainedLinks(view));
+				result.addAll(McpMM.diagram.part.McpMMDiagramUpdater.getTareaEnvioContexto_3010ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;
@@ -334,49 +357,28 @@ public class ServiceMCPCanonicalEditPolicy extends CanonicalEditPolicy {
 		case McpMM.diagram.edit.parts.TareaRecepcionContextoEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(
-						McpMM.diagram.part.McpMMDiagramUpdater.getTareaRecepcionContexto_3009ContainedLinks(view));
+						McpMM.diagram.part.McpMMDiagramUpdater.getTareaRecepcionContexto_3011ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case McpMM.diagram.edit.parts.TareaServerMCPEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
-				result.addAll(McpMM.diagram.part.McpMMDiagramUpdater.getTareaServerMCP_3010ContainedLinks(view));
+				result.addAll(McpMM.diagram.part.McpMMDiagramUpdater.getTareaServerMCP_3012ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case McpMM.diagram.edit.parts.InicioEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
-				result.addAll(McpMM.diagram.part.McpMMDiagramUpdater.getInicio_3011ContainedLinks(view));
+				result.addAll(McpMM.diagram.part.McpMMDiagramUpdater.getInicio_3013ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case McpMM.diagram.edit.parts.FinalEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
-				result.addAll(McpMM.diagram.part.McpMMDiagramUpdater.getFinal_3012ContainedLinks(view));
-			}
-			domain2NotationMap.putView(view.getElement(), view);
-			break;
-		}
-		case McpMM.diagram.edit.parts.ContextoEditPart.VISUAL_ID: {
-			if (!domain2NotationMap.containsKey(view.getElement())) {
-				result.addAll(McpMM.diagram.part.McpMMDiagramUpdater.getContexto_3013ContainedLinks(view));
-			}
-			domain2NotationMap.putView(view.getElement(), view);
-			break;
-		}
-		case McpMM.diagram.edit.parts.PropiedadEditPart.VISUAL_ID: {
-			if (!domain2NotationMap.containsKey(view.getElement())) {
-				result.addAll(McpMM.diagram.part.McpMMDiagramUpdater.getPropiedad_3014ContainedLinks(view));
-			}
-			domain2NotationMap.putView(view.getElement(), view);
-			break;
-		}
-		case McpMM.diagram.edit.parts.OperacionMCPEditPart.VISUAL_ID: {
-			if (!domain2NotationMap.containsKey(view.getElement())) {
-				result.addAll(McpMM.diagram.part.McpMMDiagramUpdater.getOperacionMCP_3015ContainedLinks(view));
+				result.addAll(McpMM.diagram.part.McpMMDiagramUpdater.getFinal_3014ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;

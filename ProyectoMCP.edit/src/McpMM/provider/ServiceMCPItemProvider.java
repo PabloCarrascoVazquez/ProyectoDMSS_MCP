@@ -105,6 +105,7 @@ public class ServiceMCPItemProvider
 			childrenFeatures.add(McpMMPackage.Literals.SERVICE_MCP__AGENTES);
 			childrenFeatures.add(McpMMPackage.Literals.SERVICE_MCP__SERVICIOS);
 			childrenFeatures.add(McpMMPackage.Literals.SERVICE_MCP__SERVIDORES);
+			childrenFeatures.add(McpMMPackage.Literals.SERVICE_MCP__WORKFLOWS);
 		}
 		return childrenFeatures;
 	}
@@ -166,6 +167,7 @@ public class ServiceMCPItemProvider
 			case McpMMPackage.SERVICE_MCP__AGENTES:
 			case McpMMPackage.SERVICE_MCP__SERVICIOS:
 			case McpMMPackage.SERVICE_MCP__SERVIDORES:
+			case McpMMPackage.SERVICE_MCP__WORKFLOWS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -197,6 +199,11 @@ public class ServiceMCPItemProvider
 			(createChildParameter
 				(McpMMPackage.Literals.SERVICE_MCP__SERVIDORES,
 				 McpMMFactory.eINSTANCE.createServerMCP()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(McpMMPackage.Literals.SERVICE_MCP__WORKFLOWS,
+				 McpMMFactory.eINSTANCE.createWorkflow()));
 	}
 
 	/**

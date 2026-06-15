@@ -30,7 +30,7 @@ public class ServerMCPServerMCPOperacionesCompartmentEditPart extends ListCompar
 	/**
 	* @generated
 	*/
-	public static final int VISUAL_ID = 7014;
+	public static final int VISUAL_ID = 7003;
 
 	/**
 	* @generated
@@ -94,7 +94,7 @@ public class ServerMCPServerMCPOperacionesCompartmentEditPart extends ListCompar
 			CreateElementRequestAdapter adapter = ((CreateViewAndElementRequest) request).getViewAndElementDescriptor()
 					.getCreateElementRequestAdapter();
 			IElementType type = (IElementType) adapter.getAdapter(IElementType.class);
-			if (type == McpMM.diagram.providers.McpMMElementTypes.OperacionMCP_3015) {
+			if (type == McpMM.diagram.providers.McpMMElementTypes.OperacionMCP_3003) {
 				return this;
 			}
 			return getParent().getTargetEditPart(request);
@@ -105,7 +105,7 @@ public class ServerMCPServerMCPOperacionesCompartmentEditPart extends ListCompar
 					if (type instanceof IElementType) {
 						IElementType elementType = (IElementType) type;
 						if (elementType
-								.equals(McpMM.diagram.providers.McpMMElementTypes.TareaServerMCPEjecutaOperacion_4003))
+								.equals(McpMM.diagram.providers.McpMMElementTypes.TareaServerMCPEjecutaOperacion_4004))
 							return super.getTargetEditPart(request);
 					}
 				}

@@ -29,7 +29,7 @@ public class ContextoContextoPropiedadesCompartmentEditPart extends ListCompartm
 	/**
 	* @generated
 	*/
-	public static final int VISUAL_ID = 7013;
+	public static final int VISUAL_ID = 7002;
 
 	/**
 	* @generated
@@ -93,7 +93,7 @@ public class ContextoContextoPropiedadesCompartmentEditPart extends ListCompartm
 			CreateElementRequestAdapter adapter = ((CreateViewAndElementRequest) request).getViewAndElementDescriptor()
 					.getCreateElementRequestAdapter();
 			IElementType type = (IElementType) adapter.getAdapter(IElementType.class);
-			if (type == McpMM.diagram.providers.McpMMElementTypes.Propiedad_3014) {
+			if (type == McpMM.diagram.providers.McpMMElementTypes.Propiedad_3002) {
 				return this;
 			}
 			return getParent().getTargetEditPart(request);

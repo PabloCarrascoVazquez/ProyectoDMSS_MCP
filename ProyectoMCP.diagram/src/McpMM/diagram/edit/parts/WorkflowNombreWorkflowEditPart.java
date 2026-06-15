@@ -55,7 +55,7 @@ public class WorkflowNombreWorkflowEditPart extends CompartmentEditPart implemen
 	/**
 	* @generated
 	*/
-	public static final int VISUAL_ID = 5012;
+	public static final int VISUAL_ID = 5017;
 
 	/**
 	* @generated
@@ -292,7 +292,7 @@ public class WorkflowNombreWorkflowEditPart extends CompartmentEditPart implemen
 	public IParser getParser() {
 		if (parser == null) {
 			parser = McpMM.diagram.providers.McpMMParserProvider.getParser(
-					McpMM.diagram.providers.McpMMElementTypes.Workflow_3001, getParserElement(),
+					McpMM.diagram.providers.McpMMElementTypes.Workflow_2003, getParserElement(),
 					McpMM.diagram.part.McpMMVisualIDRegistry
 							.getType(McpMM.diagram.edit.parts.WorkflowNombreWorkflowEditPart.VISUAL_ID));
 		}

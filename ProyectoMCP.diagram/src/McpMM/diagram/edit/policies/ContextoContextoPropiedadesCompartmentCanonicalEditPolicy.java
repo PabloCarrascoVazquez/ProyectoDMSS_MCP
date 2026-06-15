@@ -57,7 +57,7 @@ public class ContextoContextoPropiedadesCompartmentCanonicalEditPolicy extends C
 		View viewObject = (View) getHost().getModel();
 		LinkedList<EObject> result = new LinkedList<EObject>();
 		List<McpMM.diagram.part.McpMMNodeDescriptor> childDescriptors = McpMM.diagram.part.McpMMDiagramUpdater
-				.getContextoContextoPropiedadesCompartment_7013SemanticChildren(viewObject);
+				.getContextoContextoPropiedadesCompartment_7002SemanticChildren(viewObject);
 		for (McpMM.diagram.part.McpMMNodeDescriptor d : childDescriptors) {
 			result.add(d.getModelElement());
 		}
@@ -88,7 +88,7 @@ public class ContextoContextoPropiedadesCompartmentCanonicalEditPolicy extends C
 		}
 		LinkedList<IAdaptable> createdViews = new LinkedList<IAdaptable>();
 		List<McpMM.diagram.part.McpMMNodeDescriptor> childDescriptors = McpMM.diagram.part.McpMMDiagramUpdater
-				.getContextoContextoPropiedadesCompartment_7013SemanticChildren((View) getHost().getModel());
+				.getContextoContextoPropiedadesCompartment_7002SemanticChildren((View) getHost().getModel());
 		LinkedList<View> orphaned = new LinkedList<View>();
 		// we care to check only views we recognize as ours
 		LinkedList<View> knownViewChildren = new LinkedList<View>();

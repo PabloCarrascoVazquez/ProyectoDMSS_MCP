@@ -152,13 +152,22 @@ public interface McpMMPackage extends EPackage {
 	int SERVICE_MCP__SERVIDORES = 3;
 
 	/**
+	 * The feature id for the '<em><b>Workflows</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVICE_MCP__WORKFLOWS = 4;
+
+	/**
 	 * The number of structural features of the '<em>Service MCP</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SERVICE_MCP_FEATURE_COUNT = 4;
+	int SERVICE_MCP_FEATURE_COUNT = 5;
 
 	/**
 	 * The meta object id for the '{@link McpMM.impl.ServerMCPImpl <em>Server MCP</em>}' class.
@@ -226,13 +235,13 @@ public interface McpMMPackage extends EPackage {
 	int AGENTE__ROL = 1;
 
 	/**
-	 * The feature id for the '<em><b>Flujo</b></em>' containment reference.
+	 * The feature id for the '<em><b>Tareas</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int AGENTE__FLUJO = 2;
+	int AGENTE__TAREAS = 2;
 
 	/**
 	 * The feature id for the '<em><b>Contextos</b></em>' containment reference list.
@@ -455,7 +464,7 @@ public interface McpMMPackage extends EPackage {
 	int TAREA__ACCION = 3;
 
 	/**
-	 * The feature id for the '<em><b>Precede</b></em>' reference.
+	 * The feature id for the '<em><b>Precede</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -473,7 +482,7 @@ public interface McpMMPackage extends EPackage {
 	int TAREA__SIGUE = 5;
 
 	/**
-	 * The feature id for the '<em><b>Precede Else</b></em>' reference.
+	 * The feature id for the '<em><b>Precede Else</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -537,7 +546,7 @@ public interface McpMMPackage extends EPackage {
 	int TAREA_EJECUTABLE__ACCION = TAREA__ACCION;
 
 	/**
-	 * The feature id for the '<em><b>Precede</b></em>' reference.
+	 * The feature id for the '<em><b>Precede</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -555,7 +564,7 @@ public interface McpMMPackage extends EPackage {
 	int TAREA_EJECUTABLE__SIGUE = TAREA__SIGUE;
 
 	/**
-	 * The feature id for the '<em><b>Precede Else</b></em>' reference.
+	 * The feature id for the '<em><b>Precede Else</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -564,13 +573,22 @@ public interface McpMMPackage extends EPackage {
 	int TAREA_EJECUTABLE__PRECEDE_ELSE = TAREA__PRECEDE_ELSE;
 
 	/**
+	 * The feature id for the '<em><b>Ejecutada Por</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TAREA_EJECUTABLE__EJECUTADA_POR = TAREA_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Tarea Ejecutable</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TAREA_EJECUTABLE_FEATURE_COUNT = TAREA_FEATURE_COUNT + 0;
+	int TAREA_EJECUTABLE_FEATURE_COUNT = TAREA_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link McpMM.impl.InicioImpl <em>Inicio</em>}' class.
@@ -619,7 +637,7 @@ public interface McpMMPackage extends EPackage {
 	int INICIO__ACCION = TAREA__ACCION;
 
 	/**
-	 * The feature id for the '<em><b>Precede</b></em>' reference.
+	 * The feature id for the '<em><b>Precede</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -637,7 +655,7 @@ public interface McpMMPackage extends EPackage {
 	int INICIO__SIGUE = TAREA__SIGUE;
 
 	/**
-	 * The feature id for the '<em><b>Precede Else</b></em>' reference.
+	 * The feature id for the '<em><b>Precede Else</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -701,7 +719,7 @@ public interface McpMMPackage extends EPackage {
 	int FINAL__ACCION = TAREA__ACCION;
 
 	/**
-	 * The feature id for the '<em><b>Precede</b></em>' reference.
+	 * The feature id for the '<em><b>Precede</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -719,7 +737,7 @@ public interface McpMMPackage extends EPackage {
 	int FINAL__SIGUE = TAREA__SIGUE;
 
 	/**
-	 * The feature id for the '<em><b>Precede Else</b></em>' reference.
+	 * The feature id for the '<em><b>Precede Else</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -765,7 +783,7 @@ public interface McpMMPackage extends EPackage {
 	int ACCION__APUNTA = 1;
 
 	/**
-	 * The feature id for the '<em><b>Usa</b></em>' reference.
+	 * The feature id for the '<em><b>Usa</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -811,7 +829,7 @@ public interface McpMMPackage extends EPackage {
 	int ESCRITURA__APUNTA = ACCION__APUNTA;
 
 	/**
-	 * The feature id for the '<em><b>Usa</b></em>' reference.
+	 * The feature id for the '<em><b>Usa</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -857,7 +875,7 @@ public interface McpMMPackage extends EPackage {
 	int LECTURA__APUNTA = ACCION__APUNTA;
 
 	/**
-	 * The feature id for the '<em><b>Usa</b></em>' reference.
+	 * The feature id for the '<em><b>Usa</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -967,7 +985,7 @@ public interface McpMMPackage extends EPackage {
 	int TAREA_TRANSFORMACION_DATOS__ACCION = TAREA_EJECUTABLE__ACCION;
 
 	/**
-	 * The feature id for the '<em><b>Precede</b></em>' reference.
+	 * The feature id for the '<em><b>Precede</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -985,13 +1003,22 @@ public interface McpMMPackage extends EPackage {
 	int TAREA_TRANSFORMACION_DATOS__SIGUE = TAREA_EJECUTABLE__SIGUE;
 
 	/**
-	 * The feature id for the '<em><b>Precede Else</b></em>' reference.
+	 * The feature id for the '<em><b>Precede Else</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
 	int TAREA_TRANSFORMACION_DATOS__PRECEDE_ELSE = TAREA_EJECUTABLE__PRECEDE_ELSE;
+
+	/**
+	 * The feature id for the '<em><b>Ejecutada Por</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TAREA_TRANSFORMACION_DATOS__EJECUTADA_POR = TAREA_EJECUTABLE__EJECUTADA_POR;
 
 	/**
 	 * The feature id for the '<em><b>Prompt</b></em>' attribute.
@@ -1058,7 +1085,7 @@ public interface McpMMPackage extends EPackage {
 	int TAREA_LLM__ACCION = TAREA_EJECUTABLE__ACCION;
 
 	/**
-	 * The feature id for the '<em><b>Precede</b></em>' reference.
+	 * The feature id for the '<em><b>Precede</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1076,13 +1103,22 @@ public interface McpMMPackage extends EPackage {
 	int TAREA_LLM__SIGUE = TAREA_EJECUTABLE__SIGUE;
 
 	/**
-	 * The feature id for the '<em><b>Precede Else</b></em>' reference.
+	 * The feature id for the '<em><b>Precede Else</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
 	int TAREA_LLM__PRECEDE_ELSE = TAREA_EJECUTABLE__PRECEDE_ELSE;
+
+	/**
+	 * The feature id for the '<em><b>Ejecutada Por</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TAREA_LLM__EJECUTADA_POR = TAREA_EJECUTABLE__EJECUTADA_POR;
 
 	/**
 	 * The feature id for the '<em><b>Prompt</b></em>' attribute.
@@ -1149,7 +1185,7 @@ public interface McpMMPackage extends EPackage {
 	int TAREA_USUARIO__ACCION = TAREA_EJECUTABLE__ACCION;
 
 	/**
-	 * The feature id for the '<em><b>Precede</b></em>' reference.
+	 * The feature id for the '<em><b>Precede</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1167,13 +1203,22 @@ public interface McpMMPackage extends EPackage {
 	int TAREA_USUARIO__SIGUE = TAREA_EJECUTABLE__SIGUE;
 
 	/**
-	 * The feature id for the '<em><b>Precede Else</b></em>' reference.
+	 * The feature id for the '<em><b>Precede Else</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
 	int TAREA_USUARIO__PRECEDE_ELSE = TAREA_EJECUTABLE__PRECEDE_ELSE;
+
+	/**
+	 * The feature id for the '<em><b>Ejecutada Por</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TAREA_USUARIO__EJECUTADA_POR = TAREA_EJECUTABLE__EJECUTADA_POR;
 
 	/**
 	 * The number of structural features of the '<em>Tarea Usuario</em>' class.
@@ -1231,7 +1276,7 @@ public interface McpMMPackage extends EPackage {
 	int TAREA_ANALISIS__ACCION = TAREA_EJECUTABLE__ACCION;
 
 	/**
-	 * The feature id for the '<em><b>Precede</b></em>' reference.
+	 * The feature id for the '<em><b>Precede</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1249,13 +1294,22 @@ public interface McpMMPackage extends EPackage {
 	int TAREA_ANALISIS__SIGUE = TAREA_EJECUTABLE__SIGUE;
 
 	/**
-	 * The feature id for the '<em><b>Precede Else</b></em>' reference.
+	 * The feature id for the '<em><b>Precede Else</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
 	int TAREA_ANALISIS__PRECEDE_ELSE = TAREA_EJECUTABLE__PRECEDE_ELSE;
+
+	/**
+	 * The feature id for the '<em><b>Ejecutada Por</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TAREA_ANALISIS__EJECUTADA_POR = TAREA_EJECUTABLE__EJECUTADA_POR;
 
 	/**
 	 * The feature id for the '<em><b>Sigue Else</b></em>' reference.
@@ -1331,7 +1385,7 @@ public interface McpMMPackage extends EPackage {
 	int TAREA_ENVIO_CONTEXTO__ACCION = TAREA_EJECUTABLE__ACCION;
 
 	/**
-	 * The feature id for the '<em><b>Precede</b></em>' reference.
+	 * The feature id for the '<em><b>Precede</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1349,13 +1403,22 @@ public interface McpMMPackage extends EPackage {
 	int TAREA_ENVIO_CONTEXTO__SIGUE = TAREA_EJECUTABLE__SIGUE;
 
 	/**
-	 * The feature id for the '<em><b>Precede Else</b></em>' reference.
+	 * The feature id for the '<em><b>Precede Else</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
 	int TAREA_ENVIO_CONTEXTO__PRECEDE_ELSE = TAREA_EJECUTABLE__PRECEDE_ELSE;
+
+	/**
+	 * The feature id for the '<em><b>Ejecutada Por</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TAREA_ENVIO_CONTEXTO__EJECUTADA_POR = TAREA_EJECUTABLE__EJECUTADA_POR;
 
 	/**
 	 * The number of structural features of the '<em>Tarea Envio Contexto</em>' class.
@@ -1413,7 +1476,7 @@ public interface McpMMPackage extends EPackage {
 	int TAREA_RECEPCION_CONTEXTO__ACCION = TAREA_EJECUTABLE__ACCION;
 
 	/**
-	 * The feature id for the '<em><b>Precede</b></em>' reference.
+	 * The feature id for the '<em><b>Precede</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1431,13 +1494,22 @@ public interface McpMMPackage extends EPackage {
 	int TAREA_RECEPCION_CONTEXTO__SIGUE = TAREA_EJECUTABLE__SIGUE;
 
 	/**
-	 * The feature id for the '<em><b>Precede Else</b></em>' reference.
+	 * The feature id for the '<em><b>Precede Else</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
 	int TAREA_RECEPCION_CONTEXTO__PRECEDE_ELSE = TAREA_EJECUTABLE__PRECEDE_ELSE;
+
+	/**
+	 * The feature id for the '<em><b>Ejecutada Por</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TAREA_RECEPCION_CONTEXTO__EJECUTADA_POR = TAREA_EJECUTABLE__EJECUTADA_POR;
 
 	/**
 	 * The number of structural features of the '<em>Tarea Recepcion Contexto</em>' class.
@@ -1495,7 +1567,7 @@ public interface McpMMPackage extends EPackage {
 	int TAREA_SERVER_MCP__ACCION = TAREA_EJECUTABLE__ACCION;
 
 	/**
-	 * The feature id for the '<em><b>Precede</b></em>' reference.
+	 * The feature id for the '<em><b>Precede</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1513,13 +1585,22 @@ public interface McpMMPackage extends EPackage {
 	int TAREA_SERVER_MCP__SIGUE = TAREA_EJECUTABLE__SIGUE;
 
 	/**
-	 * The feature id for the '<em><b>Precede Else</b></em>' reference.
+	 * The feature id for the '<em><b>Precede Else</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
 	int TAREA_SERVER_MCP__PRECEDE_ELSE = TAREA_EJECUTABLE__PRECEDE_ELSE;
+
+	/**
+	 * The feature id for the '<em><b>Ejecutada Por</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TAREA_SERVER_MCP__EJECUTADA_POR = TAREA_EJECUTABLE__EJECUTADA_POR;
 
 	/**
 	 * The feature id for the '<em><b>Ejecuta Operacion</b></em>' reference.
@@ -1657,6 +1738,17 @@ public interface McpMMPackage extends EPackage {
 	EReference getServiceMCP_Servidores();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link McpMM.ServiceMCP#getWorkflows <em>Workflows</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Workflows</em>'.
+	 * @see McpMM.ServiceMCP#getWorkflows()
+	 * @see #getServiceMCP()
+	 * @generated
+	 */
+	EReference getServiceMCP_Workflows();
+
+	/**
 	 * Returns the meta object for class '{@link McpMM.ServerMCP <em>Server MCP</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1721,15 +1813,15 @@ public interface McpMMPackage extends EPackage {
 	EAttribute getAgente_Rol();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link McpMM.Agente#getFlujo <em>Flujo</em>}'.
+	 * Returns the meta object for the reference list '{@link McpMM.Agente#getTareas <em>Tareas</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Flujo</em>'.
-	 * @see McpMM.Agente#getFlujo()
+	 * @return the meta object for the reference list '<em>Tareas</em>'.
+	 * @see McpMM.Agente#getTareas()
 	 * @see #getAgente()
 	 * @generated
 	 */
-	EReference getAgente_Flujo();
+	EReference getAgente_Tareas();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link McpMM.Agente#getContextos <em>Contextos</em>}'.
@@ -1948,10 +2040,10 @@ public interface McpMMPackage extends EPackage {
 	EReference getTarea_Accion();
 
 	/**
-	 * Returns the meta object for the reference '{@link McpMM.Tarea#getPrecede <em>Precede</em>}'.
+	 * Returns the meta object for the reference list '{@link McpMM.Tarea#getPrecede <em>Precede</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Precede</em>'.
+	 * @return the meta object for the reference list '<em>Precede</em>'.
 	 * @see McpMM.Tarea#getPrecede()
 	 * @see #getTarea()
 	 * @generated
@@ -1970,10 +2062,10 @@ public interface McpMMPackage extends EPackage {
 	EReference getTarea_Sigue();
 
 	/**
-	 * Returns the meta object for the reference '{@link McpMM.Tarea#getPrecedeElse <em>Precede Else</em>}'.
+	 * Returns the meta object for the reference list '{@link McpMM.Tarea#getPrecedeElse <em>Precede Else</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Precede Else</em>'.
+	 * @return the meta object for the reference list '<em>Precede Else</em>'.
 	 * @see McpMM.Tarea#getPrecedeElse()
 	 * @see #getTarea()
 	 * @generated
@@ -1989,6 +2081,17 @@ public interface McpMMPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getTareaEjecutable();
+
+	/**
+	 * Returns the meta object for the reference '{@link McpMM.TareaEjecutable#getEjecutadaPor <em>Ejecutada Por</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Ejecutada Por</em>'.
+	 * @see McpMM.TareaEjecutable#getEjecutadaPor()
+	 * @see #getTareaEjecutable()
+	 * @generated
+	 */
+	EReference getTareaEjecutable_EjecutadaPor();
 
 	/**
 	 * Returns the meta object for class '{@link McpMM.Inicio <em>Inicio</em>}'.
@@ -2043,10 +2146,10 @@ public interface McpMMPackage extends EPackage {
 	EReference getAccion_Apunta();
 
 	/**
-	 * Returns the meta object for the reference '{@link McpMM.Accion#getUsa <em>Usa</em>}'.
+	 * Returns the meta object for the reference list '{@link McpMM.Accion#getUsa <em>Usa</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Usa</em>'.
+	 * @return the meta object for the reference list '<em>Usa</em>'.
 	 * @see McpMM.Accion#getUsa()
 	 * @see #getAccion()
 	 * @generated
@@ -2361,6 +2464,14 @@ public interface McpMMPackage extends EPackage {
 		EReference SERVICE_MCP__SERVIDORES = eINSTANCE.getServiceMCP_Servidores();
 
 		/**
+		 * The meta object literal for the '<em><b>Workflows</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SERVICE_MCP__WORKFLOWS = eINSTANCE.getServiceMCP_Workflows();
+
+		/**
 		 * The meta object literal for the '{@link McpMM.impl.ServerMCPImpl <em>Server MCP</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2413,12 +2524,12 @@ public interface McpMMPackage extends EPackage {
 		EAttribute AGENTE__ROL = eINSTANCE.getAgente_Rol();
 
 		/**
-		 * The meta object literal for the '<em><b>Flujo</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Tareas</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference AGENTE__FLUJO = eINSTANCE.getAgente_Flujo();
+		EReference AGENTE__TAREAS = eINSTANCE.getAgente_Tareas();
 
 		/**
 		 * The meta object literal for the '<em><b>Contextos</b></em>' containment reference list feature.
@@ -2589,7 +2700,7 @@ public interface McpMMPackage extends EPackage {
 		EReference TAREA__ACCION = eINSTANCE.getTarea_Accion();
 
 		/**
-		 * The meta object literal for the '<em><b>Precede</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Precede</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -2605,7 +2716,7 @@ public interface McpMMPackage extends EPackage {
 		EReference TAREA__SIGUE = eINSTANCE.getTarea_Sigue();
 
 		/**
-		 * The meta object literal for the '<em><b>Precede Else</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Precede Else</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -2621,6 +2732,14 @@ public interface McpMMPackage extends EPackage {
 		 * @generated
 		 */
 		EClass TAREA_EJECUTABLE = eINSTANCE.getTareaEjecutable();
+
+		/**
+		 * The meta object literal for the '<em><b>Ejecutada Por</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TAREA_EJECUTABLE__EJECUTADA_POR = eINSTANCE.getTareaEjecutable_EjecutadaPor();
 
 		/**
 		 * The meta object literal for the '{@link McpMM.impl.InicioImpl <em>Inicio</em>}' class.
@@ -2669,7 +2788,7 @@ public interface McpMMPackage extends EPackage {
 		EReference ACCION__APUNTA = eINSTANCE.getAccion_Apunta();
 
 		/**
-		 * The meta object literal for the '<em><b>Usa</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Usa</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

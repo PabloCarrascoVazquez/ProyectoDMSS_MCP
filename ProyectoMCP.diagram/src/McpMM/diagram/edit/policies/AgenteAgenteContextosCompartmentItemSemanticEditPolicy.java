@@ -23,7 +23,7 @@ public class AgenteAgenteContextosCompartmentItemSemanticEditPolicy
 	* @generated
 	*/
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (McpMM.diagram.providers.McpMMElementTypes.Contexto_3013 == req.getElementType()) {
+		if (McpMM.diagram.providers.McpMMElementTypes.Contexto_3001 == req.getElementType()) {
 			return getGEFWrapper(new McpMM.diagram.edit.commands.ContextoCreateCommand(req));
 		}
 		return super.getCreateCommand(req);

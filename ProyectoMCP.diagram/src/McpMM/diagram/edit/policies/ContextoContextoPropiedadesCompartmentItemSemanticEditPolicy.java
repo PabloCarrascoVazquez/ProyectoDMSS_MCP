@@ -16,14 +16,14 @@ public class ContextoContextoPropiedadesCompartmentItemSemanticEditPolicy
 	* @generated
 	*/
 	public ContextoContextoPropiedadesCompartmentItemSemanticEditPolicy() {
-		super(McpMM.diagram.providers.McpMMElementTypes.Contexto_3013);
+		super(McpMM.diagram.providers.McpMMElementTypes.Contexto_3001);
 	}
 
 	/**
 	* @generated
 	*/
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (McpMM.diagram.providers.McpMMElementTypes.Propiedad_3014 == req.getElementType()) {
+		if (McpMM.diagram.providers.McpMMElementTypes.Propiedad_3002 == req.getElementType()) {
 			return getGEFWrapper(new McpMM.diagram.edit.commands.PropiedadCreateCommand(req));
 		}
 		return super.getCreateCommand(req);

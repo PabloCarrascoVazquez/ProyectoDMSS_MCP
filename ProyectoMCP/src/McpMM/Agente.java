@@ -17,13 +17,13 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link McpMM.Agente#getNombre <em>Nombre</em>}</li>
  *   <li>{@link McpMM.Agente#getRol <em>Rol</em>}</li>
- *   <li>{@link McpMM.Agente#getFlujo <em>Flujo</em>}</li>
+ *   <li>{@link McpMM.Agente#getTareas <em>Tareas</em>}</li>
  *   <li>{@link McpMM.Agente#getContextos <em>Contextos</em>}</li>
  * </ul>
  *
  * @see McpMM.McpMMPackage#getAgente()
  * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='R05_LimiteCargaTrabajo'"
- *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot R05_LimiteCargaTrabajo='self.flujo.tareas->select(t | t.oclIsKindOf(TareaEjecutable))->size() <= 10'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot R05_LimiteCargaTrabajo='self.tareas->size() <= 10'"
  *        annotation="gmf.node label='nombre' figure='rectangle' color='255,200,200'"
  * @generated
  */
@@ -81,31 +81,23 @@ public interface Agente extends EObject {
 	void setRol(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Flujo</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Tareas</b></em>' reference list.
+	 * The list contents are of type {@link McpMM.TareaEjecutable}.
+	 * It is bidirectional and its opposite is '{@link McpMM.TareaEjecutable#getEjecutadaPor <em>Ejecutada Por</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Flujo</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Tareas</em>' reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Flujo</em>' containment reference.
-	 * @see #setFlujo(Workflow)
-	 * @see McpMM.McpMMPackage#getAgente_Flujo()
-	 * @model containment="true" required="true"
-	 *        annotation="gmf.compartment layout='free'"
+	 * @return the value of the '<em>Tareas</em>' reference list.
+	 * @see McpMM.McpMMPackage#getAgente_Tareas()
+	 * @see McpMM.TareaEjecutable#getEjecutadaPor
+	 * @model opposite="ejecutadaPor"
+	 *        annotation="gmf.link target.decoration='arrow' style='solid' color='0,0,0' label='ejecuta'"
 	 * @generated
 	 */
-	Workflow getFlujo();
-
-	/**
-	 * Sets the value of the '{@link McpMM.Agente#getFlujo <em>Flujo</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Flujo</em>' containment reference.
-	 * @see #getFlujo()
-	 * @generated
-	 */
-	void setFlujo(Workflow value);
+	EList<TareaEjecutable> getTareas();
 
 	/**
 	 * Returns the value of the '<em><b>Contextos</b></em>' containment reference list.

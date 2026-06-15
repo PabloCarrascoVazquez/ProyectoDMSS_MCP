@@ -24,7 +24,7 @@ public class ContextoItemSemanticEditPolicy extends McpMM.diagram.edit.policies.
 	* @generated
 	*/
 	public ContextoItemSemanticEditPolicy() {
-		super(McpMM.diagram.providers.McpMMElementTypes.Contexto_3013);
+		super(McpMM.diagram.providers.McpMMElementTypes.Contexto_3001);
 	}
 
 	/**

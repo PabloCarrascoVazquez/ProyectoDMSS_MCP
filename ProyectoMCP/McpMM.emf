@@ -19,6 +19,7 @@ class ServiceMCP {
 	val Agente[*] agentes;
 	val ServiceMCP[*] servicios;
 	val ServerMCP[*] servidores;
+	val Workflow[*] workflows;
 }
 
 @gmf.node(label="nombreServer", figure="rectangle", color="200,200,255")
@@ -32,16 +33,18 @@ class ServerMCP {
 
 @Ecore(constraints="R05_LimiteCargaTrabajo")
 @"http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"(
-    R05_LimiteCargaTrabajo="self.flujo.tareas->select(t | t.oclIsKindOf(TareaEjecutable))->size() <= 10"
+    R05_LimiteCargaTrabajo="self.tareas->size() <= 10"
 )
 @gmf.node(label="nombre", figure="rectangle", color="255,200,200")
 class Agente {
-	attr String nombre;
-	attr String rol;
-	@gmf.compartment(layout="free")
-	val Workflow[1] flujo;
-	@gmf.compartment(layout="list")
-	val Contexto[*] contextos;
+    attr String nombre;
+    attr String rol;
+
+    @gmf.link(target.decoration="arrow", style="solid", color="0,0,0", label="ejecuta")
+    ref TareaEjecutable[*]#ejecutadaPor tareas; 
+    
+    @gmf.compartment(layout="list")
+    val Contexto[*] contextos;
 }
 
 @Ecore(constraints="R01_UnaTareaInicio R02_UnaTareaFin")
@@ -79,13 +82,11 @@ class Propiedad {
     
     ref Accion[*]#usa esUsada;
     
-    // CORRECCIÓN DEL ERROR DE LA FOTO: Añadido el #propiedadAsociada
     val VersionContexto[*]#propiedadAsociada versiones; 
 }
 
-@Ecore(constraints="R09_EntradaYSalida R10_NoBuclePropio")
+@Ecore(constraints="R10_NoBuclePropio")
 @"http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"(
-	R09_EntradaYSalida="not self.precede.oclIsUndefined() or not self.sigue.oclIsUndefined()", 
 	R10_NoBuclePropio="self.sigue <> self"
 )
 @"DSLDoc"(descripcion="Clase base abstracta para todos los pasos ejecutables y puntos de control dentro de un workflow.")
@@ -97,36 +98,50 @@ abstract class Tarea {
 	@gmf.compartment(layout="list")
 	val Accion[*] accion;
 	
-	ref Tarea#sigue precede;
+	ref Tarea[*]#sigue precede;
 	
 	@gmf.link(target.decoration="arrow", color="0,0,0", label="sigue")
 	ref Tarea#precede sigue;
 	
-	ref TareaAnalisis#sigueElse precedeElse;
+	ref TareaAnalisis[*]#sigueElse precedeElse;
 }
 
-@"DSLDoc"(descripcion="Clase base para aquellas tareas que implican una ejecución u operación concreta, excluyendo los puntos iniciales y finales.")
+@Ecore(constraints="R09_EntradaYSalida")
+@"http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"(
+	R09_EntradaYSalida="(self.precede->notEmpty() or self.precedeElse->notEmpty()) and not self.sigue.oclIsUndefined()"
+)
+@"DSLDoc"(descripcion="Clase base para aquellas tareas.")
 abstract class TareaEjecutable extends Tarea {
+    ref Agente[1]#tareas ejecutadaPor;
 }
 
+@Ecore(constraints="R03_InicioSinEntradas")
+@"http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"(
+    R03_InicioSinEntradas="self.precede->isEmpty() and self.precedeElse->isEmpty()"
+)
 @gmf.node(label="nombreTarea", figure="ellipse", color="0,255,0", size="30,30")
-@"DSLDoc"(descripcion="Nodo inicial que marca el punto de partida indiscutible para la ejecución de un workflow.")
 class Inicio extends Tarea {
 }
 
+@Ecore(constraints="R04_FinSinSalidas")
+@"http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"(
+    R04_FinSinSalidas="self.sigue.oclIsUndefined()"
+)
 @gmf.node(label="nombreTarea", figure="ellipse", color="255,0,0", size="30,30")
 @"DSLDoc"(descripcion="Nodo final que indica la terminación lógica de un workflow.")
 class Final extends Tarea {
 }
 
 @Ecore(constraints="R12_CoherenciaContexto")
-@"http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"(R12_CoherenciaContexto="self.usa.oclIsUndefined() or self.apunta.propiedades->includes(self.usa)")
+@"http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"(
+    R12_CoherenciaContexto="self.usa->forAll(p | self.apunta.propiedades->includes(p))"
+)
 @"DSLDoc"(descripcion="Clase abstracta que modela las interacciones (lectura/escritura) que una tarea realiza sobre un contexto de datos.")
 abstract class Accion {
 	attr String nombreAccion;
 	
 	ref Contexto[1]#esApuntadoPor apunta;
-	ref Propiedad#esUsada usa;
+	ref Propiedad[*]#esUsada usa;
 }
 
 @gmf.node(label="nombreAccion", figure="rectangle")
@@ -186,16 +201,15 @@ class TareaAnalisis extends TareaEjecutable {
 @gmf.node(label="nombreTarea", figure="rectangle", color="150,255,150")
 @"DSLDoc"(descripcion="Subclase de TareaEjecutable que permite exportar el contexto actual de un flujo para que sea procesado por otro agente.")
 class TareaEnvioContexto extends TareaEjecutable {
-    // Relaciones borradas para limpieza de diseño (Extensión de expresividad)
 }
 
-@Ecore(constraints="R07_RecepcionPrecedidaEnvio R11_MismasPropiedadesEnvioRecepcion")
+@Ecore(constraints="R07_RecepcionPrecedidaEnvio R11_MismasPropiedadesEnvioRecepcion R08_DistintosAgentes")
 @"http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"(
-	R07_RecepcionPrecedidaEnvio="not self.precede.oclIsUndefined() and self.precede.oclIsTypeOf(TareaEnvioContexto)", 
-	R11_MismasPropiedadesEnvioRecepcion="if not self.precede.oclIsUndefined() and self.precede.oclIsTypeOf(TareaEnvioContexto) then self.accion->collect(usa)->asSet() = self.precede.accion->collect(usa)->asSet() else true endif"
+	R07_RecepcionPrecedidaEnvio="self.precede->exists(t | t.oclIsTypeOf(TareaEnvioContexto))", 
+	R11_MismasPropiedadesEnvioRecepcion="self.precede->select(t | t.oclIsTypeOf(TareaEnvioContexto))->forAll(e | self.accion->collect(usa)->asSet() = e.accion->collect(usa)->asSet())",
+	R08_DistintosAgentes="self.precede->select(t | t.oclIsTypeOf(TareaEnvioContexto))->forAll(e | self.ejecutadaPor <> e.oclAsType(TareaEjecutable).ejecutadaPor)"
 )
 @gmf.node(label="nombreTarea", figure="rectangle", color="150,150,255")
-@"DSLDoc"(descripcion="Subclase de TareaEjecutable para pausar o esperar de forma síncrona/asíncrona la llegada de un contexto externo.")
 class TareaRecepcionContexto extends TareaEjecutable {
 }
 

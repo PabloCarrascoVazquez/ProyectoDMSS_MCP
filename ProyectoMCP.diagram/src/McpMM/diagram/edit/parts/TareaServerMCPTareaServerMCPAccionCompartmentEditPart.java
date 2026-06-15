@@ -29,7 +29,7 @@ public class TareaServerMCPTareaServerMCPAccionCompartmentEditPart extends ListC
 	/**
 	* @generated
 	*/
-	public static final int VISUAL_ID = 7010;
+	public static final int VISUAL_ID = 7011;
 
 	/**
 	* @generated
@@ -93,10 +93,10 @@ public class TareaServerMCPTareaServerMCPAccionCompartmentEditPart extends ListC
 			CreateElementRequestAdapter adapter = ((CreateViewAndElementRequest) request).getViewAndElementDescriptor()
 					.getCreateElementRequestAdapter();
 			IElementType type = (IElementType) adapter.getAdapter(IElementType.class);
-			if (type == McpMM.diagram.providers.McpMMElementTypes.Escritura_3003) {
+			if (type == McpMM.diagram.providers.McpMMElementTypes.Escritura_3005) {
 				return this;
 			}
-			if (type == McpMM.diagram.providers.McpMMElementTypes.Lectura_3004) {
+			if (type == McpMM.diagram.providers.McpMMElementTypes.Lectura_3006) {
 				return this;
 			}
 			return getParent().getTargetEditPart(request);

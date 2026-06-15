@@ -57,7 +57,7 @@ public class FinalFinalAccionCompartmentCanonicalEditPolicy extends CanonicalEdi
 		View viewObject = (View) getHost().getModel();
 		LinkedList<EObject> result = new LinkedList<EObject>();
 		List<McpMM.diagram.part.McpMMNodeDescriptor> childDescriptors = McpMM.diagram.part.McpMMDiagramUpdater
-				.getFinalFinalAccionCompartment_7012SemanticChildren(viewObject);
+				.getFinalFinalAccionCompartment_7013SemanticChildren(viewObject);
 		for (McpMM.diagram.part.McpMMNodeDescriptor d : childDescriptors) {
 			result.add(d.getModelElement());
 		}
@@ -89,7 +89,7 @@ public class FinalFinalAccionCompartmentCanonicalEditPolicy extends CanonicalEdi
 		}
 		LinkedList<IAdaptable> createdViews = new LinkedList<IAdaptable>();
 		List<McpMM.diagram.part.McpMMNodeDescriptor> childDescriptors = McpMM.diagram.part.McpMMDiagramUpdater
-				.getFinalFinalAccionCompartment_7012SemanticChildren((View) getHost().getModel());
+				.getFinalFinalAccionCompartment_7013SemanticChildren((View) getHost().getModel());
 		LinkedList<View> orphaned = new LinkedList<View>();
 		// we care to check only views we recognize as ours
 		LinkedList<View> knownViewChildren = new LinkedList<View>();

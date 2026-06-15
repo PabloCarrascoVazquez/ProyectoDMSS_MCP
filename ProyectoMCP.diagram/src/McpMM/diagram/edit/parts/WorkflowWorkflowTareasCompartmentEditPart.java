@@ -29,7 +29,7 @@ public class WorkflowWorkflowTareasCompartmentEditPart extends ShapeCompartmentE
 	/**
 	* @generated
 	*/
-	public static final int VISUAL_ID = 7003;
+	public static final int VISUAL_ID = 7004;
 
 	/**
 	* @generated
@@ -86,31 +86,31 @@ public class WorkflowWorkflowTareasCompartmentEditPart extends ShapeCompartmentE
 			CreateElementRequestAdapter adapter = ((CreateViewAndElementRequest) request).getViewAndElementDescriptor()
 					.getCreateElementRequestAdapter();
 			IElementType type = (IElementType) adapter.getAdapter(IElementType.class);
-			if (type == McpMM.diagram.providers.McpMMElementTypes.TareaTransformacionDatos_3002) {
+			if (type == McpMM.diagram.providers.McpMMElementTypes.TareaTransformacionDatos_3004) {
 				return this;
 			}
-			if (type == McpMM.diagram.providers.McpMMElementTypes.TareaLLM_3005) {
+			if (type == McpMM.diagram.providers.McpMMElementTypes.TareaLLM_3007) {
 				return this;
 			}
-			if (type == McpMM.diagram.providers.McpMMElementTypes.TareaUsuario_3006) {
+			if (type == McpMM.diagram.providers.McpMMElementTypes.TareaUsuario_3008) {
 				return this;
 			}
-			if (type == McpMM.diagram.providers.McpMMElementTypes.TareaAnalisis_3007) {
+			if (type == McpMM.diagram.providers.McpMMElementTypes.TareaAnalisis_3009) {
 				return this;
 			}
-			if (type == McpMM.diagram.providers.McpMMElementTypes.TareaEnvioContexto_3008) {
+			if (type == McpMM.diagram.providers.McpMMElementTypes.TareaEnvioContexto_3010) {
 				return this;
 			}
-			if (type == McpMM.diagram.providers.McpMMElementTypes.TareaRecepcionContexto_3009) {
+			if (type == McpMM.diagram.providers.McpMMElementTypes.TareaRecepcionContexto_3011) {
 				return this;
 			}
-			if (type == McpMM.diagram.providers.McpMMElementTypes.TareaServerMCP_3010) {
+			if (type == McpMM.diagram.providers.McpMMElementTypes.TareaServerMCP_3012) {
 				return this;
 			}
-			if (type == McpMM.diagram.providers.McpMMElementTypes.Inicio_3011) {
+			if (type == McpMM.diagram.providers.McpMMElementTypes.Inicio_3013) {
 				return this;
 			}
-			if (type == McpMM.diagram.providers.McpMMElementTypes.Final_3012) {
+			if (type == McpMM.diagram.providers.McpMMElementTypes.Final_3014) {
 				return this;
 			}
 			return getParent().getTargetEditPart(request);
@@ -120,8 +120,10 @@ public class WorkflowWorkflowTareasCompartmentEditPart extends ShapeCompartmentE
 				for (Object type : ((CreateUnspecifiedTypeConnectionRequest) request).getElementTypes()) {
 					if (type instanceof IElementType) {
 						IElementType elementType = (IElementType) type;
-						if (elementType.equals(McpMM.diagram.providers.McpMMElementTypes.TareaSigue_4001) || elementType
-								.equals(McpMM.diagram.providers.McpMMElementTypes.TareaAnalisisSigueElse_4002))
+						if (elementType.equals(McpMM.diagram.providers.McpMMElementTypes.AgenteTareas_4001)
+								|| elementType.equals(McpMM.diagram.providers.McpMMElementTypes.TareaSigue_4002)
+								|| elementType
+										.equals(McpMM.diagram.providers.McpMMElementTypes.TareaAnalisisSigueElse_4003))
 							return super.getTargetEditPart(request);
 					}
 				}

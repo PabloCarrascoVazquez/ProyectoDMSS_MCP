@@ -119,8 +119,6 @@ public class McpMMVisualIDRegistry {
 			if (McpMM.McpMMPackage.eINSTANCE.getServerMCP().isSuperTypeOf(domainElement.eClass())) {
 				return McpMM.diagram.edit.parts.ServerMCPEditPart.VISUAL_ID;
 			}
-			break;
-		case McpMM.diagram.edit.parts.AgenteAgenteFlujoCompartmentEditPart.VISUAL_ID:
 			if (McpMM.McpMMPackage.eINSTANCE.getWorkflow().isSuperTypeOf(domainElement.eClass())) {
 				return McpMM.diagram.edit.parts.WorkflowEditPart.VISUAL_ID;
 			}
@@ -128,6 +126,16 @@ public class McpMMVisualIDRegistry {
 		case McpMM.diagram.edit.parts.AgenteAgenteContextosCompartmentEditPart.VISUAL_ID:
 			if (McpMM.McpMMPackage.eINSTANCE.getContexto().isSuperTypeOf(domainElement.eClass())) {
 				return McpMM.diagram.edit.parts.ContextoEditPart.VISUAL_ID;
+			}
+			break;
+		case McpMM.diagram.edit.parts.ContextoContextoPropiedadesCompartmentEditPart.VISUAL_ID:
+			if (McpMM.McpMMPackage.eINSTANCE.getPropiedad().isSuperTypeOf(domainElement.eClass())) {
+				return McpMM.diagram.edit.parts.PropiedadEditPart.VISUAL_ID;
+			}
+			break;
+		case McpMM.diagram.edit.parts.ServerMCPServerMCPOperacionesCompartmentEditPart.VISUAL_ID:
+			if (McpMM.McpMMPackage.eINSTANCE.getOperacionMCP().isSuperTypeOf(domainElement.eClass())) {
+				return McpMM.diagram.edit.parts.OperacionMCPEditPart.VISUAL_ID;
 			}
 			break;
 		case McpMM.diagram.edit.parts.WorkflowWorkflowTareasCompartmentEditPart.VISUAL_ID:
@@ -231,16 +239,6 @@ public class McpMMVisualIDRegistry {
 				return McpMM.diagram.edit.parts.LecturaEditPart.VISUAL_ID;
 			}
 			break;
-		case McpMM.diagram.edit.parts.ContextoContextoPropiedadesCompartmentEditPart.VISUAL_ID:
-			if (McpMM.McpMMPackage.eINSTANCE.getPropiedad().isSuperTypeOf(domainElement.eClass())) {
-				return McpMM.diagram.edit.parts.PropiedadEditPart.VISUAL_ID;
-			}
-			break;
-		case McpMM.diagram.edit.parts.ServerMCPServerMCPOperacionesCompartmentEditPart.VISUAL_ID:
-			if (McpMM.McpMMPackage.eINSTANCE.getOperacionMCP().isSuperTypeOf(domainElement.eClass())) {
-				return McpMM.diagram.edit.parts.OperacionMCPEditPart.VISUAL_ID;
-			}
-			break;
 		}
 		return -1;
 	}
@@ -272,12 +270,12 @@ public class McpMMVisualIDRegistry {
 			if (McpMM.diagram.edit.parts.ServerMCPEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
+			if (McpMM.diagram.edit.parts.WorkflowEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			break;
 		case McpMM.diagram.edit.parts.AgenteEditPart.VISUAL_ID:
 			if (McpMM.diagram.edit.parts.AgenteNombreEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			if (McpMM.diagram.edit.parts.AgenteAgenteFlujoCompartmentEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			if (McpMM.diagram.edit.parts.AgenteAgenteContextosCompartmentEditPart.VISUAL_ID == nodeVisualID) {
@@ -297,6 +295,24 @@ public class McpMMVisualIDRegistry {
 				return true;
 			}
 			if (McpMM.diagram.edit.parts.WorkflowWorkflowTareasCompartmentEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case McpMM.diagram.edit.parts.ContextoEditPart.VISUAL_ID:
+			if (McpMM.diagram.edit.parts.ContextoNombreContextoEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (McpMM.diagram.edit.parts.ContextoContextoPropiedadesCompartmentEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case McpMM.diagram.edit.parts.PropiedadEditPart.VISUAL_ID:
+			if (McpMM.diagram.edit.parts.PropiedadNombrePropiedadEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case McpMM.diagram.edit.parts.OperacionMCPEditPart.VISUAL_ID:
+			if (McpMM.diagram.edit.parts.OperacionMCPNombreOperacionEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -382,31 +398,18 @@ public class McpMMVisualIDRegistry {
 				return true;
 			}
 			break;
-		case McpMM.diagram.edit.parts.ContextoEditPart.VISUAL_ID:
-			if (McpMM.diagram.edit.parts.ContextoNombreContextoEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			if (McpMM.diagram.edit.parts.ContextoContextoPropiedadesCompartmentEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case McpMM.diagram.edit.parts.PropiedadEditPart.VISUAL_ID:
-			if (McpMM.diagram.edit.parts.PropiedadNombrePropiedadEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case McpMM.diagram.edit.parts.OperacionMCPEditPart.VISUAL_ID:
-			if (McpMM.diagram.edit.parts.OperacionMCPNombreOperacionEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case McpMM.diagram.edit.parts.AgenteAgenteFlujoCompartmentEditPart.VISUAL_ID:
-			if (McpMM.diagram.edit.parts.WorkflowEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
 		case McpMM.diagram.edit.parts.AgenteAgenteContextosCompartmentEditPart.VISUAL_ID:
 			if (McpMM.diagram.edit.parts.ContextoEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case McpMM.diagram.edit.parts.ContextoContextoPropiedadesCompartmentEditPart.VISUAL_ID:
+			if (McpMM.diagram.edit.parts.PropiedadEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case McpMM.diagram.edit.parts.ServerMCPServerMCPOperacionesCompartmentEditPart.VISUAL_ID:
+			if (McpMM.diagram.edit.parts.OperacionMCPEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -511,13 +514,8 @@ public class McpMMVisualIDRegistry {
 				return true;
 			}
 			break;
-		case McpMM.diagram.edit.parts.ContextoContextoPropiedadesCompartmentEditPart.VISUAL_ID:
-			if (McpMM.diagram.edit.parts.PropiedadEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
-			break;
-		case McpMM.diagram.edit.parts.ServerMCPServerMCPOperacionesCompartmentEditPart.VISUAL_ID:
-			if (McpMM.diagram.edit.parts.OperacionMCPEditPart.VISUAL_ID == nodeVisualID) {
+		case McpMM.diagram.edit.parts.AgenteTareasEditPart.VISUAL_ID:
+			if (McpMM.diagram.edit.parts.AgenteTareasExternalLabelEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -577,8 +575,9 @@ public class McpMMVisualIDRegistry {
 	*/
 	public static boolean isCompartmentVisualID(int visualID) {
 		switch (visualID) {
-		case McpMM.diagram.edit.parts.AgenteAgenteFlujoCompartmentEditPart.VISUAL_ID:
 		case McpMM.diagram.edit.parts.AgenteAgenteContextosCompartmentEditPart.VISUAL_ID:
+		case McpMM.diagram.edit.parts.ContextoContextoPropiedadesCompartmentEditPart.VISUAL_ID:
+		case McpMM.diagram.edit.parts.ServerMCPServerMCPOperacionesCompartmentEditPart.VISUAL_ID:
 		case McpMM.diagram.edit.parts.WorkflowWorkflowTareasCompartmentEditPart.VISUAL_ID:
 		case McpMM.diagram.edit.parts.TareaTransformacionDatosTareaTransformacionDatosAccionCompartmentEditPart.VISUAL_ID:
 		case McpMM.diagram.edit.parts.TareaLLMTareaLLMAccionCompartmentEditPart.VISUAL_ID:
@@ -589,8 +588,6 @@ public class McpMMVisualIDRegistry {
 		case McpMM.diagram.edit.parts.TareaServerMCPTareaServerMCPAccionCompartmentEditPart.VISUAL_ID:
 		case McpMM.diagram.edit.parts.InicioInicioAccionCompartmentEditPart.VISUAL_ID:
 		case McpMM.diagram.edit.parts.FinalFinalAccionCompartmentEditPart.VISUAL_ID:
-		case McpMM.diagram.edit.parts.ContextoContextoPropiedadesCompartmentEditPart.VISUAL_ID:
-		case McpMM.diagram.edit.parts.ServerMCPServerMCPOperacionesCompartmentEditPart.VISUAL_ID:
 			return true;
 		default:
 			break;
@@ -605,10 +602,10 @@ public class McpMMVisualIDRegistry {
 		switch (visualID) {
 		case McpMM.diagram.edit.parts.ServiceMCPEditPart.VISUAL_ID:
 			return false;
-		case McpMM.diagram.edit.parts.EscrituraEditPart.VISUAL_ID:
-		case McpMM.diagram.edit.parts.LecturaEditPart.VISUAL_ID:
 		case McpMM.diagram.edit.parts.PropiedadEditPart.VISUAL_ID:
 		case McpMM.diagram.edit.parts.OperacionMCPEditPart.VISUAL_ID:
+		case McpMM.diagram.edit.parts.EscrituraEditPart.VISUAL_ID:
+		case McpMM.diagram.edit.parts.LecturaEditPart.VISUAL_ID:
 			return true;
 		default:
 			break;

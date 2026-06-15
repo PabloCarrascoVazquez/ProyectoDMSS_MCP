@@ -31,7 +31,7 @@ public class McpMMModelingAssistantProviderOfOperacionMCPEditPart
 	*/
 	public List<IElementType> doGetRelTypesOnTarget(McpMM.diagram.edit.parts.OperacionMCPEditPart target) {
 		List<IElementType> types = new ArrayList<IElementType>(1);
-		types.add(McpMM.diagram.providers.McpMMElementTypes.TareaServerMCPEjecutaOperacion_4003);
+		types.add(McpMM.diagram.providers.McpMMElementTypes.TareaServerMCPEjecutaOperacion_4004);
 		return types;
 	}
 
@@ -51,8 +51,8 @@ public class McpMMModelingAssistantProviderOfOperacionMCPEditPart
 	public List<IElementType> doGetTypesForSource(McpMM.diagram.edit.parts.OperacionMCPEditPart target,
 			IElementType relationshipType) {
 		List<IElementType> types = new ArrayList<IElementType>();
-		if (relationshipType == McpMM.diagram.providers.McpMMElementTypes.TareaServerMCPEjecutaOperacion_4003) {
-			types.add(McpMM.diagram.providers.McpMMElementTypes.TareaServerMCP_3010);
+		if (relationshipType == McpMM.diagram.providers.McpMMElementTypes.TareaServerMCPEjecutaOperacion_4004) {
+			types.add(McpMM.diagram.providers.McpMMElementTypes.TareaServerMCP_3012);
 		}
 		return types;
 	}

@@ -20,7 +20,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
-
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -254,7 +254,7 @@ public class PropiedadImpl extends EObjectImpl implements Propiedad {
 	 */
 	public EList<Accion> getEsUsada() {
 		if (esUsada == null) {
-			esUsada = new EObjectWithInverseResolvingEList<Accion>(Accion.class, this, McpMMPackage.PROPIEDAD__ES_USADA, McpMMPackage.ACCION__USA);
+			esUsada = new EObjectWithInverseResolvingEList.ManyInverse<Accion>(Accion.class, this, McpMMPackage.PROPIEDAD__ES_USADA, McpMMPackage.ACCION__USA);
 		}
 		return esUsada;
 	}

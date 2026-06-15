@@ -121,12 +121,6 @@ public class AgenteEditPart extends ShapeNodeEditPart {
 					.setLabel(getPrimaryShape().getFigureAgenteLabelFigure());
 			return true;
 		}
-		if (childEditPart instanceof McpMM.diagram.edit.parts.AgenteAgenteFlujoCompartmentEditPart) {
-			IFigure pane = getPrimaryShape().getAgenteFlujoCompartmentFigure();
-			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
-			pane.add(((McpMM.diagram.edit.parts.AgenteAgenteFlujoCompartmentEditPart) childEditPart).getFigure());
-			return true;
-		}
 		if (childEditPart instanceof McpMM.diagram.edit.parts.AgenteAgenteContextosCompartmentEditPart) {
 			IFigure pane = getPrimaryShape().getAgenteContextosCompartmentFigure();
 			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
@@ -141,11 +135,6 @@ public class AgenteEditPart extends ShapeNodeEditPart {
 	*/
 	protected boolean removeFixedChild(EditPart childEditPart) {
 		if (childEditPart instanceof McpMM.diagram.edit.parts.AgenteNombreEditPart) {
-			return true;
-		}
-		if (childEditPart instanceof McpMM.diagram.edit.parts.AgenteAgenteFlujoCompartmentEditPart) {
-			IFigure pane = getPrimaryShape().getAgenteFlujoCompartmentFigure();
-			pane.remove(((McpMM.diagram.edit.parts.AgenteAgenteFlujoCompartmentEditPart) childEditPart).getFigure());
 			return true;
 		}
 		if (childEditPart instanceof McpMM.diagram.edit.parts.AgenteAgenteContextosCompartmentEditPart) {
@@ -181,9 +170,6 @@ public class AgenteEditPart extends ShapeNodeEditPart {
 	* @generated
 	*/
 	protected IFigure getContentPaneFor(IGraphicalEditPart editPart) {
-		if (editPart instanceof McpMM.diagram.edit.parts.AgenteAgenteFlujoCompartmentEditPart) {
-			return getPrimaryShape().getAgenteFlujoCompartmentFigure();
-		}
 		if (editPart instanceof McpMM.diagram.edit.parts.AgenteAgenteContextosCompartmentEditPart) {
 			return getPrimaryShape().getAgenteContextosCompartmentFigure();
 		}
@@ -292,7 +278,7 @@ public class AgenteEditPart extends ShapeNodeEditPart {
 			CreateElementRequestAdapter adapter = ((CreateViewAndElementRequest) request).getViewAndElementDescriptor()
 					.getCreateElementRequestAdapter();
 			IElementType type = (IElementType) adapter.getAdapter(IElementType.class);
-			if (type == McpMM.diagram.providers.McpMMElementTypes.Contexto_3013) {
+			if (type == McpMM.diagram.providers.McpMMElementTypes.Contexto_3001) {
 				return getChildBySemanticHint(McpMM.diagram.part.McpMMVisualIDRegistry
 						.getType(McpMM.diagram.edit.parts.AgenteAgenteContextosCompartmentEditPart.VISUAL_ID));
 			}
@@ -324,10 +310,6 @@ public class AgenteEditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
-		private RectangleFigure fAgenteFlujoCompartmentFigure;
-		/**
-		 * @generated
-		 */
 		private RectangleFigure fAgenteContextosCompartmentFigure;
 
 		/**
@@ -352,12 +334,6 @@ public class AgenteEditPart extends ShapeNodeEditPart {
 
 			this.add(fFigureAgenteLabelFigure);
 
-			fAgenteFlujoCompartmentFigure = new RectangleFigure();
-
-			fAgenteFlujoCompartmentFigure.setOutline(false);
-
-			this.add(fAgenteFlujoCompartmentFigure);
-
 			fAgenteContextosCompartmentFigure = new RectangleFigure();
 
 			fAgenteContextosCompartmentFigure.setOutline(false);
@@ -371,13 +347,6 @@ public class AgenteEditPart extends ShapeNodeEditPart {
 		 */
 		public WrappingLabel getFigureAgenteLabelFigure() {
 			return fFigureAgenteLabelFigure;
-		}
-
-		/**
-		 * @generated
-		 */
-		public RectangleFigure getAgenteFlujoCompartmentFigure() {
-			return fAgenteFlujoCompartmentFigure;
 		}
 
 		/**

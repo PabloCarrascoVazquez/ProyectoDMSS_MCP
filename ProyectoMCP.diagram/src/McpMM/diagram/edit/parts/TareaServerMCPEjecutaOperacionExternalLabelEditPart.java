@@ -57,7 +57,7 @@ public class TareaServerMCPEjecutaOperacionExternalLabelEditPart extends LabelEd
 	/**
 	* @generated
 	*/
-	public static final int VISUAL_ID = 6003;
+	public static final int VISUAL_ID = 6004;
 
 	/**
 	* @generated
@@ -307,7 +307,7 @@ public class TareaServerMCPEjecutaOperacionExternalLabelEditPart extends LabelEd
 	public IParser getParser() {
 		if (parser == null) {
 			parser = McpMM.diagram.providers.McpMMParserProvider.getParser(
-					McpMM.diagram.providers.McpMMElementTypes.TareaServerMCPEjecutaOperacion_4003, getParserElement(),
+					McpMM.diagram.providers.McpMMElementTypes.TareaServerMCPEjecutaOperacion_4004, getParserElement(),
 					CommonParserHint.DESCRIPTION);
 		}
 		return parser;

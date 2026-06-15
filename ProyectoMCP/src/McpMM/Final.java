@@ -10,7 +10,9 @@ package McpMM;
  *
  *
  * @see McpMM.McpMMPackage#getFinal()
- * @model annotation="gmf.node label='nombreTarea' figure='ellipse' color='255,0,0' size='30,30'"
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='R04_FinSinSalidas'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot R04_FinSinSalidas='self.sigue.oclIsUndefined()'"
+ *        annotation="gmf.node label='nombreTarea' figure='ellipse' color='255,0,0' size='30,30'"
  *        annotation="DSLDoc descripcion='Nodo final que indica la terminaci\363n l\363gica de un workflow.'"
  * @generated
  */

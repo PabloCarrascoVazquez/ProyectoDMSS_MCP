@@ -20,7 +20,7 @@ public class LecturaItemSemanticEditPolicy extends McpMM.diagram.edit.policies.M
 	* @generated
 	*/
 	public LecturaItemSemanticEditPolicy() {
-		super(McpMM.diagram.providers.McpMMElementTypes.Lectura_3004);
+		super(McpMM.diagram.providers.McpMMElementTypes.Lectura_3006);
 	}
 
 	/**

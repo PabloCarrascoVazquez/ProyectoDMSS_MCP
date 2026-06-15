@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="ASCII"?>
 <gmfgraph:Canvas xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:gmfgraph="http://www.eclipse.org/gmf/2006/GraphicalDefinition" name="McpMM">
   <figures name="Default">
+    <figures xsi:type="gmfgraph:PolylineDecoration" name="AgenteTareasFigureTargetDecoration"/>
     <figures xsi:type="gmfgraph:PolylineDecoration" name="TareaSigueFigureTargetDecoration"/>
     <figures xsi:type="gmfgraph:PolylineDecoration" name="TareaAnalisisSigueElseFigureTargetDecoration"/>
     <figures xsi:type="gmfgraph:PolylineDecoration" name="TareaServerMCPEjecutaOperacionFigureTargetDecoration"/>
@@ -27,12 +28,10 @@
         <children xsi:type="gmfgraph:Label" name="AgenteLabelFigure" text="Agente">
           <maximumSize dx="10000" dy="50"/>
         </children>
-        <children xsi:type="gmfgraph:Rectangle" name="AgenteFlujoCompartmentFigure" outline="false"/>
         <children xsi:type="gmfgraph:Rectangle" name="AgenteContextosCompartmentFigure" outline="false"/>
       </actualFigure>
       <accessors accessor="getFigureAgenteLabelFigure" figure="//@figures.0/@descriptors.1/@actualFigure/@children.0"/>
-      <accessors accessor="getAgenteFlujoCompartmentFigure" figure="//@figures.0/@descriptors.1/@actualFigure/@children.1"/>
-      <accessors accessor="getAgenteContextosCompartmentFigure" figure="//@figures.0/@descriptors.1/@actualFigure/@children.2"/>
+      <accessors accessor="getAgenteContextosCompartmentFigure" figure="//@figures.0/@descriptors.1/@actualFigure/@children.1"/>
     </descriptors>
     <descriptors name="WorkflowFigure">
       <actualFigure xsi:type="gmfgraph:RoundedRectangle" name="WorkflowFigure">
@@ -226,8 +225,16 @@
       <accessors accessor="getFigureTareaServerMCPLabelFigure" figure="//@figures.0/@descriptors.16/@actualFigure/@children.0"/>
       <accessors accessor="getTareaServerMCPAccionCompartmentFigure" figure="//@figures.0/@descriptors.16/@actualFigure/@children.1"/>
     </descriptors>
+    <descriptors name="AgenteTareasFigure">
+      <actualFigure xsi:type="gmfgraph:PolylineConnection" name="AgenteTareasFigure" targetDecoration="//@figures.0/@figures.0">
+        <foregroundColor xsi:type="gmfgraph:RGBColor"/>
+      </actualFigure>
+    </descriptors>
+    <descriptors name="AgenteTareasExternalLabelFigure">
+      <actualFigure xsi:type="gmfgraph:Label" name="AgenteTareasExternalLabel" text="ejecuta"/>
+    </descriptors>
     <descriptors name="TareaSigueFigure">
-      <actualFigure xsi:type="gmfgraph:PolylineConnection" name="TareaSigueFigure" targetDecoration="//@figures.0/@figures.0">
+      <actualFigure xsi:type="gmfgraph:PolylineConnection" name="TareaSigueFigure" targetDecoration="//@figures.0/@figures.1">
         <foregroundColor xsi:type="gmfgraph:RGBColor"/>
       </actualFigure>
     </descriptors>
@@ -235,13 +242,13 @@
       <actualFigure xsi:type="gmfgraph:Label" name="TareaSigueExternalLabel" text="sigue"/>
     </descriptors>
     <descriptors name="TareaAnalisisSigueElseFigure">
-      <actualFigure xsi:type="gmfgraph:PolylineConnection" name="TareaAnalisisSigueElseFigure" targetDecoration="//@figures.0/@figures.1"/>
+      <actualFigure xsi:type="gmfgraph:PolylineConnection" name="TareaAnalisisSigueElseFigure" targetDecoration="//@figures.0/@figures.2"/>
     </descriptors>
     <descriptors name="TareaAnalisisSigueElseExternalLabelFigure">
       <actualFigure xsi:type="gmfgraph:Label" name="TareaAnalisisSigueElseExternalLabel" text="sigue Else"/>
     </descriptors>
     <descriptors name="TareaServerMCPEjecutaOperacionFigure">
-      <actualFigure xsi:type="gmfgraph:PolylineConnection" name="TareaServerMCPEjecutaOperacionFigure" lineKind="LINE_DASH" targetDecoration="//@figures.0/@figures.2"/>
+      <actualFigure xsi:type="gmfgraph:PolylineConnection" name="TareaServerMCPEjecutaOperacionFigure" lineKind="LINE_DASH" targetDecoration="//@figures.0/@figures.3"/>
     </descriptors>
     <descriptors name="TareaServerMCPEjecutaOperacionExternalLabelFigure">
       <actualFigure xsi:type="gmfgraph:Label" name="TareaServerMCPEjecutaOperacionExternalLabel" text="ejecuta oper."/>
@@ -272,12 +279,12 @@
   <nodes name="TareaEnvioContexto" figure="TareaEnvioContextoFigure"/>
   <nodes name="TareaRecepcionContexto" figure="TareaRecepcionContextoFigure"/>
   <nodes name="TareaServerMCP" figure="TareaServerMCPFigure"/>
+  <connections name="AgenteTareas" figure="AgenteTareasFigure"/>
   <connections name="TareaSigue" figure="TareaSigueFigure"/>
   <connections name="TareaAnalisisSigueElse" figure="TareaAnalisisSigueElseFigure"/>
   <connections name="TareaServerMCPEjecutaOperacion" figure="TareaServerMCPEjecutaOperacionFigure"/>
   <compartments name="ServerMCPOperacionesCompartment" figure="ServerMCPFigure" collapsible="true" accessor="//@figures.0/@descriptors.0/@accessors.1"/>
-  <compartments name="AgenteFlujoCompartment" figure="AgenteFigure" collapsible="true" accessor="//@figures.0/@descriptors.1/@accessors.1"/>
-  <compartments name="AgenteContextosCompartment" figure="AgenteFigure" collapsible="true" accessor="//@figures.0/@descriptors.1/@accessors.2"/>
+  <compartments name="AgenteContextosCompartment" figure="AgenteFigure" collapsible="true" accessor="//@figures.0/@descriptors.1/@accessors.1"/>
   <compartments name="WorkflowTareasCompartment" figure="WorkflowFigure" collapsible="true" accessor="//@figures.0/@descriptors.2/@accessors.1"/>
   <compartments name="ContextoPropiedadesCompartment" figure="ContextoFigure" collapsible="true" accessor="//@figures.0/@descriptors.3/@accessors.1"/>
   <compartments name="InicioAccionCompartment" figure="InicioFigure" collapsible="true" accessor="//@figures.0/@descriptors.5/@accessors.1"/>
@@ -306,6 +313,7 @@
   <labels name="TareaEnvioContextoLabel" figure="TareaEnvioContextoFigure" accessor="//@figures.0/@descriptors.14/@accessors.0"/>
   <labels name="TareaRecepcionContextoLabel" figure="TareaRecepcionContextoFigure" accessor="//@figures.0/@descriptors.15/@accessors.0"/>
   <labels name="TareaServerMCPLabel" figure="TareaServerMCPFigure" accessor="//@figures.0/@descriptors.16/@accessors.0"/>
+  <labels name="AgenteTareasExternalLabel" figure="AgenteTareasExternalLabelFigure" elementIcon="false"/>
   <labels name="TareaSigueExternalLabel" figure="TareaSigueExternalLabelFigure" elementIcon="false"/>
   <labels name="TareaAnalisisSigueElseExternalLabel" figure="TareaAnalisisSigueElseExternalLabelFigure" elementIcon="false"/>
   <labels name="TareaServerMCPEjecutaOperacionExternalLabel" figure="TareaServerMCPEjecutaOperacionExternalLabelFigure" elementIcon="false"/>

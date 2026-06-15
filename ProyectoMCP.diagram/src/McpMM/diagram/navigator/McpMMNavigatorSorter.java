@@ -13,12 +13,12 @@ public class McpMMNavigatorSorter extends ViewerSorter {
 	/**
 	* @generated
 	*/
-	private static final int GROUP_CATEGORY = 7016;
+	private static final int GROUP_CATEGORY = 7015;
 
 	/**
 	* @generated
 	*/
-	private static final int SHORTCUTS_CATEGORY = 7015;
+	private static final int SHORTCUTS_CATEGORY = 7014;
 
 	/**
 	* @generated

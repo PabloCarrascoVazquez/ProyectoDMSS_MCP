@@ -7,14 +7,20 @@ import McpMM.Contexto;
 import McpMM.McpMMPackage;
 import McpMM.Propiedad;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -63,14 +69,14 @@ public abstract class AccionImpl extends EObjectImpl implements Accion {
 	protected Contexto apunta;
 
 	/**
-	 * The cached value of the '{@link #getUsa() <em>Usa</em>}' reference.
+	 * The cached value of the '{@link #getUsa() <em>Usa</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getUsa()
 	 * @generated
 	 * @ordered
 	 */
-	protected Propiedad usa;
+	protected EList<Propiedad> usa;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -177,14 +183,9 @@ public abstract class AccionImpl extends EObjectImpl implements Accion {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Propiedad getUsa() {
-		if (usa != null && usa.eIsProxy()) {
-			InternalEObject oldUsa = (InternalEObject)usa;
-			usa = (Propiedad)eResolveProxy(oldUsa);
-			if (usa != oldUsa) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, McpMMPackage.ACCION__USA, oldUsa, usa));
-			}
+	public EList<Propiedad> getUsa() {
+		if (usa == null) {
+			usa = new EObjectWithInverseResolvingEList.ManyInverse<Propiedad>(Propiedad.class, this, McpMMPackage.ACCION__USA, McpMMPackage.PROPIEDAD__ES_USADA);
 		}
 		return usa;
 	}
@@ -194,49 +195,7 @@ public abstract class AccionImpl extends EObjectImpl implements Accion {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Propiedad basicGetUsa() {
-		return usa;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetUsa(Propiedad newUsa, NotificationChain msgs) {
-		Propiedad oldUsa = usa;
-		usa = newUsa;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, McpMMPackage.ACCION__USA, oldUsa, newUsa);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setUsa(Propiedad newUsa) {
-		if (newUsa != usa) {
-			NotificationChain msgs = null;
-			if (usa != null)
-				msgs = ((InternalEObject)usa).eInverseRemove(this, McpMMPackage.PROPIEDAD__ES_USADA, Propiedad.class, msgs);
-			if (newUsa != null)
-				msgs = ((InternalEObject)newUsa).eInverseAdd(this, McpMMPackage.PROPIEDAD__ES_USADA, Propiedad.class, msgs);
-			msgs = basicSetUsa(newUsa, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, McpMMPackage.ACCION__USA, newUsa, newUsa));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -245,9 +204,7 @@ public abstract class AccionImpl extends EObjectImpl implements Accion {
 					msgs = ((InternalEObject)apunta).eInverseRemove(this, McpMMPackage.CONTEXTO__ES_APUNTADO_POR, Contexto.class, msgs);
 				return basicSetApunta((Contexto)otherEnd, msgs);
 			case McpMMPackage.ACCION__USA:
-				if (usa != null)
-					msgs = ((InternalEObject)usa).eInverseRemove(this, McpMMPackage.PROPIEDAD__ES_USADA, Propiedad.class, msgs);
-				return basicSetUsa((Propiedad)otherEnd, msgs);
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getUsa()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -263,7 +220,7 @@ public abstract class AccionImpl extends EObjectImpl implements Accion {
 			case McpMMPackage.ACCION__APUNTA:
 				return basicSetApunta(null, msgs);
 			case McpMMPackage.ACCION__USA:
-				return basicSetUsa(null, msgs);
+				return ((InternalEList<?>)getUsa()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -282,8 +239,7 @@ public abstract class AccionImpl extends EObjectImpl implements Accion {
 				if (resolve) return getApunta();
 				return basicGetApunta();
 			case McpMMPackage.ACCION__USA:
-				if (resolve) return getUsa();
-				return basicGetUsa();
+				return getUsa();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -293,6 +249,7 @@ public abstract class AccionImpl extends EObjectImpl implements Accion {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -303,7 +260,8 @@ public abstract class AccionImpl extends EObjectImpl implements Accion {
 				setApunta((Contexto)newValue);
 				return;
 			case McpMMPackage.ACCION__USA:
-				setUsa((Propiedad)newValue);
+				getUsa().clear();
+				getUsa().addAll((Collection<? extends Propiedad>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -324,7 +282,7 @@ public abstract class AccionImpl extends EObjectImpl implements Accion {
 				setApunta((Contexto)null);
 				return;
 			case McpMMPackage.ACCION__USA:
-				setUsa((Propiedad)null);
+				getUsa().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -343,7 +301,7 @@ public abstract class AccionImpl extends EObjectImpl implements Accion {
 			case McpMMPackage.ACCION__APUNTA:
 				return apunta != null;
 			case McpMMPackage.ACCION__USA:
-				return usa != null;
+				return usa != null && !usa.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

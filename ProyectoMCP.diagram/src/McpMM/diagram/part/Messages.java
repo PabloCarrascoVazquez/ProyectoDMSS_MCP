@@ -456,12 +456,27 @@ public class Messages extends NLS {
 	/**
 	* @generated
 	*/
-	public static String AgenteAgenteFlujoCompartmentEditPart_title;
+	public static String Tareas4CreationTool_title;
+
+	/**
+	* @generated
+	*/
+	public static String Tareas4CreationTool_desc;
 
 	/**
 	* @generated
 	*/
 	public static String AgenteAgenteContextosCompartmentEditPart_title;
+
+	/**
+	* @generated
+	*/
+	public static String ContextoContextoPropiedadesCompartmentEditPart_title;
+
+	/**
+	* @generated
+	*/
+	public static String ServerMCPServerMCPOperacionesCompartmentEditPart_title;
 
 	/**
 	* @generated
@@ -516,16 +531,6 @@ public class Messages extends NLS {
 	/**
 	* @generated
 	*/
-	public static String ContextoContextoPropiedadesCompartmentEditPart_title;
-
-	/**
-	* @generated
-	*/
-	public static String ServerMCPServerMCPOperacionesCompartmentEditPart_title;
-
-	/**
-	* @generated
-	*/
 	public static String CommandName_OpenDiagram;
 
 	/**
@@ -536,127 +541,142 @@ public class Messages extends NLS {
 	/**
 	* @generated
 	*/
-	public static String NavigatorGroupName_TareaTransformacionDatos_3002_incominglinks;
+	public static String NavigatorGroupName_Agente_2001_outgoinglinks;
 
 	/**
 	* @generated
 	*/
-	public static String NavigatorGroupName_TareaTransformacionDatos_3002_outgoinglinks;
+	public static String NavigatorGroupName_OperacionMCP_3003_incominglinks;
 
 	/**
 	* @generated
 	*/
-	public static String NavigatorGroupName_TareaLLM_3005_incominglinks;
+	public static String NavigatorGroupName_TareaTransformacionDatos_3004_incominglinks;
 
 	/**
 	* @generated
 	*/
-	public static String NavigatorGroupName_TareaLLM_3005_outgoinglinks;
+	public static String NavigatorGroupName_TareaTransformacionDatos_3004_outgoinglinks;
 
 	/**
 	* @generated
 	*/
-	public static String NavigatorGroupName_TareaUsuario_3006_incominglinks;
+	public static String NavigatorGroupName_TareaLLM_3007_incominglinks;
 
 	/**
 	* @generated
 	*/
-	public static String NavigatorGroupName_TareaUsuario_3006_outgoinglinks;
+	public static String NavigatorGroupName_TareaLLM_3007_outgoinglinks;
 
 	/**
 	* @generated
 	*/
-	public static String NavigatorGroupName_TareaAnalisis_3007_incominglinks;
+	public static String NavigatorGroupName_TareaUsuario_3008_incominglinks;
 
 	/**
 	* @generated
 	*/
-	public static String NavigatorGroupName_TareaAnalisis_3007_outgoinglinks;
+	public static String NavigatorGroupName_TareaUsuario_3008_outgoinglinks;
 
 	/**
 	* @generated
 	*/
-	public static String NavigatorGroupName_TareaEnvioContexto_3008_incominglinks;
+	public static String NavigatorGroupName_TareaAnalisis_3009_incominglinks;
 
 	/**
 	* @generated
 	*/
-	public static String NavigatorGroupName_TareaEnvioContexto_3008_outgoinglinks;
+	public static String NavigatorGroupName_TareaAnalisis_3009_outgoinglinks;
 
 	/**
 	* @generated
 	*/
-	public static String NavigatorGroupName_TareaRecepcionContexto_3009_incominglinks;
+	public static String NavigatorGroupName_TareaEnvioContexto_3010_incominglinks;
 
 	/**
 	* @generated
 	*/
-	public static String NavigatorGroupName_TareaRecepcionContexto_3009_outgoinglinks;
+	public static String NavigatorGroupName_TareaEnvioContexto_3010_outgoinglinks;
 
 	/**
 	* @generated
 	*/
-	public static String NavigatorGroupName_TareaServerMCP_3010_incominglinks;
+	public static String NavigatorGroupName_TareaRecepcionContexto_3011_incominglinks;
 
 	/**
 	* @generated
 	*/
-	public static String NavigatorGroupName_TareaServerMCP_3010_outgoinglinks;
+	public static String NavigatorGroupName_TareaRecepcionContexto_3011_outgoinglinks;
 
 	/**
 	* @generated
 	*/
-	public static String NavigatorGroupName_Inicio_3011_incominglinks;
+	public static String NavigatorGroupName_TareaServerMCP_3012_incominglinks;
 
 	/**
 	* @generated
 	*/
-	public static String NavigatorGroupName_Inicio_3011_outgoinglinks;
+	public static String NavigatorGroupName_TareaServerMCP_3012_outgoinglinks;
 
 	/**
 	* @generated
 	*/
-	public static String NavigatorGroupName_Final_3012_incominglinks;
+	public static String NavigatorGroupName_Inicio_3013_incominglinks;
 
 	/**
 	* @generated
 	*/
-	public static String NavigatorGroupName_Final_3012_outgoinglinks;
+	public static String NavigatorGroupName_Inicio_3013_outgoinglinks;
 
 	/**
 	* @generated
 	*/
-	public static String NavigatorGroupName_OperacionMCP_3015_incominglinks;
+	public static String NavigatorGroupName_Final_3014_incominglinks;
 
 	/**
 	* @generated
 	*/
-	public static String NavigatorGroupName_TareaSigue_4001_target;
+	public static String NavigatorGroupName_Final_3014_outgoinglinks;
 
 	/**
 	* @generated
 	*/
-	public static String NavigatorGroupName_TareaSigue_4001_source;
+	public static String NavigatorGroupName_AgenteTareas_4001_target;
 
 	/**
 	* @generated
 	*/
-	public static String NavigatorGroupName_TareaAnalisisSigueElse_4002_target;
+	public static String NavigatorGroupName_AgenteTareas_4001_source;
 
 	/**
 	* @generated
 	*/
-	public static String NavigatorGroupName_TareaAnalisisSigueElse_4002_source;
+	public static String NavigatorGroupName_TareaSigue_4002_target;
 
 	/**
 	* @generated
 	*/
-	public static String NavigatorGroupName_TareaServerMCPEjecutaOperacion_4003_target;
+	public static String NavigatorGroupName_TareaSigue_4002_source;
 
 	/**
 	* @generated
 	*/
-	public static String NavigatorGroupName_TareaServerMCPEjecutaOperacion_4003_source;
+	public static String NavigatorGroupName_TareaAnalisisSigueElse_4003_target;
+
+	/**
+	* @generated
+	*/
+	public static String NavigatorGroupName_TareaAnalisisSigueElse_4003_source;
+
+	/**
+	* @generated
+	*/
+	public static String NavigatorGroupName_TareaServerMCPEjecutaOperacion_4004_target;
+
+	/**
+	* @generated
+	*/
+	public static String NavigatorGroupName_TareaServerMCPEjecutaOperacion_4004_source;
 
 	/**
 	* @generated

@@ -44,6 +44,24 @@ public class McpMMEditPartFactory implements EditPartFactory {
 			case McpMM.diagram.edit.parts.WorkflowNombreWorkflowEditPart.VISUAL_ID:
 				return new McpMM.diagram.edit.parts.WorkflowNombreWorkflowEditPart(view);
 
+			case McpMM.diagram.edit.parts.ContextoEditPart.VISUAL_ID:
+				return new McpMM.diagram.edit.parts.ContextoEditPart(view);
+
+			case McpMM.diagram.edit.parts.ContextoNombreContextoEditPart.VISUAL_ID:
+				return new McpMM.diagram.edit.parts.ContextoNombreContextoEditPart(view);
+
+			case McpMM.diagram.edit.parts.PropiedadEditPart.VISUAL_ID:
+				return new McpMM.diagram.edit.parts.PropiedadEditPart(view);
+
+			case McpMM.diagram.edit.parts.PropiedadNombrePropiedadEditPart.VISUAL_ID:
+				return new McpMM.diagram.edit.parts.PropiedadNombrePropiedadEditPart(view);
+
+			case McpMM.diagram.edit.parts.OperacionMCPEditPart.VISUAL_ID:
+				return new McpMM.diagram.edit.parts.OperacionMCPEditPart(view);
+
+			case McpMM.diagram.edit.parts.OperacionMCPNombreOperacionEditPart.VISUAL_ID:
+				return new McpMM.diagram.edit.parts.OperacionMCPNombreOperacionEditPart(view);
+
 			case McpMM.diagram.edit.parts.TareaTransformacionDatosEditPart.VISUAL_ID:
 				return new McpMM.diagram.edit.parts.TareaTransformacionDatosEditPart(view);
 
@@ -110,29 +128,14 @@ public class McpMMEditPartFactory implements EditPartFactory {
 			case McpMM.diagram.edit.parts.FinalNombreTareaEditPart.VISUAL_ID:
 				return new McpMM.diagram.edit.parts.FinalNombreTareaEditPart(view);
 
-			case McpMM.diagram.edit.parts.ContextoEditPart.VISUAL_ID:
-				return new McpMM.diagram.edit.parts.ContextoEditPart(view);
-
-			case McpMM.diagram.edit.parts.ContextoNombreContextoEditPart.VISUAL_ID:
-				return new McpMM.diagram.edit.parts.ContextoNombreContextoEditPart(view);
-
-			case McpMM.diagram.edit.parts.PropiedadEditPart.VISUAL_ID:
-				return new McpMM.diagram.edit.parts.PropiedadEditPart(view);
-
-			case McpMM.diagram.edit.parts.PropiedadNombrePropiedadEditPart.VISUAL_ID:
-				return new McpMM.diagram.edit.parts.PropiedadNombrePropiedadEditPart(view);
-
-			case McpMM.diagram.edit.parts.OperacionMCPEditPart.VISUAL_ID:
-				return new McpMM.diagram.edit.parts.OperacionMCPEditPart(view);
-
-			case McpMM.diagram.edit.parts.OperacionMCPNombreOperacionEditPart.VISUAL_ID:
-				return new McpMM.diagram.edit.parts.OperacionMCPNombreOperacionEditPart(view);
-
-			case McpMM.diagram.edit.parts.AgenteAgenteFlujoCompartmentEditPart.VISUAL_ID:
-				return new McpMM.diagram.edit.parts.AgenteAgenteFlujoCompartmentEditPart(view);
-
 			case McpMM.diagram.edit.parts.AgenteAgenteContextosCompartmentEditPart.VISUAL_ID:
 				return new McpMM.diagram.edit.parts.AgenteAgenteContextosCompartmentEditPart(view);
+
+			case McpMM.diagram.edit.parts.ContextoContextoPropiedadesCompartmentEditPart.VISUAL_ID:
+				return new McpMM.diagram.edit.parts.ContextoContextoPropiedadesCompartmentEditPart(view);
+
+			case McpMM.diagram.edit.parts.ServerMCPServerMCPOperacionesCompartmentEditPart.VISUAL_ID:
+				return new McpMM.diagram.edit.parts.ServerMCPServerMCPOperacionesCompartmentEditPart(view);
 
 			case McpMM.diagram.edit.parts.WorkflowWorkflowTareasCompartmentEditPart.VISUAL_ID:
 				return new McpMM.diagram.edit.parts.WorkflowWorkflowTareasCompartmentEditPart(view);
@@ -166,11 +169,11 @@ public class McpMMEditPartFactory implements EditPartFactory {
 			case McpMM.diagram.edit.parts.FinalFinalAccionCompartmentEditPart.VISUAL_ID:
 				return new McpMM.diagram.edit.parts.FinalFinalAccionCompartmentEditPart(view);
 
-			case McpMM.diagram.edit.parts.ContextoContextoPropiedadesCompartmentEditPart.VISUAL_ID:
-				return new McpMM.diagram.edit.parts.ContextoContextoPropiedadesCompartmentEditPart(view);
+			case McpMM.diagram.edit.parts.AgenteTareasEditPart.VISUAL_ID:
+				return new McpMM.diagram.edit.parts.AgenteTareasEditPart(view);
 
-			case McpMM.diagram.edit.parts.ServerMCPServerMCPOperacionesCompartmentEditPart.VISUAL_ID:
-				return new McpMM.diagram.edit.parts.ServerMCPServerMCPOperacionesCompartmentEditPart(view);
+			case McpMM.diagram.edit.parts.AgenteTareasExternalLabelEditPart.VISUAL_ID:
+				return new McpMM.diagram.edit.parts.AgenteTareasExternalLabelEditPart(view);
 
 			case McpMM.diagram.edit.parts.TareaSigueEditPart.VISUAL_ID:
 				return new McpMM.diagram.edit.parts.TareaSigueEditPart(view);

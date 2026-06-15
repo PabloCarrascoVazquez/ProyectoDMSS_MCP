@@ -57,7 +57,7 @@ public class WorkflowWorkflowTareasCompartmentCanonicalEditPolicy extends Canoni
 		View viewObject = (View) getHost().getModel();
 		LinkedList<EObject> result = new LinkedList<EObject>();
 		List<McpMM.diagram.part.McpMMNodeDescriptor> childDescriptors = McpMM.diagram.part.McpMMDiagramUpdater
-				.getWorkflowWorkflowTareasCompartment_7003SemanticChildren(viewObject);
+				.getWorkflowWorkflowTareasCompartment_7004SemanticChildren(viewObject);
 		for (McpMM.diagram.part.McpMMNodeDescriptor d : childDescriptors) {
 			result.add(d.getModelElement());
 		}
@@ -100,7 +100,7 @@ public class WorkflowWorkflowTareasCompartmentCanonicalEditPolicy extends Canoni
 		}
 		LinkedList<IAdaptable> createdViews = new LinkedList<IAdaptable>();
 		List<McpMM.diagram.part.McpMMNodeDescriptor> childDescriptors = McpMM.diagram.part.McpMMDiagramUpdater
-				.getWorkflowWorkflowTareasCompartment_7003SemanticChildren((View) getHost().getModel());
+				.getWorkflowWorkflowTareasCompartment_7004SemanticChildren((View) getHost().getModel());
 		LinkedList<View> orphaned = new LinkedList<View>();
 		// we care to check only views we recognize as ours
 		LinkedList<View> knownViewChildren = new LinkedList<View>();

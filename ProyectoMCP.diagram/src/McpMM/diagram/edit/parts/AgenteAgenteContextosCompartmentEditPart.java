@@ -29,7 +29,7 @@ public class AgenteAgenteContextosCompartmentEditPart extends ListCompartmentEdi
 	/**
 	* @generated
 	*/
-	public static final int VISUAL_ID = 7002;
+	public static final int VISUAL_ID = 7001;
 
 	/**
 	* @generated
@@ -93,7 +93,7 @@ public class AgenteAgenteContextosCompartmentEditPart extends ListCompartmentEdi
 			CreateElementRequestAdapter adapter = ((CreateViewAndElementRequest) request).getViewAndElementDescriptor()
 					.getCreateElementRequestAdapter();
 			IElementType type = (IElementType) adapter.getAdapter(IElementType.class);
-			if (type == McpMM.diagram.providers.McpMMElementTypes.Contexto_3013) {
+			if (type == McpMM.diagram.providers.McpMMElementTypes.Contexto_3001) {
 				return this;
 			}
 			return getParent().getTargetEditPart(request);

@@ -234,6 +234,12 @@ public class McpMMNavigatorContentProvider implements ICommonContentProvider {
 			connectedViews = getChildrenByType(Collections.singleton(sv), McpMM.diagram.part.McpMMVisualIDRegistry
 					.getType(McpMM.diagram.edit.parts.ServerMCPEditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement, false));
+			connectedViews = getChildrenByType(Collections.singleton(sv), McpMM.diagram.part.McpMMVisualIDRegistry
+					.getType(McpMM.diagram.edit.parts.WorkflowEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement, false));
+			connectedViews = getDiagramLinksByType(Collections.singleton(sv), McpMM.diagram.part.McpMMVisualIDRegistry
+					.getType(McpMM.diagram.edit.parts.AgenteTareasEditPart.VISUAL_ID));
+			links.addChildren(createNavigatorItems(connectedViews, links, false));
 			connectedViews = getDiagramLinksByType(Collections.singleton(sv), McpMM.diagram.part.McpMMVisualIDRegistry
 					.getType(McpMM.diagram.edit.parts.TareaSigueEditPart.VISUAL_ID));
 			links.addChildren(createNavigatorItems(connectedViews, links, false));
@@ -252,17 +258,21 @@ public class McpMMNavigatorContentProvider implements ICommonContentProvider {
 		case McpMM.diagram.edit.parts.AgenteEditPart.VISUAL_ID: {
 			LinkedList<McpMM.diagram.navigator.McpMMAbstractNavigatorItem> result = new LinkedList<McpMM.diagram.navigator.McpMMAbstractNavigatorItem>();
 			Node sv = (Node) view;
+			McpMM.diagram.navigator.McpMMNavigatorGroup outgoinglinks = new McpMM.diagram.navigator.McpMMNavigatorGroup(
+					McpMM.diagram.part.Messages.NavigatorGroupName_Agente_2001_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			Collection<View> connectedViews;
-			connectedViews = getChildrenByType(Collections.singleton(sv), McpMM.diagram.part.McpMMVisualIDRegistry
-					.getType(McpMM.diagram.edit.parts.AgenteAgenteFlujoCompartmentEditPart.VISUAL_ID));
-			connectedViews = getChildrenByType(connectedViews, McpMM.diagram.part.McpMMVisualIDRegistry
-					.getType(McpMM.diagram.edit.parts.WorkflowEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement, false));
 			connectedViews = getChildrenByType(Collections.singleton(sv), McpMM.diagram.part.McpMMVisualIDRegistry
 					.getType(McpMM.diagram.edit.parts.AgenteAgenteContextosCompartmentEditPart.VISUAL_ID));
 			connectedViews = getChildrenByType(connectedViews, McpMM.diagram.part.McpMMVisualIDRegistry
 					.getType(McpMM.diagram.edit.parts.ContextoEditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement, false));
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv), McpMM.diagram.part.McpMMVisualIDRegistry
+					.getType(McpMM.diagram.edit.parts.AgenteTareasEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews, outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
 			return result.toArray();
 		}
 
@@ -330,14 +340,42 @@ public class McpMMNavigatorContentProvider implements ICommonContentProvider {
 			return result.toArray();
 		}
 
+		case McpMM.diagram.edit.parts.ContextoEditPart.VISUAL_ID: {
+			LinkedList<McpMM.diagram.navigator.McpMMAbstractNavigatorItem> result = new LinkedList<McpMM.diagram.navigator.McpMMAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(Collections.singleton(sv), McpMM.diagram.part.McpMMVisualIDRegistry
+					.getType(McpMM.diagram.edit.parts.ContextoContextoPropiedadesCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews, McpMM.diagram.part.McpMMVisualIDRegistry
+					.getType(McpMM.diagram.edit.parts.PropiedadEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement, false));
+			return result.toArray();
+		}
+
+		case McpMM.diagram.edit.parts.OperacionMCPEditPart.VISUAL_ID: {
+			LinkedList<McpMM.diagram.navigator.McpMMAbstractNavigatorItem> result = new LinkedList<McpMM.diagram.navigator.McpMMAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			McpMM.diagram.navigator.McpMMNavigatorGroup incominglinks = new McpMM.diagram.navigator.McpMMNavigatorGroup(
+					McpMM.diagram.part.Messages.NavigatorGroupName_OperacionMCP_3003_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv), McpMM.diagram.part.McpMMVisualIDRegistry
+					.getType(McpMM.diagram.edit.parts.TareaServerMCPEjecutaOperacionEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews, incominglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			return result.toArray();
+		}
+
 		case McpMM.diagram.edit.parts.TareaTransformacionDatosEditPart.VISUAL_ID: {
 			LinkedList<McpMM.diagram.navigator.McpMMAbstractNavigatorItem> result = new LinkedList<McpMM.diagram.navigator.McpMMAbstractNavigatorItem>();
 			Node sv = (Node) view;
 			McpMM.diagram.navigator.McpMMNavigatorGroup incominglinks = new McpMM.diagram.navigator.McpMMNavigatorGroup(
-					McpMM.diagram.part.Messages.NavigatorGroupName_TareaTransformacionDatos_3002_incominglinks,
+					McpMM.diagram.part.Messages.NavigatorGroupName_TareaTransformacionDatos_3004_incominglinks,
 					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			McpMM.diagram.navigator.McpMMNavigatorGroup outgoinglinks = new McpMM.diagram.navigator.McpMMNavigatorGroup(
-					McpMM.diagram.part.Messages.NavigatorGroupName_TareaTransformacionDatos_3002_outgoinglinks,
+					McpMM.diagram.part.Messages.NavigatorGroupName_TareaTransformacionDatos_3004_outgoinglinks,
 					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			Collection<View> connectedViews;
 			connectedViews = getChildrenByType(Collections.singleton(sv),
@@ -352,6 +390,9 @@ public class McpMMNavigatorContentProvider implements ICommonContentProvider {
 			connectedViews = getChildrenByType(connectedViews, McpMM.diagram.part.McpMMVisualIDRegistry
 					.getType(McpMM.diagram.edit.parts.LecturaEditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement, false));
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv), McpMM.diagram.part.McpMMVisualIDRegistry
+					.getType(McpMM.diagram.edit.parts.AgenteTareasEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews, incominglinks, true));
 			connectedViews = getIncomingLinksByType(Collections.singleton(sv), McpMM.diagram.part.McpMMVisualIDRegistry
 					.getType(McpMM.diagram.edit.parts.TareaSigueEditPart.VISUAL_ID));
 			incominglinks.addChildren(createNavigatorItems(connectedViews, incominglinks, true));
@@ -374,10 +415,10 @@ public class McpMMNavigatorContentProvider implements ICommonContentProvider {
 			LinkedList<McpMM.diagram.navigator.McpMMAbstractNavigatorItem> result = new LinkedList<McpMM.diagram.navigator.McpMMAbstractNavigatorItem>();
 			Node sv = (Node) view;
 			McpMM.diagram.navigator.McpMMNavigatorGroup incominglinks = new McpMM.diagram.navigator.McpMMNavigatorGroup(
-					McpMM.diagram.part.Messages.NavigatorGroupName_TareaLLM_3005_incominglinks,
+					McpMM.diagram.part.Messages.NavigatorGroupName_TareaLLM_3007_incominglinks,
 					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			McpMM.diagram.navigator.McpMMNavigatorGroup outgoinglinks = new McpMM.diagram.navigator.McpMMNavigatorGroup(
-					McpMM.diagram.part.Messages.NavigatorGroupName_TareaLLM_3005_outgoinglinks,
+					McpMM.diagram.part.Messages.NavigatorGroupName_TareaLLM_3007_outgoinglinks,
 					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			Collection<View> connectedViews;
 			connectedViews = getChildrenByType(Collections.singleton(sv), McpMM.diagram.part.McpMMVisualIDRegistry
@@ -390,6 +431,9 @@ public class McpMMNavigatorContentProvider implements ICommonContentProvider {
 			connectedViews = getChildrenByType(connectedViews, McpMM.diagram.part.McpMMVisualIDRegistry
 					.getType(McpMM.diagram.edit.parts.LecturaEditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement, false));
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv), McpMM.diagram.part.McpMMVisualIDRegistry
+					.getType(McpMM.diagram.edit.parts.AgenteTareasEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews, incominglinks, true));
 			connectedViews = getIncomingLinksByType(Collections.singleton(sv), McpMM.diagram.part.McpMMVisualIDRegistry
 					.getType(McpMM.diagram.edit.parts.TareaSigueEditPart.VISUAL_ID));
 			incominglinks.addChildren(createNavigatorItems(connectedViews, incominglinks, true));
@@ -412,10 +456,10 @@ public class McpMMNavigatorContentProvider implements ICommonContentProvider {
 			LinkedList<McpMM.diagram.navigator.McpMMAbstractNavigatorItem> result = new LinkedList<McpMM.diagram.navigator.McpMMAbstractNavigatorItem>();
 			Node sv = (Node) view;
 			McpMM.diagram.navigator.McpMMNavigatorGroup incominglinks = new McpMM.diagram.navigator.McpMMNavigatorGroup(
-					McpMM.diagram.part.Messages.NavigatorGroupName_TareaUsuario_3006_incominglinks,
+					McpMM.diagram.part.Messages.NavigatorGroupName_TareaUsuario_3008_incominglinks,
 					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			McpMM.diagram.navigator.McpMMNavigatorGroup outgoinglinks = new McpMM.diagram.navigator.McpMMNavigatorGroup(
-					McpMM.diagram.part.Messages.NavigatorGroupName_TareaUsuario_3006_outgoinglinks,
+					McpMM.diagram.part.Messages.NavigatorGroupName_TareaUsuario_3008_outgoinglinks,
 					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			Collection<View> connectedViews;
 			connectedViews = getChildrenByType(Collections.singleton(sv), McpMM.diagram.part.McpMMVisualIDRegistry
@@ -428,6 +472,9 @@ public class McpMMNavigatorContentProvider implements ICommonContentProvider {
 			connectedViews = getChildrenByType(connectedViews, McpMM.diagram.part.McpMMVisualIDRegistry
 					.getType(McpMM.diagram.edit.parts.LecturaEditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement, false));
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv), McpMM.diagram.part.McpMMVisualIDRegistry
+					.getType(McpMM.diagram.edit.parts.AgenteTareasEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews, incominglinks, true));
 			connectedViews = getIncomingLinksByType(Collections.singleton(sv), McpMM.diagram.part.McpMMVisualIDRegistry
 					.getType(McpMM.diagram.edit.parts.TareaSigueEditPart.VISUAL_ID));
 			incominglinks.addChildren(createNavigatorItems(connectedViews, incominglinks, true));
@@ -450,10 +497,10 @@ public class McpMMNavigatorContentProvider implements ICommonContentProvider {
 			LinkedList<McpMM.diagram.navigator.McpMMAbstractNavigatorItem> result = new LinkedList<McpMM.diagram.navigator.McpMMAbstractNavigatorItem>();
 			Node sv = (Node) view;
 			McpMM.diagram.navigator.McpMMNavigatorGroup incominglinks = new McpMM.diagram.navigator.McpMMNavigatorGroup(
-					McpMM.diagram.part.Messages.NavigatorGroupName_TareaAnalisis_3007_incominglinks,
+					McpMM.diagram.part.Messages.NavigatorGroupName_TareaAnalisis_3009_incominglinks,
 					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			McpMM.diagram.navigator.McpMMNavigatorGroup outgoinglinks = new McpMM.diagram.navigator.McpMMNavigatorGroup(
-					McpMM.diagram.part.Messages.NavigatorGroupName_TareaAnalisis_3007_outgoinglinks,
+					McpMM.diagram.part.Messages.NavigatorGroupName_TareaAnalisis_3009_outgoinglinks,
 					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			Collection<View> connectedViews;
 			connectedViews = getChildrenByType(Collections.singleton(sv), McpMM.diagram.part.McpMMVisualIDRegistry
@@ -466,6 +513,9 @@ public class McpMMNavigatorContentProvider implements ICommonContentProvider {
 			connectedViews = getChildrenByType(connectedViews, McpMM.diagram.part.McpMMVisualIDRegistry
 					.getType(McpMM.diagram.edit.parts.LecturaEditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement, false));
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv), McpMM.diagram.part.McpMMVisualIDRegistry
+					.getType(McpMM.diagram.edit.parts.AgenteTareasEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews, incominglinks, true));
 			connectedViews = getIncomingLinksByType(Collections.singleton(sv), McpMM.diagram.part.McpMMVisualIDRegistry
 					.getType(McpMM.diagram.edit.parts.TareaSigueEditPart.VISUAL_ID));
 			incominglinks.addChildren(createNavigatorItems(connectedViews, incominglinks, true));
@@ -491,10 +541,10 @@ public class McpMMNavigatorContentProvider implements ICommonContentProvider {
 			LinkedList<McpMM.diagram.navigator.McpMMAbstractNavigatorItem> result = new LinkedList<McpMM.diagram.navigator.McpMMAbstractNavigatorItem>();
 			Node sv = (Node) view;
 			McpMM.diagram.navigator.McpMMNavigatorGroup incominglinks = new McpMM.diagram.navigator.McpMMNavigatorGroup(
-					McpMM.diagram.part.Messages.NavigatorGroupName_TareaEnvioContexto_3008_incominglinks,
+					McpMM.diagram.part.Messages.NavigatorGroupName_TareaEnvioContexto_3010_incominglinks,
 					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			McpMM.diagram.navigator.McpMMNavigatorGroup outgoinglinks = new McpMM.diagram.navigator.McpMMNavigatorGroup(
-					McpMM.diagram.part.Messages.NavigatorGroupName_TareaEnvioContexto_3008_outgoinglinks,
+					McpMM.diagram.part.Messages.NavigatorGroupName_TareaEnvioContexto_3010_outgoinglinks,
 					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			Collection<View> connectedViews;
 			connectedViews = getChildrenByType(Collections.singleton(sv),
@@ -509,6 +559,9 @@ public class McpMMNavigatorContentProvider implements ICommonContentProvider {
 			connectedViews = getChildrenByType(connectedViews, McpMM.diagram.part.McpMMVisualIDRegistry
 					.getType(McpMM.diagram.edit.parts.LecturaEditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement, false));
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv), McpMM.diagram.part.McpMMVisualIDRegistry
+					.getType(McpMM.diagram.edit.parts.AgenteTareasEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews, incominglinks, true));
 			connectedViews = getIncomingLinksByType(Collections.singleton(sv), McpMM.diagram.part.McpMMVisualIDRegistry
 					.getType(McpMM.diagram.edit.parts.TareaSigueEditPart.VISUAL_ID));
 			incominglinks.addChildren(createNavigatorItems(connectedViews, incominglinks, true));
@@ -531,10 +584,10 @@ public class McpMMNavigatorContentProvider implements ICommonContentProvider {
 			LinkedList<McpMM.diagram.navigator.McpMMAbstractNavigatorItem> result = new LinkedList<McpMM.diagram.navigator.McpMMAbstractNavigatorItem>();
 			Node sv = (Node) view;
 			McpMM.diagram.navigator.McpMMNavigatorGroup incominglinks = new McpMM.diagram.navigator.McpMMNavigatorGroup(
-					McpMM.diagram.part.Messages.NavigatorGroupName_TareaRecepcionContexto_3009_incominglinks,
+					McpMM.diagram.part.Messages.NavigatorGroupName_TareaRecepcionContexto_3011_incominglinks,
 					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			McpMM.diagram.navigator.McpMMNavigatorGroup outgoinglinks = new McpMM.diagram.navigator.McpMMNavigatorGroup(
-					McpMM.diagram.part.Messages.NavigatorGroupName_TareaRecepcionContexto_3009_outgoinglinks,
+					McpMM.diagram.part.Messages.NavigatorGroupName_TareaRecepcionContexto_3011_outgoinglinks,
 					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			Collection<View> connectedViews;
 			connectedViews = getChildrenByType(Collections.singleton(sv),
@@ -549,6 +602,9 @@ public class McpMMNavigatorContentProvider implements ICommonContentProvider {
 			connectedViews = getChildrenByType(connectedViews, McpMM.diagram.part.McpMMVisualIDRegistry
 					.getType(McpMM.diagram.edit.parts.LecturaEditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement, false));
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv), McpMM.diagram.part.McpMMVisualIDRegistry
+					.getType(McpMM.diagram.edit.parts.AgenteTareasEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews, incominglinks, true));
 			connectedViews = getIncomingLinksByType(Collections.singleton(sv), McpMM.diagram.part.McpMMVisualIDRegistry
 					.getType(McpMM.diagram.edit.parts.TareaSigueEditPart.VISUAL_ID));
 			incominglinks.addChildren(createNavigatorItems(connectedViews, incominglinks, true));
@@ -571,10 +627,10 @@ public class McpMMNavigatorContentProvider implements ICommonContentProvider {
 			LinkedList<McpMM.diagram.navigator.McpMMAbstractNavigatorItem> result = new LinkedList<McpMM.diagram.navigator.McpMMAbstractNavigatorItem>();
 			Node sv = (Node) view;
 			McpMM.diagram.navigator.McpMMNavigatorGroup incominglinks = new McpMM.diagram.navigator.McpMMNavigatorGroup(
-					McpMM.diagram.part.Messages.NavigatorGroupName_TareaServerMCP_3010_incominglinks,
+					McpMM.diagram.part.Messages.NavigatorGroupName_TareaServerMCP_3012_incominglinks,
 					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			McpMM.diagram.navigator.McpMMNavigatorGroup outgoinglinks = new McpMM.diagram.navigator.McpMMNavigatorGroup(
-					McpMM.diagram.part.Messages.NavigatorGroupName_TareaServerMCP_3010_outgoinglinks,
+					McpMM.diagram.part.Messages.NavigatorGroupName_TareaServerMCP_3012_outgoinglinks,
 					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			Collection<View> connectedViews;
 			connectedViews = getChildrenByType(Collections.singleton(sv), McpMM.diagram.part.McpMMVisualIDRegistry
@@ -587,6 +643,9 @@ public class McpMMNavigatorContentProvider implements ICommonContentProvider {
 			connectedViews = getChildrenByType(connectedViews, McpMM.diagram.part.McpMMVisualIDRegistry
 					.getType(McpMM.diagram.edit.parts.LecturaEditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement, false));
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv), McpMM.diagram.part.McpMMVisualIDRegistry
+					.getType(McpMM.diagram.edit.parts.AgenteTareasEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews, incominglinks, true));
 			connectedViews = getIncomingLinksByType(Collections.singleton(sv), McpMM.diagram.part.McpMMVisualIDRegistry
 					.getType(McpMM.diagram.edit.parts.TareaSigueEditPart.VISUAL_ID));
 			incominglinks.addChildren(createNavigatorItems(connectedViews, incominglinks, true));
@@ -612,10 +671,10 @@ public class McpMMNavigatorContentProvider implements ICommonContentProvider {
 			LinkedList<McpMM.diagram.navigator.McpMMAbstractNavigatorItem> result = new LinkedList<McpMM.diagram.navigator.McpMMAbstractNavigatorItem>();
 			Node sv = (Node) view;
 			McpMM.diagram.navigator.McpMMNavigatorGroup incominglinks = new McpMM.diagram.navigator.McpMMNavigatorGroup(
-					McpMM.diagram.part.Messages.NavigatorGroupName_Inicio_3011_incominglinks,
+					McpMM.diagram.part.Messages.NavigatorGroupName_Inicio_3013_incominglinks,
 					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			McpMM.diagram.navigator.McpMMNavigatorGroup outgoinglinks = new McpMM.diagram.navigator.McpMMNavigatorGroup(
-					McpMM.diagram.part.Messages.NavigatorGroupName_Inicio_3011_outgoinglinks,
+					McpMM.diagram.part.Messages.NavigatorGroupName_Inicio_3013_outgoinglinks,
 					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			Collection<View> connectedViews;
 			connectedViews = getChildrenByType(Collections.singleton(sv), McpMM.diagram.part.McpMMVisualIDRegistry
@@ -650,10 +709,10 @@ public class McpMMNavigatorContentProvider implements ICommonContentProvider {
 			LinkedList<McpMM.diagram.navigator.McpMMAbstractNavigatorItem> result = new LinkedList<McpMM.diagram.navigator.McpMMAbstractNavigatorItem>();
 			Node sv = (Node) view;
 			McpMM.diagram.navigator.McpMMNavigatorGroup incominglinks = new McpMM.diagram.navigator.McpMMNavigatorGroup(
-					McpMM.diagram.part.Messages.NavigatorGroupName_Final_3012_incominglinks,
+					McpMM.diagram.part.Messages.NavigatorGroupName_Final_3014_incominglinks,
 					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			McpMM.diagram.navigator.McpMMNavigatorGroup outgoinglinks = new McpMM.diagram.navigator.McpMMNavigatorGroup(
-					McpMM.diagram.part.Messages.NavigatorGroupName_Final_3012_outgoinglinks,
+					McpMM.diagram.part.Messages.NavigatorGroupName_Final_3014_outgoinglinks,
 					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			Collection<View> connectedViews;
 			connectedViews = getChildrenByType(Collections.singleton(sv), McpMM.diagram.part.McpMMVisualIDRegistry
@@ -684,30 +743,45 @@ public class McpMMNavigatorContentProvider implements ICommonContentProvider {
 			return result.toArray();
 		}
 
-		case McpMM.diagram.edit.parts.ContextoEditPart.VISUAL_ID: {
+		case McpMM.diagram.edit.parts.AgenteTareasEditPart.VISUAL_ID: {
 			LinkedList<McpMM.diagram.navigator.McpMMAbstractNavigatorItem> result = new LinkedList<McpMM.diagram.navigator.McpMMAbstractNavigatorItem>();
-			Node sv = (Node) view;
+			Edge sv = (Edge) view;
+			McpMM.diagram.navigator.McpMMNavigatorGroup target = new McpMM.diagram.navigator.McpMMNavigatorGroup(
+					McpMM.diagram.part.Messages.NavigatorGroupName_AgenteTareas_4001_target,
+					"icons/linkTargetNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			McpMM.diagram.navigator.McpMMNavigatorGroup source = new McpMM.diagram.navigator.McpMMNavigatorGroup(
+					McpMM.diagram.part.Messages.NavigatorGroupName_AgenteTareas_4001_source,
+					"icons/linkSourceNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			Collection<View> connectedViews;
-			connectedViews = getChildrenByType(Collections.singleton(sv), McpMM.diagram.part.McpMMVisualIDRegistry
-					.getType(McpMM.diagram.edit.parts.ContextoContextoPropiedadesCompartmentEditPart.VISUAL_ID));
-			connectedViews = getChildrenByType(connectedViews, McpMM.diagram.part.McpMMVisualIDRegistry
-					.getType(McpMM.diagram.edit.parts.PropiedadEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement, false));
-			return result.toArray();
-		}
-
-		case McpMM.diagram.edit.parts.OperacionMCPEditPart.VISUAL_ID: {
-			LinkedList<McpMM.diagram.navigator.McpMMAbstractNavigatorItem> result = new LinkedList<McpMM.diagram.navigator.McpMMAbstractNavigatorItem>();
-			Node sv = (Node) view;
-			McpMM.diagram.navigator.McpMMNavigatorGroup incominglinks = new McpMM.diagram.navigator.McpMMNavigatorGroup(
-					McpMM.diagram.part.Messages.NavigatorGroupName_OperacionMCP_3015_incominglinks,
-					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection<View> connectedViews;
-			connectedViews = getIncomingLinksByType(Collections.singleton(sv), McpMM.diagram.part.McpMMVisualIDRegistry
-					.getType(McpMM.diagram.edit.parts.TareaServerMCPEjecutaOperacionEditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews, incominglinks, true));
-			if (!incominglinks.isEmpty()) {
-				result.add(incominglinks);
+			connectedViews = getLinksTargetByType(Collections.singleton(sv), McpMM.diagram.part.McpMMVisualIDRegistry
+					.getType(McpMM.diagram.edit.parts.TareaTransformacionDatosEditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target, true));
+			connectedViews = getLinksTargetByType(Collections.singleton(sv), McpMM.diagram.part.McpMMVisualIDRegistry
+					.getType(McpMM.diagram.edit.parts.TareaLLMEditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target, true));
+			connectedViews = getLinksTargetByType(Collections.singleton(sv), McpMM.diagram.part.McpMMVisualIDRegistry
+					.getType(McpMM.diagram.edit.parts.TareaUsuarioEditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target, true));
+			connectedViews = getLinksTargetByType(Collections.singleton(sv), McpMM.diagram.part.McpMMVisualIDRegistry
+					.getType(McpMM.diagram.edit.parts.TareaAnalisisEditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target, true));
+			connectedViews = getLinksTargetByType(Collections.singleton(sv), McpMM.diagram.part.McpMMVisualIDRegistry
+					.getType(McpMM.diagram.edit.parts.TareaEnvioContextoEditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target, true));
+			connectedViews = getLinksTargetByType(Collections.singleton(sv), McpMM.diagram.part.McpMMVisualIDRegistry
+					.getType(McpMM.diagram.edit.parts.TareaRecepcionContextoEditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target, true));
+			connectedViews = getLinksTargetByType(Collections.singleton(sv), McpMM.diagram.part.McpMMVisualIDRegistry
+					.getType(McpMM.diagram.edit.parts.TareaServerMCPEditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target, true));
+			connectedViews = getLinksSourceByType(Collections.singleton(sv), McpMM.diagram.part.McpMMVisualIDRegistry
+					.getType(McpMM.diagram.edit.parts.AgenteEditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source, true));
+			if (!target.isEmpty()) {
+				result.add(target);
+			}
+			if (!source.isEmpty()) {
+				result.add(source);
 			}
 			return result.toArray();
 		}
@@ -716,10 +790,10 @@ public class McpMMNavigatorContentProvider implements ICommonContentProvider {
 			LinkedList<McpMM.diagram.navigator.McpMMAbstractNavigatorItem> result = new LinkedList<McpMM.diagram.navigator.McpMMAbstractNavigatorItem>();
 			Edge sv = (Edge) view;
 			McpMM.diagram.navigator.McpMMNavigatorGroup target = new McpMM.diagram.navigator.McpMMNavigatorGroup(
-					McpMM.diagram.part.Messages.NavigatorGroupName_TareaSigue_4001_target,
+					McpMM.diagram.part.Messages.NavigatorGroupName_TareaSigue_4002_target,
 					"icons/linkTargetNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			McpMM.diagram.navigator.McpMMNavigatorGroup source = new McpMM.diagram.navigator.McpMMNavigatorGroup(
-					McpMM.diagram.part.Messages.NavigatorGroupName_TareaSigue_4001_source,
+					McpMM.diagram.part.Messages.NavigatorGroupName_TareaSigue_4002_source,
 					"icons/linkSourceNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			Collection<View> connectedViews;
 			connectedViews = getLinksTargetByType(Collections.singleton(sv), McpMM.diagram.part.McpMMVisualIDRegistry
@@ -789,10 +863,10 @@ public class McpMMNavigatorContentProvider implements ICommonContentProvider {
 			LinkedList<McpMM.diagram.navigator.McpMMAbstractNavigatorItem> result = new LinkedList<McpMM.diagram.navigator.McpMMAbstractNavigatorItem>();
 			Edge sv = (Edge) view;
 			McpMM.diagram.navigator.McpMMNavigatorGroup target = new McpMM.diagram.navigator.McpMMNavigatorGroup(
-					McpMM.diagram.part.Messages.NavigatorGroupName_TareaAnalisisSigueElse_4002_target,
+					McpMM.diagram.part.Messages.NavigatorGroupName_TareaAnalisisSigueElse_4003_target,
 					"icons/linkTargetNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			McpMM.diagram.navigator.McpMMNavigatorGroup source = new McpMM.diagram.navigator.McpMMNavigatorGroup(
-					McpMM.diagram.part.Messages.NavigatorGroupName_TareaAnalisisSigueElse_4002_source,
+					McpMM.diagram.part.Messages.NavigatorGroupName_TareaAnalisisSigueElse_4003_source,
 					"icons/linkSourceNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			Collection<View> connectedViews;
 			connectedViews = getLinksTargetByType(Collections.singleton(sv), McpMM.diagram.part.McpMMVisualIDRegistry
@@ -838,10 +912,10 @@ public class McpMMNavigatorContentProvider implements ICommonContentProvider {
 			LinkedList<McpMM.diagram.navigator.McpMMAbstractNavigatorItem> result = new LinkedList<McpMM.diagram.navigator.McpMMAbstractNavigatorItem>();
 			Edge sv = (Edge) view;
 			McpMM.diagram.navigator.McpMMNavigatorGroup target = new McpMM.diagram.navigator.McpMMNavigatorGroup(
-					McpMM.diagram.part.Messages.NavigatorGroupName_TareaServerMCPEjecutaOperacion_4003_target,
+					McpMM.diagram.part.Messages.NavigatorGroupName_TareaServerMCPEjecutaOperacion_4004_target,
 					"icons/linkTargetNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			McpMM.diagram.navigator.McpMMNavigatorGroup source = new McpMM.diagram.navigator.McpMMNavigatorGroup(
-					McpMM.diagram.part.Messages.NavigatorGroupName_TareaServerMCPEjecutaOperacion_4003_source,
+					McpMM.diagram.part.Messages.NavigatorGroupName_TareaServerMCPEjecutaOperacion_4004_source,
 					"icons/linkSourceNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			Collection<View> connectedViews;
 			connectedViews = getLinksTargetByType(Collections.singleton(sv), McpMM.diagram.part.McpMMVisualIDRegistry

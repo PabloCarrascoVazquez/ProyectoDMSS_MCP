@@ -2,6 +2,7 @@
  */
 package McpMM;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -21,7 +22,7 @@ import org.eclipse.emf.ecore.EObject;
  * @see McpMM.McpMMPackage#getAccion()
  * @model abstract="true"
  *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='R12_CoherenciaContexto'"
- *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot R12_CoherenciaContexto='self.usa.oclIsUndefined() or self.apunta.propiedades->includes(self.usa)'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot R12_CoherenciaContexto='self.usa->forAll(p | self.apunta.propiedades->includes(p))'"
  *        annotation="DSLDoc descripcion='Clase abstracta que modela las interacciones (lectura/escritura) que una tarea realiza sobre un contexto de datos.'"
  * @generated
  */
@@ -81,7 +82,8 @@ public interface Accion extends EObject {
 	void setApunta(Contexto value);
 
 	/**
-	 * Returns the value of the '<em><b>Usa</b></em>' reference.
+	 * Returns the value of the '<em><b>Usa</b></em>' reference list.
+	 * The list contents are of type {@link McpMM.Propiedad}.
 	 * It is bidirectional and its opposite is '{@link McpMM.Propiedad#getEsUsada <em>Es Usada</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -89,23 +91,12 @@ public interface Accion extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Usa</em>' reference.
-	 * @see #setUsa(Propiedad)
+	 * @return the value of the '<em>Usa</em>' reference list.
 	 * @see McpMM.McpMMPackage#getAccion_Usa()
 	 * @see McpMM.Propiedad#getEsUsada
 	 * @model opposite="esUsada"
 	 * @generated
 	 */
-	Propiedad getUsa();
-
-	/**
-	 * Sets the value of the '{@link McpMM.Accion#getUsa <em>Usa</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Usa</em>' reference.
-	 * @see #getUsa()
-	 * @generated
-	 */
-	void setUsa(Propiedad value);
+	EList<Propiedad> getUsa();
 
 } // Accion

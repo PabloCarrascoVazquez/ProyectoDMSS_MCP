@@ -10,10 +10,9 @@ package McpMM;
  *
  *
  * @see McpMM.McpMMPackage#getTareaRecepcionContexto()
- * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='R07_RecepcionPrecedidaEnvio R11_MismasPropiedadesEnvioRecepcion'"
- *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot R07_RecepcionPrecedidaEnvio='not self.precede.oclIsUndefined() and self.precede.oclIsTypeOf(TareaEnvioContexto)' R11_MismasPropiedadesEnvioRecepcion='if not self.precede.oclIsUndefined() and self.precede.oclIsTypeOf(TareaEnvioContexto) then self.accion->collect(usa)->asSet() = self.precede.accion->collect(usa)->asSet() else true endif'"
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='R07_RecepcionPrecedidaEnvio R11_MismasPropiedadesEnvioRecepcion R08_DistintosAgentes'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot R07_RecepcionPrecedidaEnvio='self.precede->exists(t | t.oclIsTypeOf(TareaEnvioContexto))' R11_MismasPropiedadesEnvioRecepcion='self.precede->select(t | t.oclIsTypeOf(TareaEnvioContexto))->forAll(e | self.accion->collect(usa)->asSet() = e.accion->collect(usa)->asSet())' R08_DistintosAgentes='self.precede->select(t | t.oclIsTypeOf(TareaEnvioContexto))->forAll(e | self.ejecutadaPor <> e.oclAsType(TareaEjecutable).ejecutadaPor)'"
  *        annotation="gmf.node label='nombreTarea' figure='rectangle' color='150,150,255'"
- *        annotation="DSLDoc descripcion='Subclase de TareaEjecutable para pausar o esperar de forma s\355ncrona/as\355ncrona la llegada de un contexto externo.'"
  * @generated
  */
 public interface TareaRecepcionContexto extends TareaEjecutable {

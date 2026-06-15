@@ -63,6 +63,7 @@ public class McpMMPaletteFactory {
 		paletteContainer.add(createEjecutaOperacion1CreationTool());
 		paletteContainer.add(createSigue2CreationTool());
 		paletteContainer.add(createSigueElse3CreationTool());
+		paletteContainer.add(createTareas4CreationTool());
 		return paletteContainer;
 	}
 
@@ -86,10 +87,10 @@ public class McpMMPaletteFactory {
 	private ToolEntry createContexto2CreationTool() {
 		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(McpMM.diagram.part.Messages.Contexto2CreationTool_title,
 				McpMM.diagram.part.Messages.Contexto2CreationTool_desc,
-				Collections.singletonList(McpMM.diagram.providers.McpMMElementTypes.Contexto_3013));
+				Collections.singletonList(McpMM.diagram.providers.McpMMElementTypes.Contexto_3001));
 		entry.setId("createContexto2CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(McpMM.diagram.providers.McpMMElementTypes
-				.getImageDescriptor(McpMM.diagram.providers.McpMMElementTypes.Contexto_3013));
+				.getImageDescriptor(McpMM.diagram.providers.McpMMElementTypes.Contexto_3001));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -100,10 +101,10 @@ public class McpMMPaletteFactory {
 	private ToolEntry createEscritura3CreationTool() {
 		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(McpMM.diagram.part.Messages.Escritura3CreationTool_title,
 				McpMM.diagram.part.Messages.Escritura3CreationTool_desc,
-				Collections.singletonList(McpMM.diagram.providers.McpMMElementTypes.Escritura_3003));
+				Collections.singletonList(McpMM.diagram.providers.McpMMElementTypes.Escritura_3005));
 		entry.setId("createEscritura3CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(McpMM.diagram.providers.McpMMElementTypes
-				.getImageDescriptor(McpMM.diagram.providers.McpMMElementTypes.Escritura_3003));
+				.getImageDescriptor(McpMM.diagram.providers.McpMMElementTypes.Escritura_3005));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -114,10 +115,10 @@ public class McpMMPaletteFactory {
 	private ToolEntry createFinal4CreationTool() {
 		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(McpMM.diagram.part.Messages.Final4CreationTool_title,
 				McpMM.diagram.part.Messages.Final4CreationTool_desc,
-				Collections.singletonList(McpMM.diagram.providers.McpMMElementTypes.Final_3012));
+				Collections.singletonList(McpMM.diagram.providers.McpMMElementTypes.Final_3014));
 		entry.setId("createFinal4CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(McpMM.diagram.providers.McpMMElementTypes
-				.getImageDescriptor(McpMM.diagram.providers.McpMMElementTypes.Final_3012));
+				.getImageDescriptor(McpMM.diagram.providers.McpMMElementTypes.Final_3014));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -128,10 +129,10 @@ public class McpMMPaletteFactory {
 	private ToolEntry createInicio5CreationTool() {
 		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(McpMM.diagram.part.Messages.Inicio5CreationTool_title,
 				McpMM.diagram.part.Messages.Inicio5CreationTool_desc,
-				Collections.singletonList(McpMM.diagram.providers.McpMMElementTypes.Inicio_3011));
+				Collections.singletonList(McpMM.diagram.providers.McpMMElementTypes.Inicio_3013));
 		entry.setId("createInicio5CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(McpMM.diagram.providers.McpMMElementTypes
-				.getImageDescriptor(McpMM.diagram.providers.McpMMElementTypes.Inicio_3011));
+				.getImageDescriptor(McpMM.diagram.providers.McpMMElementTypes.Inicio_3013));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -142,10 +143,10 @@ public class McpMMPaletteFactory {
 	private ToolEntry createLectura6CreationTool() {
 		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(McpMM.diagram.part.Messages.Lectura6CreationTool_title,
 				McpMM.diagram.part.Messages.Lectura6CreationTool_desc,
-				Collections.singletonList(McpMM.diagram.providers.McpMMElementTypes.Lectura_3004));
+				Collections.singletonList(McpMM.diagram.providers.McpMMElementTypes.Lectura_3006));
 		entry.setId("createLectura6CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(McpMM.diagram.providers.McpMMElementTypes
-				.getImageDescriptor(McpMM.diagram.providers.McpMMElementTypes.Lectura_3004));
+				.getImageDescriptor(McpMM.diagram.providers.McpMMElementTypes.Lectura_3006));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -157,10 +158,10 @@ public class McpMMPaletteFactory {
 		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(
 				McpMM.diagram.part.Messages.OperacionMCP7CreationTool_title,
 				McpMM.diagram.part.Messages.OperacionMCP7CreationTool_desc,
-				Collections.singletonList(McpMM.diagram.providers.McpMMElementTypes.OperacionMCP_3015));
+				Collections.singletonList(McpMM.diagram.providers.McpMMElementTypes.OperacionMCP_3003));
 		entry.setId("createOperacionMCP7CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(McpMM.diagram.providers.McpMMElementTypes
-				.getImageDescriptor(McpMM.diagram.providers.McpMMElementTypes.OperacionMCP_3015));
+				.getImageDescriptor(McpMM.diagram.providers.McpMMElementTypes.OperacionMCP_3003));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -171,10 +172,10 @@ public class McpMMPaletteFactory {
 	private ToolEntry createPropiedad8CreationTool() {
 		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(McpMM.diagram.part.Messages.Propiedad8CreationTool_title,
 				McpMM.diagram.part.Messages.Propiedad8CreationTool_desc,
-				Collections.singletonList(McpMM.diagram.providers.McpMMElementTypes.Propiedad_3014));
+				Collections.singletonList(McpMM.diagram.providers.McpMMElementTypes.Propiedad_3002));
 		entry.setId("createPropiedad8CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(McpMM.diagram.providers.McpMMElementTypes
-				.getImageDescriptor(McpMM.diagram.providers.McpMMElementTypes.Propiedad_3014));
+				.getImageDescriptor(McpMM.diagram.providers.McpMMElementTypes.Propiedad_3002));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -200,10 +201,10 @@ public class McpMMPaletteFactory {
 		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(
 				McpMM.diagram.part.Messages.TareaAnalisis10CreationTool_title,
 				McpMM.diagram.part.Messages.TareaAnalisis10CreationTool_desc,
-				Collections.singletonList(McpMM.diagram.providers.McpMMElementTypes.TareaAnalisis_3007));
+				Collections.singletonList(McpMM.diagram.providers.McpMMElementTypes.TareaAnalisis_3009));
 		entry.setId("createTareaAnalisis10CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(McpMM.diagram.providers.McpMMElementTypes
-				.getImageDescriptor(McpMM.diagram.providers.McpMMElementTypes.TareaAnalisis_3007));
+				.getImageDescriptor(McpMM.diagram.providers.McpMMElementTypes.TareaAnalisis_3009));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -215,10 +216,10 @@ public class McpMMPaletteFactory {
 		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(
 				McpMM.diagram.part.Messages.TareaEnvioContexto11CreationTool_title,
 				McpMM.diagram.part.Messages.TareaEnvioContexto11CreationTool_desc,
-				Collections.singletonList(McpMM.diagram.providers.McpMMElementTypes.TareaEnvioContexto_3008));
+				Collections.singletonList(McpMM.diagram.providers.McpMMElementTypes.TareaEnvioContexto_3010));
 		entry.setId("createTareaEnvioContexto11CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(McpMM.diagram.providers.McpMMElementTypes
-				.getImageDescriptor(McpMM.diagram.providers.McpMMElementTypes.TareaEnvioContexto_3008));
+				.getImageDescriptor(McpMM.diagram.providers.McpMMElementTypes.TareaEnvioContexto_3010));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -229,10 +230,10 @@ public class McpMMPaletteFactory {
 	private ToolEntry createTareaLLM12CreationTool() {
 		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(McpMM.diagram.part.Messages.TareaLLM12CreationTool_title,
 				McpMM.diagram.part.Messages.TareaLLM12CreationTool_desc,
-				Collections.singletonList(McpMM.diagram.providers.McpMMElementTypes.TareaLLM_3005));
+				Collections.singletonList(McpMM.diagram.providers.McpMMElementTypes.TareaLLM_3007));
 		entry.setId("createTareaLLM12CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(McpMM.diagram.providers.McpMMElementTypes
-				.getImageDescriptor(McpMM.diagram.providers.McpMMElementTypes.TareaLLM_3005));
+				.getImageDescriptor(McpMM.diagram.providers.McpMMElementTypes.TareaLLM_3007));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -244,10 +245,10 @@ public class McpMMPaletteFactory {
 		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(
 				McpMM.diagram.part.Messages.TareaRecepcionContexto13CreationTool_title,
 				McpMM.diagram.part.Messages.TareaRecepcionContexto13CreationTool_desc,
-				Collections.singletonList(McpMM.diagram.providers.McpMMElementTypes.TareaRecepcionContexto_3009));
+				Collections.singletonList(McpMM.diagram.providers.McpMMElementTypes.TareaRecepcionContexto_3011));
 		entry.setId("createTareaRecepcionContexto13CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(McpMM.diagram.providers.McpMMElementTypes
-				.getImageDescriptor(McpMM.diagram.providers.McpMMElementTypes.TareaRecepcionContexto_3009));
+				.getImageDescriptor(McpMM.diagram.providers.McpMMElementTypes.TareaRecepcionContexto_3011));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -259,10 +260,10 @@ public class McpMMPaletteFactory {
 		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(
 				McpMM.diagram.part.Messages.TareaServerMCP14CreationTool_title,
 				McpMM.diagram.part.Messages.TareaServerMCP14CreationTool_desc,
-				Collections.singletonList(McpMM.diagram.providers.McpMMElementTypes.TareaServerMCP_3010));
+				Collections.singletonList(McpMM.diagram.providers.McpMMElementTypes.TareaServerMCP_3012));
 		entry.setId("createTareaServerMCP14CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(McpMM.diagram.providers.McpMMElementTypes
-				.getImageDescriptor(McpMM.diagram.providers.McpMMElementTypes.TareaServerMCP_3010));
+				.getImageDescriptor(McpMM.diagram.providers.McpMMElementTypes.TareaServerMCP_3012));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -274,10 +275,10 @@ public class McpMMPaletteFactory {
 		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(
 				McpMM.diagram.part.Messages.TareaTransformacionDatos15CreationTool_title,
 				McpMM.diagram.part.Messages.TareaTransformacionDatos15CreationTool_desc,
-				Collections.singletonList(McpMM.diagram.providers.McpMMElementTypes.TareaTransformacionDatos_3002));
+				Collections.singletonList(McpMM.diagram.providers.McpMMElementTypes.TareaTransformacionDatos_3004));
 		entry.setId("createTareaTransformacionDatos15CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(McpMM.diagram.providers.McpMMElementTypes
-				.getImageDescriptor(McpMM.diagram.providers.McpMMElementTypes.TareaTransformacionDatos_3002));
+				.getImageDescriptor(McpMM.diagram.providers.McpMMElementTypes.TareaTransformacionDatos_3004));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -289,10 +290,10 @@ public class McpMMPaletteFactory {
 		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(
 				McpMM.diagram.part.Messages.TareaUsuario16CreationTool_title,
 				McpMM.diagram.part.Messages.TareaUsuario16CreationTool_desc,
-				Collections.singletonList(McpMM.diagram.providers.McpMMElementTypes.TareaUsuario_3006));
+				Collections.singletonList(McpMM.diagram.providers.McpMMElementTypes.TareaUsuario_3008));
 		entry.setId("createTareaUsuario16CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(McpMM.diagram.providers.McpMMElementTypes
-				.getImageDescriptor(McpMM.diagram.providers.McpMMElementTypes.TareaUsuario_3006));
+				.getImageDescriptor(McpMM.diagram.providers.McpMMElementTypes.TareaUsuario_3008));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -303,10 +304,10 @@ public class McpMMPaletteFactory {
 	private ToolEntry createWorkflow17CreationTool() {
 		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(McpMM.diagram.part.Messages.Workflow17CreationTool_title,
 				McpMM.diagram.part.Messages.Workflow17CreationTool_desc,
-				Collections.singletonList(McpMM.diagram.providers.McpMMElementTypes.Workflow_3001));
+				Collections.singletonList(McpMM.diagram.providers.McpMMElementTypes.Workflow_2003));
 		entry.setId("createWorkflow17CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(McpMM.diagram.providers.McpMMElementTypes
-				.getImageDescriptor(McpMM.diagram.providers.McpMMElementTypes.Workflow_3001));
+				.getImageDescriptor(McpMM.diagram.providers.McpMMElementTypes.Workflow_2003));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -318,10 +319,10 @@ public class McpMMPaletteFactory {
 		DefaultLinkToolEntry entry = new DefaultLinkToolEntry(
 				McpMM.diagram.part.Messages.EjecutaOperacion1CreationTool_title,
 				McpMM.diagram.part.Messages.EjecutaOperacion1CreationTool_desc, Collections
-						.singletonList(McpMM.diagram.providers.McpMMElementTypes.TareaServerMCPEjecutaOperacion_4003));
+						.singletonList(McpMM.diagram.providers.McpMMElementTypes.TareaServerMCPEjecutaOperacion_4004));
 		entry.setId("createEjecutaOperacion1CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(McpMM.diagram.providers.McpMMElementTypes
-				.getImageDescriptor(McpMM.diagram.providers.McpMMElementTypes.TareaServerMCPEjecutaOperacion_4003));
+				.getImageDescriptor(McpMM.diagram.providers.McpMMElementTypes.TareaServerMCPEjecutaOperacion_4004));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -332,10 +333,10 @@ public class McpMMPaletteFactory {
 	private ToolEntry createSigue2CreationTool() {
 		DefaultLinkToolEntry entry = new DefaultLinkToolEntry(McpMM.diagram.part.Messages.Sigue2CreationTool_title,
 				McpMM.diagram.part.Messages.Sigue2CreationTool_desc,
-				Collections.singletonList(McpMM.diagram.providers.McpMMElementTypes.TareaSigue_4001));
+				Collections.singletonList(McpMM.diagram.providers.McpMMElementTypes.TareaSigue_4002));
 		entry.setId("createSigue2CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(McpMM.diagram.providers.McpMMElementTypes
-				.getImageDescriptor(McpMM.diagram.providers.McpMMElementTypes.TareaSigue_4001));
+				.getImageDescriptor(McpMM.diagram.providers.McpMMElementTypes.TareaSigue_4002));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -346,10 +347,24 @@ public class McpMMPaletteFactory {
 	private ToolEntry createSigueElse3CreationTool() {
 		DefaultLinkToolEntry entry = new DefaultLinkToolEntry(McpMM.diagram.part.Messages.SigueElse3CreationTool_title,
 				McpMM.diagram.part.Messages.SigueElse3CreationTool_desc,
-				Collections.singletonList(McpMM.diagram.providers.McpMMElementTypes.TareaAnalisisSigueElse_4002));
+				Collections.singletonList(McpMM.diagram.providers.McpMMElementTypes.TareaAnalisisSigueElse_4003));
 		entry.setId("createSigueElse3CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(McpMM.diagram.providers.McpMMElementTypes
-				.getImageDescriptor(McpMM.diagram.providers.McpMMElementTypes.TareaAnalisisSigueElse_4002));
+				.getImageDescriptor(McpMM.diagram.providers.McpMMElementTypes.TareaAnalisisSigueElse_4003));
+		entry.setLargeIcon(entry.getSmallIcon());
+		return entry;
+	}
+
+	/**
+	* @generated
+	*/
+	private ToolEntry createTareas4CreationTool() {
+		DefaultLinkToolEntry entry = new DefaultLinkToolEntry(McpMM.diagram.part.Messages.Tareas4CreationTool_title,
+				McpMM.diagram.part.Messages.Tareas4CreationTool_desc,
+				Collections.singletonList(McpMM.diagram.providers.McpMMElementTypes.AgenteTareas_4001));
+		entry.setId("createTareas4CreationTool"); //$NON-NLS-1$
+		entry.setSmallIcon(McpMM.diagram.providers.McpMMElementTypes
+				.getImageDescriptor(McpMM.diagram.providers.McpMMElementTypes.AgenteTareas_4001));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}

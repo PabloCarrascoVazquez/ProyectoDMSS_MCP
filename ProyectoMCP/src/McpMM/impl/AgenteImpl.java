@@ -5,6 +5,7 @@ package McpMM.impl;
 import McpMM.Agente;
 import McpMM.Contexto;
 import McpMM.McpMMPackage;
+import McpMM.TareaEjecutable;
 import McpMM.Workflow;
 
 import java.util.Collection;
@@ -19,8 +20,10 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
-
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -33,7 +36,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link McpMM.impl.AgenteImpl#getNombre <em>Nombre</em>}</li>
  *   <li>{@link McpMM.impl.AgenteImpl#getRol <em>Rol</em>}</li>
- *   <li>{@link McpMM.impl.AgenteImpl#getFlujo <em>Flujo</em>}</li>
+ *   <li>{@link McpMM.impl.AgenteImpl#getTareas <em>Tareas</em>}</li>
  *   <li>{@link McpMM.impl.AgenteImpl#getContextos <em>Contextos</em>}</li>
  * </ul>
  *
@@ -81,14 +84,14 @@ public class AgenteImpl extends EObjectImpl implements Agente {
 	protected String rol = ROL_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getFlujo() <em>Flujo</em>}' containment reference.
+	 * The cached value of the '{@link #getTareas() <em>Tareas</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getFlujo()
+	 * @see #getTareas()
 	 * @generated
 	 * @ordered
 	 */
-	protected Workflow flujo;
+	protected EList<TareaEjecutable> tareas;
 
 	/**
 	 * The cached value of the '{@link #getContextos() <em>Contextos</em>}' containment reference list.
@@ -166,42 +169,11 @@ public class AgenteImpl extends EObjectImpl implements Agente {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Workflow getFlujo() {
-		return flujo;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetFlujo(Workflow newFlujo, NotificationChain msgs) {
-		Workflow oldFlujo = flujo;
-		flujo = newFlujo;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, McpMMPackage.AGENTE__FLUJO, oldFlujo, newFlujo);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+	public EList<TareaEjecutable> getTareas() {
+		if (tareas == null) {
+			tareas = new EObjectWithInverseResolvingEList<TareaEjecutable>(TareaEjecutable.class, this, McpMMPackage.AGENTE__TAREAS, McpMMPackage.TAREA_EJECUTABLE__EJECUTADA_POR);
 		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setFlujo(Workflow newFlujo) {
-		if (newFlujo != flujo) {
-			NotificationChain msgs = null;
-			if (flujo != null)
-				msgs = ((InternalEObject)flujo).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - McpMMPackage.AGENTE__FLUJO, null, msgs);
-			if (newFlujo != null)
-				msgs = ((InternalEObject)newFlujo).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - McpMMPackage.AGENTE__FLUJO, null, msgs);
-			msgs = basicSetFlujo(newFlujo, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, McpMMPackage.AGENTE__FLUJO, newFlujo, newFlujo));
+		return tareas;
 	}
 
 	/**
@@ -221,11 +193,26 @@ public class AgenteImpl extends EObjectImpl implements Agente {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case McpMMPackage.AGENTE__TAREAS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getTareas()).basicAdd(otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case McpMMPackage.AGENTE__FLUJO:
-				return basicSetFlujo(null, msgs);
+			case McpMMPackage.AGENTE__TAREAS:
+				return ((InternalEList<?>)getTareas()).basicRemove(otherEnd, msgs);
 			case McpMMPackage.AGENTE__CONTEXTOS:
 				return ((InternalEList<?>)getContextos()).basicRemove(otherEnd, msgs);
 		}
@@ -244,8 +231,8 @@ public class AgenteImpl extends EObjectImpl implements Agente {
 				return getNombre();
 			case McpMMPackage.AGENTE__ROL:
 				return getRol();
-			case McpMMPackage.AGENTE__FLUJO:
-				return getFlujo();
+			case McpMMPackage.AGENTE__TAREAS:
+				return getTareas();
 			case McpMMPackage.AGENTE__CONTEXTOS:
 				return getContextos();
 		}
@@ -267,8 +254,9 @@ public class AgenteImpl extends EObjectImpl implements Agente {
 			case McpMMPackage.AGENTE__ROL:
 				setRol((String)newValue);
 				return;
-			case McpMMPackage.AGENTE__FLUJO:
-				setFlujo((Workflow)newValue);
+			case McpMMPackage.AGENTE__TAREAS:
+				getTareas().clear();
+				getTareas().addAll((Collection<? extends TareaEjecutable>)newValue);
 				return;
 			case McpMMPackage.AGENTE__CONTEXTOS:
 				getContextos().clear();
@@ -292,8 +280,8 @@ public class AgenteImpl extends EObjectImpl implements Agente {
 			case McpMMPackage.AGENTE__ROL:
 				setRol(ROL_EDEFAULT);
 				return;
-			case McpMMPackage.AGENTE__FLUJO:
-				setFlujo((Workflow)null);
+			case McpMMPackage.AGENTE__TAREAS:
+				getTareas().clear();
 				return;
 			case McpMMPackage.AGENTE__CONTEXTOS:
 				getContextos().clear();
@@ -314,8 +302,8 @@ public class AgenteImpl extends EObjectImpl implements Agente {
 				return NOMBRE_EDEFAULT == null ? nombre != null : !NOMBRE_EDEFAULT.equals(nombre);
 			case McpMMPackage.AGENTE__ROL:
 				return ROL_EDEFAULT == null ? rol != null : !ROL_EDEFAULT.equals(rol);
-			case McpMMPackage.AGENTE__FLUJO:
-				return flujo != null;
+			case McpMMPackage.AGENTE__TAREAS:
+				return tareas != null && !tareas.isEmpty();
 			case McpMMPackage.AGENTE__CONTEXTOS:
 				return contextos != null && !contextos.isEmpty();
 		}

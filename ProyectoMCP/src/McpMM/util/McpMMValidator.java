@@ -189,7 +189,7 @@ public class McpMMValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected static final String AGENTE__R05_LIMITE_CARGA_TRABAJO__EEXPRESSION = "self.flujo.tareas->select(t | t.oclIsKindOf(TareaEjecutable))->size() <= 10";
+	protected static final String AGENTE__R05_LIMITE_CARGA_TRABAJO__EEXPRESSION = "self.tareas->size() <= 10";
 
 	/**
 	 * Validates the R05_LimiteCargaTrabajo constraint of '<em>Agente</em>'.
@@ -323,38 +323,8 @@ public class McpMMValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_UniqueID(tarea, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(tarea, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(tarea, diagnostics, context);
-		if (result || diagnostics != null) result &= validateTarea_R09_EntradaYSalida(tarea, diagnostics, context);
 		if (result || diagnostics != null) result &= validateTarea_R10_NoBuclePropio(tarea, diagnostics, context);
 		return result;
-	}
-
-	/**
-	 * The cached validation expression for the R09_EntradaYSalida constraint of '<em>Tarea</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected static final String TAREA__R09_ENTRADA_YSALIDA__EEXPRESSION = "not self.precede.oclIsUndefined() or not self.sigue.oclIsUndefined()";
-
-	/**
-	 * Validates the R09_EntradaYSalida constraint of '<em>Tarea</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateTarea_R09_EntradaYSalida(Tarea tarea, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return
-			validate
-				(McpMMPackage.Literals.TAREA,
-				 tarea,
-				 diagnostics,
-				 context,
-				 "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
-				 "R09_EntradaYSalida",
-				 TAREA__R09_ENTRADA_YSALIDA__EEXPRESSION,
-				 Diagnostic.ERROR,
-				 DIAGNOSTIC_SOURCE,
-				 0);
 	}
 
 	/**
@@ -401,9 +371,38 @@ public class McpMMValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_UniqueID(tareaEjecutable, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(tareaEjecutable, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(tareaEjecutable, diagnostics, context);
-		if (result || diagnostics != null) result &= validateTarea_R09_EntradaYSalida(tareaEjecutable, diagnostics, context);
 		if (result || diagnostics != null) result &= validateTarea_R10_NoBuclePropio(tareaEjecutable, diagnostics, context);
+		if (result || diagnostics != null) result &= validateTareaEjecutable_R09_EntradaYSalida(tareaEjecutable, diagnostics, context);
 		return result;
+	}
+
+	/**
+	 * The cached validation expression for the R09_EntradaYSalida constraint of '<em>Tarea Ejecutable</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected static final String TAREA_EJECUTABLE__R09_ENTRADA_YSALIDA__EEXPRESSION = "(self.precede->notEmpty() or self.precedeElse->notEmpty()) and not self.sigue.oclIsUndefined()";
+
+	/**
+	 * Validates the R09_EntradaYSalida constraint of '<em>Tarea Ejecutable</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateTareaEjecutable_R09_EntradaYSalida(TareaEjecutable tareaEjecutable, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return
+			validate
+				(McpMMPackage.Literals.TAREA_EJECUTABLE,
+				 tareaEjecutable,
+				 diagnostics,
+				 context,
+				 "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
+				 "R09_EntradaYSalida",
+				 TAREA_EJECUTABLE__R09_ENTRADA_YSALIDA__EEXPRESSION,
+				 Diagnostic.ERROR,
+				 DIAGNOSTIC_SOURCE,
+				 0);
 	}
 
 	/**
@@ -421,9 +420,38 @@ public class McpMMValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_UniqueID(inicio, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(inicio, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(inicio, diagnostics, context);
-		if (result || diagnostics != null) result &= validateTarea_R09_EntradaYSalida(inicio, diagnostics, context);
 		if (result || diagnostics != null) result &= validateTarea_R10_NoBuclePropio(inicio, diagnostics, context);
+		if (result || diagnostics != null) result &= validateInicio_R03_InicioSinEntradas(inicio, diagnostics, context);
 		return result;
+	}
+
+	/**
+	 * The cached validation expression for the R03_InicioSinEntradas constraint of '<em>Inicio</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected static final String INICIO__R03_INICIO_SIN_ENTRADAS__EEXPRESSION = "self.precede->isEmpty() and self.precedeElse->isEmpty()";
+
+	/**
+	 * Validates the R03_InicioSinEntradas constraint of '<em>Inicio</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateInicio_R03_InicioSinEntradas(Inicio inicio, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return
+			validate
+				(McpMMPackage.Literals.INICIO,
+				 inicio,
+				 diagnostics,
+				 context,
+				 "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
+				 "R03_InicioSinEntradas",
+				 INICIO__R03_INICIO_SIN_ENTRADAS__EEXPRESSION,
+				 Diagnostic.ERROR,
+				 DIAGNOSTIC_SOURCE,
+				 0);
 	}
 
 	/**
@@ -441,9 +469,38 @@ public class McpMMValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_UniqueID(final_, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(final_, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(final_, diagnostics, context);
-		if (result || diagnostics != null) result &= validateTarea_R09_EntradaYSalida(final_, diagnostics, context);
 		if (result || diagnostics != null) result &= validateTarea_R10_NoBuclePropio(final_, diagnostics, context);
+		if (result || diagnostics != null) result &= validateFinal_R04_FinSinSalidas(final_, diagnostics, context);
 		return result;
+	}
+
+	/**
+	 * The cached validation expression for the R04_FinSinSalidas constraint of '<em>Final</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected static final String FINAL__R04_FIN_SIN_SALIDAS__EEXPRESSION = "self.sigue.oclIsUndefined()";
+
+	/**
+	 * Validates the R04_FinSinSalidas constraint of '<em>Final</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateFinal_R04_FinSinSalidas(Final final_, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return
+			validate
+				(McpMMPackage.Literals.FINAL,
+				 final_,
+				 diagnostics,
+				 context,
+				 "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
+				 "R04_FinSinSalidas",
+				 FINAL__R04_FIN_SIN_SALIDAS__EEXPRESSION,
+				 Diagnostic.ERROR,
+				 DIAGNOSTIC_SOURCE,
+				 0);
 	}
 
 	/**
@@ -471,7 +528,7 @@ public class McpMMValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected static final String ACCION__R12_COHERENCIA_CONTEXTO__EEXPRESSION = "self.usa.oclIsUndefined() or self.apunta.propiedades->includes(self.usa)";
+	protected static final String ACCION__R12_COHERENCIA_CONTEXTO__EEXPRESSION = "self.usa->forAll(p | self.apunta.propiedades->includes(p))";
 
 	/**
 	 * Validates the R12_CoherenciaContexto constraint of '<em>Accion</em>'.
@@ -556,8 +613,8 @@ public class McpMMValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_UniqueID(tareaTransformacionDatos, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(tareaTransformacionDatos, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(tareaTransformacionDatos, diagnostics, context);
-		if (result || diagnostics != null) result &= validateTarea_R09_EntradaYSalida(tareaTransformacionDatos, diagnostics, context);
 		if (result || diagnostics != null) result &= validateTarea_R10_NoBuclePropio(tareaTransformacionDatos, diagnostics, context);
+		if (result || diagnostics != null) result &= validateTareaEjecutable_R09_EntradaYSalida(tareaTransformacionDatos, diagnostics, context);
 		return result;
 	}
 
@@ -576,8 +633,8 @@ public class McpMMValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_UniqueID(tareaLLM, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(tareaLLM, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(tareaLLM, diagnostics, context);
-		if (result || diagnostics != null) result &= validateTarea_R09_EntradaYSalida(tareaLLM, diagnostics, context);
 		if (result || diagnostics != null) result &= validateTarea_R10_NoBuclePropio(tareaLLM, diagnostics, context);
+		if (result || diagnostics != null) result &= validateTareaEjecutable_R09_EntradaYSalida(tareaLLM, diagnostics, context);
 		return result;
 	}
 
@@ -596,8 +653,8 @@ public class McpMMValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_UniqueID(tareaUsuario, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(tareaUsuario, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(tareaUsuario, diagnostics, context);
-		if (result || diagnostics != null) result &= validateTarea_R09_EntradaYSalida(tareaUsuario, diagnostics, context);
 		if (result || diagnostics != null) result &= validateTarea_R10_NoBuclePropio(tareaUsuario, diagnostics, context);
+		if (result || diagnostics != null) result &= validateTareaEjecutable_R09_EntradaYSalida(tareaUsuario, diagnostics, context);
 		return result;
 	}
 
@@ -616,8 +673,8 @@ public class McpMMValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_UniqueID(tareaAnalisis, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(tareaAnalisis, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(tareaAnalisis, diagnostics, context);
-		if (result || diagnostics != null) result &= validateTarea_R09_EntradaYSalida(tareaAnalisis, diagnostics, context);
 		if (result || diagnostics != null) result &= validateTarea_R10_NoBuclePropio(tareaAnalisis, diagnostics, context);
+		if (result || diagnostics != null) result &= validateTareaEjecutable_R09_EntradaYSalida(tareaAnalisis, diagnostics, context);
 		return result;
 	}
 
@@ -636,8 +693,8 @@ public class McpMMValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_UniqueID(tareaEnvioContexto, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(tareaEnvioContexto, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(tareaEnvioContexto, diagnostics, context);
-		if (result || diagnostics != null) result &= validateTarea_R09_EntradaYSalida(tareaEnvioContexto, diagnostics, context);
 		if (result || diagnostics != null) result &= validateTarea_R10_NoBuclePropio(tareaEnvioContexto, diagnostics, context);
+		if (result || diagnostics != null) result &= validateTareaEjecutable_R09_EntradaYSalida(tareaEnvioContexto, diagnostics, context);
 		return result;
 	}
 
@@ -656,10 +713,11 @@ public class McpMMValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_UniqueID(tareaRecepcionContexto, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(tareaRecepcionContexto, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(tareaRecepcionContexto, diagnostics, context);
-		if (result || diagnostics != null) result &= validateTarea_R09_EntradaYSalida(tareaRecepcionContexto, diagnostics, context);
 		if (result || diagnostics != null) result &= validateTarea_R10_NoBuclePropio(tareaRecepcionContexto, diagnostics, context);
+		if (result || diagnostics != null) result &= validateTareaEjecutable_R09_EntradaYSalida(tareaRecepcionContexto, diagnostics, context);
 		if (result || diagnostics != null) result &= validateTareaRecepcionContexto_R07_RecepcionPrecedidaEnvio(tareaRecepcionContexto, diagnostics, context);
 		if (result || diagnostics != null) result &= validateTareaRecepcionContexto_R11_MismasPropiedadesEnvioRecepcion(tareaRecepcionContexto, diagnostics, context);
+		if (result || diagnostics != null) result &= validateTareaRecepcionContexto_R08_DistintosAgentes(tareaRecepcionContexto, diagnostics, context);
 		return result;
 	}
 
@@ -669,7 +727,7 @@ public class McpMMValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected static final String TAREA_RECEPCION_CONTEXTO__R07_RECEPCION_PRECEDIDA_ENVIO__EEXPRESSION = "not self.precede.oclIsUndefined() and self.precede.oclIsTypeOf(TareaEnvioContexto)";
+	protected static final String TAREA_RECEPCION_CONTEXTO__R07_RECEPCION_PRECEDIDA_ENVIO__EEXPRESSION = "self.precede->exists(t | t.oclIsTypeOf(TareaEnvioContexto))";
 
 	/**
 	 * Validates the R07_RecepcionPrecedidaEnvio constraint of '<em>Tarea Recepcion Contexto</em>'.
@@ -698,7 +756,7 @@ public class McpMMValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected static final String TAREA_RECEPCION_CONTEXTO__R11_MISMAS_PROPIEDADES_ENVIO_RECEPCION__EEXPRESSION = "if not self.precede.oclIsUndefined() and self.precede.oclIsTypeOf(TareaEnvioContexto) then self.accion->collect(usa)->asSet() = self.precede.accion->collect(usa)->asSet() else true endif";
+	protected static final String TAREA_RECEPCION_CONTEXTO__R11_MISMAS_PROPIEDADES_ENVIO_RECEPCION__EEXPRESSION = "self.precede->select(t | t.oclIsTypeOf(TareaEnvioContexto))->forAll(e | self.accion->collect(usa)->asSet() = e.accion->collect(usa)->asSet())";
 
 	/**
 	 * Validates the R11_MismasPropiedadesEnvioRecepcion constraint of '<em>Tarea Recepcion Contexto</em>'.
@@ -722,6 +780,35 @@ public class McpMMValidator extends EObjectValidator {
 	}
 
 	/**
+	 * The cached validation expression for the R08_DistintosAgentes constraint of '<em>Tarea Recepcion Contexto</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected static final String TAREA_RECEPCION_CONTEXTO__R08_DISTINTOS_AGENTES__EEXPRESSION = "self.precede->select(t | t.oclIsTypeOf(TareaEnvioContexto))->forAll(e | self.ejecutadaPor <> e.oclAsType(TareaEjecutable).ejecutadaPor)";
+
+	/**
+	 * Validates the R08_DistintosAgentes constraint of '<em>Tarea Recepcion Contexto</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateTareaRecepcionContexto_R08_DistintosAgentes(TareaRecepcionContexto tareaRecepcionContexto, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return
+			validate
+				(McpMMPackage.Literals.TAREA_RECEPCION_CONTEXTO,
+				 tareaRecepcionContexto,
+				 diagnostics,
+				 context,
+				 "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
+				 "R08_DistintosAgentes",
+				 TAREA_RECEPCION_CONTEXTO__R08_DISTINTOS_AGENTES__EEXPRESSION,
+				 Diagnostic.ERROR,
+				 DIAGNOSTIC_SOURCE,
+				 0);
+	}
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -736,8 +823,8 @@ public class McpMMValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_UniqueID(tareaServerMCP, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(tareaServerMCP, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(tareaServerMCP, diagnostics, context);
-		if (result || diagnostics != null) result &= validateTarea_R09_EntradaYSalida(tareaServerMCP, diagnostics, context);
 		if (result || diagnostics != null) result &= validateTarea_R10_NoBuclePropio(tareaServerMCP, diagnostics, context);
+		if (result || diagnostics != null) result &= validateTareaEjecutable_R09_EntradaYSalida(tareaServerMCP, diagnostics, context);
 		return result;
 	}
 

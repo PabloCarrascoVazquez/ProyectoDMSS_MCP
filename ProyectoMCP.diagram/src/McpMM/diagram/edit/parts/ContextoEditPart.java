@@ -38,7 +38,7 @@ public class ContextoEditPart extends ShapeNodeEditPart {
 	/**
 	* @generated
 	*/
-	public static final int VISUAL_ID = 3013;
+	public static final int VISUAL_ID = 3001;
 
 	/**
 	* @generated
@@ -277,7 +277,7 @@ public class ContextoEditPart extends ShapeNodeEditPart {
 			CreateElementRequestAdapter adapter = ((CreateViewAndElementRequest) request).getViewAndElementDescriptor()
 					.getCreateElementRequestAdapter();
 			IElementType type = (IElementType) adapter.getAdapter(IElementType.class);
-			if (type == McpMM.diagram.providers.McpMMElementTypes.Propiedad_3014) {
+			if (type == McpMM.diagram.providers.McpMMElementTypes.Propiedad_3002) {
 				return getChildBySemanticHint(McpMM.diagram.part.McpMMVisualIDRegistry
 						.getType(McpMM.diagram.edit.parts.ContextoContextoPropiedadesCompartmentEditPart.VISUAL_ID));
 			}

@@ -55,7 +55,7 @@ public class OperacionMCPNombreOperacionEditPart extends CompartmentEditPart imp
 	/**
 	* @generated
 	*/
-	public static final int VISUAL_ID = 5016;
+	public static final int VISUAL_ID = 5004;
 
 	/**
 	* @generated
@@ -292,7 +292,7 @@ public class OperacionMCPNombreOperacionEditPart extends CompartmentEditPart imp
 	public IParser getParser() {
 		if (parser == null) {
 			parser = McpMM.diagram.providers.McpMMParserProvider.getParser(
-					McpMM.diagram.providers.McpMMElementTypes.OperacionMCP_3015, getParserElement(),
+					McpMM.diagram.providers.McpMMElementTypes.OperacionMCP_3003, getParserElement(),
 					McpMM.diagram.part.McpMMVisualIDRegistry
 							.getType(McpMM.diagram.edit.parts.OperacionMCPNombreOperacionEditPart.VISUAL_ID));
 		}

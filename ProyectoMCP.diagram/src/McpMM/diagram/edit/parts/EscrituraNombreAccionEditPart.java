@@ -55,7 +55,7 @@ public class EscrituraNombreAccionEditPart extends CompartmentEditPart implement
 	/**
 	* @generated
 	*/
-	public static final int VISUAL_ID = 5001;
+	public static final int VISUAL_ID = 5006;
 
 	/**
 	* @generated
@@ -292,7 +292,7 @@ public class EscrituraNombreAccionEditPart extends CompartmentEditPart implement
 	public IParser getParser() {
 		if (parser == null) {
 			parser = McpMM.diagram.providers.McpMMParserProvider.getParser(
-					McpMM.diagram.providers.McpMMElementTypes.Escritura_3003, getParserElement(),
+					McpMM.diagram.providers.McpMMElementTypes.Escritura_3005, getParserElement(),
 					McpMM.diagram.part.McpMMVisualIDRegistry
 							.getType(McpMM.diagram.edit.parts.EscrituraNombreAccionEditPart.VISUAL_ID));
 		}

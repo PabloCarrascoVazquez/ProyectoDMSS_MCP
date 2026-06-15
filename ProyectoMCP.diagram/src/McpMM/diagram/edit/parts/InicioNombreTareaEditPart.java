@@ -55,7 +55,7 @@ public class InicioNombreTareaEditPart extends CompartmentEditPart implements IT
 	/**
 	* @generated
 	*/
-	public static final int VISUAL_ID = 5010;
+	public static final int VISUAL_ID = 5015;
 
 	/**
 	* @generated
@@ -292,7 +292,7 @@ public class InicioNombreTareaEditPart extends CompartmentEditPart implements IT
 	public IParser getParser() {
 		if (parser == null) {
 			parser = McpMM.diagram.providers.McpMMParserProvider.getParser(
-					McpMM.diagram.providers.McpMMElementTypes.Inicio_3011, getParserElement(),
+					McpMM.diagram.providers.McpMMElementTypes.Inicio_3013, getParserElement(),
 					McpMM.diagram.part.McpMMVisualIDRegistry
 							.getType(McpMM.diagram.edit.parts.InicioNombreTareaEditPart.VISUAL_ID));
 		}

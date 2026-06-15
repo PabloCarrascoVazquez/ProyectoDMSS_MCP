@@ -55,7 +55,7 @@ public class AgenteNombreEditPart extends CompartmentEditPart implements ITextAw
 	/**
 	* @generated
 	*/
-	public static final int VISUAL_ID = 5015;
+	public static final int VISUAL_ID = 5003;
 
 	/**
 	* @generated

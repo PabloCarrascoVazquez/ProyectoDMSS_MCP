@@ -43,10 +43,6 @@ public class WorkflowCreateCommand extends EditElementCommand {
 	* @generated
 	*/
 	public boolean canExecute() {
-		McpMM.Agente container = (McpMM.Agente) getElementToEdit();
-		if (container.getFlujo() != null) {
-			return false;
-		}
 		return true;
 
 	}
@@ -57,8 +53,8 @@ public class WorkflowCreateCommand extends EditElementCommand {
 	protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
 		McpMM.Workflow newElement = McpMM.McpMMFactory.eINSTANCE.createWorkflow();
 
-		McpMM.Agente owner = (McpMM.Agente) getElementToEdit();
-		owner.setFlujo(newElement);
+		McpMM.ServiceMCP owner = (McpMM.ServiceMCP) getElementToEdit();
+		owner.getWorkflows().add(newElement);
 
 		doConfigure(newElement, monitor, info);
 

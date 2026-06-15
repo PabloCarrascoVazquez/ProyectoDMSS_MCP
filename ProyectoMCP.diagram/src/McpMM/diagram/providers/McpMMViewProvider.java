@@ -133,6 +133,9 @@ public class McpMMViewProvider extends AbstractProvider implements IViewProvider
 				case McpMM.diagram.edit.parts.AgenteEditPart.VISUAL_ID:
 				case McpMM.diagram.edit.parts.ServerMCPEditPart.VISUAL_ID:
 				case McpMM.diagram.edit.parts.WorkflowEditPart.VISUAL_ID:
+				case McpMM.diagram.edit.parts.ContextoEditPart.VISUAL_ID:
+				case McpMM.diagram.edit.parts.PropiedadEditPart.VISUAL_ID:
+				case McpMM.diagram.edit.parts.OperacionMCPEditPart.VISUAL_ID:
 				case McpMM.diagram.edit.parts.TareaTransformacionDatosEditPart.VISUAL_ID:
 				case McpMM.diagram.edit.parts.EscrituraEditPart.VISUAL_ID:
 				case McpMM.diagram.edit.parts.LecturaEditPart.VISUAL_ID:
@@ -144,9 +147,6 @@ public class McpMMViewProvider extends AbstractProvider implements IViewProvider
 				case McpMM.diagram.edit.parts.TareaServerMCPEditPart.VISUAL_ID:
 				case McpMM.diagram.edit.parts.InicioEditPart.VISUAL_ID:
 				case McpMM.diagram.edit.parts.FinalEditPart.VISUAL_ID:
-				case McpMM.diagram.edit.parts.ContextoEditPart.VISUAL_ID:
-				case McpMM.diagram.edit.parts.PropiedadEditPart.VISUAL_ID:
-				case McpMM.diagram.edit.parts.OperacionMCPEditPart.VISUAL_ID:
 					if (domainElement == null || visualID != McpMM.diagram.part.McpMMVisualIDRegistry
 							.getNodeVisualID(op.getContainerView(), domainElement)) {
 						return false; // visual id in semantic hint should match visual id for domain element
@@ -160,6 +160,9 @@ public class McpMMViewProvider extends AbstractProvider implements IViewProvider
 		return McpMM.diagram.edit.parts.AgenteEditPart.VISUAL_ID == visualID
 				|| McpMM.diagram.edit.parts.ServerMCPEditPart.VISUAL_ID == visualID
 				|| McpMM.diagram.edit.parts.WorkflowEditPart.VISUAL_ID == visualID
+				|| McpMM.diagram.edit.parts.ContextoEditPart.VISUAL_ID == visualID
+				|| McpMM.diagram.edit.parts.PropiedadEditPart.VISUAL_ID == visualID
+				|| McpMM.diagram.edit.parts.OperacionMCPEditPart.VISUAL_ID == visualID
 				|| McpMM.diagram.edit.parts.TareaTransformacionDatosEditPart.VISUAL_ID == visualID
 				|| McpMM.diagram.edit.parts.EscrituraEditPart.VISUAL_ID == visualID
 				|| McpMM.diagram.edit.parts.LecturaEditPart.VISUAL_ID == visualID
@@ -170,10 +173,7 @@ public class McpMMViewProvider extends AbstractProvider implements IViewProvider
 				|| McpMM.diagram.edit.parts.TareaRecepcionContextoEditPart.VISUAL_ID == visualID
 				|| McpMM.diagram.edit.parts.TareaServerMCPEditPart.VISUAL_ID == visualID
 				|| McpMM.diagram.edit.parts.InicioEditPart.VISUAL_ID == visualID
-				|| McpMM.diagram.edit.parts.FinalEditPart.VISUAL_ID == visualID
-				|| McpMM.diagram.edit.parts.ContextoEditPart.VISUAL_ID == visualID
-				|| McpMM.diagram.edit.parts.PropiedadEditPart.VISUAL_ID == visualID
-				|| McpMM.diagram.edit.parts.OperacionMCPEditPart.VISUAL_ID == visualID;
+				|| McpMM.diagram.edit.parts.FinalEditPart.VISUAL_ID == visualID;
 	}
 
 	/**
@@ -229,35 +229,35 @@ public class McpMMViewProvider extends AbstractProvider implements IViewProvider
 		case McpMM.diagram.edit.parts.ServerMCPEditPart.VISUAL_ID:
 			return createServerMCP_2002(domainElement, containerView, index, persisted, preferencesHint);
 		case McpMM.diagram.edit.parts.WorkflowEditPart.VISUAL_ID:
-			return createWorkflow_3001(domainElement, containerView, index, persisted, preferencesHint);
-		case McpMM.diagram.edit.parts.TareaTransformacionDatosEditPart.VISUAL_ID:
-			return createTareaTransformacionDatos_3002(domainElement, containerView, index, persisted, preferencesHint);
-		case McpMM.diagram.edit.parts.EscrituraEditPart.VISUAL_ID:
-			return createEscritura_3003(domainElement, containerView, index, persisted, preferencesHint);
-		case McpMM.diagram.edit.parts.LecturaEditPart.VISUAL_ID:
-			return createLectura_3004(domainElement, containerView, index, persisted, preferencesHint);
-		case McpMM.diagram.edit.parts.TareaLLMEditPart.VISUAL_ID:
-			return createTareaLLM_3005(domainElement, containerView, index, persisted, preferencesHint);
-		case McpMM.diagram.edit.parts.TareaUsuarioEditPart.VISUAL_ID:
-			return createTareaUsuario_3006(domainElement, containerView, index, persisted, preferencesHint);
-		case McpMM.diagram.edit.parts.TareaAnalisisEditPart.VISUAL_ID:
-			return createTareaAnalisis_3007(domainElement, containerView, index, persisted, preferencesHint);
-		case McpMM.diagram.edit.parts.TareaEnvioContextoEditPart.VISUAL_ID:
-			return createTareaEnvioContexto_3008(domainElement, containerView, index, persisted, preferencesHint);
-		case McpMM.diagram.edit.parts.TareaRecepcionContextoEditPart.VISUAL_ID:
-			return createTareaRecepcionContexto_3009(domainElement, containerView, index, persisted, preferencesHint);
-		case McpMM.diagram.edit.parts.TareaServerMCPEditPart.VISUAL_ID:
-			return createTareaServerMCP_3010(domainElement, containerView, index, persisted, preferencesHint);
-		case McpMM.diagram.edit.parts.InicioEditPart.VISUAL_ID:
-			return createInicio_3011(domainElement, containerView, index, persisted, preferencesHint);
-		case McpMM.diagram.edit.parts.FinalEditPart.VISUAL_ID:
-			return createFinal_3012(domainElement, containerView, index, persisted, preferencesHint);
+			return createWorkflow_2003(domainElement, containerView, index, persisted, preferencesHint);
 		case McpMM.diagram.edit.parts.ContextoEditPart.VISUAL_ID:
-			return createContexto_3013(domainElement, containerView, index, persisted, preferencesHint);
+			return createContexto_3001(domainElement, containerView, index, persisted, preferencesHint);
 		case McpMM.diagram.edit.parts.PropiedadEditPart.VISUAL_ID:
-			return createPropiedad_3014(domainElement, containerView, index, persisted, preferencesHint);
+			return createPropiedad_3002(domainElement, containerView, index, persisted, preferencesHint);
 		case McpMM.diagram.edit.parts.OperacionMCPEditPart.VISUAL_ID:
-			return createOperacionMCP_3015(domainElement, containerView, index, persisted, preferencesHint);
+			return createOperacionMCP_3003(domainElement, containerView, index, persisted, preferencesHint);
+		case McpMM.diagram.edit.parts.TareaTransformacionDatosEditPart.VISUAL_ID:
+			return createTareaTransformacionDatos_3004(domainElement, containerView, index, persisted, preferencesHint);
+		case McpMM.diagram.edit.parts.EscrituraEditPart.VISUAL_ID:
+			return createEscritura_3005(domainElement, containerView, index, persisted, preferencesHint);
+		case McpMM.diagram.edit.parts.LecturaEditPart.VISUAL_ID:
+			return createLectura_3006(domainElement, containerView, index, persisted, preferencesHint);
+		case McpMM.diagram.edit.parts.TareaLLMEditPart.VISUAL_ID:
+			return createTareaLLM_3007(domainElement, containerView, index, persisted, preferencesHint);
+		case McpMM.diagram.edit.parts.TareaUsuarioEditPart.VISUAL_ID:
+			return createTareaUsuario_3008(domainElement, containerView, index, persisted, preferencesHint);
+		case McpMM.diagram.edit.parts.TareaAnalisisEditPart.VISUAL_ID:
+			return createTareaAnalisis_3009(domainElement, containerView, index, persisted, preferencesHint);
+		case McpMM.diagram.edit.parts.TareaEnvioContextoEditPart.VISUAL_ID:
+			return createTareaEnvioContexto_3010(domainElement, containerView, index, persisted, preferencesHint);
+		case McpMM.diagram.edit.parts.TareaRecepcionContextoEditPart.VISUAL_ID:
+			return createTareaRecepcionContexto_3011(domainElement, containerView, index, persisted, preferencesHint);
+		case McpMM.diagram.edit.parts.TareaServerMCPEditPart.VISUAL_ID:
+			return createTareaServerMCP_3012(domainElement, containerView, index, persisted, preferencesHint);
+		case McpMM.diagram.edit.parts.InicioEditPart.VISUAL_ID:
+			return createInicio_3013(domainElement, containerView, index, persisted, preferencesHint);
+		case McpMM.diagram.edit.parts.FinalEditPart.VISUAL_ID:
+			return createFinal_3014(domainElement, containerView, index, persisted, preferencesHint);
 		}
 		// can't happen, provided #provides(CreateNodeViewOperation) is correct
 		return null;
@@ -271,12 +271,14 @@ public class McpMMViewProvider extends AbstractProvider implements IViewProvider
 		IElementType elementType = getSemanticElementType(semanticAdapter);
 		String elementTypeHint = ((IHintedType) elementType).getSemanticHint();
 		switch (McpMM.diagram.part.McpMMVisualIDRegistry.getVisualID(elementTypeHint)) {
+		case McpMM.diagram.edit.parts.AgenteTareasEditPart.VISUAL_ID:
+			return createAgenteTareas_4001(containerView, index, persisted, preferencesHint);
 		case McpMM.diagram.edit.parts.TareaSigueEditPart.VISUAL_ID:
-			return createTareaSigue_4001(containerView, index, persisted, preferencesHint);
+			return createTareaSigue_4002(containerView, index, persisted, preferencesHint);
 		case McpMM.diagram.edit.parts.TareaAnalisisSigueElseEditPart.VISUAL_ID:
-			return createTareaAnalisisSigueElse_4002(containerView, index, persisted, preferencesHint);
+			return createTareaAnalisisSigueElse_4003(containerView, index, persisted, preferencesHint);
 		case McpMM.diagram.edit.parts.TareaServerMCPEjecutaOperacionEditPart.VISUAL_ID:
-			return createTareaServerMCPEjecutaOperacion_4003(containerView, index, persisted, preferencesHint);
+			return createTareaServerMCPEjecutaOperacion_4004(containerView, index, persisted, preferencesHint);
 		}
 		// can never happen, provided #provides(CreateEdgeViewOperation) is correct
 		return null;
@@ -316,12 +318,8 @@ public class McpMMViewProvider extends AbstractProvider implements IViewProvider
 					IPreferenceConstants.PREF_FONT_COLOR);
 			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB).intValue());
 		}
-		Node label5015 = createLabel(node, McpMM.diagram.part.McpMMVisualIDRegistry
+		Node label5003 = createLabel(node, McpMM.diagram.part.McpMMVisualIDRegistry
 				.getType(McpMM.diagram.edit.parts.AgenteNombreEditPart.VISUAL_ID));
-		createCompartment(node,
-				McpMM.diagram.part.McpMMVisualIDRegistry
-						.getType(McpMM.diagram.edit.parts.AgenteAgenteFlujoCompartmentEditPart.VISUAL_ID),
-				true, false, false, false);
 		createCompartment(node,
 				McpMM.diagram.part.McpMMVisualIDRegistry
 						.getType(McpMM.diagram.edit.parts.AgenteAgenteContextosCompartmentEditPart.VISUAL_ID),
@@ -363,7 +361,7 @@ public class McpMMViewProvider extends AbstractProvider implements IViewProvider
 					IPreferenceConstants.PREF_FONT_COLOR);
 			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB).intValue());
 		}
-		Node label5017 = createLabel(node, McpMM.diagram.part.McpMMVisualIDRegistry
+		Node label5005 = createLabel(node, McpMM.diagram.part.McpMMVisualIDRegistry
 				.getType(McpMM.diagram.edit.parts.ServerMCPNombreServerEditPart.VISUAL_ID));
 		createCompartment(node,
 				McpMM.diagram.part.McpMMVisualIDRegistry
@@ -375,7 +373,7 @@ public class McpMMViewProvider extends AbstractProvider implements IViewProvider
 	/**
 	* @generated
 	*/
-	public Node createWorkflow_3001(EObject domainElement, View containerView, int index, boolean persisted,
+	public Node createWorkflow_2003(EObject domainElement, View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
 		Node node = NotationFactory.eINSTANCE.createNode();
 		node.getStyles().add(NotationFactory.eINSTANCE.createDescriptionStyle());
@@ -387,6 +385,7 @@ public class McpMMViewProvider extends AbstractProvider implements IViewProvider
 				McpMM.diagram.part.McpMMVisualIDRegistry.getType(McpMM.diagram.edit.parts.WorkflowEditPart.VISUAL_ID));
 		ViewUtil.insertChildView(containerView, node, index, persisted);
 		node.setElement(domainElement);
+		stampShortcut(containerView, node);
 		// initializeFromPreferences 
 		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
 
@@ -405,7 +404,7 @@ public class McpMMViewProvider extends AbstractProvider implements IViewProvider
 					IPreferenceConstants.PREF_FONT_COLOR);
 			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB).intValue());
 		}
-		Node label5012 = createLabel(node, McpMM.diagram.part.McpMMVisualIDRegistry
+		Node label5017 = createLabel(node, McpMM.diagram.part.McpMMVisualIDRegistry
 				.getType(McpMM.diagram.edit.parts.WorkflowNombreWorkflowEditPart.VISUAL_ID));
 		createCompartment(node,
 				McpMM.diagram.part.McpMMVisualIDRegistry
@@ -417,461 +416,7 @@ public class McpMMViewProvider extends AbstractProvider implements IViewProvider
 	/**
 	* @generated
 	*/
-	public Node createTareaTransformacionDatos_3002(EObject domainElement, View containerView, int index,
-			boolean persisted, PreferencesHint preferencesHint) {
-		Node node = NotationFactory.eINSTANCE.createNode();
-		node.getStyles().add(NotationFactory.eINSTANCE.createDescriptionStyle());
-		node.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
-		node.getStyles().add(NotationFactory.eINSTANCE.createLineStyle());
-		node.getStyles().add(NotationFactory.eINSTANCE.createHintedDiagramLinkStyle());
-		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
-		node.setType(McpMM.diagram.part.McpMMVisualIDRegistry
-				.getType(McpMM.diagram.edit.parts.TareaTransformacionDatosEditPart.VISUAL_ID));
-		ViewUtil.insertChildView(containerView, node, index, persisted);
-		node.setElement(domainElement);
-		// initializeFromPreferences 
-		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
-
-		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
-				IPreferenceConstants.PREF_LINE_COLOR);
-		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE.getLineStyle_LineColor(),
-				FigureUtilities.RGBToInteger(lineRGB));
-		FontStyle nodeFontStyle = (FontStyle) node.getStyle(NotationPackage.Literals.FONT_STYLE);
-		if (nodeFontStyle != null) {
-			FontData fontData = PreferenceConverter.getFontData(prefStore, IPreferenceConstants.PREF_DEFAULT_FONT);
-			nodeFontStyle.setFontName(fontData.getName());
-			nodeFontStyle.setFontHeight(fontData.getHeight());
-			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
-			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
-			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter.getColor(prefStore,
-					IPreferenceConstants.PREF_FONT_COLOR);
-			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB).intValue());
-		}
-		Node label5003 = createLabel(node, McpMM.diagram.part.McpMMVisualIDRegistry
-				.getType(McpMM.diagram.edit.parts.TareaTransformacionDatosNombreTareaEditPart.VISUAL_ID));
-		createCompartment(node,
-				McpMM.diagram.part.McpMMVisualIDRegistry.getType(
-						McpMM.diagram.edit.parts.TareaTransformacionDatosTareaTransformacionDatosAccionCompartmentEditPart.VISUAL_ID),
-				true, false, true, true);
-		return node;
-	}
-
-	/**
-	* @generated
-	*/
-	public Node createEscritura_3003(EObject domainElement, View containerView, int index, boolean persisted,
-			PreferencesHint preferencesHint) {
-		Shape node = NotationFactory.eINSTANCE.createShape();
-		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
-		node.setType(
-				McpMM.diagram.part.McpMMVisualIDRegistry.getType(McpMM.diagram.edit.parts.EscrituraEditPart.VISUAL_ID));
-		ViewUtil.insertChildView(containerView, node, index, persisted);
-		node.setElement(domainElement);
-		// initializeFromPreferences 
-		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
-
-		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
-				IPreferenceConstants.PREF_LINE_COLOR);
-		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE.getLineStyle_LineColor(),
-				FigureUtilities.RGBToInteger(lineRGB));
-		FontStyle nodeFontStyle = (FontStyle) node.getStyle(NotationPackage.Literals.FONT_STYLE);
-		if (nodeFontStyle != null) {
-			FontData fontData = PreferenceConverter.getFontData(prefStore, IPreferenceConstants.PREF_DEFAULT_FONT);
-			nodeFontStyle.setFontName(fontData.getName());
-			nodeFontStyle.setFontHeight(fontData.getHeight());
-			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
-			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
-			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter.getColor(prefStore,
-					IPreferenceConstants.PREF_FONT_COLOR);
-			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB).intValue());
-		}
-		org.eclipse.swt.graphics.RGB fillRGB = PreferenceConverter.getColor(prefStore,
-				IPreferenceConstants.PREF_FILL_COLOR);
-		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE.getFillStyle_FillColor(),
-				FigureUtilities.RGBToInteger(fillRGB));
-		Node label5001 = createLabel(node, McpMM.diagram.part.McpMMVisualIDRegistry
-				.getType(McpMM.diagram.edit.parts.EscrituraNombreAccionEditPart.VISUAL_ID));
-		return node;
-	}
-
-	/**
-	* @generated
-	*/
-	public Node createLectura_3004(EObject domainElement, View containerView, int index, boolean persisted,
-			PreferencesHint preferencesHint) {
-		Shape node = NotationFactory.eINSTANCE.createShape();
-		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
-		node.setType(
-				McpMM.diagram.part.McpMMVisualIDRegistry.getType(McpMM.diagram.edit.parts.LecturaEditPart.VISUAL_ID));
-		ViewUtil.insertChildView(containerView, node, index, persisted);
-		node.setElement(domainElement);
-		// initializeFromPreferences 
-		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
-
-		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
-				IPreferenceConstants.PREF_LINE_COLOR);
-		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE.getLineStyle_LineColor(),
-				FigureUtilities.RGBToInteger(lineRGB));
-		FontStyle nodeFontStyle = (FontStyle) node.getStyle(NotationPackage.Literals.FONT_STYLE);
-		if (nodeFontStyle != null) {
-			FontData fontData = PreferenceConverter.getFontData(prefStore, IPreferenceConstants.PREF_DEFAULT_FONT);
-			nodeFontStyle.setFontName(fontData.getName());
-			nodeFontStyle.setFontHeight(fontData.getHeight());
-			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
-			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
-			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter.getColor(prefStore,
-					IPreferenceConstants.PREF_FONT_COLOR);
-			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB).intValue());
-		}
-		org.eclipse.swt.graphics.RGB fillRGB = PreferenceConverter.getColor(prefStore,
-				IPreferenceConstants.PREF_FILL_COLOR);
-		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE.getFillStyle_FillColor(),
-				FigureUtilities.RGBToInteger(fillRGB));
-		Node label5002 = createLabel(node, McpMM.diagram.part.McpMMVisualIDRegistry
-				.getType(McpMM.diagram.edit.parts.LecturaNombreAccionEditPart.VISUAL_ID));
-		return node;
-	}
-
-	/**
-	* @generated
-	*/
-	public Node createTareaLLM_3005(EObject domainElement, View containerView, int index, boolean persisted,
-			PreferencesHint preferencesHint) {
-		Node node = NotationFactory.eINSTANCE.createNode();
-		node.getStyles().add(NotationFactory.eINSTANCE.createDescriptionStyle());
-		node.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
-		node.getStyles().add(NotationFactory.eINSTANCE.createLineStyle());
-		node.getStyles().add(NotationFactory.eINSTANCE.createHintedDiagramLinkStyle());
-		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
-		node.setType(
-				McpMM.diagram.part.McpMMVisualIDRegistry.getType(McpMM.diagram.edit.parts.TareaLLMEditPart.VISUAL_ID));
-		ViewUtil.insertChildView(containerView, node, index, persisted);
-		node.setElement(domainElement);
-		// initializeFromPreferences 
-		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
-
-		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
-				IPreferenceConstants.PREF_LINE_COLOR);
-		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE.getLineStyle_LineColor(),
-				FigureUtilities.RGBToInteger(lineRGB));
-		FontStyle nodeFontStyle = (FontStyle) node.getStyle(NotationPackage.Literals.FONT_STYLE);
-		if (nodeFontStyle != null) {
-			FontData fontData = PreferenceConverter.getFontData(prefStore, IPreferenceConstants.PREF_DEFAULT_FONT);
-			nodeFontStyle.setFontName(fontData.getName());
-			nodeFontStyle.setFontHeight(fontData.getHeight());
-			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
-			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
-			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter.getColor(prefStore,
-					IPreferenceConstants.PREF_FONT_COLOR);
-			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB).intValue());
-		}
-		Node label5004 = createLabel(node, McpMM.diagram.part.McpMMVisualIDRegistry
-				.getType(McpMM.diagram.edit.parts.TareaLLMNombreTareaEditPart.VISUAL_ID));
-		createCompartment(node,
-				McpMM.diagram.part.McpMMVisualIDRegistry
-						.getType(McpMM.diagram.edit.parts.TareaLLMTareaLLMAccionCompartmentEditPart.VISUAL_ID),
-				true, false, true, true);
-		return node;
-	}
-
-	/**
-	* @generated
-	*/
-	public Node createTareaUsuario_3006(EObject domainElement, View containerView, int index, boolean persisted,
-			PreferencesHint preferencesHint) {
-		Node node = NotationFactory.eINSTANCE.createNode();
-		node.getStyles().add(NotationFactory.eINSTANCE.createDescriptionStyle());
-		node.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
-		node.getStyles().add(NotationFactory.eINSTANCE.createLineStyle());
-		node.getStyles().add(NotationFactory.eINSTANCE.createHintedDiagramLinkStyle());
-		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
-		node.setType(McpMM.diagram.part.McpMMVisualIDRegistry
-				.getType(McpMM.diagram.edit.parts.TareaUsuarioEditPart.VISUAL_ID));
-		ViewUtil.insertChildView(containerView, node, index, persisted);
-		node.setElement(domainElement);
-		// initializeFromPreferences 
-		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
-
-		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
-				IPreferenceConstants.PREF_LINE_COLOR);
-		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE.getLineStyle_LineColor(),
-				FigureUtilities.RGBToInteger(lineRGB));
-		FontStyle nodeFontStyle = (FontStyle) node.getStyle(NotationPackage.Literals.FONT_STYLE);
-		if (nodeFontStyle != null) {
-			FontData fontData = PreferenceConverter.getFontData(prefStore, IPreferenceConstants.PREF_DEFAULT_FONT);
-			nodeFontStyle.setFontName(fontData.getName());
-			nodeFontStyle.setFontHeight(fontData.getHeight());
-			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
-			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
-			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter.getColor(prefStore,
-					IPreferenceConstants.PREF_FONT_COLOR);
-			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB).intValue());
-		}
-		Node label5005 = createLabel(node, McpMM.diagram.part.McpMMVisualIDRegistry
-				.getType(McpMM.diagram.edit.parts.TareaUsuarioNombreTareaEditPart.VISUAL_ID));
-		createCompartment(node,
-				McpMM.diagram.part.McpMMVisualIDRegistry
-						.getType(McpMM.diagram.edit.parts.TareaUsuarioTareaUsuarioAccionCompartmentEditPart.VISUAL_ID),
-				true, false, true, true);
-		return node;
-	}
-
-	/**
-	* @generated
-	*/
-	public Node createTareaAnalisis_3007(EObject domainElement, View containerView, int index, boolean persisted,
-			PreferencesHint preferencesHint) {
-		Node node = NotationFactory.eINSTANCE.createNode();
-		node.getStyles().add(NotationFactory.eINSTANCE.createDescriptionStyle());
-		node.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
-		node.getStyles().add(NotationFactory.eINSTANCE.createLineStyle());
-		node.getStyles().add(NotationFactory.eINSTANCE.createHintedDiagramLinkStyle());
-		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
-		node.setType(McpMM.diagram.part.McpMMVisualIDRegistry
-				.getType(McpMM.diagram.edit.parts.TareaAnalisisEditPart.VISUAL_ID));
-		ViewUtil.insertChildView(containerView, node, index, persisted);
-		node.setElement(domainElement);
-		// initializeFromPreferences 
-		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
-
-		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
-				IPreferenceConstants.PREF_LINE_COLOR);
-		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE.getLineStyle_LineColor(),
-				FigureUtilities.RGBToInteger(lineRGB));
-		FontStyle nodeFontStyle = (FontStyle) node.getStyle(NotationPackage.Literals.FONT_STYLE);
-		if (nodeFontStyle != null) {
-			FontData fontData = PreferenceConverter.getFontData(prefStore, IPreferenceConstants.PREF_DEFAULT_FONT);
-			nodeFontStyle.setFontName(fontData.getName());
-			nodeFontStyle.setFontHeight(fontData.getHeight());
-			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
-			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
-			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter.getColor(prefStore,
-					IPreferenceConstants.PREF_FONT_COLOR);
-			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB).intValue());
-		}
-		Node label5006 = createLabel(node, McpMM.diagram.part.McpMMVisualIDRegistry
-				.getType(McpMM.diagram.edit.parts.TareaAnalisisNombreTareaEditPart.VISUAL_ID));
-		createCompartment(node,
-				McpMM.diagram.part.McpMMVisualIDRegistry.getType(
-						McpMM.diagram.edit.parts.TareaAnalisisTareaAnalisisAccionCompartmentEditPart.VISUAL_ID),
-				true, false, true, true);
-		return node;
-	}
-
-	/**
-	* @generated
-	*/
-	public Node createTareaEnvioContexto_3008(EObject domainElement, View containerView, int index, boolean persisted,
-			PreferencesHint preferencesHint) {
-		Node node = NotationFactory.eINSTANCE.createNode();
-		node.getStyles().add(NotationFactory.eINSTANCE.createDescriptionStyle());
-		node.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
-		node.getStyles().add(NotationFactory.eINSTANCE.createLineStyle());
-		node.getStyles().add(NotationFactory.eINSTANCE.createHintedDiagramLinkStyle());
-		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
-		node.setType(McpMM.diagram.part.McpMMVisualIDRegistry
-				.getType(McpMM.diagram.edit.parts.TareaEnvioContextoEditPart.VISUAL_ID));
-		ViewUtil.insertChildView(containerView, node, index, persisted);
-		node.setElement(domainElement);
-		// initializeFromPreferences 
-		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
-
-		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
-				IPreferenceConstants.PREF_LINE_COLOR);
-		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE.getLineStyle_LineColor(),
-				FigureUtilities.RGBToInteger(lineRGB));
-		FontStyle nodeFontStyle = (FontStyle) node.getStyle(NotationPackage.Literals.FONT_STYLE);
-		if (nodeFontStyle != null) {
-			FontData fontData = PreferenceConverter.getFontData(prefStore, IPreferenceConstants.PREF_DEFAULT_FONT);
-			nodeFontStyle.setFontName(fontData.getName());
-			nodeFontStyle.setFontHeight(fontData.getHeight());
-			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
-			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
-			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter.getColor(prefStore,
-					IPreferenceConstants.PREF_FONT_COLOR);
-			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB).intValue());
-		}
-		Node label5007 = createLabel(node, McpMM.diagram.part.McpMMVisualIDRegistry
-				.getType(McpMM.diagram.edit.parts.TareaEnvioContextoNombreTareaEditPart.VISUAL_ID));
-		createCompartment(node,
-				McpMM.diagram.part.McpMMVisualIDRegistry.getType(
-						McpMM.diagram.edit.parts.TareaEnvioContextoTareaEnvioContextoAccionCompartmentEditPart.VISUAL_ID),
-				true, false, true, true);
-		return node;
-	}
-
-	/**
-	* @generated
-	*/
-	public Node createTareaRecepcionContexto_3009(EObject domainElement, View containerView, int index,
-			boolean persisted, PreferencesHint preferencesHint) {
-		Node node = NotationFactory.eINSTANCE.createNode();
-		node.getStyles().add(NotationFactory.eINSTANCE.createDescriptionStyle());
-		node.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
-		node.getStyles().add(NotationFactory.eINSTANCE.createLineStyle());
-		node.getStyles().add(NotationFactory.eINSTANCE.createHintedDiagramLinkStyle());
-		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
-		node.setType(McpMM.diagram.part.McpMMVisualIDRegistry
-				.getType(McpMM.diagram.edit.parts.TareaRecepcionContextoEditPart.VISUAL_ID));
-		ViewUtil.insertChildView(containerView, node, index, persisted);
-		node.setElement(domainElement);
-		// initializeFromPreferences 
-		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
-
-		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
-				IPreferenceConstants.PREF_LINE_COLOR);
-		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE.getLineStyle_LineColor(),
-				FigureUtilities.RGBToInteger(lineRGB));
-		FontStyle nodeFontStyle = (FontStyle) node.getStyle(NotationPackage.Literals.FONT_STYLE);
-		if (nodeFontStyle != null) {
-			FontData fontData = PreferenceConverter.getFontData(prefStore, IPreferenceConstants.PREF_DEFAULT_FONT);
-			nodeFontStyle.setFontName(fontData.getName());
-			nodeFontStyle.setFontHeight(fontData.getHeight());
-			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
-			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
-			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter.getColor(prefStore,
-					IPreferenceConstants.PREF_FONT_COLOR);
-			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB).intValue());
-		}
-		Node label5008 = createLabel(node, McpMM.diagram.part.McpMMVisualIDRegistry
-				.getType(McpMM.diagram.edit.parts.TareaRecepcionContextoNombreTareaEditPart.VISUAL_ID));
-		createCompartment(node,
-				McpMM.diagram.part.McpMMVisualIDRegistry.getType(
-						McpMM.diagram.edit.parts.TareaRecepcionContextoTareaRecepcionContextoAccionCompartmentEditPart.VISUAL_ID),
-				true, false, true, true);
-		return node;
-	}
-
-	/**
-	* @generated
-	*/
-	public Node createTareaServerMCP_3010(EObject domainElement, View containerView, int index, boolean persisted,
-			PreferencesHint preferencesHint) {
-		Node node = NotationFactory.eINSTANCE.createNode();
-		node.getStyles().add(NotationFactory.eINSTANCE.createDescriptionStyle());
-		node.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
-		node.getStyles().add(NotationFactory.eINSTANCE.createLineStyle());
-		node.getStyles().add(NotationFactory.eINSTANCE.createHintedDiagramLinkStyle());
-		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
-		node.setType(McpMM.diagram.part.McpMMVisualIDRegistry
-				.getType(McpMM.diagram.edit.parts.TareaServerMCPEditPart.VISUAL_ID));
-		ViewUtil.insertChildView(containerView, node, index, persisted);
-		node.setElement(domainElement);
-		// initializeFromPreferences 
-		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
-
-		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
-				IPreferenceConstants.PREF_LINE_COLOR);
-		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE.getLineStyle_LineColor(),
-				FigureUtilities.RGBToInteger(lineRGB));
-		FontStyle nodeFontStyle = (FontStyle) node.getStyle(NotationPackage.Literals.FONT_STYLE);
-		if (nodeFontStyle != null) {
-			FontData fontData = PreferenceConverter.getFontData(prefStore, IPreferenceConstants.PREF_DEFAULT_FONT);
-			nodeFontStyle.setFontName(fontData.getName());
-			nodeFontStyle.setFontHeight(fontData.getHeight());
-			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
-			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
-			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter.getColor(prefStore,
-					IPreferenceConstants.PREF_FONT_COLOR);
-			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB).intValue());
-		}
-		Node label5009 = createLabel(node, McpMM.diagram.part.McpMMVisualIDRegistry
-				.getType(McpMM.diagram.edit.parts.TareaServerMCPNombreTareaEditPart.VISUAL_ID));
-		createCompartment(node,
-				McpMM.diagram.part.McpMMVisualIDRegistry.getType(
-						McpMM.diagram.edit.parts.TareaServerMCPTareaServerMCPAccionCompartmentEditPart.VISUAL_ID),
-				true, false, true, true);
-		return node;
-	}
-
-	/**
-	* @generated
-	*/
-	public Node createInicio_3011(EObject domainElement, View containerView, int index, boolean persisted,
-			PreferencesHint preferencesHint) {
-		Node node = NotationFactory.eINSTANCE.createNode();
-		node.getStyles().add(NotationFactory.eINSTANCE.createDescriptionStyle());
-		node.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
-		node.getStyles().add(NotationFactory.eINSTANCE.createLineStyle());
-		node.getStyles().add(NotationFactory.eINSTANCE.createHintedDiagramLinkStyle());
-		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
-		node.setType(
-				McpMM.diagram.part.McpMMVisualIDRegistry.getType(McpMM.diagram.edit.parts.InicioEditPart.VISUAL_ID));
-		ViewUtil.insertChildView(containerView, node, index, persisted);
-		node.setElement(domainElement);
-		// initializeFromPreferences 
-		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
-
-		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
-				IPreferenceConstants.PREF_LINE_COLOR);
-		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE.getLineStyle_LineColor(),
-				FigureUtilities.RGBToInteger(lineRGB));
-		FontStyle nodeFontStyle = (FontStyle) node.getStyle(NotationPackage.Literals.FONT_STYLE);
-		if (nodeFontStyle != null) {
-			FontData fontData = PreferenceConverter.getFontData(prefStore, IPreferenceConstants.PREF_DEFAULT_FONT);
-			nodeFontStyle.setFontName(fontData.getName());
-			nodeFontStyle.setFontHeight(fontData.getHeight());
-			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
-			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
-			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter.getColor(prefStore,
-					IPreferenceConstants.PREF_FONT_COLOR);
-			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB).intValue());
-		}
-		Node label5010 = createLabel(node, McpMM.diagram.part.McpMMVisualIDRegistry
-				.getType(McpMM.diagram.edit.parts.InicioNombreTareaEditPart.VISUAL_ID));
-		createCompartment(node,
-				McpMM.diagram.part.McpMMVisualIDRegistry
-						.getType(McpMM.diagram.edit.parts.InicioInicioAccionCompartmentEditPart.VISUAL_ID),
-				true, false, true, true);
-		return node;
-	}
-
-	/**
-	* @generated
-	*/
-	public Node createFinal_3012(EObject domainElement, View containerView, int index, boolean persisted,
-			PreferencesHint preferencesHint) {
-		Node node = NotationFactory.eINSTANCE.createNode();
-		node.getStyles().add(NotationFactory.eINSTANCE.createDescriptionStyle());
-		node.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
-		node.getStyles().add(NotationFactory.eINSTANCE.createLineStyle());
-		node.getStyles().add(NotationFactory.eINSTANCE.createHintedDiagramLinkStyle());
-		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
-		node.setType(
-				McpMM.diagram.part.McpMMVisualIDRegistry.getType(McpMM.diagram.edit.parts.FinalEditPart.VISUAL_ID));
-		ViewUtil.insertChildView(containerView, node, index, persisted);
-		node.setElement(domainElement);
-		// initializeFromPreferences 
-		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
-
-		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
-				IPreferenceConstants.PREF_LINE_COLOR);
-		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE.getLineStyle_LineColor(),
-				FigureUtilities.RGBToInteger(lineRGB));
-		FontStyle nodeFontStyle = (FontStyle) node.getStyle(NotationPackage.Literals.FONT_STYLE);
-		if (nodeFontStyle != null) {
-			FontData fontData = PreferenceConverter.getFontData(prefStore, IPreferenceConstants.PREF_DEFAULT_FONT);
-			nodeFontStyle.setFontName(fontData.getName());
-			nodeFontStyle.setFontHeight(fontData.getHeight());
-			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
-			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
-			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter.getColor(prefStore,
-					IPreferenceConstants.PREF_FONT_COLOR);
-			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB).intValue());
-		}
-		Node label5011 = createLabel(node, McpMM.diagram.part.McpMMVisualIDRegistry
-				.getType(McpMM.diagram.edit.parts.FinalNombreTareaEditPart.VISUAL_ID));
-		createCompartment(node,
-				McpMM.diagram.part.McpMMVisualIDRegistry
-						.getType(McpMM.diagram.edit.parts.FinalFinalAccionCompartmentEditPart.VISUAL_ID),
-				true, false, true, true);
-		return node;
-	}
-
-	/**
-	* @generated
-	*/
-	public Node createContexto_3013(EObject domainElement, View containerView, int index, boolean persisted,
+	public Node createContexto_3001(EObject domainElement, View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
 		Node node = NotationFactory.eINSTANCE.createNode();
 		node.getStyles().add(NotationFactory.eINSTANCE.createDescriptionStyle());
@@ -901,7 +446,7 @@ public class McpMMViewProvider extends AbstractProvider implements IViewProvider
 					IPreferenceConstants.PREF_FONT_COLOR);
 			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB).intValue());
 		}
-		Node label5014 = createLabel(node, McpMM.diagram.part.McpMMVisualIDRegistry
+		Node label5002 = createLabel(node, McpMM.diagram.part.McpMMVisualIDRegistry
 				.getType(McpMM.diagram.edit.parts.ContextoNombreContextoEditPart.VISUAL_ID));
 		createCompartment(node,
 				McpMM.diagram.part.McpMMVisualIDRegistry
@@ -913,7 +458,7 @@ public class McpMMViewProvider extends AbstractProvider implements IViewProvider
 	/**
 	* @generated
 	*/
-	public Node createPropiedad_3014(EObject domainElement, View containerView, int index, boolean persisted,
+	public Node createPropiedad_3002(EObject domainElement, View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
 		Shape node = NotationFactory.eINSTANCE.createShape();
 		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
@@ -943,7 +488,7 @@ public class McpMMViewProvider extends AbstractProvider implements IViewProvider
 				IPreferenceConstants.PREF_FILL_COLOR);
 		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE.getFillStyle_FillColor(),
 				FigureUtilities.RGBToInteger(fillRGB));
-		Node label5013 = createLabel(node, McpMM.diagram.part.McpMMVisualIDRegistry
+		Node label5001 = createLabel(node, McpMM.diagram.part.McpMMVisualIDRegistry
 				.getType(McpMM.diagram.edit.parts.PropiedadNombrePropiedadEditPart.VISUAL_ID));
 		return node;
 	}
@@ -951,7 +496,7 @@ public class McpMMViewProvider extends AbstractProvider implements IViewProvider
 	/**
 	* @generated
 	*/
-	public Node createOperacionMCP_3015(EObject domainElement, View containerView, int index, boolean persisted,
+	public Node createOperacionMCP_3003(EObject domainElement, View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
 		Shape node = NotationFactory.eINSTANCE.createShape();
 		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
@@ -981,7 +526,7 @@ public class McpMMViewProvider extends AbstractProvider implements IViewProvider
 				IPreferenceConstants.PREF_FILL_COLOR);
 		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE.getFillStyle_FillColor(),
 				FigureUtilities.RGBToInteger(fillRGB));
-		Node label5016 = createLabel(node, McpMM.diagram.part.McpMMVisualIDRegistry
+		Node label5004 = createLabel(node, McpMM.diagram.part.McpMMVisualIDRegistry
 				.getType(McpMM.diagram.edit.parts.OperacionMCPNombreOperacionEditPart.VISUAL_ID));
 		return node;
 	}
@@ -989,7 +534,506 @@ public class McpMMViewProvider extends AbstractProvider implements IViewProvider
 	/**
 	* @generated
 	*/
-	public Edge createTareaSigue_4001(View containerView, int index, boolean persisted,
+	public Node createTareaTransformacionDatos_3004(EObject domainElement, View containerView, int index,
+			boolean persisted, PreferencesHint preferencesHint) {
+		Node node = NotationFactory.eINSTANCE.createNode();
+		node.getStyles().add(NotationFactory.eINSTANCE.createDescriptionStyle());
+		node.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
+		node.getStyles().add(NotationFactory.eINSTANCE.createLineStyle());
+		node.getStyles().add(NotationFactory.eINSTANCE.createHintedDiagramLinkStyle());
+		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
+		node.setType(McpMM.diagram.part.McpMMVisualIDRegistry
+				.getType(McpMM.diagram.edit.parts.TareaTransformacionDatosEditPart.VISUAL_ID));
+		ViewUtil.insertChildView(containerView, node, index, persisted);
+		node.setElement(domainElement);
+		// initializeFromPreferences 
+		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
+
+		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
+				IPreferenceConstants.PREF_LINE_COLOR);
+		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE.getLineStyle_LineColor(),
+				FigureUtilities.RGBToInteger(lineRGB));
+		FontStyle nodeFontStyle = (FontStyle) node.getStyle(NotationPackage.Literals.FONT_STYLE);
+		if (nodeFontStyle != null) {
+			FontData fontData = PreferenceConverter.getFontData(prefStore, IPreferenceConstants.PREF_DEFAULT_FONT);
+			nodeFontStyle.setFontName(fontData.getName());
+			nodeFontStyle.setFontHeight(fontData.getHeight());
+			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
+			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
+			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter.getColor(prefStore,
+					IPreferenceConstants.PREF_FONT_COLOR);
+			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB).intValue());
+		}
+		Node label5008 = createLabel(node, McpMM.diagram.part.McpMMVisualIDRegistry
+				.getType(McpMM.diagram.edit.parts.TareaTransformacionDatosNombreTareaEditPart.VISUAL_ID));
+		createCompartment(node,
+				McpMM.diagram.part.McpMMVisualIDRegistry.getType(
+						McpMM.diagram.edit.parts.TareaTransformacionDatosTareaTransformacionDatosAccionCompartmentEditPart.VISUAL_ID),
+				true, false, true, true);
+		return node;
+	}
+
+	/**
+	* @generated
+	*/
+	public Node createEscritura_3005(EObject domainElement, View containerView, int index, boolean persisted,
+			PreferencesHint preferencesHint) {
+		Shape node = NotationFactory.eINSTANCE.createShape();
+		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
+		node.setType(
+				McpMM.diagram.part.McpMMVisualIDRegistry.getType(McpMM.diagram.edit.parts.EscrituraEditPart.VISUAL_ID));
+		ViewUtil.insertChildView(containerView, node, index, persisted);
+		node.setElement(domainElement);
+		// initializeFromPreferences 
+		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
+
+		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
+				IPreferenceConstants.PREF_LINE_COLOR);
+		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE.getLineStyle_LineColor(),
+				FigureUtilities.RGBToInteger(lineRGB));
+		FontStyle nodeFontStyle = (FontStyle) node.getStyle(NotationPackage.Literals.FONT_STYLE);
+		if (nodeFontStyle != null) {
+			FontData fontData = PreferenceConverter.getFontData(prefStore, IPreferenceConstants.PREF_DEFAULT_FONT);
+			nodeFontStyle.setFontName(fontData.getName());
+			nodeFontStyle.setFontHeight(fontData.getHeight());
+			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
+			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
+			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter.getColor(prefStore,
+					IPreferenceConstants.PREF_FONT_COLOR);
+			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB).intValue());
+		}
+		org.eclipse.swt.graphics.RGB fillRGB = PreferenceConverter.getColor(prefStore,
+				IPreferenceConstants.PREF_FILL_COLOR);
+		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE.getFillStyle_FillColor(),
+				FigureUtilities.RGBToInteger(fillRGB));
+		Node label5006 = createLabel(node, McpMM.diagram.part.McpMMVisualIDRegistry
+				.getType(McpMM.diagram.edit.parts.EscrituraNombreAccionEditPart.VISUAL_ID));
+		return node;
+	}
+
+	/**
+	* @generated
+	*/
+	public Node createLectura_3006(EObject domainElement, View containerView, int index, boolean persisted,
+			PreferencesHint preferencesHint) {
+		Shape node = NotationFactory.eINSTANCE.createShape();
+		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
+		node.setType(
+				McpMM.diagram.part.McpMMVisualIDRegistry.getType(McpMM.diagram.edit.parts.LecturaEditPart.VISUAL_ID));
+		ViewUtil.insertChildView(containerView, node, index, persisted);
+		node.setElement(domainElement);
+		// initializeFromPreferences 
+		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
+
+		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
+				IPreferenceConstants.PREF_LINE_COLOR);
+		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE.getLineStyle_LineColor(),
+				FigureUtilities.RGBToInteger(lineRGB));
+		FontStyle nodeFontStyle = (FontStyle) node.getStyle(NotationPackage.Literals.FONT_STYLE);
+		if (nodeFontStyle != null) {
+			FontData fontData = PreferenceConverter.getFontData(prefStore, IPreferenceConstants.PREF_DEFAULT_FONT);
+			nodeFontStyle.setFontName(fontData.getName());
+			nodeFontStyle.setFontHeight(fontData.getHeight());
+			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
+			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
+			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter.getColor(prefStore,
+					IPreferenceConstants.PREF_FONT_COLOR);
+			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB).intValue());
+		}
+		org.eclipse.swt.graphics.RGB fillRGB = PreferenceConverter.getColor(prefStore,
+				IPreferenceConstants.PREF_FILL_COLOR);
+		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE.getFillStyle_FillColor(),
+				FigureUtilities.RGBToInteger(fillRGB));
+		Node label5007 = createLabel(node, McpMM.diagram.part.McpMMVisualIDRegistry
+				.getType(McpMM.diagram.edit.parts.LecturaNombreAccionEditPart.VISUAL_ID));
+		return node;
+	}
+
+	/**
+	* @generated
+	*/
+	public Node createTareaLLM_3007(EObject domainElement, View containerView, int index, boolean persisted,
+			PreferencesHint preferencesHint) {
+		Node node = NotationFactory.eINSTANCE.createNode();
+		node.getStyles().add(NotationFactory.eINSTANCE.createDescriptionStyle());
+		node.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
+		node.getStyles().add(NotationFactory.eINSTANCE.createLineStyle());
+		node.getStyles().add(NotationFactory.eINSTANCE.createHintedDiagramLinkStyle());
+		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
+		node.setType(
+				McpMM.diagram.part.McpMMVisualIDRegistry.getType(McpMM.diagram.edit.parts.TareaLLMEditPart.VISUAL_ID));
+		ViewUtil.insertChildView(containerView, node, index, persisted);
+		node.setElement(domainElement);
+		// initializeFromPreferences 
+		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
+
+		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
+				IPreferenceConstants.PREF_LINE_COLOR);
+		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE.getLineStyle_LineColor(),
+				FigureUtilities.RGBToInteger(lineRGB));
+		FontStyle nodeFontStyle = (FontStyle) node.getStyle(NotationPackage.Literals.FONT_STYLE);
+		if (nodeFontStyle != null) {
+			FontData fontData = PreferenceConverter.getFontData(prefStore, IPreferenceConstants.PREF_DEFAULT_FONT);
+			nodeFontStyle.setFontName(fontData.getName());
+			nodeFontStyle.setFontHeight(fontData.getHeight());
+			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
+			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
+			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter.getColor(prefStore,
+					IPreferenceConstants.PREF_FONT_COLOR);
+			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB).intValue());
+		}
+		Node label5009 = createLabel(node, McpMM.diagram.part.McpMMVisualIDRegistry
+				.getType(McpMM.diagram.edit.parts.TareaLLMNombreTareaEditPart.VISUAL_ID));
+		createCompartment(node,
+				McpMM.diagram.part.McpMMVisualIDRegistry
+						.getType(McpMM.diagram.edit.parts.TareaLLMTareaLLMAccionCompartmentEditPart.VISUAL_ID),
+				true, false, true, true);
+		return node;
+	}
+
+	/**
+	* @generated
+	*/
+	public Node createTareaUsuario_3008(EObject domainElement, View containerView, int index, boolean persisted,
+			PreferencesHint preferencesHint) {
+		Node node = NotationFactory.eINSTANCE.createNode();
+		node.getStyles().add(NotationFactory.eINSTANCE.createDescriptionStyle());
+		node.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
+		node.getStyles().add(NotationFactory.eINSTANCE.createLineStyle());
+		node.getStyles().add(NotationFactory.eINSTANCE.createHintedDiagramLinkStyle());
+		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
+		node.setType(McpMM.diagram.part.McpMMVisualIDRegistry
+				.getType(McpMM.diagram.edit.parts.TareaUsuarioEditPart.VISUAL_ID));
+		ViewUtil.insertChildView(containerView, node, index, persisted);
+		node.setElement(domainElement);
+		// initializeFromPreferences 
+		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
+
+		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
+				IPreferenceConstants.PREF_LINE_COLOR);
+		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE.getLineStyle_LineColor(),
+				FigureUtilities.RGBToInteger(lineRGB));
+		FontStyle nodeFontStyle = (FontStyle) node.getStyle(NotationPackage.Literals.FONT_STYLE);
+		if (nodeFontStyle != null) {
+			FontData fontData = PreferenceConverter.getFontData(prefStore, IPreferenceConstants.PREF_DEFAULT_FONT);
+			nodeFontStyle.setFontName(fontData.getName());
+			nodeFontStyle.setFontHeight(fontData.getHeight());
+			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
+			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
+			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter.getColor(prefStore,
+					IPreferenceConstants.PREF_FONT_COLOR);
+			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB).intValue());
+		}
+		Node label5010 = createLabel(node, McpMM.diagram.part.McpMMVisualIDRegistry
+				.getType(McpMM.diagram.edit.parts.TareaUsuarioNombreTareaEditPart.VISUAL_ID));
+		createCompartment(node,
+				McpMM.diagram.part.McpMMVisualIDRegistry
+						.getType(McpMM.diagram.edit.parts.TareaUsuarioTareaUsuarioAccionCompartmentEditPart.VISUAL_ID),
+				true, false, true, true);
+		return node;
+	}
+
+	/**
+	* @generated
+	*/
+	public Node createTareaAnalisis_3009(EObject domainElement, View containerView, int index, boolean persisted,
+			PreferencesHint preferencesHint) {
+		Node node = NotationFactory.eINSTANCE.createNode();
+		node.getStyles().add(NotationFactory.eINSTANCE.createDescriptionStyle());
+		node.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
+		node.getStyles().add(NotationFactory.eINSTANCE.createLineStyle());
+		node.getStyles().add(NotationFactory.eINSTANCE.createHintedDiagramLinkStyle());
+		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
+		node.setType(McpMM.diagram.part.McpMMVisualIDRegistry
+				.getType(McpMM.diagram.edit.parts.TareaAnalisisEditPart.VISUAL_ID));
+		ViewUtil.insertChildView(containerView, node, index, persisted);
+		node.setElement(domainElement);
+		// initializeFromPreferences 
+		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
+
+		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
+				IPreferenceConstants.PREF_LINE_COLOR);
+		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE.getLineStyle_LineColor(),
+				FigureUtilities.RGBToInteger(lineRGB));
+		FontStyle nodeFontStyle = (FontStyle) node.getStyle(NotationPackage.Literals.FONT_STYLE);
+		if (nodeFontStyle != null) {
+			FontData fontData = PreferenceConverter.getFontData(prefStore, IPreferenceConstants.PREF_DEFAULT_FONT);
+			nodeFontStyle.setFontName(fontData.getName());
+			nodeFontStyle.setFontHeight(fontData.getHeight());
+			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
+			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
+			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter.getColor(prefStore,
+					IPreferenceConstants.PREF_FONT_COLOR);
+			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB).intValue());
+		}
+		Node label5011 = createLabel(node, McpMM.diagram.part.McpMMVisualIDRegistry
+				.getType(McpMM.diagram.edit.parts.TareaAnalisisNombreTareaEditPart.VISUAL_ID));
+		createCompartment(node,
+				McpMM.diagram.part.McpMMVisualIDRegistry.getType(
+						McpMM.diagram.edit.parts.TareaAnalisisTareaAnalisisAccionCompartmentEditPart.VISUAL_ID),
+				true, false, true, true);
+		return node;
+	}
+
+	/**
+	* @generated
+	*/
+	public Node createTareaEnvioContexto_3010(EObject domainElement, View containerView, int index, boolean persisted,
+			PreferencesHint preferencesHint) {
+		Node node = NotationFactory.eINSTANCE.createNode();
+		node.getStyles().add(NotationFactory.eINSTANCE.createDescriptionStyle());
+		node.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
+		node.getStyles().add(NotationFactory.eINSTANCE.createLineStyle());
+		node.getStyles().add(NotationFactory.eINSTANCE.createHintedDiagramLinkStyle());
+		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
+		node.setType(McpMM.diagram.part.McpMMVisualIDRegistry
+				.getType(McpMM.diagram.edit.parts.TareaEnvioContextoEditPart.VISUAL_ID));
+		ViewUtil.insertChildView(containerView, node, index, persisted);
+		node.setElement(domainElement);
+		// initializeFromPreferences 
+		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
+
+		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
+				IPreferenceConstants.PREF_LINE_COLOR);
+		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE.getLineStyle_LineColor(),
+				FigureUtilities.RGBToInteger(lineRGB));
+		FontStyle nodeFontStyle = (FontStyle) node.getStyle(NotationPackage.Literals.FONT_STYLE);
+		if (nodeFontStyle != null) {
+			FontData fontData = PreferenceConverter.getFontData(prefStore, IPreferenceConstants.PREF_DEFAULT_FONT);
+			nodeFontStyle.setFontName(fontData.getName());
+			nodeFontStyle.setFontHeight(fontData.getHeight());
+			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
+			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
+			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter.getColor(prefStore,
+					IPreferenceConstants.PREF_FONT_COLOR);
+			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB).intValue());
+		}
+		Node label5012 = createLabel(node, McpMM.diagram.part.McpMMVisualIDRegistry
+				.getType(McpMM.diagram.edit.parts.TareaEnvioContextoNombreTareaEditPart.VISUAL_ID));
+		createCompartment(node,
+				McpMM.diagram.part.McpMMVisualIDRegistry.getType(
+						McpMM.diagram.edit.parts.TareaEnvioContextoTareaEnvioContextoAccionCompartmentEditPart.VISUAL_ID),
+				true, false, true, true);
+		return node;
+	}
+
+	/**
+	* @generated
+	*/
+	public Node createTareaRecepcionContexto_3011(EObject domainElement, View containerView, int index,
+			boolean persisted, PreferencesHint preferencesHint) {
+		Node node = NotationFactory.eINSTANCE.createNode();
+		node.getStyles().add(NotationFactory.eINSTANCE.createDescriptionStyle());
+		node.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
+		node.getStyles().add(NotationFactory.eINSTANCE.createLineStyle());
+		node.getStyles().add(NotationFactory.eINSTANCE.createHintedDiagramLinkStyle());
+		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
+		node.setType(McpMM.diagram.part.McpMMVisualIDRegistry
+				.getType(McpMM.diagram.edit.parts.TareaRecepcionContextoEditPart.VISUAL_ID));
+		ViewUtil.insertChildView(containerView, node, index, persisted);
+		node.setElement(domainElement);
+		// initializeFromPreferences 
+		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
+
+		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
+				IPreferenceConstants.PREF_LINE_COLOR);
+		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE.getLineStyle_LineColor(),
+				FigureUtilities.RGBToInteger(lineRGB));
+		FontStyle nodeFontStyle = (FontStyle) node.getStyle(NotationPackage.Literals.FONT_STYLE);
+		if (nodeFontStyle != null) {
+			FontData fontData = PreferenceConverter.getFontData(prefStore, IPreferenceConstants.PREF_DEFAULT_FONT);
+			nodeFontStyle.setFontName(fontData.getName());
+			nodeFontStyle.setFontHeight(fontData.getHeight());
+			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
+			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
+			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter.getColor(prefStore,
+					IPreferenceConstants.PREF_FONT_COLOR);
+			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB).intValue());
+		}
+		Node label5013 = createLabel(node, McpMM.diagram.part.McpMMVisualIDRegistry
+				.getType(McpMM.diagram.edit.parts.TareaRecepcionContextoNombreTareaEditPart.VISUAL_ID));
+		createCompartment(node,
+				McpMM.diagram.part.McpMMVisualIDRegistry.getType(
+						McpMM.diagram.edit.parts.TareaRecepcionContextoTareaRecepcionContextoAccionCompartmentEditPart.VISUAL_ID),
+				true, false, true, true);
+		return node;
+	}
+
+	/**
+	* @generated
+	*/
+	public Node createTareaServerMCP_3012(EObject domainElement, View containerView, int index, boolean persisted,
+			PreferencesHint preferencesHint) {
+		Node node = NotationFactory.eINSTANCE.createNode();
+		node.getStyles().add(NotationFactory.eINSTANCE.createDescriptionStyle());
+		node.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
+		node.getStyles().add(NotationFactory.eINSTANCE.createLineStyle());
+		node.getStyles().add(NotationFactory.eINSTANCE.createHintedDiagramLinkStyle());
+		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
+		node.setType(McpMM.diagram.part.McpMMVisualIDRegistry
+				.getType(McpMM.diagram.edit.parts.TareaServerMCPEditPart.VISUAL_ID));
+		ViewUtil.insertChildView(containerView, node, index, persisted);
+		node.setElement(domainElement);
+		// initializeFromPreferences 
+		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
+
+		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
+				IPreferenceConstants.PREF_LINE_COLOR);
+		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE.getLineStyle_LineColor(),
+				FigureUtilities.RGBToInteger(lineRGB));
+		FontStyle nodeFontStyle = (FontStyle) node.getStyle(NotationPackage.Literals.FONT_STYLE);
+		if (nodeFontStyle != null) {
+			FontData fontData = PreferenceConverter.getFontData(prefStore, IPreferenceConstants.PREF_DEFAULT_FONT);
+			nodeFontStyle.setFontName(fontData.getName());
+			nodeFontStyle.setFontHeight(fontData.getHeight());
+			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
+			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
+			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter.getColor(prefStore,
+					IPreferenceConstants.PREF_FONT_COLOR);
+			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB).intValue());
+		}
+		Node label5014 = createLabel(node, McpMM.diagram.part.McpMMVisualIDRegistry
+				.getType(McpMM.diagram.edit.parts.TareaServerMCPNombreTareaEditPart.VISUAL_ID));
+		createCompartment(node,
+				McpMM.diagram.part.McpMMVisualIDRegistry.getType(
+						McpMM.diagram.edit.parts.TareaServerMCPTareaServerMCPAccionCompartmentEditPart.VISUAL_ID),
+				true, false, true, true);
+		return node;
+	}
+
+	/**
+	* @generated
+	*/
+	public Node createInicio_3013(EObject domainElement, View containerView, int index, boolean persisted,
+			PreferencesHint preferencesHint) {
+		Node node = NotationFactory.eINSTANCE.createNode();
+		node.getStyles().add(NotationFactory.eINSTANCE.createDescriptionStyle());
+		node.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
+		node.getStyles().add(NotationFactory.eINSTANCE.createLineStyle());
+		node.getStyles().add(NotationFactory.eINSTANCE.createHintedDiagramLinkStyle());
+		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
+		node.setType(
+				McpMM.diagram.part.McpMMVisualIDRegistry.getType(McpMM.diagram.edit.parts.InicioEditPart.VISUAL_ID));
+		ViewUtil.insertChildView(containerView, node, index, persisted);
+		node.setElement(domainElement);
+		// initializeFromPreferences 
+		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
+
+		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
+				IPreferenceConstants.PREF_LINE_COLOR);
+		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE.getLineStyle_LineColor(),
+				FigureUtilities.RGBToInteger(lineRGB));
+		FontStyle nodeFontStyle = (FontStyle) node.getStyle(NotationPackage.Literals.FONT_STYLE);
+		if (nodeFontStyle != null) {
+			FontData fontData = PreferenceConverter.getFontData(prefStore, IPreferenceConstants.PREF_DEFAULT_FONT);
+			nodeFontStyle.setFontName(fontData.getName());
+			nodeFontStyle.setFontHeight(fontData.getHeight());
+			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
+			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
+			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter.getColor(prefStore,
+					IPreferenceConstants.PREF_FONT_COLOR);
+			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB).intValue());
+		}
+		Node label5015 = createLabel(node, McpMM.diagram.part.McpMMVisualIDRegistry
+				.getType(McpMM.diagram.edit.parts.InicioNombreTareaEditPart.VISUAL_ID));
+		createCompartment(node,
+				McpMM.diagram.part.McpMMVisualIDRegistry
+						.getType(McpMM.diagram.edit.parts.InicioInicioAccionCompartmentEditPart.VISUAL_ID),
+				true, false, true, true);
+		return node;
+	}
+
+	/**
+	* @generated
+	*/
+	public Node createFinal_3014(EObject domainElement, View containerView, int index, boolean persisted,
+			PreferencesHint preferencesHint) {
+		Node node = NotationFactory.eINSTANCE.createNode();
+		node.getStyles().add(NotationFactory.eINSTANCE.createDescriptionStyle());
+		node.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
+		node.getStyles().add(NotationFactory.eINSTANCE.createLineStyle());
+		node.getStyles().add(NotationFactory.eINSTANCE.createHintedDiagramLinkStyle());
+		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
+		node.setType(
+				McpMM.diagram.part.McpMMVisualIDRegistry.getType(McpMM.diagram.edit.parts.FinalEditPart.VISUAL_ID));
+		ViewUtil.insertChildView(containerView, node, index, persisted);
+		node.setElement(domainElement);
+		// initializeFromPreferences 
+		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
+
+		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
+				IPreferenceConstants.PREF_LINE_COLOR);
+		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE.getLineStyle_LineColor(),
+				FigureUtilities.RGBToInteger(lineRGB));
+		FontStyle nodeFontStyle = (FontStyle) node.getStyle(NotationPackage.Literals.FONT_STYLE);
+		if (nodeFontStyle != null) {
+			FontData fontData = PreferenceConverter.getFontData(prefStore, IPreferenceConstants.PREF_DEFAULT_FONT);
+			nodeFontStyle.setFontName(fontData.getName());
+			nodeFontStyle.setFontHeight(fontData.getHeight());
+			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
+			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
+			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter.getColor(prefStore,
+					IPreferenceConstants.PREF_FONT_COLOR);
+			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB).intValue());
+		}
+		Node label5016 = createLabel(node, McpMM.diagram.part.McpMMVisualIDRegistry
+				.getType(McpMM.diagram.edit.parts.FinalNombreTareaEditPart.VISUAL_ID));
+		createCompartment(node,
+				McpMM.diagram.part.McpMMVisualIDRegistry
+						.getType(McpMM.diagram.edit.parts.FinalFinalAccionCompartmentEditPart.VISUAL_ID),
+				true, false, true, true);
+		return node;
+	}
+
+	/**
+	* @generated
+	*/
+	public Edge createAgenteTareas_4001(View containerView, int index, boolean persisted,
+			PreferencesHint preferencesHint) {
+		Edge edge = NotationFactory.eINSTANCE.createEdge();
+		edge.getStyles().add(NotationFactory.eINSTANCE.createRoutingStyle());
+		edge.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
+		RelativeBendpoints bendpoints = NotationFactory.eINSTANCE.createRelativeBendpoints();
+		ArrayList<RelativeBendpoint> points = new ArrayList<RelativeBendpoint>(2);
+		points.add(new RelativeBendpoint());
+		points.add(new RelativeBendpoint());
+		bendpoints.setPoints(points);
+		edge.setBendpoints(bendpoints);
+		ViewUtil.insertChildView(containerView, edge, index, persisted);
+		edge.setType(McpMM.diagram.part.McpMMVisualIDRegistry
+				.getType(McpMM.diagram.edit.parts.AgenteTareasEditPart.VISUAL_ID));
+		edge.setElement(null);
+		// initializePreferences
+		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
+		FontStyle edgeFontStyle = (FontStyle) edge.getStyle(NotationPackage.Literals.FONT_STYLE);
+		if (edgeFontStyle != null) {
+			FontData fontData = PreferenceConverter.getFontData(prefStore, IPreferenceConstants.PREF_DEFAULT_FONT);
+			edgeFontStyle.setFontName(fontData.getName());
+			edgeFontStyle.setFontHeight(fontData.getHeight());
+			edgeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
+			edgeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
+			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter.getColor(prefStore,
+					IPreferenceConstants.PREF_FONT_COLOR);
+			edgeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB).intValue());
+		}
+		Routing routing = Routing.get(prefStore.getInt(IPreferenceConstants.PREF_LINE_STYLE));
+		if (routing != null) {
+			ViewUtil.setStructuralFeatureValue(edge, NotationPackage.eINSTANCE.getRoutingStyle_Routing(), routing);
+		}
+		Node label6001 = createLabel(edge, McpMM.diagram.part.McpMMVisualIDRegistry
+				.getType(McpMM.diagram.edit.parts.AgenteTareasExternalLabelEditPart.VISUAL_ID));
+		label6001.getStyles().add(NotationFactory.eINSTANCE.createDescriptionStyle());
+		label6001.setLayoutConstraint(NotationFactory.eINSTANCE.createLocation());
+		Location location6001 = (Location) label6001.getLayoutConstraint();
+		location6001.setX(0);
+		location6001.setY(40);
+		return edge;
+	}
+
+	/**
+	* @generated
+	*/
+	public Edge createTareaSigue_4002(View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
 		Edge edge = NotationFactory.eINSTANCE.createEdge();
 		edge.getStyles().add(NotationFactory.eINSTANCE.createRoutingStyle());
@@ -1021,20 +1065,20 @@ public class McpMMViewProvider extends AbstractProvider implements IViewProvider
 		if (routing != null) {
 			ViewUtil.setStructuralFeatureValue(edge, NotationPackage.eINSTANCE.getRoutingStyle_Routing(), routing);
 		}
-		Node label6001 = createLabel(edge, McpMM.diagram.part.McpMMVisualIDRegistry
+		Node label6002 = createLabel(edge, McpMM.diagram.part.McpMMVisualIDRegistry
 				.getType(McpMM.diagram.edit.parts.TareaSigueExternalLabelEditPart.VISUAL_ID));
-		label6001.getStyles().add(NotationFactory.eINSTANCE.createDescriptionStyle());
-		label6001.setLayoutConstraint(NotationFactory.eINSTANCE.createLocation());
-		Location location6001 = (Location) label6001.getLayoutConstraint();
-		location6001.setX(0);
-		location6001.setY(40);
+		label6002.getStyles().add(NotationFactory.eINSTANCE.createDescriptionStyle());
+		label6002.setLayoutConstraint(NotationFactory.eINSTANCE.createLocation());
+		Location location6002 = (Location) label6002.getLayoutConstraint();
+		location6002.setX(0);
+		location6002.setY(40);
 		return edge;
 	}
 
 	/**
 	* @generated
 	*/
-	public Edge createTareaAnalisisSigueElse_4002(View containerView, int index, boolean persisted,
+	public Edge createTareaAnalisisSigueElse_4003(View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
 		Connector edge = NotationFactory.eINSTANCE.createConnector();
 		edge.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
@@ -1070,20 +1114,20 @@ public class McpMMViewProvider extends AbstractProvider implements IViewProvider
 		if (routing != null) {
 			ViewUtil.setStructuralFeatureValue(edge, NotationPackage.eINSTANCE.getRoutingStyle_Routing(), routing);
 		}
-		Node label6002 = createLabel(edge, McpMM.diagram.part.McpMMVisualIDRegistry
+		Node label6003 = createLabel(edge, McpMM.diagram.part.McpMMVisualIDRegistry
 				.getType(McpMM.diagram.edit.parts.TareaAnalisisSigueElseExternalLabelEditPart.VISUAL_ID));
-		label6002.getStyles().add(NotationFactory.eINSTANCE.createDescriptionStyle());
-		label6002.setLayoutConstraint(NotationFactory.eINSTANCE.createLocation());
-		Location location6002 = (Location) label6002.getLayoutConstraint();
-		location6002.setX(0);
-		location6002.setY(40);
+		label6003.getStyles().add(NotationFactory.eINSTANCE.createDescriptionStyle());
+		label6003.setLayoutConstraint(NotationFactory.eINSTANCE.createLocation());
+		Location location6003 = (Location) label6003.getLayoutConstraint();
+		location6003.setX(0);
+		location6003.setY(40);
 		return edge;
 	}
 
 	/**
 	* @generated
 	*/
-	public Edge createTareaServerMCPEjecutaOperacion_4003(View containerView, int index, boolean persisted,
+	public Edge createTareaServerMCPEjecutaOperacion_4004(View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
 		Connector edge = NotationFactory.eINSTANCE.createConnector();
 		edge.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
@@ -1119,13 +1163,13 @@ public class McpMMViewProvider extends AbstractProvider implements IViewProvider
 		if (routing != null) {
 			ViewUtil.setStructuralFeatureValue(edge, NotationPackage.eINSTANCE.getRoutingStyle_Routing(), routing);
 		}
-		Node label6003 = createLabel(edge, McpMM.diagram.part.McpMMVisualIDRegistry
+		Node label6004 = createLabel(edge, McpMM.diagram.part.McpMMVisualIDRegistry
 				.getType(McpMM.diagram.edit.parts.TareaServerMCPEjecutaOperacionExternalLabelEditPart.VISUAL_ID));
-		label6003.getStyles().add(NotationFactory.eINSTANCE.createDescriptionStyle());
-		label6003.setLayoutConstraint(NotationFactory.eINSTANCE.createLocation());
-		Location location6003 = (Location) label6003.getLayoutConstraint();
-		location6003.setX(0);
-		location6003.setY(40);
+		label6004.getStyles().add(NotationFactory.eINSTANCE.createDescriptionStyle());
+		label6004.setLayoutConstraint(NotationFactory.eINSTANCE.createLocation());
+		Location location6004 = (Location) label6004.getLayoutConstraint();
+		location6004.setX(0);
+		location6004.setY(40);
 		return edge;
 	}
 

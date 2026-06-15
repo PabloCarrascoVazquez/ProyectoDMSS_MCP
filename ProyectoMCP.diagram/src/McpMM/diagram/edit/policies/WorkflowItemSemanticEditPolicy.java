@@ -27,7 +27,7 @@ public class WorkflowItemSemanticEditPolicy extends McpMM.diagram.edit.policies.
 	* @generated
 	*/
 	public WorkflowItemSemanticEditPolicy() {
-		super(McpMM.diagram.providers.McpMMElementTypes.Workflow_3001);
+		super(McpMM.diagram.providers.McpMMElementTypes.Workflow_2003);
 	}
 
 	/**
@@ -65,6 +65,15 @@ public class WorkflowItemSemanticEditPolicy extends McpMM.diagram.edit.policies.
 					case McpMM.diagram.edit.parts.TareaTransformacionDatosEditPart.VISUAL_ID:
 						for (Iterator<?> it = cnode.getTargetEdges().iterator(); it.hasNext();) {
 							Edge incomingLink = (Edge) it.next();
+							if (McpMM.diagram.part.McpMMVisualIDRegistry.getVisualID(
+									incomingLink) == McpMM.diagram.edit.parts.AgenteTareasEditPart.VISUAL_ID) {
+								DestroyReferenceRequest r = new DestroyReferenceRequest(
+										incomingLink.getSource().getElement(), null,
+										incomingLink.getTarget().getElement(), false);
+								cmd.add(new DestroyReferenceCommand(r));
+								cmd.add(new DeleteCommand(getEditingDomain(), incomingLink));
+								continue;
+							}
 							if (McpMM.diagram.part.McpMMVisualIDRegistry.getVisualID(
 									incomingLink) == McpMM.diagram.edit.parts.TareaSigueEditPart.VISUAL_ID) {
 								DestroyReferenceRequest r = new DestroyReferenceRequest(
@@ -105,6 +114,15 @@ public class WorkflowItemSemanticEditPolicy extends McpMM.diagram.edit.policies.
 						for (Iterator<?> it = cnode.getTargetEdges().iterator(); it.hasNext();) {
 							Edge incomingLink = (Edge) it.next();
 							if (McpMM.diagram.part.McpMMVisualIDRegistry.getVisualID(
+									incomingLink) == McpMM.diagram.edit.parts.AgenteTareasEditPart.VISUAL_ID) {
+								DestroyReferenceRequest r = new DestroyReferenceRequest(
+										incomingLink.getSource().getElement(), null,
+										incomingLink.getTarget().getElement(), false);
+								cmd.add(new DestroyReferenceCommand(r));
+								cmd.add(new DeleteCommand(getEditingDomain(), incomingLink));
+								continue;
+							}
+							if (McpMM.diagram.part.McpMMVisualIDRegistry.getVisualID(
 									incomingLink) == McpMM.diagram.edit.parts.TareaSigueEditPart.VISUAL_ID) {
 								DestroyReferenceRequest r = new DestroyReferenceRequest(
 										incomingLink.getSource().getElement(), null,
@@ -144,6 +162,15 @@ public class WorkflowItemSemanticEditPolicy extends McpMM.diagram.edit.policies.
 						for (Iterator<?> it = cnode.getTargetEdges().iterator(); it.hasNext();) {
 							Edge incomingLink = (Edge) it.next();
 							if (McpMM.diagram.part.McpMMVisualIDRegistry.getVisualID(
+									incomingLink) == McpMM.diagram.edit.parts.AgenteTareasEditPart.VISUAL_ID) {
+								DestroyReferenceRequest r = new DestroyReferenceRequest(
+										incomingLink.getSource().getElement(), null,
+										incomingLink.getTarget().getElement(), false);
+								cmd.add(new DestroyReferenceCommand(r));
+								cmd.add(new DeleteCommand(getEditingDomain(), incomingLink));
+								continue;
+							}
+							if (McpMM.diagram.part.McpMMVisualIDRegistry.getVisualID(
 									incomingLink) == McpMM.diagram.edit.parts.TareaSigueEditPart.VISUAL_ID) {
 								DestroyReferenceRequest r = new DestroyReferenceRequest(
 										incomingLink.getSource().getElement(), null,
@@ -182,6 +209,15 @@ public class WorkflowItemSemanticEditPolicy extends McpMM.diagram.edit.policies.
 					case McpMM.diagram.edit.parts.TareaAnalisisEditPart.VISUAL_ID:
 						for (Iterator<?> it = cnode.getTargetEdges().iterator(); it.hasNext();) {
 							Edge incomingLink = (Edge) it.next();
+							if (McpMM.diagram.part.McpMMVisualIDRegistry.getVisualID(
+									incomingLink) == McpMM.diagram.edit.parts.AgenteTareasEditPart.VISUAL_ID) {
+								DestroyReferenceRequest r = new DestroyReferenceRequest(
+										incomingLink.getSource().getElement(), null,
+										incomingLink.getTarget().getElement(), false);
+								cmd.add(new DestroyReferenceCommand(r));
+								cmd.add(new DeleteCommand(getEditingDomain(), incomingLink));
+								continue;
+							}
 							if (McpMM.diagram.part.McpMMVisualIDRegistry.getVisualID(
 									incomingLink) == McpMM.diagram.edit.parts.TareaSigueEditPart.VISUAL_ID) {
 								DestroyReferenceRequest r = new DestroyReferenceRequest(
@@ -231,6 +267,15 @@ public class WorkflowItemSemanticEditPolicy extends McpMM.diagram.edit.policies.
 						for (Iterator<?> it = cnode.getTargetEdges().iterator(); it.hasNext();) {
 							Edge incomingLink = (Edge) it.next();
 							if (McpMM.diagram.part.McpMMVisualIDRegistry.getVisualID(
+									incomingLink) == McpMM.diagram.edit.parts.AgenteTareasEditPart.VISUAL_ID) {
+								DestroyReferenceRequest r = new DestroyReferenceRequest(
+										incomingLink.getSource().getElement(), null,
+										incomingLink.getTarget().getElement(), false);
+								cmd.add(new DestroyReferenceCommand(r));
+								cmd.add(new DeleteCommand(getEditingDomain(), incomingLink));
+								continue;
+							}
+							if (McpMM.diagram.part.McpMMVisualIDRegistry.getVisualID(
 									incomingLink) == McpMM.diagram.edit.parts.TareaSigueEditPart.VISUAL_ID) {
 								DestroyReferenceRequest r = new DestroyReferenceRequest(
 										incomingLink.getSource().getElement(), null,
@@ -270,6 +315,15 @@ public class WorkflowItemSemanticEditPolicy extends McpMM.diagram.edit.policies.
 						for (Iterator<?> it = cnode.getTargetEdges().iterator(); it.hasNext();) {
 							Edge incomingLink = (Edge) it.next();
 							if (McpMM.diagram.part.McpMMVisualIDRegistry.getVisualID(
+									incomingLink) == McpMM.diagram.edit.parts.AgenteTareasEditPart.VISUAL_ID) {
+								DestroyReferenceRequest r = new DestroyReferenceRequest(
+										incomingLink.getSource().getElement(), null,
+										incomingLink.getTarget().getElement(), false);
+								cmd.add(new DestroyReferenceCommand(r));
+								cmd.add(new DeleteCommand(getEditingDomain(), incomingLink));
+								continue;
+							}
+							if (McpMM.diagram.part.McpMMVisualIDRegistry.getVisualID(
 									incomingLink) == McpMM.diagram.edit.parts.TareaSigueEditPart.VISUAL_ID) {
 								DestroyReferenceRequest r = new DestroyReferenceRequest(
 										incomingLink.getSource().getElement(), null,
@@ -308,6 +362,15 @@ public class WorkflowItemSemanticEditPolicy extends McpMM.diagram.edit.policies.
 					case McpMM.diagram.edit.parts.TareaServerMCPEditPart.VISUAL_ID:
 						for (Iterator<?> it = cnode.getTargetEdges().iterator(); it.hasNext();) {
 							Edge incomingLink = (Edge) it.next();
+							if (McpMM.diagram.part.McpMMVisualIDRegistry.getVisualID(
+									incomingLink) == McpMM.diagram.edit.parts.AgenteTareasEditPart.VISUAL_ID) {
+								DestroyReferenceRequest r = new DestroyReferenceRequest(
+										incomingLink.getSource().getElement(), null,
+										incomingLink.getTarget().getElement(), false);
+								cmd.add(new DestroyReferenceCommand(r));
+								cmd.add(new DeleteCommand(getEditingDomain(), incomingLink));
+								continue;
+							}
 							if (McpMM.diagram.part.McpMMVisualIDRegistry.getVisualID(
 									incomingLink) == McpMM.diagram.edit.parts.TareaSigueEditPart.VISUAL_ID) {
 								DestroyReferenceRequest r = new DestroyReferenceRequest(

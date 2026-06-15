@@ -57,7 +57,7 @@ public class TareaUsuarioTareaUsuarioAccionCompartmentCanonicalEditPolicy extend
 		View viewObject = (View) getHost().getModel();
 		LinkedList<EObject> result = new LinkedList<EObject>();
 		List<McpMM.diagram.part.McpMMNodeDescriptor> childDescriptors = McpMM.diagram.part.McpMMDiagramUpdater
-				.getTareaUsuarioTareaUsuarioAccionCompartment_7006SemanticChildren(viewObject);
+				.getTareaUsuarioTareaUsuarioAccionCompartment_7007SemanticChildren(viewObject);
 		for (McpMM.diagram.part.McpMMNodeDescriptor d : childDescriptors) {
 			result.add(d.getModelElement());
 		}
@@ -89,7 +89,7 @@ public class TareaUsuarioTareaUsuarioAccionCompartmentCanonicalEditPolicy extend
 		}
 		LinkedList<IAdaptable> createdViews = new LinkedList<IAdaptable>();
 		List<McpMM.diagram.part.McpMMNodeDescriptor> childDescriptors = McpMM.diagram.part.McpMMDiagramUpdater
-				.getTareaUsuarioTareaUsuarioAccionCompartment_7006SemanticChildren((View) getHost().getModel());
+				.getTareaUsuarioTareaUsuarioAccionCompartment_7007SemanticChildren((View) getHost().getModel());
 		LinkedList<View> orphaned = new LinkedList<View>();
 		// we care to check only views we recognize as ours
 		LinkedList<View> knownViewChildren = new LinkedList<View>();

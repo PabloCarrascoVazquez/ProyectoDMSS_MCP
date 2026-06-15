@@ -57,7 +57,7 @@ public class TareaLLMTareaLLMAccionCompartmentCanonicalEditPolicy extends Canoni
 		View viewObject = (View) getHost().getModel();
 		LinkedList<EObject> result = new LinkedList<EObject>();
 		List<McpMM.diagram.part.McpMMNodeDescriptor> childDescriptors = McpMM.diagram.part.McpMMDiagramUpdater
-				.getTareaLLMTareaLLMAccionCompartment_7005SemanticChildren(viewObject);
+				.getTareaLLMTareaLLMAccionCompartment_7006SemanticChildren(viewObject);
 		for (McpMM.diagram.part.McpMMNodeDescriptor d : childDescriptors) {
 			result.add(d.getModelElement());
 		}
@@ -89,7 +89,7 @@ public class TareaLLMTareaLLMAccionCompartmentCanonicalEditPolicy extends Canoni
 		}
 		LinkedList<IAdaptable> createdViews = new LinkedList<IAdaptable>();
 		List<McpMM.diagram.part.McpMMNodeDescriptor> childDescriptors = McpMM.diagram.part.McpMMDiagramUpdater
-				.getTareaLLMTareaLLMAccionCompartment_7005SemanticChildren((View) getHost().getModel());
+				.getTareaLLMTareaLLMAccionCompartment_7006SemanticChildren((View) getHost().getModel());
 		LinkedList<View> orphaned = new LinkedList<View>();
 		// we care to check only views we recognize as ours
 		LinkedList<View> knownViewChildren = new LinkedList<View>();

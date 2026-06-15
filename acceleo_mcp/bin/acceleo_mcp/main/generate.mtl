@@ -33,7 +33,7 @@
         [else]
             <ul>
             [for (a : Agente | aService.agentes)]
-                <li><a href="agente_[i/].html" class="btn" style="margin-bottom: 10px;">Entrar como Agente [i/]</a> (Tareas asignadas: [a.flujo.tareas->size()/])</li>
+                <li><a href="agente_[i/].html" class="btn" style="margin-bottom: 10px;">Entrar como Agente [a.nombre/]</a> (Tareas asignadas: [a.tareas->size()/])</li>
             [/for]
             </ul>
         [/if]
@@ -49,21 +49,21 @@
     <html lang="es">
     <head>
         <meta charset="UTF-8">
-        <title>Panel Agente [i/]</title>
+        <title>Panel Agente [a.nombre/]</title>
         <style>
             body { font-family: sans-serif; max-width: 800px; margin: 20px auto; }
-            .btn { background: #3498db; color: white; padding: 10px 15px; text-decoration: none; border-radius: 5px; }
+            .btn { background: #3498db; color: white; padding: 10px 15px; text-decoration: none; border-radius: 5px; display: inline-block; }
             .task-list { margin-top: 20px; }
-            .task-item { padding: 10px; border: 1px solid #ddd; margin-bottom: 10px; border-radius: 5px; }
+            .task-item { padding: 15px; border: 1px solid #ddd; margin-bottom: 15px; border-radius: 5px; background: #f9f9f9; }
         </style>
     </head>
     <body>
-        <h1>Panel de Control - Agente [i/] ([a.nombre/])</h1>
+        <h1>Panel de Control - Agente: [a.nombre/]</h1>
         <a href="index.html" style="color: #e74c3c;">&larr; Volver al inicio</a>
         
         <div class="task-list">
-            <h2>Mis tareas en el flujo:</h2>
-            [for (t : Tarea | a.flujo.tareas)]
+            <h2>Mis tareas asignadas:</h2>
+            [for (t : TareaEjecutable | a.tareas)]
                 <div class="task-item">
                     <strong>[t.nombreTarea/]</strong> 
                     <br><br>
@@ -77,8 +77,8 @@
 [/for]
 
 [comment 3. GENERAR TODAS LAS VISTAS DE LAS TAREAS /]
-[for (a : Agente | aService.agentes)]
-    [for (t : Tarea | a.flujo.tareas)]
+[for (w : Workflow | aService.workflows)]
+    [for (t : Tarea | w.tareas)]
         [generateTaskView(t)/]
     [/for]
 [/for]
@@ -103,15 +103,13 @@
         .btn-secondary { background: #95a5a6; }
         .btn-danger { background: #e74c3c; }
         .box { border: 1px solid #ccc; padding: 15px; border-radius: 5px; margin-top: 15px; background: #fafafa; }
-        input { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px; }
+        input { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px; box-sizing: border-box; }
     </style>
 </head>
 <body>
     <div class="container">
         <a href="index.html" style="color: #7f8c8d; text-decoration: none;">&larr; Volver al Índice Principal</a>
         <h1>[t.nombreTarea/]</h1>
-
-        [comment LOGICA DE VISTAS POR TIPO DE TAREA /]
 
         [if (t.oclIsTypeOf(McpMM::Inicio))]
             <p>Este es el punto de inicio del flujo de trabajo.</p>
@@ -132,9 +130,9 @@
                     
                     [for (a : Accion | t.accion)]
                        [if (a.oclIsTypeOf(McpMM::Escritura))]
-                          <label><strong>[a.apunta.nombreContexto/]</strong>:</label><br>
-                          [for (p : Propiedad | a.apunta.propiedades)]
-                             <label>[p.nombrePropiedad/]:</label>
+                          <label><strong>Contexto: [a.apunta.nombreContexto/]</strong></label><br>
+                          [for (p : Propiedad | a.usa)]
+                             <label style="margin-top: 10px; display:block;">[p.nombrePropiedad/]:</label>
                              [if (p.tipoPropiedad.toString() = 'ARCHIVO')]
                                 <input type="file" name="[p.nombrePropiedad/]" 
                                        accept="[p.extensionPermitida/]" 
@@ -142,18 +140,17 @@
                              [else]
                                 <input type="text" name="[p.nombrePropiedad/]" placeholder="Ingrese [p.nombrePropiedad/]" required>
                              [/if]
-                             <br>
                           [/for]
                        [/if]
                     [/for]
 
                     [for (a : Accion | t.accion)]
                         [if (a.oclIsTypeOf(McpMM::Escritura))]
-                            [if (a.apunta.propiedades.versiones->notEmpty())]
+                            [if (a.usa->exists(p | p.versiones->notEmpty()))]
                                 <div class="box" style="font-size: 0.85em; color: #555; background-color: #f9f9f9; border-left: 3px solid #3498db;">
-                                    <h4 style="margin-top: 0;">Histórico de cambios para: [a.apunta.nombreContexto/]</h4>
+                                    <h4 style="margin-top: 0;">Histórico de cambios:</h4>
                                     <ul style="margin-bottom: 0; padding-left: 20px;">
-                                        [for (p : Propiedad | a.apunta.propiedades)]
+                                        [for (p : Propiedad | a.usa)]
                                             [for (v : VersionContexto | p.versiones)]
                                                 <li><em>[v.fechaModificacion/]</em> - <strong>[p.nombrePropiedad/]</strong> cambió de: <code>[v.valorAnterior/]</code></li>
                                             [/for]
@@ -182,8 +179,7 @@
                 <h3>Recepción de Peticiones</h3>
                 <p>Selecciona una petición de contexto pendiente para procesar:</p>
                 <form action="tarea_[t.sigue.nombreTarea.replaceAll(' ', '_')/].html">
-                    <label><input type="radio" name="req" required> Petición ID-001 (Alta Prioridad)</label><br>
-                    <label><input type="radio" name="req"> Petición ID-002</label><br><br>
+                    <label><input type="radio" name="req" required> Petición entrante del agente emisor</label><br><br>
                     <button type="submit" class="btn">Procesar Selección &rarr;</button>
                 </form>
             </div>
@@ -195,7 +191,7 @@
                 <p><strong>Contexto recibido:</strong> (Datos inyectados del paso anterior)</p>
                 <hr>
                 <h4>Resultado Simulado del Modelo:</h4>
-                <p style="font-style: italic; color: #555;">"Se han detectado 3 entidades. Confianza del análisis: 98%."</p>
+                <p style="font-style: italic; color: #555;">"Análisis completado en base al contexto proporcionado."</p>
                 <a href="tarea_[t.sigue.nombreTarea.replaceAll(' ', '_')/].html" class="btn">Continuar &rarr;</a>
             </div>
 
@@ -204,11 +200,11 @@
             <div style="display: flex; gap: 20px; margin-top: 15px;">
                 <div class="box" style="flex: 1; margin-top: 0;">
                     <h4>Entrada (Crudo)</h4>
-                    <pre><code><br>Nombre: Juan<br>Edad: 30<br>Activo: Si<br></code></pre>
+                    <p>Datos recogidos del contexto actual.</p>
                 </div>
                 <div class="box" style="flex: 1; margin-top: 0; background: #e8f8f5;">
                     <h4>Resultado (Transformado)</h4>
-                    <pre><code>{<br>  "nombre": "Juan",<br>  "edad": 30,<br>  "activo": true<br>}</code></pre>
+                    <p>Datos reformateados según la regla de transformación.</p>
                 </div>
             </div>
             <a href="tarea_[t.sigue.nombreTarea.replaceAll(' ', '_')/].html" class="btn">Aceptar Transformación &rarr;</a>
@@ -220,7 +216,6 @@
                 <p><em>Prompt de decisión: [t.oclAsType(McpMM::TareaAnalisis).prompt/]</em></p>
                 
                 <a href="tarea_[t.sigue.nombreTarea.replaceAll(' ', '_')/].html" class="btn" style="margin-right: 15px;">Sí (Ir por IF)</a>
-                
                 <a href="tarea_[t.oclAsType(McpMM::TareaAnalisis).sigueElse.nombreTarea.replaceAll(' ', '_')/].html" class="btn btn-danger">No (Ir por ELSE)</a>
             </div>
 

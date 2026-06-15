@@ -23,7 +23,7 @@ public class ServerMCPServerMCPOperacionesCompartmentItemSemanticEditPolicy
 	* @generated
 	*/
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (McpMM.diagram.providers.McpMMElementTypes.OperacionMCP_3015 == req.getElementType()) {
+		if (McpMM.diagram.providers.McpMMElementTypes.OperacionMCP_3003 == req.getElementType()) {
 			return getGEFWrapper(new McpMM.diagram.edit.commands.OperacionMCPCreateCommand(req));
 		}
 		return super.getCreateCommand(req);

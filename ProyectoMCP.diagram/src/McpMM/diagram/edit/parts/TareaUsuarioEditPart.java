@@ -38,7 +38,7 @@ public class TareaUsuarioEditPart extends ShapeNodeEditPart {
 	/**
 	* @generated
 	*/
-	public static final int VISUAL_ID = 3006;
+	public static final int VISUAL_ID = 3008;
 
 	/**
 	* @generated
@@ -277,11 +277,11 @@ public class TareaUsuarioEditPart extends ShapeNodeEditPart {
 			CreateElementRequestAdapter adapter = ((CreateViewAndElementRequest) request).getViewAndElementDescriptor()
 					.getCreateElementRequestAdapter();
 			IElementType type = (IElementType) adapter.getAdapter(IElementType.class);
-			if (type == McpMM.diagram.providers.McpMMElementTypes.Escritura_3003) {
+			if (type == McpMM.diagram.providers.McpMMElementTypes.Escritura_3005) {
 				return getChildBySemanticHint(McpMM.diagram.part.McpMMVisualIDRegistry
 						.getType(McpMM.diagram.edit.parts.TareaUsuarioTareaUsuarioAccionCompartmentEditPart.VISUAL_ID));
 			}
-			if (type == McpMM.diagram.providers.McpMMElementTypes.Lectura_3004) {
+			if (type == McpMM.diagram.providers.McpMMElementTypes.Lectura_3006) {
 				return getChildBySemanticHint(McpMM.diagram.part.McpMMVisualIDRegistry
 						.getType(McpMM.diagram.edit.parts.TareaUsuarioTareaUsuarioAccionCompartmentEditPart.VISUAL_ID));
 			}

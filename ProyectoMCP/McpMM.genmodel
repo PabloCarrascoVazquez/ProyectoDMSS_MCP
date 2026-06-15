@@ -24,6 +24,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference McpMM.ecore#//ServiceMCP/agentes"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference McpMM.ecore#//ServiceMCP/servicios"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference McpMM.ecore#//ServiceMCP/servidores"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference McpMM.ecore#//ServiceMCP/workflows"/>
     </genClasses>
     <genClasses ecoreClass="McpMM.ecore#//ServerMCP">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute McpMM.ecore#//ServerMCP/nombreServer"/>
@@ -32,7 +33,7 @@
     <genClasses ecoreClass="McpMM.ecore#//Agente">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute McpMM.ecore#//Agente/nombre"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute McpMM.ecore#//Agente/rol"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference McpMM.ecore#//Agente/flujo"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference McpMM.ecore#//Agente/tareas"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference McpMM.ecore#//Agente/contextos"/>
     </genClasses>
     <genClasses ecoreClass="McpMM.ecore#//Workflow">
@@ -61,7 +62,9 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference McpMM.ecore#//Tarea/sigue"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference McpMM.ecore#//Tarea/precedeElse"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="McpMM.ecore#//TareaEjecutable"/>
+    <genClasses image="false" ecoreClass="McpMM.ecore#//TareaEjecutable">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference McpMM.ecore#//TareaEjecutable/ejecutadaPor"/>
+    </genClasses>
     <genClasses ecoreClass="McpMM.ecore#//Inicio"/>
     <genClasses ecoreClass="McpMM.ecore#//Final"/>
     <genClasses image="false" ecoreClass="McpMM.ecore#//Accion">

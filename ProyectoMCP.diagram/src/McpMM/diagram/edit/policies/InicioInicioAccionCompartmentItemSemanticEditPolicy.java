@@ -16,17 +16,17 @@ public class InicioInicioAccionCompartmentItemSemanticEditPolicy
 	* @generated
 	*/
 	public InicioInicioAccionCompartmentItemSemanticEditPolicy() {
-		super(McpMM.diagram.providers.McpMMElementTypes.Inicio_3011);
+		super(McpMM.diagram.providers.McpMMElementTypes.Inicio_3013);
 	}
 
 	/**
 	* @generated
 	*/
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (McpMM.diagram.providers.McpMMElementTypes.Escritura_3003 == req.getElementType()) {
+		if (McpMM.diagram.providers.McpMMElementTypes.Escritura_3005 == req.getElementType()) {
 			return getGEFWrapper(new McpMM.diagram.edit.commands.EscrituraCreateCommand(req));
 		}
-		if (McpMM.diagram.providers.McpMMElementTypes.Lectura_3004 == req.getElementType()) {
+		if (McpMM.diagram.providers.McpMMElementTypes.Lectura_3006 == req.getElementType()) {
 			return getGEFWrapper(new McpMM.diagram.edit.commands.LecturaCreateCommand(req));
 		}
 		return super.getCreateCommand(req);
