@@ -33,7 +33,7 @@
         [else]
             <ul>
             [for (a : Agente | aService.agentes)]
-                <li><a href="agente_[i/].html" class="btn" style="margin-bottom: 10px;">Entrar como Agente [a.nombre/]</a> (Tareas asignadas: [a.tareas->size()/])</li>
+                <li><a href="agente_[a.nombre/].html" class="btn" style="margin-bottom: 10px;">Entrar como Agente [a.nombre/]</a> (Tareas asignadas: [a.tareas->size()/])</li>
             [/for]
             </ul>
         [/if]
@@ -44,7 +44,7 @@
 
 [comment 2. GENERAR INDEX INDIVIDUAL POR AGENTE /]
 [for (a : Agente | aService.agentes)]
-    [file ('agente_' + i + '.html', false, 'UTF-8')]
+    [file ('agente_' + a.nombre + '.html', false, 'UTF-8')]
     <!DOCTYPE html>
     <html lang="es">
     <head>
@@ -82,6 +82,9 @@
         [generateTaskView(t)/]
     [/for]
 [/for]
+
+[comment 4. GENERAR SCRIPT DE BASE DE DATOS /]
+[generateSQL(aService)/]
 
 [/template]
 
@@ -233,4 +236,66 @@
 </body>
 </html>
 [/file]
+[/template]
+
+[comment ========================================================= /]
+[comment PLANTILLA SQL: Genera la estructura de la base de datos   /]
+[comment INCLUYE EXTENSIÓN 1: Tablas de Historial de Versiones     /]
+[comment ========================================================= /]
+[template public generateSQL(aService : ServiceMCP)]
+[file ('base_datos.sql', false, 'UTF-8')]
+-- Script de creación de Base de Datos para el servicio: [aService.nombreServicio/]
+-- Generado automáticamente por Acceleo
+
+[for (a : Agente | aService.agentes)]
+-- ==========================================
+-- Tablas de Contexto para el Agente: [a.nombre/]
+-- ==========================================
+[for (c : Contexto | a.contextos)]
+
+-- 1. Tabla Principal del Contexto
+CREATE TABLE IF NOT EXISTS [c.nombreContexto.replaceAll(' ', '_')/] (
+    id_registro INT AUTO_INCREMENT PRIMARY KEY,
+[for (p : Propiedad | c.propiedades)]
+    [p.nombrePropiedad.replaceAll(' ', '_')/] [mapTipoSQL(p.tipoPropiedad)/][if (i < c.propiedades->size())],[/if]
+[/for]
+);
+
+-- 2. Tabla de Historial (EXTENSIÓN 1: VersionContexto)
+-- Almacena las modificaciones de las propiedades del contexto anterior
+CREATE TABLE IF NOT EXISTS [c.nombreContexto.replaceAll(' ', '_')/]_Historial (
+    id_version INT AUTO_INCREMENT PRIMARY KEY,
+    id_registro_contexto INT NOT NULL,
+    nombre_propiedad VARCHAR(255) NOT NULL,
+    valor_anterior TEXT,
+    fecha_modificacion VARCHAR(100),
+    FOREIGN KEY (id_registro_contexto) REFERENCES [c.nombreContexto.replaceAll(' ', '_')/](id_registro) ON DELETE CASCADE
+);
+
+[/for]
+[/for]
+[/file]
+[/template]
+
+[comment ========================================================= /]
+[comment Función auxiliar para mapear los tipos del modelo a SQL   /]
+[comment ========================================================= /]
+[template public mapTipoSQL(tipo : TipoContexto) post(trim())]
+[if (tipo.toString() = 'ENTERO')]
+    INT
+[elseif (tipo.toString() = 'CADENA')]
+    VARCHAR(255)
+[elseif (tipo.toString() = 'REAL')]
+    FLOAT
+[elseif (tipo.toString() = 'BOOLEANO')]
+    BOOLEAN
+[elseif (tipo.toString() = 'TEXTO_EXTENSO')]
+    TEXT
+[elseif (tipo.toString() = 'ARCHIVO')]
+    VARCHAR(500)
+[elseif (tipo.toString() = 'COLECCION_ARCHIVOS')]
+    TEXT
+[else]
+    VARCHAR(255)
+[/if]
 [/template]

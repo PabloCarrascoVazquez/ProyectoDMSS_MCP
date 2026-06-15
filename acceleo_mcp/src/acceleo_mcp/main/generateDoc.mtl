@@ -1,0 +1,72 @@
+[comment encoding = UTF-8 /]
+[module generateDoc('http://www.eclipse.org/emf/2002/Ecore')]
+
+[template public generateElement(anEPackage : EPackage)]
+[comment @main/]
+[file (anEPackage.name + '_Documentacion.html', false, 'UTF-8')]
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Documentación del Metamodelo: [anEPackage.name/]</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; color: #333; }
+        h1 { color: #2c3e50; border-bottom: 2px solid #3498db; }
+        h2 { background-color: #ecf0f1; padding: 10px; border-left: 5px solid #3498db; margin-top: 30px;}
+        .description { font-style: italic; color: #555; margin-bottom: 15px; }
+        .ocl { color: #c0392b; font-family: monospace; background: #fdf2e9; padding: 2px 5px; }
+        li { margin-bottom: 5px; }
+    </style>
+</head>
+<body>
+    <h1>Documentación Técnica del Lenguaje: [anEPackage.name/]</h1>
+    <p><strong>URI:</strong> [anEPackage.nsURI/]</p>
+    <p><strong>Prefijo:</strong> [anEPackage.nsPrefix/]</p>
+
+    [for (c : EClassifier | anEPackage.eClassifiers)]
+        [if (c.oclIsKindOf(ecore::EClass))]
+            <h2>Clase: [c.name/] [if (c.oclAsType(ecore::EClass).abstract)] <em>(Abstracta)</em> [/if]</h2>
+            
+            [comment 1. Extraer la descripción DSLDoc /]
+            [for (ann : EAnnotation | c.eAnnotations)]
+                [if (ann.source = 'DSLDoc')]
+                    <p class="description">[ann.details.value/]</p>
+                [/if]
+            [/for]
+
+            [comment 2. Listar Atributos y Referencias /]
+            <ul>
+            [for (feat : EStructuralFeature | c.oclAsType(ecore::EClass).eStructuralFeatures)]
+                <li>
+                    <strong>[feat.name/]</strong> : [feat.eType.name/] 
+                    ([feat.lowerBound/]..[if (feat.upperBound = -1)]*[else][feat.upperBound/][/if])
+                </li>
+            [/for]
+            </ul>
+
+            [comment 3. Extraer Reglas OCL /]
+            [for (ann : EAnnotation | c.eAnnotations)]
+                [if (ann.source = 'http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot')]
+                    <h4>Restricciones OCL:</h4>
+                    <ul>
+                    [for (detail : EStringToStringMapEntry | ann.details)]
+                        <li><strong>[detail.key/]:</strong> <span class="ocl">[detail.value/]</span></li>
+                    [/for]
+                    </ul>
+                [/if]
+            [/for]
+
+        [elseif (c.oclIsKindOf(ecore::EEnum))]
+            <h2 style="border-left-color: #27ae60;">Enumeración: [c.name/]</h2>
+            <ul>
+            [for (lit : EEnumLiteral | c.oclAsType(ecore::EEnum).eLiterals)]
+                <li><strong>[lit.name/]</strong> = [lit.value/]</li>
+            [/for]
+            </ul>
+        [/if]
+    [/for]
+
+</body>
+</html>
+[/file]
+[/template]
