@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Tarea: AnalizarDocumentos</title>
+    <title>Tarea: Recepcion1</title>
     <style>
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width: 800px; margin: 40px auto; padding: 20px; background: #f4f6f7; }
         .container { background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
@@ -17,16 +17,15 @@
 <body>
     <div class="container">
         <a href="index.html" style="color: #7f8c8d; text-decoration: none;">&larr; Volver al Índice Principal</a>
-        <h1>AnalizarDocumentos</h1>
+        <h1>Recepcion1</h1>
 
-            <div class="box" style="border-left: 4px solid #f39c12;">
-                <h3>Procesamiento por Inteligencia Artificial (LLM)</h3>
-                <p><strong>Prompt cargado:</strong> </p>
-                <p><strong>Contexto recibido:</strong> (Datos inyectados del paso anterior)</p>
-                <hr>
-                <h4>Resultado Simulado del Modelo:</h4>
-                <p style="font-style: italic; color: #555;">"Análisis completado en base al contexto proporcionado."</p>
-                <a href="tarea_RedactarInforme.html" class="btn">Continuar &rarr;</a>
+            <div class="box">
+                <h3>Recepción de Peticiones</h3>
+                <p>Selecciona una petición de contexto pendiente para procesar:</p>
+                <form action="tarea_If.html">
+                    <label><input type="radio" name="req" required> Petición entrante del agente emisor</label><br><br>
+                    <button type="submit" class="btn">Procesar Selección &rarr;</button>
+                </form>
             </div>
 
     </div>

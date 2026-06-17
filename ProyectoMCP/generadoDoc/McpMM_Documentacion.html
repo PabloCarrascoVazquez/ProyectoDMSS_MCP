@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Documentación del Metamodelo: McpMM</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; color: #333; }
+        h1 { color: #2c3e50; border-bottom: 2px solid #3498db; }
+        h2 { background-color: #ecf0f1; padding: 10px; border-left: 5px solid #3498db; margin-top: 30px;}
+        .description { font-style: italic; color: #555; margin-bottom: 15px; }
+        .ocl { color: #c0392b; font-family: monospace; background: #fdf2e9; padding: 2px 5px; }
+        li { margin-bottom: 5px; }
+    </style>
+</head>
+<body>
+    <h1>Documentación Técnica del Lenguaje: McpMM</h1>
+    <p><strong>URI:</strong> https://www.example.org/McpMM</p>
+    <p><strong>Prefijo:</strong> McpMM</p>
+
+            <h2>Clase: VersionContexto </h2>
+            
+
+            <ul>
+                <li>
+                    <strong>valorAnterior</strong> : EString 
+                    (0..1)
+                </li>
+                <li>
+                    <strong>fechaModificacion</strong> : EString 
+                    (0..1)
+                </li>
+                <li>
+                    <strong>propiedadAsociada</strong> : Propiedad 
+                    (0..1)
+                </li>
+            </ul>
+
+
+            <h2>Clase: ServiceMCP </h2>
+            
+                    <p class="description">Clase raíz que actúa como contenedor principal de todo el modelo de agentes y servicios.</p>
+
+            <ul>
+                <li>
+                    <strong>nombreServicio</strong> : EString 
+                    (0..1)
+                </li>
+                <li>
+                    <strong>agentes</strong> : Agente 
+                    (0..*)
+                </li>
+                <li>
+                    <strong>servicios</strong> : ServiceMCP 
+                    (0..*)
+                </li>
+                <li>
+                    <strong>servidores</strong> : ServerMCP 
+                    (0..*)
+                </li>
+                <li>
+                    <strong>workflows</strong> : Workflow 
+                    (0..*)
+                </li>
+            </ul>
+
+
+            <h2>Clase: ServerMCP </h2>
+            
+                    <p class="description">Representa un servidor o infraestructura externa que expone operaciones MCP a las que los agentes pueden conectarse.</p>
+
+            <ul>
+                <li>
+                    <strong>nombreServer</strong> : EString 
+                    (0..1)
+                </li>
+                <li>
+                    <strong>operaciones</strong> : OperacionMCP 
+                    (0..*)
+                </li>
+            </ul>
+
+
+            <h2>Clase: Agente </h2>
+            
+
+            <ul>
+                <li>
+                    <strong>nombre</strong> : EString 
+                    (0..1)
+                </li>
+                <li>
+                    <strong>rol</strong> : EString 
+                    (0..1)
+                </li>
+                <li>
+                    <strong>tareas</strong> : TareaEjecutable 
+                    (0..*)
+                </li>
+                <li>
+                    <strong>contextos</strong> : Contexto 
+                    (0..*)
+                </li>
+            </ul>
+
+                    <h4>Restricciones OCL:</h4>
+                    <ul>
+                        <li><strong>R05_LimiteCargaTrabajo:</strong> <span class="ocl">self.tareas->size() <= 10</span></li>
+                    </ul>
+
+            <h2>Clase: Workflow </h2>
+            
+                    <p class="description">Define el flujo de trabajo o comportamiento que sigue un agente mediante una secuencia de tareas.</p>
+
+            <ul>
+                <li>
+                    <strong>nombreWorkflow</strong> : EString 
+                    (0..1)
+                </li>
+                <li>
+                    <strong>tareas</strong> : Tarea 
+                    (1..*)
+                </li>
+            </ul>
+
+                    <h4>Restricciones OCL:</h4>
+                    <ul>
+                        <li><strong>R01_UnaTareaInicio:</strong> <span class="ocl">self.tareas->select(t | t.oclIsTypeOf(Inicio))->size() = 1</span></li>
+                        <li><strong>R02_UnaTareaFin:</strong> <span class="ocl">self.tareas->select(t | t.oclIsTypeOf(Final))->size() = 1</span></li>
+                    </ul>
+
+            <h2>Clase: Contexto </h2>
+            
+                    <p class="description">Representa el estado o conjunto de datos compartidos durante la ejecución del workflow de un agente.</p>
+
+            <ul>
+                <li>
+                    <strong>nombreContexto</strong> : EString 
+                    (0..1)
+                </li>
+                <li>
+                    <strong>propiedades</strong> : Propiedad 
+                    (0..*)
+                </li>
+                <li>
+                    <strong>esApuntadoPor</strong> : Accion 
+                    (0..*)
+                </li>
+            </ul>
+
+
+            <h2>Clase: Propiedad </h2>
+            
+
+            <ul>
+                <li>
+                    <strong>nombrePropiedad</strong> : EString 
+                    (0..1)
+                </li>
+                <li>
+                    <strong>tipoPropiedad</strong> : TipoContexto 
+                    (0..1)
+                </li>
+                <li>
+                    <strong>extensionPermitida</strong> : EString 
+                    (0..1)
+                </li>
+                <li>
+                    <strong>pesoMaxMB</strong> : EInt 
+                    (0..1)
+                </li>
+                <li>
+                    <strong>esUsada</strong> : Accion 
+                    (0..*)
+                </li>
+                <li>
+                    <strong>versiones</strong> : VersionContexto 
+                    (0..*)
+                </li>
+            </ul>
+
+
+            <h2>Clase: Tarea  <em>(Abstracta)</em> </h2>
+            
+                    <p class="description">Clase base abstracta para todos los pasos ejecutables y puntos de control dentro de un workflow.</p>
+
+            <ul>
+                <li>
+                    <strong>nombreTarea</strong> : EString 
+                    (0..1)
+                </li>
+                <li>
+                    <strong>taskId</strong> : EInt 
+                    (0..1)
+                </li>
+                <li>
+                    <strong>taskDesc</strong> : EString 
+                    (0..1)
+                </li>
+                <li>
+                    <strong>accion</strong> : Accion 
+                    (0..*)
+                </li>
+                <li>
+                    <strong>precede</strong> : Tarea 
+                    (0..*)
+                </li>
+                <li>
+                    <strong>sigue</strong> : Tarea 
+                    (0..1)
+                </li>
+                <li>
+                    <strong>precedeElse</strong> : TareaAnalisis 
+                    (0..*)
+                </li>
+            </ul>
+
+                    <h4>Restricciones OCL:</h4>
+                    <ul>
+                        <li><strong>R10_NoBuclePropio:</strong> <span class="ocl">self.sigue <> self</span></li>
+                    </ul>
+
+            <h2>Clase: TareaEjecutable  <em>(Abstracta)</em> </h2>
+            
+                    <p class="description">Clase base para aquellas tareas.</p>
+
+            <ul>
+                <li>
+                    <strong>ejecutadaPor</strong> : Agente 
+                    (1..1)
+                </li>
+            </ul>
+
+                    <h4>Restricciones OCL:</h4>
+                    <ul>
+                        <li><strong>R09_EntradaYSalida:</strong> <span class="ocl">(self.precede->notEmpty() or self.precedeElse->notEmpty()) and not self.sigue.oclIsUndefined()</span></li>
+                    </ul>
+
+            <h2>Clase: Inicio </h2>
+            
+
+            <ul>
+            </ul>
+
+                    <h4>Restricciones OCL:</h4>
+                    <ul>
+                        <li><strong>R03_InicioSinEntradas:</strong> <span class="ocl">self.precede->isEmpty() and self.precedeElse->isEmpty()</span></li>
+                    </ul>
+
+            <h2>Clase: Final </h2>
+            
+                    <p class="description">Nodo final que indica la terminación lógica de un workflow.</p>
+
+            <ul>
+            </ul>
+
+                    <h4>Restricciones OCL:</h4>
+                    <ul>
+                        <li><strong>R04_FinSinSalidas:</strong> <span class="ocl">self.sigue.oclIsUndefined()</span></li>
+                    </ul>
+
+            <h2>Clase: Accion  <em>(Abstracta)</em> </h2>
+            
+                    <p class="description">Clase abstracta que modela las interacciones (lectura/escritura) que una tarea realiza sobre un contexto de datos.</p>
+
+            <ul>
+                <li>
+                    <strong>nombreAccion</strong> : EString 
+                    (0..1)
+                </li>
+                <li>
+                    <strong>apunta</strong> : Contexto 
+                    (1..1)
+                </li>
+                <li>
+                    <strong>usa</strong> : Propiedad 
+                    (0..*)
+                </li>
+            </ul>
+
+                    <h4>Restricciones OCL:</h4>
+                    <ul>
+                        <li><strong>R12_CoherenciaContexto:</strong> <span class="ocl">self.usa->forAll(p | self.apunta.propiedades->includes(p))</span></li>
+                    </ul>
+
+            <h2>Clase: Escritura </h2>
+            
+                    <p class="description">Acción que modifica, actualiza o inserta nuevos datos en un contexto.</p>
+
+            <ul>
+            </ul>
+
+
+            <h2>Clase: Lectura </h2>
+            
+                    <p class="description">Acción que obtiene o consume datos de un contexto para su procesamiento.</p>
+
+            <ul>
+            </ul>
+
+
+            <h2 style="border-left-color: #27ae60;">Enumeración: TipoContexto</h2>
+            <ul>
+                <li><strong>ENTERO</strong> = 0</li>
+                <li><strong>CADENA</strong> = 1</li>
+                <li><strong>REAL</strong> = 2</li>
+                <li><strong>BOOLEANO</strong> = 3</li>
+                <li><strong>TEXTO_EXTENSO</strong> = 4</li>
+                <li><strong>ARCHIVO</strong> = 5</li>
+                <li><strong>COLECCION_ARCHIVOS</strong> = 6</li>
+            </ul>
+            <h2>Clase: OperacionMCP </h2>
+            
+                    <p class="description">Define una operación específica disponible en un ServerMCP que puede ser invocada de manera remota.</p>
+
+            <ul>
+                <li>
+                    <strong>nombreOperacion</strong> : EString 
+                    (0..1)
+                </li>
+                <li>
+                    <strong>descOperacion</strong> : EString 
+                    (0..1)
+                </li>
+                <li>
+                    <strong>esEjecutadaOperacion</strong> : TareaServerMCP 
+                    (0..1)
+                </li>
+            </ul>
+
+
+            <h2>Clase: TareaTransformacionDatos </h2>
+            
+                    <p class="description">Tarea encargada de transformar o reformatear un conjunto de datos en base a una regla o prompt.</p>
+
+            <ul>
+                <li>
+                    <strong>prompt</strong> : EString 
+                    (0..1)
+                </li>
+            </ul>
+
+
+            <h2>Clase: TareaLLM </h2>
+            
+                    <p class="description">Tarea que invoca a un Modelo de Lenguaje Grande (LLM) utilizando un prompt específico para razonamiento o generación de texto.</p>
+
+            <ul>
+                <li>
+                    <strong>prompt</strong> : EString 
+                    (0..1)
+                </li>
+            </ul>
+
+
+            <h2>Clase: TareaUsuario </h2>
+            
+                    <p class="description">Tarea interactiva que detiene el flujo para requerir intervención o entrada de datos manual por parte de un usuario humano.</p>
+
+            <ul>
+            </ul>
+
+
+            <h2>Clase: TareaAnalisis </h2>
+            
+                    <p class="description">Tarea de bifurcación condicional que evalúa un estado para decidir continuar por el flujo principal o por un flujo alternativo (Else).</p>
+
+            <ul>
+                <li>
+                    <strong>sigueElse</strong> : Tarea 
+                    (1..1)
+                </li>
+                <li>
+                    <strong>prompt</strong> : EString 
+                    (0..1)
+                </li>
+            </ul>
+
+
+            <h2>Clase: TareaEnvioContexto </h2>
+            
+                    <p class="description">Subclase de TareaEjecutable que permite exportar el contexto actual de un flujo para que sea procesado por otro agente.</p>
+
+            <ul>
+            </ul>
+
+
+            <h2>Clase: TareaRecepcionContexto </h2>
+            
+
+            <ul>
+            </ul>
+
+                    <h4>Restricciones OCL:</h4>
+                    <ul>
+                        <li><strong>R07_RecepcionPrecedidaEnvio:</strong> <span class="ocl">self.precede->exists(t | t.oclIsTypeOf(TareaEnvioContexto))</span></li>
+                        <li><strong>R11_MismasPropiedadesEnvioRecepcion:</strong> <span class="ocl">self.precede->select(t | t.oclIsTypeOf(TareaEnvioContexto))->forAll(e | self.accion->collect(usa)->asSet() = e.accion->collect(usa)->asSet())</span></li>
+                        <li><strong>R08_DistintosAgentes:</strong> <span class="ocl">self.precede->select(t | t.oclIsTypeOf(TareaEnvioContexto))->forAll(e | self.ejecutadaPor <> e.oclAsType(TareaEjecutable).ejecutadaPor)</span></li>
+                    </ul>
+
+            <h2>Clase: TareaServerMCP </h2>
+            
+                    <p class="description">Tarea automatizada que se conecta a un ServerMCP para invocar remotamente una OperacionMCP específica.</p>
+
+            <ul>
+                <li>
+                    <strong>ejecutaOperacion</strong> : OperacionMCP 
+                    (1..1)
+                </li>
+                <li>
+                    <strong>prompt</strong> : EString 
+                    (0..1)
+                </li>
+            </ul>
+
+
+
+</body>
+</html>

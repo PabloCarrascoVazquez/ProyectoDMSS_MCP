@@ -172,13 +172,11 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TareaEjecutable" abstract="true" eSuperTypes="#//Tarea">
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
-      <details key="constraints" value="R09_EntradaYSalida"/>
+      <details key="constraints" value="R09_EntradaYSalida R08_ConexionesMismoAgente"/>
     </eAnnotations>
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
       <details key="R09_EntradaYSalida" value="(self.precede->notEmpty() or self.precedeElse->notEmpty()) and not self.sigue.oclIsUndefined()"/>
-    </eAnnotations>
-    <eAnnotations source="DSLDoc">
-      <details key="descripcion" value="Clase base para aquellas tareas."/>
+      <details key="R08_ConexionesMismoAgente" value="self.sigue.oclIsKindOf(McpMM::TareaEjecutable) implies ( (self.oclIsTypeOf(McpMM::TareaEnvioContexto) and self.sigue.oclIsTypeOf(McpMM::TareaRecepcionContexto)) or (self.ejecutadaPor = self.sigue.oclAsType(McpMM::TareaEjecutable).ejecutadaPor) )"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="ejecutadaPor" lowerBound="1"
         eType="#//Agente" eOpposite="#//Agente/tareas"/>

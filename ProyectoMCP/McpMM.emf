@@ -106,11 +106,11 @@ abstract class Tarea {
 	ref TareaAnalisis[*]#sigueElse precedeElse;
 }
 
-@Ecore(constraints="R09_EntradaYSalida")
+@Ecore(constraints="R09_EntradaYSalida R08_ConexionesMismoAgente")
 @"http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"(
-	R09_EntradaYSalida="(self.precede->notEmpty() or self.precedeElse->notEmpty()) and not self.sigue.oclIsUndefined()"
+	R09_EntradaYSalida="(self.precede->notEmpty() or self.precedeElse->notEmpty()) and not self.sigue.oclIsUndefined()",
+	R08_ConexionesMismoAgente="self.sigue.oclIsKindOf(McpMM::TareaEjecutable) implies ( (self.oclIsTypeOf(McpMM::TareaEnvioContexto) and self.sigue.oclIsTypeOf(McpMM::TareaRecepcionContexto)) or (self.ejecutadaPor = self.sigue.oclAsType(McpMM::TareaEjecutable).ejecutadaPor) )"
 )
-@"DSLDoc"(descripcion="Clase base para aquellas tareas.")
 abstract class TareaEjecutable extends Tarea {
     ref Agente[1]#tareas ejecutadaPor;
 }

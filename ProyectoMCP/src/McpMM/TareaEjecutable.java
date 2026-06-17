@@ -17,9 +17,8 @@ package McpMM;
  *
  * @see McpMM.McpMMPackage#getTareaEjecutable()
  * @model abstract="true"
- *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='R09_EntradaYSalida'"
- *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot R09_EntradaYSalida='(self.precede->notEmpty() or self.precedeElse->notEmpty()) and not self.sigue.oclIsUndefined()'"
- *        annotation="DSLDoc descripcion='Clase base para aquellas tareas.'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='R09_EntradaYSalida R08_ConexionesMismoAgente'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot R09_EntradaYSalida='(self.precede->notEmpty() or self.precedeElse->notEmpty()) and not self.sigue.oclIsUndefined()' R08_ConexionesMismoAgente='self.sigue.oclIsKindOf(McpMM::TareaEjecutable) implies ( (self.oclIsTypeOf(McpMM::TareaEnvioContexto) and self.sigue.oclIsTypeOf(McpMM::TareaRecepcionContexto)) or (self.ejecutadaPor = self.sigue.oclAsType(McpMM::TareaEjecutable).ejecutadaPor) )'"
  * @generated
  */
 public interface TareaEjecutable extends Tarea {

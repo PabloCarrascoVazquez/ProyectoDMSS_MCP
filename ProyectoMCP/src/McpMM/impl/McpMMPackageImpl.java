@@ -1227,7 +1227,7 @@ public class McpMMPackageImpl extends EPackageImpl implements McpMMPackage {
 		  (tareaEjecutableEClass, 
 		   source, 
 		   new String[] {
-			 "constraints", "R09_EntradaYSalida"
+			 "constraints", "R09_EntradaYSalida R08_ConexionesMismoAgente"
 		   });	
 		addAnnotation
 		  (inicioEClass, 
@@ -1307,12 +1307,6 @@ public class McpMMPackageImpl extends EPackageImpl implements McpMMPackage {
 		   source, 
 		   new String[] {
 			 "descripcion", "Clase base abstracta para todos los pasos ejecutables y puntos de control dentro de un workflow."
-		   });	
-		addAnnotation
-		  (tareaEjecutableEClass, 
-		   source, 
-		   new String[] {
-			 "descripcion", "Clase base para aquellas tareas."
 		   });	
 		addAnnotation
 		  (finalEClass, 
@@ -1601,7 +1595,8 @@ public class McpMMPackageImpl extends EPackageImpl implements McpMMPackage {
 		  (tareaEjecutableEClass, 
 		   source, 
 		   new String[] {
-			 "R09_EntradaYSalida", "(self.precede->notEmpty() or self.precedeElse->notEmpty()) and not self.sigue.oclIsUndefined()"
+			 "R09_EntradaYSalida", "(self.precede->notEmpty() or self.precedeElse->notEmpty()) and not self.sigue.oclIsUndefined()",
+			 "R08_ConexionesMismoAgente", "self.sigue.oclIsKindOf(McpMM::TareaEjecutable) implies ( (self.oclIsTypeOf(McpMM::TareaEnvioContexto) and self.sigue.oclIsTypeOf(McpMM::TareaRecepcionContexto)) or (self.ejecutadaPor = self.sigue.oclAsType(McpMM::TareaEjecutable).ejecutadaPor) )"
 		   });	
 		addAnnotation
 		  (inicioEClass, 

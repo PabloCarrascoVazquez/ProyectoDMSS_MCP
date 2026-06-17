@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Tarea: TareaLLM-MCP</title>
+    <title>Tarea: ReformarDatos</title>
     <style>
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width: 800px; margin: 40px auto; padding: 20px; background: #f4f6f7; }
         .container { background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
@@ -17,15 +17,20 @@
 <body>
     <div class="container">
         <a href="index.html" style="color: #7f8c8d; text-decoration: none;">&larr; Volver al Índice Principal</a>
-        <h1>TareaLLM-MCP</h1>
+        <h1>ReformarDatos</h1>
 
-            <div class="box" style="border-left: 4px solid #34495e;">
-                <h3>Ejecución en Servidor Remoto (MCP)</h3>
-                <p><strong>Operación a ejecutar:</strong></p>
-                <pre style="background:#2c3e50; color:#ecf0f1; padding:15px; border-radius:4px;"></pre>
-                <p>Estado: <span style="color:#27ae60; font-weight:bold;">Ejecutado con éxito</span></p>
-                <a href="tarea_EnvioContexto.html" class="btn">Siguiente &rarr;</a>
+            <h3>Transformador de Datos</h3>
+            <div style="display: flex; gap: 20px; margin-top: 15px;">
+                <div class="box" style="flex: 1; margin-top: 0;">
+                    <h4>Entrada (Crudo)</h4>
+                    <p>Datos recogidos del contexto actual.</p>
+                </div>
+                <div class="box" style="flex: 1; margin-top: 0; background: #e8f8f5;">
+                    <h4>Resultado (Transformado)</h4>
+                    <p>Datos reformateados según la regla de transformación.</p>
+                </div>
             </div>
+            <a href="tarea_.html" class="btn">Aceptar Transformación &rarr;</a>
 
     </div>
 </body>

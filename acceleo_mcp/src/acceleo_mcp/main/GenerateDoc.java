@@ -384,26 +384,14 @@ public class GenerateDoc extends AbstractAcceleoGenerator {
      *            The resource set which registry has to be updated.
      * @generated
      */
+    /**
+     * @generated NOT
+     */
     @Override
     public void registerResourceFactories(ResourceSet resourceSet) {
         super.registerResourceFactories(resourceSet);
-        /*
-         * If you want to change the content of this method, do NOT forget to change the "@generated"
-         * tag in the Javadoc of this method to "@generated NOT". Without this new tag, any compilation
-         * of the Acceleo module with the main template that has caused the creation of this class will
-         * revert your modifications.
-         */
         
-        /*
-         * TODO If you need additional resource factories registrations, you can register them here. the following line
-         * (in comment) is an example of the resource factory registration for UML.
-         *
-         * If you want to use the generator in stand alone, the resource factory registration will be required.
-         *  
-         * To learn more about the registration of Resource Factories, have a look at the Acceleo documentation (Help -> Help Contents). 
-         */ 
-        
-        // resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put(UMLResource.FILE_EXTENSION, UMLResource.Factory.INSTANCE);
+        resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put("ecore", new org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl());
     }
     
 }

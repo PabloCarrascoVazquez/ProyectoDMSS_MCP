@@ -373,6 +373,7 @@ public class McpMMValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(tareaEjecutable, diagnostics, context);
 		if (result || diagnostics != null) result &= validateTarea_R10_NoBuclePropio(tareaEjecutable, diagnostics, context);
 		if (result || diagnostics != null) result &= validateTareaEjecutable_R09_EntradaYSalida(tareaEjecutable, diagnostics, context);
+		if (result || diagnostics != null) result &= validateTareaEjecutable_R08_ConexionesMismoAgente(tareaEjecutable, diagnostics, context);
 		return result;
 	}
 
@@ -400,6 +401,35 @@ public class McpMMValidator extends EObjectValidator {
 				 "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
 				 "R09_EntradaYSalida",
 				 TAREA_EJECUTABLE__R09_ENTRADA_YSALIDA__EEXPRESSION,
+				 Diagnostic.ERROR,
+				 DIAGNOSTIC_SOURCE,
+				 0);
+	}
+
+	/**
+	 * The cached validation expression for the R08_ConexionesMismoAgente constraint of '<em>Tarea Ejecutable</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected static final String TAREA_EJECUTABLE__R08_CONEXIONES_MISMO_AGENTE__EEXPRESSION = "self.sigue.oclIsKindOf(McpMM::TareaEjecutable) implies ( (self.oclIsTypeOf(McpMM::TareaEnvioContexto) and self.sigue.oclIsTypeOf(McpMM::TareaRecepcionContexto)) or (self.ejecutadaPor = self.sigue.oclAsType(McpMM::TareaEjecutable).ejecutadaPor) )";
+
+	/**
+	 * Validates the R08_ConexionesMismoAgente constraint of '<em>Tarea Ejecutable</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateTareaEjecutable_R08_ConexionesMismoAgente(TareaEjecutable tareaEjecutable, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return
+			validate
+				(McpMMPackage.Literals.TAREA_EJECUTABLE,
+				 tareaEjecutable,
+				 diagnostics,
+				 context,
+				 "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
+				 "R08_ConexionesMismoAgente",
+				 TAREA_EJECUTABLE__R08_CONEXIONES_MISMO_AGENTE__EEXPRESSION,
 				 Diagnostic.ERROR,
 				 DIAGNOSTIC_SOURCE,
 				 0);
@@ -615,6 +645,7 @@ public class McpMMValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(tareaTransformacionDatos, diagnostics, context);
 		if (result || diagnostics != null) result &= validateTarea_R10_NoBuclePropio(tareaTransformacionDatos, diagnostics, context);
 		if (result || diagnostics != null) result &= validateTareaEjecutable_R09_EntradaYSalida(tareaTransformacionDatos, diagnostics, context);
+		if (result || diagnostics != null) result &= validateTareaEjecutable_R08_ConexionesMismoAgente(tareaTransformacionDatos, diagnostics, context);
 		return result;
 	}
 
@@ -635,6 +666,7 @@ public class McpMMValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(tareaLLM, diagnostics, context);
 		if (result || diagnostics != null) result &= validateTarea_R10_NoBuclePropio(tareaLLM, diagnostics, context);
 		if (result || diagnostics != null) result &= validateTareaEjecutable_R09_EntradaYSalida(tareaLLM, diagnostics, context);
+		if (result || diagnostics != null) result &= validateTareaEjecutable_R08_ConexionesMismoAgente(tareaLLM, diagnostics, context);
 		return result;
 	}
 
@@ -655,6 +687,7 @@ public class McpMMValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(tareaUsuario, diagnostics, context);
 		if (result || diagnostics != null) result &= validateTarea_R10_NoBuclePropio(tareaUsuario, diagnostics, context);
 		if (result || diagnostics != null) result &= validateTareaEjecutable_R09_EntradaYSalida(tareaUsuario, diagnostics, context);
+		if (result || diagnostics != null) result &= validateTareaEjecutable_R08_ConexionesMismoAgente(tareaUsuario, diagnostics, context);
 		return result;
 	}
 
@@ -675,6 +708,7 @@ public class McpMMValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(tareaAnalisis, diagnostics, context);
 		if (result || diagnostics != null) result &= validateTarea_R10_NoBuclePropio(tareaAnalisis, diagnostics, context);
 		if (result || diagnostics != null) result &= validateTareaEjecutable_R09_EntradaYSalida(tareaAnalisis, diagnostics, context);
+		if (result || diagnostics != null) result &= validateTareaEjecutable_R08_ConexionesMismoAgente(tareaAnalisis, diagnostics, context);
 		return result;
 	}
 
@@ -695,6 +729,7 @@ public class McpMMValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(tareaEnvioContexto, diagnostics, context);
 		if (result || diagnostics != null) result &= validateTarea_R10_NoBuclePropio(tareaEnvioContexto, diagnostics, context);
 		if (result || diagnostics != null) result &= validateTareaEjecutable_R09_EntradaYSalida(tareaEnvioContexto, diagnostics, context);
+		if (result || diagnostics != null) result &= validateTareaEjecutable_R08_ConexionesMismoAgente(tareaEnvioContexto, diagnostics, context);
 		return result;
 	}
 
@@ -715,6 +750,7 @@ public class McpMMValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(tareaRecepcionContexto, diagnostics, context);
 		if (result || diagnostics != null) result &= validateTarea_R10_NoBuclePropio(tareaRecepcionContexto, diagnostics, context);
 		if (result || diagnostics != null) result &= validateTareaEjecutable_R09_EntradaYSalida(tareaRecepcionContexto, diagnostics, context);
+		if (result || diagnostics != null) result &= validateTareaEjecutable_R08_ConexionesMismoAgente(tareaRecepcionContexto, diagnostics, context);
 		if (result || diagnostics != null) result &= validateTareaRecepcionContexto_R07_RecepcionPrecedidaEnvio(tareaRecepcionContexto, diagnostics, context);
 		if (result || diagnostics != null) result &= validateTareaRecepcionContexto_R11_MismasPropiedadesEnvioRecepcion(tareaRecepcionContexto, diagnostics, context);
 		if (result || diagnostics != null) result &= validateTareaRecepcionContexto_R08_DistintosAgentes(tareaRecepcionContexto, diagnostics, context);
@@ -825,6 +861,7 @@ public class McpMMValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(tareaServerMCP, diagnostics, context);
 		if (result || diagnostics != null) result &= validateTarea_R10_NoBuclePropio(tareaServerMCP, diagnostics, context);
 		if (result || diagnostics != null) result &= validateTareaEjecutable_R09_EntradaYSalida(tareaServerMCP, diagnostics, context);
+		if (result || diagnostics != null) result &= validateTareaEjecutable_R08_ConexionesMismoAgente(tareaServerMCP, diagnostics, context);
 		return result;
 	}
 

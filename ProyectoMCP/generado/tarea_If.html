@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Tarea: EnvioContexto</title>
+    <title>Tarea: If</title>
     <style>
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width: 800px; margin: 40px auto; padding: 20px; background: #f4f6f7; }
         .container { background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
@@ -17,13 +17,15 @@
 <body>
     <div class="container">
         <a href="index.html" style="color: #7f8c8d; text-decoration: none;">&larr; Volver al Índice Principal</a>
-        <h1>EnvioContexto</h1>
+        <h1>If</h1>
 
-            <div class="box">
-                <h3>Preparando Envío de Contexto</h3>
-                <p>El contexto y sus propiedades han sido empaquetados y están listos para ser transmitidos a la siguiente tarea.</p>
-                <pre style="background:#eee; padding:10px; border-radius:4px;">{ "status": "ready", "datos": "..." }</pre>
-                <button onclick="window.location.href='tarea_RecepcionContexto.html'" class="btn">Enviar Contexto &rarr;</button>
+            <div class="box" style="text-align: center; padding: 30px;">
+                <h3>Decisión de Flujo (If/Else)</h3>
+                <p style="font-size: 1.1em; margin-bottom: 25px;"><strong>¿La evaluación cumple con los criterios establecidos?</strong></p>
+                <p><em>Prompt de decisión: ¿Hay suficientes datos?</em></p>
+                
+                <a href="tarea_RedactarInforme.html" class="btn" style="margin-right: 15px;">Sí (Ir por IF)</a>
+                <a href="tarea_ReformarDatos.html" class="btn btn-danger">No (Ir por ELSE)</a>
             </div>
 
     </div>

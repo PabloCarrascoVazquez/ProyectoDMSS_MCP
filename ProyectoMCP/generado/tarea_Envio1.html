@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Tarea: ConvertirFormato</title>
+    <title>Tarea: Envio1</title>
     <style>
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width: 800px; margin: 40px auto; padding: 20px; background: #f4f6f7; }
         .container { background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
@@ -17,16 +17,13 @@
 <body>
     <div class="container">
         <a href="index.html" style="color: #7f8c8d; text-decoration: none;">&larr; Volver al Índice Principal</a>
-        <h1>ConvertirFormato</h1>
+        <h1>Envio1</h1>
 
-            <div class="box" style="border-left: 4px solid #f39c12;">
-                <h3>Procesamiento por Inteligencia Artificial (LLM)</h3>
-                <p><strong>Prompt cargado:</strong> Convierte todos los documentos de la propiedad {articulos} a formato PDF y vuelve a dejarlos en la propiedad {artículos}</p>
-                <p><strong>Contexto recibido:</strong> (Datos inyectados del paso anterior)</p>
-                <hr>
-                <h4>Resultado Simulado del Modelo:</h4>
-                <p style="font-style: italic; color: #555;">"Análisis completado en base al contexto proporcionado."</p>
-                <a href="tarea_invalid.html" class="btn">Continuar &rarr;</a>
+            <div class="box">
+                <h3>Preparando Envío de Contexto</h3>
+                <p>El contexto y sus propiedades han sido empaquetados y están listos para ser transmitidos a la siguiente tarea.</p>
+                <pre style="background:#eee; padding:10px; border-radius:4px;">{ "status": "ready", "datos": "..." }</pre>
+                <button onclick="window.location.href='tarea_Recepcion1.html'" class="btn">Enviar Contexto &rarr;</button>
             </div>
 
     </div>
