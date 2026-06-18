@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<McpMM:ServiceMCP xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:McpMM="https://www.example.org/McpMM">
+  <agentes nombre="Generador" tareas="//@workflows.0/@tareas.1 //@workflows.0/@tareas.2 //@workflows.0/@tareas.7">
+    <contextos nombreContexto="DatosBusqueda" esApuntadoPor="//@workflows.0/@tareas.1/@accion.0">
+      <propiedades nombrePropiedad="tema" tipoPropiedad="CADENA" esUsada="//@workflows.0/@tareas.1/@accion.0"/>
+      <propiedades nombrePropiedad="archivos_descargados"/>
+    </contextos>
+  </agentes>
+  <agentes nombre="Investigador" tareas="//@workflows.0/@tareas.3 //@workflows.0/@tareas.4 //@workflows.0/@tareas.5 //@workflows.0/@tareas.6 //@workflows.0/@tareas.9 //@workflows.0/@tareas.14 //@workflows.0/@tareas.11 //@workflows.0/@tareas.8">
+    <contextos nombreContexto="BorradorFinal">
+      <propiedades nombrePropiedad="informe_generado" tipoPropiedad="TEXTO_EXTENSO"/>
+    </contextos>
+  </agentes>
+  <agentes nombre="Decorador" tareas="//@workflows.0/@tareas.12 //@workflows.0/@tareas.13 //@workflows.1/@tareas.2">
+    <contextos nombreContexto="Ejemplos" esApuntadoPor="//@workflows.0/@tareas.13/@accion.0 //@workflows.1/@tareas.2/@accion.0">
+      <propiedades nombrePropiedad="Ejemplo1" esUsada="//@workflows.0/@tareas.13/@accion.0 //@workflows.1/@tareas.2/@accion.0"/>
+      <propiedades nombrePropiedad="Ejemplo2" esUsada="//@workflows.1/@tareas.2/@accion.0"/>
+      <propiedades nombrePropiedad="Ejemplo3" esUsada="//@workflows.1/@tareas.2/@accion.0"/>
+    </contextos>
+  </agentes>
+  <agentes nombre="RedactorCorreos" tareas="//@workflows.0/@tareas.17 //@workflows.0/@tareas.16 //@workflows.0/@tareas.15"/>
+  <servidores nombreServer="CorreoElectronico">
+    <operaciones nombreOperacion="Mandar" esEjecutadaOperacion="//@workflows.0/@tareas.17"/>
+  </servidores>
+  <workflows nombreWorkflow="Main">
+    <tareas xsi:type="McpMM:Inicio" sigue="//@workflows.0/@tareas.1"/>
+    <tareas xsi:type="McpMM:TareaUsuario" nombreTarea="DescripcionUsuario" precede="//@workflows.0/@tareas.0" sigue="//@workflows.0/@tareas.7" ejecutadaPor="//@agentes.0">
+      <accion xsi:type="McpMM:Escritura" apunta="//@agentes.0/@contextos.0" usa="//@agentes.0/@contextos.0/@propiedades.0"/>
+    </tareas>
+    <tareas xsi:type="McpMM:TareaEnvioContexto" nombreTarea="Envio1" precede="//@workflows.0/@tareas.7" sigue="//@workflows.0/@tareas.3" ejecutadaPor="//@agentes.0"/>
+    <tareas xsi:type="McpMM:TareaRecepcionContexto" nombreTarea="Recepcion1" precede="//@workflows.0/@tareas.2" sigue="//@workflows.0/@tareas.4" ejecutadaPor="//@agentes.1"/>
+    <tareas xsi:type="McpMM:TareaAnalisis" nombreTarea="If" precede="//@workflows.0/@tareas.3" sigue="//@workflows.0/@tareas.5" ejecutadaPor="//@agentes.1" sigueElse="//@workflows.0/@tareas.8" prompt="¿Hay suficientes datos?"/>
+    <tareas xsi:type="McpMM:TareaLLM" nombreTarea="RedactarInforme" precede="//@workflows.0/@tareas.4" sigue="//@workflows.0/@tareas.11" ejecutadaPor="//@agentes.1"/>
+    <tareas xsi:type="McpMM:TareaTransformacionDatos" nombreTarea="ReformarDatos" precede="//@workflows.0/@tareas.8" sigue="//@workflows.0/@tareas.10" ejecutadaPor="//@agentes.1"/>
+    <tareas xsi:type="McpMM:TareaTransformacionDatos" nombreTarea="ModificacionDatos" precede="//@workflows.0/@tareas.1" sigue="//@workflows.0/@tareas.2" ejecutadaPor="//@agentes.0"/>
+    <tareas xsi:type="McpMM:TareaAnalisis" nombreTarea="If2" sigue="//@workflows.0/@tareas.6" precedeElse="//@workflows.0/@tareas.4" ejecutadaPor="//@agentes.1" sigueElse="//@workflows.0/@tareas.9" prompt="Es real?"/>
+    <tareas xsi:type="McpMM:TareaLLM" nombreTarea="RegenerarDatos" sigue="//@workflows.0/@tareas.14" precedeElse="//@workflows.0/@tareas.8" ejecutadaPor="//@agentes.1"/>
+    <tareas xsi:type="McpMM:Final" precede="//@workflows.0/@tareas.6 //@workflows.0/@tareas.13 //@workflows.0/@tareas.17"/>
+    <tareas xsi:type="McpMM:TareaEnvioContexto" nombreTarea="Envio2" precede="//@workflows.0/@tareas.5" sigue="//@workflows.0/@tareas.12" ejecutadaPor="//@agentes.1"/>
+    <tareas xsi:type="McpMM:TareaRecepcionContexto" nombreTarea="Recepcion2" precede="//@workflows.0/@tareas.11" sigue="//@workflows.0/@tareas.13" ejecutadaPor="//@agentes.2"/>
+    <tareas xsi:type="McpMM:TareaLLM" nombreTarea="Decorar" precede="//@workflows.0/@tareas.12" sigue="//@workflows.0/@tareas.10" ejecutadaPor="//@agentes.2">
+      <accion xsi:type="McpMM:Lectura" nombreAccion="" apunta="//@agentes.2/@contextos.0" usa="//@agentes.2/@contextos.0/@propiedades.0"/>
+    </tareas>
+    <tareas xsi:type="McpMM:TareaEnvioContexto" nombreTarea="Envio3" precede="//@workflows.0/@tareas.9" sigue="//@workflows.0/@tareas.15" ejecutadaPor="//@agentes.1"/>
+    <tareas xsi:type="McpMM:TareaRecepcionContexto" nombreTarea="Recepcion3" precede="//@workflows.0/@tareas.14" sigue="//@workflows.0/@tareas.16" ejecutadaPor="//@agentes.3"/>
+    <tareas xsi:type="McpMM:TareaLLM" nombreTarea="Redactar" precede="//@workflows.0/@tareas.15" sigue="//@workflows.0/@tareas.17" ejecutadaPor="//@agentes.3"/>
+    <tareas xsi:type="McpMM:TareaServerMCP" nombreTarea="EnviarCorreo" precede="//@workflows.0/@tareas.16" sigue="//@workflows.0/@tareas.10" ejecutadaPor="//@agentes.3" ejecutaOperacion="//@servidores.0/@operaciones.0"/>
+  </workflows>
+  <workflows nombreWorkflow="Soporte">
+    <tareas xsi:type="McpMM:Inicio" sigue="//@workflows.1/@tareas.2"/>
+    <tareas xsi:type="McpMM:Final" precede="//@workflows.1/@tareas.2"/>
+    <tareas xsi:type="McpMM:TareaLLM" nombreTarea="CreacionEjemplos" precede="//@workflows.1/@tareas.0" sigue="//@workflows.1/@tareas.1" ejecutadaPor="//@agentes.2">
+      <accion xsi:type="McpMM:Escritura" apunta="//@agentes.2/@contextos.0" usa="//@agentes.2/@contextos.0/@propiedades.0 //@agentes.2/@contextos.0/@propiedades.1 //@agentes.2/@contextos.0/@propiedades.2"/>
+    </tareas>
+  </workflows>
+</McpMM:ServiceMCP>
