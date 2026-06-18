@@ -372,7 +372,6 @@ public class Generate extends AbstractAcceleoGenerator {
          * 
          * To learn more about Package Registration, have a look at the Acceleo documentation (Help -> Help Contents).
          */
-        resourceSet.getPackageRegistry().put(McpMM.McpMMPackage.eNS_URI, McpMM.McpMMPackage.eINSTANCE);
     }
 
     /**
@@ -402,7 +401,6 @@ public class Generate extends AbstractAcceleoGenerator {
          */ 
         
         // resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put(UMLResource.FILE_EXTENSION, UMLResource.Factory.INSTANCE);
-        resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put("mcpmm", new org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl());
     }
     
 }
