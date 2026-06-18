@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<McpMM:ServiceMCP xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:McpMM="https://www.example.org/McpMM"
+    xsi:schemaLocation="https://www.example.org/McpMM McpMM.ecore"
+    nombreServicio="PanelMonitorizacionRed">
+
+  <servidores nombreServer="ServidorPing">
+    <operaciones nombreOperacion="EjecutarPing" descOperacion="Realiza ping a una IP destino"/>
+  </servidores>
+  <servidores nombreServer="ServidorBD_PostgreSQL">
+    <operaciones nombreOperacion="InsertarDatosPing" descOperacion="Guarda latencia en PostgreSQL"/>
+  </servidores>
+
+  <agentes nombre="MonitorAgente" rol="Recolector" tareas="//@workflows.0/@tareas.1 //@workflows.0/@tareas.2 //@workflows.0/@tareas.3">
+    <contextos nombreContexto="ContextoRed">
+      <propiedades nombrePropiedad="IPDestino" tipoPropiedad="CADENA" pesoMaxMB="1">
+        <versiones valorAnterior="127.0.0.1" fechaModificacion="2026-06-18"/>
+      </propiedades>
+      <propiedades nombrePropiedad="ResultadoPing" tipoPropiedad="ENTERO" pesoMaxMB="1"/>
+    </contextos>
+  </agentes>
+  <agentes nombre="AnalistaAgente" rol="GestorDatos" tareas="//@workflows.0/@tareas.4 //@workflows.0/@tareas.5 //@workflows.0/@tareas.6 //@workflows.0/@tareas.7"/>
+
+  <workflows nombreWorkflow="FlujoMonitorizacionRed">
+    
+    <tareas xsi:type="McpMM:Inicio" nombreTarea="InicioMonitorizacion" taskId="0" sigue="//@workflows.0/@tareas.1"/>
+
+    <tareas xsi:type="McpMM:TareaUsuario" nombreTarea="IngresarIP" taskId="1" taskDesc="El usuario teclea la IP a monitorizar" ejecutadaPor="//@agentes.0" precede="//@workflows.0/@tareas.0" sigue="//@workflows.0/@tareas.2">
+      <accion xsi:type="McpMM:Escritura" nombreAccion="EscribirIP" apunta="//@agentes.0/@contextos.0" usa="//@agentes.0/@contextos.0/@propiedades.0"/>
+    </tareas>
+
+    <tareas xsi:type="McpMM:TareaServerMCP" nombreTarea="RealizarPing" taskId="2" ejecutadaPor="//@agentes.0" ejecutaOperacion="//@servidores.0/@operaciones.0" precede="//@workflows.0/@tareas.1" sigue="//@workflows.0/@tareas.3" prompt="Ejecuta un ping a la IP extraída del contexto">
+      <accion xsi:type="McpMM:Lectura" nombreAccion="LeerIPParaPing" apunta="//@agentes.0/@contextos.0" usa="//@agentes.0/@contextos.0/@propiedades.0"/>
+      <accion xsi:type="McpMM:Escritura" nombreAccion="GuardarResultadoPing" apunta="//@agentes.0/@contextos.0" usa="//@agentes.0/@contextos.0/@propiedades.1"/>
+    </tareas>
+
+    <tareas xsi:type="McpMM:TareaEnvioContexto" nombreTarea="EnviarDatosPing" taskId="3" ejecutadaPor="//@agentes.0" precede="//@workflows.0/@tareas.2" sigue="//@workflows.0/@tareas.4">
+      <accion xsi:type="McpMM:Lectura" nombreAccion="LeerParaEnviar" apunta="//@agentes.0/@contextos.0" usa="//@agentes.0/@contextos.0/@propiedades.0 //@agentes.0/@contextos.0/@propiedades.1"/>
+    </tareas>
+
+    <tareas xsi:type="McpMM:TareaRecepcionContexto" nombreTarea="RecibirDatosPing" taskId="4" ejecutadaPor="//@agentes.1" precede="//@workflows.0/@tareas.3" sigue="//@workflows.0/@tareas.5">
+      <accion xsi:type="McpMM:Escritura" nombreAccion="GuardarParaAnalisis" apunta="//@agentes.0/@contextos.0" usa="//@agentes.0/@contextos.0/@propiedades.0 //@agentes.0/@contextos.0/@propiedades.1"/>
+    </tareas>
+
+    <tareas xsi:type="McpMM:TareaAnalisis" nombreTarea="AnalizarLatencia" taskId="5" ejecutadaPor="//@agentes.1" precede="//@workflows.0/@tareas.4" sigue="//@workflows.0/@tareas.6" sigueElse="//@workflows.0/@tareas.7" prompt="¿El resultado del ping es mayor a 100ms?">
+       <accion xsi:type="McpMM:Lectura" nombreAccion="LeerResultado" apunta="//@agentes.0/@contextos.0" usa="//@agentes.0/@contextos.0/@propiedades.1"/>
+    </tareas>
+
+    <tareas xsi:type="McpMM:TareaLLM" nombreTarea="GenerarAlerta" taskId="6" ejecutadaPor="//@agentes.1" precede="//@workflows.0/@tareas.5" sigue="//@workflows.0/@tareas.8" prompt="Genera un reporte de latencia crítica en la red"/>
+
+    <tareas xsi:type="McpMM:TareaServerMCP" nombreTarea="GuardarEnPostgreSQL" taskId="7" ejecutadaPor="//@agentes.1" ejecutaOperacion="//@servidores.1/@operaciones.0" precedeElse="//@workflows.0/@tareas.5" sigue="//@workflows.0/@tareas.8" prompt="Inserta el registro exitoso en PostgreSQL">
+        <accion xsi:type="McpMM:Lectura" nombreAccion="LeerDatosBD" apunta="//@agentes.0/@contextos.0" usa="//@agentes.0/@contextos.0/@propiedades.0 //@agentes.0/@contextos.0/@propiedades.1"/>
+    </tareas>
+
+    <tareas xsi:type="McpMM:Final" nombreTarea="FinMonitorizacion" taskId="8" precede="//@workflows.0/@tareas.6 //@workflows.0/@tareas.7"/>
+    
+  </workflows>
+</McpMM:ServiceMCP>

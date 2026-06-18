@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Tarea: IngresarIP</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width: 800px; margin: 40px auto; padding: 20px; background: #f4f6f7; }
+        .container { background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        h1 { color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 10px; }
+        .btn { display: inline-block; background: #2ecc71; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-weight: bold; margin-top: 20px; border: none; cursor: pointer; }
+        .btn-secondary { background: #95a5a6; }
+        .btn-danger { background: #e74c3c; }
+        .box { border: 1px solid #ccc; padding: 15px; border-radius: 5px; margin-top: 15px; background: #fafafa; }
+        input { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" style="color: #7f8c8d; text-decoration: none;">&larr; Volver al Índice Principal</a>
+        <h1>IngresarIP</h1>
+
+
+            <div class="box">
+                <h3>Formulario de Entrada</h3>
+                <p><em>El usuario teclea la IP a monitorizar</em></p>
+                <form action="tarea_RealizarPing.html" method="GET">
+                    <label><strong>Ingrese los datos solicitados:</strong></label>
+                    <input type="text" name="input_data" placeholder="Escriba aquí..." required>
+                    <button type="submit" class="btn">Guardar y Siguiente &rarr;</button>
+                </form>
+            </div>
+
+    </div>
+</body>
+</html>
